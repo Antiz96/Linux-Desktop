@@ -22,7 +22,7 @@ alias fgrep='fgrep $Color'
 alias mv='mv -i'
 alias cp='cp -i'
 alias ln='ln -i'
-#alias rm='rm -i'
+alias rm='rm -i'
 
 #Edit
 alias vi='vim'
