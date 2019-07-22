@@ -1,0 +1,8 @@
+#vi /etc/vim/vimrc
+[...]
+set mouse=a
+[...]
+
+OR
+
+press "shift" while selecting for copying or pasting with "right click"
