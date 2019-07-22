@@ -1,8 +1,9 @@
-#vi /etc/vim/vimrc
+#Edit vimrc file (try also with "set mouse=r" or "set mouse=v", sometime's doesn't work...)
+vi /etc/vim/vimrc 
 [...]
-set mouse=a
+set mouse=a   
 [...]
 
-OR
+#OR (works everytime)
 
-press "shift" while selecting for copying or pasting with "right click"
+Hold "shift" while selecting for copying or pasting with "right click"
