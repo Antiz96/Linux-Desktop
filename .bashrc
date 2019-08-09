@@ -28,7 +28,8 @@ alias rm='rm -i'
 alias vi='vim'
 
 #Pacman
-alias update='sudo pacman -Syu'
+alias update='sudo pacman -Syy'
+alias upgrade='sudo pacman -Su'
 alias install='sudo pacman -S'
 alias remove='sudo pacman -R'
 alias purge='sudo pacman -Rcns'
