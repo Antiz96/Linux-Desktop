@@ -29,9 +29,9 @@ alias vi='vim'
 
 #Pacman
 alias update='sudo pacman -Syu'
-alias install='sudo pacman -S '
-alias remove='sudo pacman -R '
-alias purge='sudo pacman -Rcns '
+alias install='sudo pacman -S'
+alias remove='sudo pacman -R'
+alias purge='sudo pacman -Rcns'
 
 #Root
 alias sudo='sudo '
