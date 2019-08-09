@@ -27,6 +27,10 @@ alias rm='rm -i'
 #Edit
 alias vi='vim'
 
+#Pacman
+alias update='sudo pacman -Syu'
+alias install='sudo pacman -S '
+
 #Root
 alias sudo='sudo '
 PS1='[\u@\h \W]\$ '
