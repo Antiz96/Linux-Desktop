@@ -41,6 +41,6 @@ alias purge='sudo pacman -Rcns'
 #Sudoers
 alias sudo='sudo '
 
-##Terminal##
+##Prompt##
 
 PS1='[\u@\h \W]\$ '
