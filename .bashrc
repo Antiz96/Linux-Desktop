@@ -5,8 +5,12 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+##Exports##
+
 #Export Color
 export Color='--color=auto'
+
+##Aliases##
 
 #Listing Files
 alias ls='ls $Color'
@@ -34,6 +38,9 @@ alias install='sudo pacman -S'
 alias remove='sudo pacman -R'
 alias purge='sudo pacman -Rcns'
 
-#Root
+#Sudoers
 alias sudo='sudo '
+
+##Terminal##
+
 PS1='[\u@\h \W]\$ '
