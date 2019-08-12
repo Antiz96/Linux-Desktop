@@ -1,3 +1,22 @@
 #Resolve hour differences between Linux and Windows in case of dualboot (Type the following command in Linux terminal)
 
 timedatectl set-local-rtc 1 --adjust-system-clock
+
+#Sometimes doesn't work so you can "roolback" using : 
+
+timedatectl set-local-rtc 0 --adjust-system-clock
+
+#Working everytime (Debian) : 
+
+vi /etc/default/rcS
+[...]
+UTC=no
+[...]
+
+#Working everytime (Arch) :
+vi /etc/adjtime
+[...]
+UTC #(instead of "Local")
+[...]
+
+Reboot
