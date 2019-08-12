@@ -16,7 +16,7 @@ UTC=no
 #Working everytime (Arch) :
 vi /etc/adjtime
 [...]
-UTC #(instead of "Local")
+UTC #instead of "Local"
 [...]
 
 Reboot
