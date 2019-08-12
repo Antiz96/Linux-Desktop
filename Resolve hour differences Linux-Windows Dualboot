@@ -1,0 +1,3 @@
+#Resolve hour differences between Linux and Windows in case of dualboot (Type the following command in Linux terminal)
+
+timedatectl set-local-rtc 1 --adjust-system-clock
