@@ -5,6 +5,10 @@
     'prefix': 'bash'
     'body': '#!/bin/bash'
 
+  'echo':
+    'prefix': 'echo'
+    'body':'echo ""'
+
   'if':
     'prefix': 'if'
     'body': """
@@ -19,3 +23,7 @@
     elif [  ]; then
 
     """
+
+  'mail':
+    'prefix': 'mail'
+    'body': 'echo "" | mail -s "" youremail1@example.com, youremail2@example.com'
