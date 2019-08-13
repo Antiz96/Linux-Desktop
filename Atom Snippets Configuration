@@ -1,0 +1,21 @@
+#Atom Snippets Shell Scripts Language Configuration (snippets.cson)
+
+'.shell.source':
+  'bash':
+    'prefix': 'bash'
+    'body': '#!/bin/bash'
+
+  'if':
+    'prefix': 'if'
+    'body': """
+    if [  ]; then
+
+    fi
+    """
+
+  'elif':
+    'prefix': 'elif'
+    'body': """
+    elif [  ]; then
+
+    """
