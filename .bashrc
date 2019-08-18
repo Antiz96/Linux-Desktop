@@ -35,8 +35,11 @@ alias vi='vim'
 alias update='sudo pacman -Syy'
 alias upgrade='sudo pacman -Syu'
 alias install='sudo pacman -S'
-alias remove='sudo pacman -R'
-alias purge='sudo pacman -Rcns'
+alias remove='sudo pacman -Rns'
+alias search='sudo pacman -Ss'
+alias package='sudo pacman -Qe'
+alias cleancache='sudo pacman -Sc'
+alias cleanorphans='sudo pacman -Rns $(pacman -Qtdq)'
 
 #Sudoers
 alias sudo='sudo '
