@@ -29,17 +29,15 @@ Coverflow alt-tab
 Dash to dock
 Dynamic panel transparency
 Gsconnect
-Appindicator support
-Updates indicator (Manjaro Only)
 Openweather
-Pamac status indicator
+Arch Linux Updates Indicator
 User themes
 
 --Arc Menu Application--
 Firefox
 Terminal
 System Monitor
-Rhythmbox
+Rhythmbox (#Rename it in /usr/share/applications/rhythmbox.desktop to avaid "Music Player" before Rhythmbox)
 Kdenlive
 Arc Menu Settings
 
