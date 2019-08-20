@@ -41,13 +41,12 @@ Rhythmbox (#Rename it in /usr/share/applications/rhythmbox.desktop to avaid "Mus
 Kdenlive
 Arc Menu Settings
 
-All Except Bookmark (Configure)
-
 --Arc Menu Settings--
 550px * 250px (apparence)
 Enable Vertical Separator
 Gray (fourth / personnalised)
 Charge Arch Theme
+All Except Bookmark (Configure Menu)
 
 --Keyboard Shortcuts-
 gnome-terminal --> ctrl+alt+t
