@@ -2,7 +2,7 @@
 
 timedatectl set-local-rtc 1 --adjust-system-clock
 
-#Sometimes doesn't work so you can "roolback" using : 
+#Sometimes doesn't work so you can "rollback" using : 
 
 timedatectl set-local-rtc 0 --adjust-system-clock
 
