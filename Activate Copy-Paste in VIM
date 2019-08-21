@@ -1,4 +1,5 @@
 #Edit vimrc file (try also with "set mouse=r" or "set mouse=v", sometime's doesn't work...)
+
 vi /etc/vim/vimrc 
 [...]
 set mouse=a   
