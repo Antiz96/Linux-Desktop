@@ -44,6 +44,9 @@ alias cleanorphans='sudo pacman -Rns $(pacman -Qtdq)'
 #Sudoers
 alias sudo='sudo '
 
+#Others
+alias pman="man -k . | dmenu -l 30 | awk '{print \$1}' | xargs -r man -Tpdf | zathura --mode=fullscreen -"
+
 #ENV
 export EDITOR=/usr/bin/vim
 
