@@ -1,0 +1,4 @@
+.config/zathura/zathurarc
+
+set selection-clipboard clipboard
+set show-scrollbars true
