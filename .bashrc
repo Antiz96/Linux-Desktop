@@ -44,6 +44,9 @@ alias cleanorphans='sudo pacman -Rns $(pacman -Qtdq)'
 #Sudoers
 alias sudo='sudo '
 
+#ENV
+export EDITOR=/usr/bin/vim
+
 ##Prompt##
 
 PS1='[\u@\h \W]\$ '
