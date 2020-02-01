@@ -31,7 +31,7 @@ alias rm='rm -i'
 #Edit
 alias vi='vim'
 
-#Pacman
+#Packet Manager
 alias update='sudo apt-get update'
 alias upgrade='sudo apt-get update && sudo apt-get upgrade'
 alias install='sudo apt-get install'
