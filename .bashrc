@@ -5,7 +5,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-##Exports##
 
 #Export Color
 export Color='--color=auto'
@@ -14,8 +13,8 @@ export Color='--color=auto'
 
 #Listing Files
 alias ls='ls $Color'
-alias ll='ls $Color -ltr'
-alias l='ls $Color -ltrA'
+alias ll='ls -ltr'
+alias l='ls -ltrA'
 
 #Grep
 alias grep='grep $Color'
