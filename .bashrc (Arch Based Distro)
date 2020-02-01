@@ -30,7 +30,7 @@ alias rm='rm -i'
 #Edit
 alias vi='vim'
 
-#Pacman
+#Packet Manager
 alias update='sudo pacman -Syy'
 alias upgrade='sudo pacman -Syu'
 alias install='sudo pacman -S'
