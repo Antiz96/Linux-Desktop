@@ -30,7 +30,7 @@ $ sudo vi /etc/lightdm/io.elementary.greeter.conf
 6 - Remove password feedback when typing it during a sudo command (for instance)
 $ sudo mv /etc/sudoers.d/pwfeedback /etc/sudoers.d/pwfeedback.disabled
 
-7 - Change screen which displays lock screen if it doesn't respect primary display (in case of dualboot for instance)
+7 - Change screen which displays lock screen if it doesn't respect primary display (in case of dualmonitor for instance)
 $ sudo vi /usr/local/bin/correct-screen-pantheon-greeter
 
 #!/bin/bash
