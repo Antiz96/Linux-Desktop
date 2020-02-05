@@ -1,0 +1,126 @@
+
+## $ = Terminal Command ##
+
+---Terminal Customisation---
+
+1 - Personnalise Terminal
+install dconf editor (through app center)
+Search for "Terminal", then "settings", then "background" and set value to "rgba(46, 46, 46, 0.5)"
+Search for "Terminal", then "settings", then "foreground" and set value to "#FFFFFF"
+
+2 - Install custom .bashrc (Debian/Ubuntu based) for aliases (source .bashrc)
+https://github.com/Antiz96/Linux-Customisation/blob/master/.bashrc%20(Debian-Ubuntu%20Based%20Distro)
+
+
+---Full system update---
+
+3 - $ dist-upgrade
+## update && upgrade && dist-upgrade alias, configured in .bashrc ##
+
+
+---Customise system---
+
+4 - Install vim as a prerequisites
+$ install vim
+
+5 - Enable numlock at boot
+$ sudo vi /etc/lightdm/io.elementary.greeter.conf
+## Uncomment the line "activate-numlock=true" by removing the "#" symbol ##
+
+6 - Remove password feedback when typing it during a sudo command (for instance)
+$ sudo mv /etc/sudoers.d/pwfeedback /etc/sudoers.d/pwfeedback.disabled
+
+7 - Change screen which displays lock screen if it doesn't respect primary display (in case of dualboot for instance)
+$ sudo vi /usr/local/bin/correct-screen-pantheon-greeter
+
+#!/bin/bash
+#
+# Creator: Ryan Miller
+# Website: http://devopsmachine.com/
+# File:    /usr/local/bin/set-primary-monitor-pantheon-greeter
+# 
+# Set correct primary monitor for login screen when lightdm greeter starts up on Elementary OS.
+#
+# Make sure to add the following line into /usr/share/lightdm/lightdm.conf.d/40-pantheon-greeter.conf (without the #)
+# greeter-setup-script=/usr/local/bin/set-primary-monitor-pantheon-greeter
+# 
+
+# Change this variable to your primary display (Run 'xrandr -q' to see available displays)
+PRIMARY_DISPLAY='HDMI-0'
+
+# Get list of connected monitors
+x_out=$(xrandr -q | grep -e '\( \)connected' | awk -F' ' '{ print $1 }')
+
+# Safety - Check if PRIMARY_DISPLAY is connected; if not, bail out of script
+[[ $(grep ${PRIMARY_DISPLAY} <<< ${x_out}) ]] || exit 0
+     
+# Iterate over x_out and disable all monitors except for PRIMARY_DISPLAY
+for monitor in ${x_out[@]} ; do
+    if [[ ${monitor} = ${PRIMARY_DISPLAY} ]] ; then
+        xrandr --output ${monitor} --primary
+    else
+        xrandr --output ${monitor} --off
+    fi
+done
+
+$ sudo vi /etc/lightdm/lightdm.conf
+
+[Seat:*]
+greeter-setup-script=/usr/local/bin/correct-screen-pantheon-greeter
+
+
+---PPA adding and specific package installation--
+
+8 - Install dependencies 
+$ install software-properties-common
+
+9 - Install elementary tweaks (repo + package)
+$ sudo add-apt-repository ppa:philip.scott/elementary-tweaks
+$ install elementary-tweaks
+## Change layout to "windows", disable "single click" in folder app, disable "Natural copy paste" in terminal ##
+
+10 - Install LibreOffice Fresh (repo + package + language package)
+$ sudo add-apt-repository ppa:libreoffice/ppa
+$ install libreoffice
+$ install libreoffice-l10n-fr
+
+
+---Snap Install---
+
+## You can use flatpack if you prefer ##
+
+11 - Install Snapd
+$ install snapd
+
+12 - Install Atom
+$ sudo snap install atom --classic
+
+13 - Install Spotify
+$ sudo snap install spotify
+
+
+---Install all your softwares---
+
+14 - Install all your packages through the appcenter/terminal
+
+15 - Configure Them
+
+16 - Setting your dock
+
+
+---General Settings---
+
+17 - Set your default apps (App settings)
+
+18 - Set your default monitor if needed (display settings)
+
+19 - Set your keyboard shortcuts
+## Super Key = App Menu ##
+## Super Key + E = Personal Folder ##
+## Super Key + C = com.github.davidmhewitt.clipped –show-paste-window ##
+## Ctrl + Alt + C = gnome-system-monitor ##
+
+20 - Change your wallpaper (Desktop Settings)
+
+
+---Done---
