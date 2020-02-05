@@ -14,7 +14,7 @@ PS1='[\u@\h \W]\$ '
 #Export Color
 export Color='--color=auto'
 
-#Editor
+#Export Editor
 export EDITOR=/usr/bin/vim
 
 ##Aliases##
