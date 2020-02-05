@@ -3,7 +3,7 @@
 
 ---Terminal Customisation---
 
-1 - Personnalise Terminal
+1 - Personalise Terminal
 install dconf editor (through app center)
 Search for "Terminal", then "settings", then "background" and set value to "rgba(46, 46, 46, 0.5)"
 Search for "Terminal", then "settings", then "foreground" and set value to "#FFFFFF"
