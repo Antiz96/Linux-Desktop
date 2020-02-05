@@ -5,9 +5,17 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+##Prompt##
+
+PS1='[\u@\h \W]\$ '
+
+##ENV##
 
 #Export Color
 export Color='--color=auto'
+
+#Export Editor
+export EDITOR=/usr/bin/vim
 
 ##Aliases##
 
@@ -45,10 +53,3 @@ alias sudo='sudo '
 
 #Others
 alias pman="man -k . | dmenu -l 30 | awk '{print \$1}' | xargs -r man -Tpdf | zathura --mode=fullscreen -"
-
-#ENV
-export EDITOR=/usr/bin/vim
-
-##Prompt##
-
-PS1='[\u@\h \W]\$ '
