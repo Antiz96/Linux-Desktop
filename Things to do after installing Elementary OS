@@ -98,29 +98,31 @@ $ sudo snap install atom --classic
 13 - Install Spotify
 $ sudo snap install spotify
 
+14 - Install Discord
+$ sudo snap install discord
 
 ---Install all your softwares---
 
-14 - Install all your packages through the appcenter/terminal
+15 - Install all your packages through the appcenter/terminal
 
-15 - Configure Them
+16 - Configure Them
 
-16 - Setting your dock
+17 - Setting your dock
 
 
 ---General Settings---
 
-17 - Set your default apps (App settings)
+18 - Set your default apps (App settings)
 
-18 - Set your default monitor if needed (display settings)
+19 - Set your default monitor if needed (display settings)
 
-19 - Set your keyboard shortcuts
+20 - Set your keyboard shortcuts
 ## Super Key = App Menu ##
 ## Super Key + E = Personal Folder ##
 ## Super Key + C = com.github.davidmhewitt.clipped –show-paste-window ##
 ## Ctrl + Alt + C = gnome-system-monitor ##
 
-20 - Change your wallpaper (Desktop Settings)
+21 - Change your wallpaper (Desktop Settings)
 
 
 ---Done---
