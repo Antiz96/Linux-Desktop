@@ -55,3 +55,6 @@ alias sudo='sudo '
 
 #Others
 alias pman="man -k . | dmenu -l 30 | awk '{print \$1}' | xargs -r man -Tpdf | zathura --mode=fullscreen -"
+alias tryhackme="sudo openvpn ~/Documents/Other/Antiz96.ovpn"
+alias hackthebox="sudo openvpn ~/Documents/Other/Antiz.ovpn"
+alias repair_bluetooth="~/Documents/scripts/repair_bluetooth.sh"
