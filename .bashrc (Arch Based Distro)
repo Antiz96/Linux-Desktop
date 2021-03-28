@@ -12,7 +12,7 @@ PS1='[\u@\h \W]\$ '
 ##ENV##
 
 #Export Color
-export Color='--color=auto'
+export Color="--color=auto"
 
 #Export Editor
 export EDITOR=/usr/bin/vim
@@ -20,40 +20,40 @@ export EDITOR=/usr/bin/vim
 ##Aliases##
 
 #Listing Files
-alias ls='ls $Color'
-alias ll='ls -ltr'
-alias l='ls -ltrA'
+alias ls="ls $Color"
+alias ll="ls -ltr"
+alias l="ls -ltrA"
 
 #Grep
-alias grep='grep $Color'
-alias egrep='egrep $Color'
-alias fgrep='fgrep $Color'
+alias grep="grep $Color"
+alias egrep="egrep $Color"
+alias fgrep="fgrep $Color"
 
 #Manipulating Files
-alias mv='mv -i'
-alias cp='cp -i'
-alias ln='ln -i'
-alias rm='rm -i'
+alias mv="mv -i"
+alias cp="cp -i"
+alias ln="ln -i"
+alias rm="rm -i"
 
 #Edit
-alias vi='vim'
+alias vi="vim"
 
 #Packet Manager
-alias update='sudo pacman -Syy'
-alias upgrade='sudo pacman -Syu'
-alias fullupgrade='sudo pacman -Syu && flatpak update'
-alias install='sudo pacman -S'
-alias remove='sudo pacman -Rns'
-alias search='sudo pacman -Ss'
-alias package='sudo pacman -Qe'
-alias cleancache='sudo pacman -Sc'
-alias cleanorphans='sudo pacman -Rns $(pacman -Qtdq)'
+alias update="sudo pacman -Syy"
+alias upgrade="sudo pacman -Syu"
+alias fullupgrade="sudo pacman -Syu && flatpak update"
+alias install="sudo pacman -S"
+alias remove="sudo pacman -Rns"
+alias search="sudo pacman -Ss"
+alias package="sudo pacman -Qe"
+alias cleancache="sudo pacman -Sc"
+alias cleanorphans="sudo pacman -Rns $(pacman -Qtdq)"
 
 #Sudoers
-alias sudo='sudo '
+alias sudo="sudo "
 
 #Others
-alias pman='man -k . | dmenu -l 30 | awk '{print \$1}' | xargs -r man -Tpdf | zathura --mode=fullscreen -'
-alias tryhackme='sudo openvpn ~/Documents/Other/Antiz96.ovpn'
-alias hackthebox='sudo openvpn ~/Documents/Other/Antiz.ovpn'
-alias repair_bluetooth='~/Documents/scripts/repair_bluetooth.sh'
+alias pman="man -k . | dmenu -l 30 | awk '{print \$1}' | xargs -r man -Tpdf | zathura --mode=fullscreen -"
+alias tryhackme="sudo openvpn ~/Documents/Other/Antiz96.ovpn"
+alias hackthebox="sudo openvpn ~/Documents/Other/Antiz.ovpn"
+alias repair_bluetooth="~/Documents/scripts/repair_bluetooth.sh"
