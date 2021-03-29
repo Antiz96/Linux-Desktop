@@ -26,4 +26,4 @@
 
   'mail':
     'prefix': 'mail'
-    'body': 'echo "" | mail -s "" youremail1@example.com, youremail2@example.com'
+    'body': 'echo -e "Subject:\n\nHello,\n\n" | /usr/sbin/sendmail youremail1@example.com, youremail2@example.com'
