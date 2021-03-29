@@ -45,7 +45,7 @@ alias fullupgrade="sudo pacman -Syu && flatpak update"
 alias install="sudo pacman -S"
 alias remove="sudo pacman -Rns"
 alias search="sudo pacman -Ss"
-alias package="sudo pacman -Qe"
+alias package="sudo pacman -Q"
 alias cleancache="sudo pacman -Sc"
 alias cleanorphans="sudo pacman -Rns $(pacman -Qtdq)"
 
