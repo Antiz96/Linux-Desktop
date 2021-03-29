@@ -82,8 +82,8 @@ $ reboot #Reboot the computer to go to our fresh Arch Install
 
 # Log in with my user (rcandau)
 
-$ pacman -S base-devel linux-headers intel-ucode nvidia xorg xorg-server gnome #Install base system package + nvidia drivers + gnome desktop environment
-$ sudo systemctl enable gdm.service #Configura autostart for the display manager
+$ sudo pacman -S base-devel linux-headers intel-ucode nvidia xorg xorg-server gnome #Install base system package + nvidia drivers + gnome desktop environment
+$ sudo systemctl enable gdm.service #Configure autostart for the display manager
 
 $ grub-mkconfig -o /boot/grub/grub.cfg #Regenerating grub configuration (Specially for intel-ucode)
 
