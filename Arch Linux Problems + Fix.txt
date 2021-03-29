@@ -1,0 +1,27 @@
+PROBLEMS :
+
+Bluetooth USB Dongle (asus BT500) not working correctly :
+$ sudo vi /etc/modprobe.d/bluetooth-blacklist.conf --->
+blacklist btrtl
+blacklist btusb
+blacklist btintel
+blacklist btbcm
+#Then install bluetooth USB Dongle Driver
+
+GDM not starting correctly at boot (black screen with blinking white cursor) : 
+https://wiki.archlinux.org/index.php/GDM#GDM_shows_black_screen_with_blinking_white_cursor
+$ sudo vi /usr/lib/systemd/system/gdm.service --> 
+[Service]
+ExecStartPre=/bin/sleep 2
+
+Steam font problem :
+https://steamcommunity.com/app/221410/discussions/0/864961175388383181/
+$ cd ~/.fonts/ (create the folder if it doesn't exists)
+$ wget https://support.steampowered.com/downloads/1974-YFKL-4947/SteamFonts.zip
+$ unzip SteamFonts.zip && rm SteamFonts.zip 
+
+Gnome terminal font problem :
+Preferences ---> Profil ---> Coulors ---> Uncheck "Use the system theme colors"
+
+Lutris wine doesn't work :
+$ sudo pacman -S lib32-lcms2
