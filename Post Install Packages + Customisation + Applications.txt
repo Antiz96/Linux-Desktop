@@ -14,6 +14,9 @@ Install bluez-utils-compat (aur) via pamac
 $ sudo systemctl start bluetooth
 $ sudo systemctl enable bluetooth
 
+## Installing gnome extension support
+$ sudo pacman -S chrome-gnome-shell
+
 
 Gnome extensions :
 
