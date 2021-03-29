@@ -1,0 +1,97 @@
+# My personal routine to install Arch Linux
+# The majority of this can be found in the installation guide from the Arch Wiki ---> https://wiki.archlinux.org/index.php/Installation_guide
+# My routine is mostly based on this guide : https://www.youtube.com/watch?v=PQgyW10xD8s
+# I added some extra at the end according to my personal preferences
+
+$ loadkeys fr #Change Keyboard Layout
+
+$ ping archlinux.org #Check if I have access to the internet
+
+$ timedatectl set-ntp true #Set NTP
+$ timedatectl status #Check if date is correct
+
+$ fdisk -l #Check the hard drives ID to create our partitions
+$ fdisk /dev/nvme0n1 #The disk I want to install Arch on
+
+Partitions :
+Create a GPT partition table (cause I use EFI) ---> g option
+
+Create a 550M EFI partition ---> n option
+Create a 20G Swap partition ---> n option (https://itsfoss.com/swap-size/)
+Create a Root partition with the rest ---> n option
+
+Change the first partition type to EFI ---> t option, type 1
+Change the second partition type to Linux swap ---> t option, type 19
+Change the third partition type to Linux filesystem ---> t option, type 20
+
+Write the table to the disk ---> w option
+
+$ mkfs.fat -F32 /dev/nvme0n1p1 #Make the filesystem for the EFI partition
+$ mkswap /dev/nvme0n1p2 #Make the filesystem for the Swap partition
+$ swapon /dev/nvme0n1p2 #Activate swap on the Swap partition
+$ mkfs.ext4 /dev/nvme0n1p3 # Make the filesystem for the Root partition
+
+$ mount /dev/nvme0n1p3 /mnt #Mount the Root partition to install our base system on it
+
+$ pacstrap /mnt base linux linux-firmware #Install our base system on the root partition
+
+$ genfstab -U /mnt >> /mnt/etc/fstab #Generating the fstab
+
+$ arch-chroot /mnt #Log as Root on our new base system on the root partition
+
+$ ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime #Set up our Region Info
+
+$ hwclock --systohc #Set our Hardware Clock
+
+$ pacman -S vim #Install vim (or any other editor), needed for the rest
+
+$ vim /etc/locale.gen #Uncomment your local in that file (for me : fr_FR.UTF-8 UTF-8)
+$ locale-gen #Apply the configuration
+$ vim /etc/locale.conf #set the LANG variable accordingly in this file (for me : LANG=fr_FR.UTF-8
+$ vim /etc/vconsole.conf #set your Keymap permanently in this file (for me : KEYMAP=fr)
+
+$ echo "Arch-Linux" > /etc/hostname #Create the hostname file and put your hostname in it
+$ vim /etc/hosts #Edit the hosts file and add lines from the Arch Wiki ---> https://wiki.archlinux.org/index.php/Installation_guide#Network_configuration. For me:
+127.0.0.1	localhost
+::1		localhost
+127.0.1.1	Arch-Linux.localdomain	Arch-Linux
+
+$ passwd #Change the root password
+
+$ useradd -m rcandau #Create my user
+$ passwd rcandau #Setup password for my user
+$ usermod -aG wheel,audio,video,optical,storage rcandau #Add my user to some useful groups
+
+$ pacman -S sudo #Install sudo
+$ visudo #Uncomment line that allows wheel group members to use sudo on any command
+
+$ pacman -S grub #Install the grub bootloader
+$ pacman -S efibootmgr dosfstools os-prober mtools #Install grub dependencies for EFI
+$ mkdir /boot/EFI #Create the EFI boot directory
+$ mount /dev/nvme0n1p1 /boot/EFI #Mount the EFI partition to the directory previously created
+$ grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck #Install grub on our EFI partition
+$ grub-mkconfig -o /boot/grub/grub.cfg #Generating the Grub configuration file
+
+$ pacman -S networkmanager #Install networkmanager to get internet at reboot
+$ systemctl enable NetworkManager #Automate NetworkManager start at boot
+
+$ exit #Get out of the chroot
+$ umount -l /mnt #Umount our /mnt partition
+
+$ reboot #Reboot the computer to go to our fresh Arch Install
+
+# Log in with my user (rcandau)
+
+$ pacman -S base-devel linux-headers intel-ucode nvidia xorg xorg-server gnome #Install base system package + nvidia drivers + gnome desktop environment
+$ sudo systemctl enable gdm.service #Configura autostart for the display manager
+
+$ grub-mkconfig -o /boot/grub/grub.cfg #Regenerating grub configuration (Specially for intel-ucode)
+
+$ reboot #Reboot into our system and GUI
+
+# Base Installation complete
+
+
+
+
+ 
