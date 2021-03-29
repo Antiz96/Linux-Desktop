@@ -46,6 +46,7 @@ alias install="sudo pacman -S"
 alias remove="sudo pacman -Rns"
 alias search="sudo pacman -Ss"
 alias package="sudo pacman -Q"
+alias aurpackage="sudo pacman -Qqm"
 alias cleancache="sudo pacman -Sc"
 alias cleanorphans="sudo pacman -Rns $(pacman -Qtdq)"
 
