@@ -60,7 +60,7 @@ $ passwd #Change the root password
 
 $ useradd -m rcandau #Create my user
 $ passwd rcandau #Setup password for my user
-$ usermod -aG wheel,audio,video,optical,storage rcandau #Add my user to some useful groups
+$ usermod -aG wheel,audio,video,optical,storage,games rcandau #Add my user to some useful groups
 
 $ pacman -S sudo #Install sudo
 $ visudo #Uncomment line that allows wheel group members to use sudo on any command
