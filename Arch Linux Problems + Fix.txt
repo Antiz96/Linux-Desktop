@@ -23,5 +23,7 @@ $ unzip SteamFonts.zip && rm SteamFonts.zip
 Gnome terminal font problem :
 Preferences ---> Profil ---> Coulors ---> Uncheck "Use the system theme colors"
 
-Lutris wine doesn't work :
+Lutris wine doesn't work correctly on games :
+$ sudo pacman -S wine
 $ sudo pacman -S lib32-lcms2
+# Wine version : Lutris 5.4
