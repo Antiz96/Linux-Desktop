@@ -27,3 +27,12 @@ Lutris wine doesn't work correctly on games :
 $ sudo pacman -S wine
 $ sudo pacman -S lib32-lcms2
 # Wine version : Lutris 5.4
+
+Bluetooth not working anymore after update to Kernel Linux 5.11.11-arch1-1 :
+$ sudo systemctl status bluetooth #shows "mars 31 13:11:18 Arch-Linux systemd[1]: Condition check resulted in Bluetooth service being skipped."
+Link : https://wiki.archlinux.org/index.php/Bluetooth#systemd:_Condition_check_resulted_in_Bluetooth_service_being_skipped
+Reason : the /sys/class/bluetooth directory has been deleted for some reason.
+Fix :
+$ sudo modprobe btusb #Recreates the directory
+$ sudo systemctl restart bluetooth #Restart the bluetooth service correctly
+$ repair_bluetooth #Reinstalling my bluetooth driver (this is a personal alias that calls a script I did to install/reinstall my bluetooth driver. Link to the script : https://github.com/Antiz96/Bash-Scripts/blob/master/repair_bluetooth.sh)
