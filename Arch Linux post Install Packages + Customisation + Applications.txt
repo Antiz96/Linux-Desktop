@@ -15,7 +15,7 @@ $ sudo systemctl start bluetooth
 $ sudo systemctl enable bluetooth
 
 ## Installing gnome extension support
-$ sudo pacman -S chrome-gnome-shell
+$ sudo pacman -S chrome-gnome-shell gnome-tweaks
 
 
 Gnome extensions :
