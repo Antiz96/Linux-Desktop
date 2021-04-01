@@ -10,7 +10,7 @@ $ yay -S pamac
 
 ## Installing bluetooth support
 $ sudo pacman -S --needed bluez pulseaudio-bluetooth
-Install bluez-utils-compat (aur) via pamac
+Install bluez-utils-compat (aur) via pamac #That package contains deprecated tools that I need to make my USB-Dongle work. If you don't need them, just install bluez-utils via pacman
 $ sudo systemctl start bluetooth
 $ sudo systemctl enable bluetooth
 
