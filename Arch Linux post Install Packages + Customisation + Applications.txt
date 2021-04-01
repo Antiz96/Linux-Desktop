@@ -20,6 +20,9 @@ $ sudo pacman -S chrome-gnome-shell gnome-tweaks
 ## Image converter
 $ sudo pacman -S nautilus-image-converter
 
+## Dependence for Arch Linux Upddates Indicator
+$ sudo pacman -S pacman-contrib
+
 
 Gnome extensions :
 
