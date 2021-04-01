@@ -53,6 +53,7 @@ shell : Orchis-compact
 Application : 
 
 Atom
+bluemail
 ckb-next (Last blue : 32, 74, 135)
 discord
 gparted
