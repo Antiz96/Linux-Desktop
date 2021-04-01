@@ -14,6 +14,7 @@ $ fdisk -l #Check the hard drives ID to create our partitions
 $ fdisk /dev/nvme0n1 #The disk I want to install Arch on
 
 Partitions :
+Delete actual partitions if you need to ---> d option
 Create a GPT partition table (cause I use EFI) ---> g option
 
 Create a 550M EFI partition ---> n option
