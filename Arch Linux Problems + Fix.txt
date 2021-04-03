@@ -1,6 +1,7 @@
 PROBLEMS :
 
 Bluetooth USB Dongle (asus BT500) not working correctly :
+https://www.reddit.com/r/linuxquestions/comments/hy5mx2/bluetooth_adapter_asus_usbbt500_not_working_or/
 $ sudo vi /etc/modprobe.d/bluetooth-blacklist.conf --->
 blacklist btrtl
 blacklist btusb
