@@ -7,7 +7,7 @@ blacklist btrtl
 blacklist btusb
 blacklist btintel
 blacklist btbcm
-#Then install bluetooth USB Dongle Driver
+#Then install bluetooth USB Dongle Driver and reboot
 
 GDM not starting correctly at boot (black screen with blinking white cursor) : 
 https://wiki.archlinux.org/index.php/GDM#GDM_shows_black_screen_with_blinking_white_cursor
