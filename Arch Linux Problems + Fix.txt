@@ -28,6 +28,7 @@ Lutris wine doesn't work correctly on games :
 $ sudo pacman -S wine
 $ sudo pacman -S lib32-lcms2
 $ sudo pacman -S winetricks
+$ winetricks wininet
 # Wine version : Lutris 5.4
 
 Bluetooth not working anymore after update to Kernel Linux 5.11.11-arch1-1 :
