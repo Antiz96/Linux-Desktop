@@ -18,7 +18,7 @@ Delete actual partitions if you need to ---> d option
 Create a GPT partition table (cause I use EFI) ---> g option
 
 Create a 550M EFI partition ---> n option
-Create a 20G Swap partition ---> n option (https://itsfoss.com/swap-size/)
+Create a Swap partition ---> n option (4G for me, https://itsfoss.com/swap-size/)
 Create a Root partition with the rest ---> n option
 
 Change the first partition type to EFI ---> t option, type 1
