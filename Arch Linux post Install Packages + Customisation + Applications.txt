@@ -55,7 +55,7 @@ Application :
 
 Atom
 bluemail
-ckb-next (Last blue : 32, 74, 135)
+ckb-next (Last blue : 26, 95, 180)
 discord
 gparted
 keepass
