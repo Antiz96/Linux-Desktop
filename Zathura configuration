@@ -1,4 +1,6 @@
-.config/zathura/zathurarc
+#Launch "sudo mandb" to update man db
+
+#File = .config/zathura/zathurarc
 
 set selection-clipboard clipboard
 set show-scrollbars true
