@@ -23,6 +23,7 @@ $ sudo pacman -S nautilus-image-converter
 ## Dependence for Arch Linux Upddates Indicator
 $ sudo pacman -S pacman-contrib
 
+## Mount secondary disk in fstab
 
 Gnome extensions :
 
