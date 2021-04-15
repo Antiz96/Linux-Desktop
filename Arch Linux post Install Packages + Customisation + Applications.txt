@@ -39,6 +39,7 @@ Native window placement
 No workspace switcher popup
 No activities button
 panel osd
+Transparent Shell
 User themes
 weather in the clock
 Workspace indicator
