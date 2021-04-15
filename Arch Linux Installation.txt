@@ -8,7 +8,7 @@ $ loadkeys fr #Change Keyboard Layout
 $ ping archlinux.org #Check if I have access to the internet
 
 $ timedatectl set-ntp true #Set NTP
-$ timedatectl status #Check if date is correct
+$ timedatectl status #Check the NTP Status
 
 $ fdisk -l #Check the hard drives ID to create our partitions
 $ fdisk /dev/nvme0n1 #The disk I want to install Arch on
