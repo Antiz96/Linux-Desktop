@@ -43,7 +43,7 @@ Transparent Shell
 User themes
 weather in the clock
 Workspace indicator
-X11 Gestures #Only for laptop, enables trackpad gesture on Gnome 40
+X11 Gestures #Only for laptop, enables trackpad gesture on Gnome 40, requires touchégg (AUR)
 
 
 Theme :
