@@ -32,10 +32,11 @@ $ sudo pacman -S lib32-lcms2
 #$ sudo pacman -S samba smbclient ntp
 # Wine version : Lutris 5.4
 
-Bluetooth not working anymore after update to Kernel Linux 5.11.11-arch1-1 :
+Bluetooth not working anymore after Kernel update (happens only when using USB Bluetooth Dongle) :
 $ sudo systemctl status bluetooth #shows "mars 31 13:11:18 Arch-Linux systemd[1]: Condition check resulted in Bluetooth service being skipped."
 Link : https://wiki.archlinux.org/index.php/Bluetooth#systemd:_Condition_check_resulted_in_Bluetooth_service_being_skipped
 Reason : the /sys/class/bluetooth directory has been deleted for some reason.
+https://bbs.archlinux.org/viewtopic.php?id=265071
 Fix :
 $ sudo modprobe btusb #Recreates the directory
 $ sudo systemctl restart bluetooth #Restart the bluetooth service correctly
