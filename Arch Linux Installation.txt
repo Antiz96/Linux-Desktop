@@ -91,7 +91,7 @@ $ sudo grub-mkconfig -o /boot/grub/grub.cfg #Regenerating grub configuration (Sp
 
 $ reboot #Reboot into our system and GUI
 
-# Select "Gnome on Xorg" when log in to GDM to use Xorg instead of Wayland (personal preferences)
+# Select "Gnome on Xorg" when log in to GDM to use Xorg instead of Wayland (personal preferences) and change keyboard layout in the gnome settings
 
 # Base Installation complete
 
