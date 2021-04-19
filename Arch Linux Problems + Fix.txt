@@ -18,7 +18,7 @@ ExecStartPre=/bin/sleep 2
 Steam font problem :
 https://steamcommunity.com/app/221410/discussions/0/864961175388383181/
 $ cd ~/.fonts/ (create the folder if it doesn't exists)
-$ wget https://support.steampowered.com/downloads/1974-YFKL-4947/SteamFonts.zip
+$ curl https://support.steampowered.com/downloads/1974-YFKL-4947/SteamFonts.zip -o SteamFonts.zip
 $ unzip SteamFonts.zip && rm SteamFonts.zip 
 
 Gnome terminal font problem :
