@@ -37,7 +37,6 @@ frippery move clock
 Gsconnect
 Native window placement
 No workspace switcher popup
-No activities button
 panel osd
 Transparent Shell
 User themes
