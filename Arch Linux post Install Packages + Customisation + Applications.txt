@@ -93,6 +93,7 @@ discord
 virtualbox
 screenshot
 pamac
+Extensions
 gnome tweaks
 settings
 Trash 
