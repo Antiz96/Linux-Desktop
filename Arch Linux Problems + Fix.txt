@@ -52,7 +52,7 @@ $ localectl
       X11 Layout: n/a
 Link : https://wiki.archlinux.org/index.php/GDM#Keyboard_layout - https://wiki.archlinux.org/index.php/Xorg/Keyboard_configuration#Using_X_configuration_files
 Fix :
-$ local$ localectl --no-convert set-x11-keymap fr "" oss
+$ local$ localectl --no-convert set-x11-keymap fr "" oss #localectl --no-convert set-x11-keymap "layout" "model" "variant" --> "" for empty (model) 
 It should create the following file :
 $ cat /etc/X11/xorg.conf.d/00-keyboard.conf 
 # Written by systemd-localed(8), read by systemd-localed and Xorg. It's
@@ -64,6 +64,11 @@ Section "InputClass"
         Option "XkbLayout" "fr"
         Option "XkbVariant" "oss"
 EndSection
-
+And now, locatectl should show an input for X11 :
+$ localectl 
+   System Locale: LANG=fr_FR.UTF-8
+       VC Keymap: fr
+      X11 Layout: fr
+     X11 Variant: oss
 
 
