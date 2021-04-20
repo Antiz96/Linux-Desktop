@@ -45,6 +45,7 @@ $ localectl
       X11 Layout: n/a
 Link : https://wiki.archlinux.org/index.php/GDM#Keyboard_layout - https://wiki.archlinux.org/index.php/Xorg/Keyboard_configuration#Using_X_configuration_files
 Fix :
+$ sudo vi /etc/X11/xorg.conf.d/00-keyboard.conf --->
 
 
 
