@@ -57,6 +57,7 @@ Section "InputClass"
 EndSection
 
 $ localectl
+$ localectl --no-convert set-x11-keymap fr
 
 
 
