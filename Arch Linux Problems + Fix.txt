@@ -37,3 +37,7 @@ Fix :
 $ sudo modprobe btusb #Recreates the directory
 $ sudo systemctl restart bluetooth #Restart the bluetooth service correctly
 $ install_bluetooth_driver #Reinstalling my bluetooth driver (this is a personal alias that calls a script I did to install/reinstall my bluetooth driver. Link to the script : https://github.com/Antiz96/Bash-Scripts/blob/master/install_bluetooth_driver.sh)
+
+GMD does not have the right Keyboard Layout or the keyboard layout is not defined :
+
+
