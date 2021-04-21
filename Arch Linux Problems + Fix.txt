@@ -68,5 +68,14 @@ $ localectl
    System Locale: LANG=fr_FR.UTF-8
        VC Keymap: fr
       X11 Layout: fr
+      
+
+Cannot install extensions in Gnome 40.1 even tho they are available for Gnome 40 :
+The check version script that compares gnome shell and gnome shell extension still hasn't been updated according to the new version numerotation adopted by Gnome since Gnome 40.
+Issue reported here : https://gitlab.gnome.org/Infrastructure/extensions-web/-/issues/131
+Until the script is corrected, you can disable the Gnome shell's version check via dconf-editor.
+Tutorial : https://www.maketecheasier.com/disable-extension-version-checks-gnome/
+After that, you'll be able to install your missing extensions through EGO (extensions.gnome.org)
+Be careful ! Only install extensions tagged available with Gnome 40 to ensure your system stability.
 
 
