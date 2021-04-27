@@ -9,6 +9,12 @@
 
 PS1='[\u@\h \W]\$ '
 
+##Tmux##
+
+if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ]; then
+          [ -z "${TMUX}" ] && (tmux attach || tmux) >/dev/null 2>&1
+fi
+
 ##ENV##
 
 #Export Color
