@@ -1,4 +1,4 @@
-#File = ~/.tmux.conf
+#File = ~/.config/tmux.conf
 
 #[DEFAULT]
 set -g assume-paste-time 1
