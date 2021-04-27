@@ -1,16 +1,15 @@
-#File = ~/.config/tmux.conf
+#File = ~/.tmux.conf
 
 #[DEFAULT]
 set -g assume-paste-time 1
 set -g base-index 0
 set -g bell-action any
-#set -g bell-on-alert off
 set -g default-command ""
 set -g default-shell "/usr/bin/bash"
 set -g destroy-unattached off
 set -g detach-on-destroy on
-set -g display-panes-active-colour red
-set -g display-panes-colour blue
+set -g display-panes-active-colour black
+set -g display-panes-colour black
 set -g display-panes-time 1000
 set -g display-time 750
 set -g history-limit 2000
@@ -25,21 +24,19 @@ set -g prefix2 None
 set -g renumber-windows off
 set -g repeat-time 500
 setw -g mode-keys vi
-#set -g set-remain-on-exit off
 set -g set-titles off
-set -g set-titles-string "#S:#I:#W - "#T" #{session_alerts}"
-set -g status on
+set -g set-titles-string ""
+set -g status off
 set -g status-interval 15
 set -g status-justify left
-set -g status-keys emacs
-set -g status-left "[#S] "
+set -g status-keys vi
+set -g status-left "[#S]"
 set -g status-left-length 10
 set -g status-left-style default
 set -g status-position top
-set -g status-right " "#{=21:pane_title}" %H:%M %d-%b-%y"
+set -g status-right ""
 set -g status-right-length 40
 set -g status-right-style default
-#set -g status-style fg=black,bg=green
 set -g update-environment "DISPLAY SSH_ASKPASS SSH_AUTH_SOCK SSH_AGENT_PID SSH_CONNECTION WINDOWID XAUTHORITY"
 set -g visual-activity off
 set -g visual-bell off
@@ -52,8 +49,6 @@ set -g allow-rename off
 
 #[MOUSE MODE ON]
 setw -g mouse on
-
-#[BINDS]
 
 #[SPLIT PANES]
 bind v split-window -v -c "#{pane_current_path}"
@@ -68,14 +63,10 @@ bind -n M-Down select-pane -D
 #[Send copy to system clipboard]
 bind-key -T copy-mode-vi 'Home' send -X start-of-line
 bind-key -T copy-mode-vi 'End' send -X end-of-line
-bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel clip.exe
 bind-key -T copy-mode-vi v send-keys -X begin-selection
-
-#[Use Alt-vim keys without prefix key to switch panes}
-#bind -n M-h select-pane -L
-#bind -n M-j select-pane -D
-#bind -n M-k select-pane -U
-#bind -n M-l select-pane -R
+#bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel clip.exe
+bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xclip -i -sel clip > /dev/null"
+bind-key p run "xclip -o -sel clip | tmux load-buffer - ; tmux paste-buffer"
 
 #[SHIFT+ARROW TO SWITCH WINDOWS]
 bind -n S-Left  previous-window
@@ -83,24 +74,20 @@ bind -n S-Right next-window
 
 #[SYNC PANES]
 bind -n C-x setw synchronize-panes on \; set-window-option window-status-current-style bg=#33FFC7,fg=#FF0000,underscore \; display-message "Panes synchronized."
-#bind -n C-x setw synchronize-panes on \; set-window-option status-style fg=#FF0000 \; set-window-option status-style fg=#FF0000 \; set-window-option status-style bg=#FF0000 \; display-message "Panes synchronized."
 bind -n M-x setw synchronize-panes off \; set-window-option window-status-current-style bg=#33FFC7,fg=black \; display-message "Panes unsynchronized."
-#bind -n M-x setw synchronize-panes off \; set-window-option status-style fg=#33FFC7 \; set-window-option window-status-fg green \; set-window-option window-status-current-bg white \; display-message "Panes unsynchronized."
 
 #[JOIN PANE]
-#bind-key j command-prompt -p "join pane from:"  "join-pane -s ':%%'"
-#bind-key s command-prompt -p "send pane to:"  "join-pane -t ':%%'"
 bind -n C-j command-prompt -p "join pane from:"  "join-pane -s ':%%'"
 bind -n C-s command-prompt -p "send pane to:"  "join-pane -t ':%%'"
 
 #[MOVE PANE : option -n w/ bind uses key combination]
 bind-key m command-prompt -p "move window to:"  "move-window -t ':%%'"
-#bind -n C-w command-prompt -p "move window to:"  "move-window -t ':%%'" #w/ -n hit Ctrl+w
 
 #[THEME]
-set -g status-bg black
-set -g status-fg green
-set -g status-style bg=#33FFC7,fg=black
+set -g status-bg white
+set -g status-fg black
+set -g status-style bg=#000000,fg=black
 set -g status-interval 60
-set -g status-left-length 30
-set -g status-right '#[fg=yellow]#(cut -d " " -f 1-3 /proc/loadavg)#[default] #[fg=black]%H:%M#[default]'
+set -g status-right '#[default] #[fg=black]%H:%M#[default]'
+
+      
