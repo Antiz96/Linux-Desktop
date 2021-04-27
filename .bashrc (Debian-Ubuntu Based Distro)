@@ -9,6 +9,18 @@
 
 PS1='[\u@\h \W]\$ '
 
+##Tmux Autostart##
+
+#Without a graphical interface running on the machine
+#[ -x "$(command -v tmux)" ] \
+#  && [ -z "${TMUX}" ] \
+#  && (tmux attach || tmux) >/dev/null 2>&1
+
+#With a graphical interface running on the machine
+if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ]; then
+          [ -z "${TMUX}" ] && (tmux attach || tmux) >/dev/null 2>&1
+fi
+
 ##ENV##
 
 #Export Color
