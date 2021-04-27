@@ -1,5 +1,5 @@
 #File = ~/.tmux.conf
-#Specific Options for WLS or Linux Copy/Paste shared clipboard in the "[Send copy to system clipboard]" section
+#Specific Options for WSL or Linux Copy/Paste shared clipboard in the "[Send copy to system clipboard]" section
 #Comment/Uncomment associated options depending on your system
 
 #[DEFAULT]
