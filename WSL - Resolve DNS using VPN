@@ -16,4 +16,3 @@ nameserver    x.x.x.x     #First DNS used by your VPN
 nameserver    x.x.x.x     #Second DNS used by your VPN
 
 #Reboot your WSL machine to apply changes and you're done#
-
