@@ -17,7 +17,7 @@ nameserver    x.x.x.x     #Second DNS used by your VPN
 
 #Reboot your WSL machine to apply changes and you're done
 
-##At that point, DNS should work when using VPN.
+##At this point, DNS should work when using VPN.
 ##But you might face a weird issue where DNS resolution are really slow when using the VPN (from 5 to 10 sec before the resolution comes)
 ##Despite all weird and sketchy "solutions" I found on the internet, I couldn't found one that actually worked for me.
 ##But I do found an acceptable workaround, which is reducing the DNS timeout to 1 sec
