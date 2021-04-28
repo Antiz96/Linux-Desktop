@@ -1,1 +1,19 @@
+#I couldn't resolve DNS addresses of my company when using the VPN.
+#Solution below, link : https://unix.stackexchange.com/questions/589683/wsl-dns-not-working-when-connected-to-vpn
+
+$ sudo vi /etc/wsl.conf #Create the file and put the lines below in it
+[network] 
+generateResolvConf = false
+
+#Reboot your WSL machine to apply changes#
+
+$ sudo rm /etc/resolv.conf #symbolic link automatically created, delete it
+
+$ sudo vi /etc/resolv.conf #Recreates the file with the following it
+search    your.domain.com #Change it to your search domain company
+nameserver    y.y.y.y     #Your normal local DNS
+nameserver    x.x.x.x     #First DNS used by your VPN
+nameserver    x.x.x.x     #Second DNS used by your VPN
+
+#Reboot your WSL machine to apply changes and you're done#
 
