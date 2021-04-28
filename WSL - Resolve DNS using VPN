@@ -32,4 +32,4 @@ nameserver    x.x.x.x
 #Reboot your WSL machine to apply changes
 
 ##After that, all your DNS resolution will only take 1 sec (not better then working instantly but still better then taking 5 to 10 sec) !
-##I'll update that file if I ever find a real fix to that issue.
+##I'll update this file if I ever find a real fix to that issue.
