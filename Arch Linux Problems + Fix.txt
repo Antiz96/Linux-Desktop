@@ -52,7 +52,7 @@ $ localectl
       X11 Layout: n/a
 Link : https://wiki.archlinux.org/index.php/GDM#Keyboard_layout - https://wiki.archlinux.org/index.php/Xorg/Keyboard_configuration#Using_X_configuration_files
 Fix :
-$ localectl --no-convert set-x11-keymap fr #localectl --no-convert set-x11-keymap "layout" "model" "variant" --> "" for empty
+$ localectl --no-convert set-x11-keymap fr
 It should create the following file :
 $ cat /etc/X11/xorg.conf.d/00-keyboard.conf 
 # Written by systemd-localed(8), read by systemd-localed and Xorg. It's
