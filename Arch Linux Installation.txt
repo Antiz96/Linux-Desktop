@@ -1,7 +1,4 @@
 # My personal routine to install Arch Linux
-# The majority of this can be found in the installation guide from the Arch Wiki ---> https://wiki.archlinux.org/index.php/Installation_guide
-# My routine is mostly based on this guide : https://www.youtube.com/watch?v=PQgyW10xD8s
-# I added some extra at the end according to my personal preferences
 
 $ loadkeys fr #Change Keyboard Layout
 
