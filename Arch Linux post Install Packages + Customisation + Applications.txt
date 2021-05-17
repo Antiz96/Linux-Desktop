@@ -32,11 +32,10 @@ arcmenu
 Clipboard Indicator
 Compiz alike windows effect
 coverflow alt+tab
-floating dock
+Dash to dock
 frippery move clock
 Gsconnect
 Native window placement
-No workspace switcher popup
 panel osd
 Transparent Shell
 User themes
