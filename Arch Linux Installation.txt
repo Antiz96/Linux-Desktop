@@ -82,7 +82,7 @@ $ reboot #Reboot the computer to go to our fresh Arch Install
 
 $ sudo pacman -Syu #Update the system
 $ sudo pacman -S base-devel linux-headers intel-ucode nvidia xorg xorg-server gnome #Install base system package + nvidia drivers + gnome desktop environment
-$ sudo systemctl enable gdm.service #Configure autostart for the Gnome Display Manager
+$ sudo systemctl enable gdm #Configure autostart for the Gnome Display Manager
 
 $ localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
 
