@@ -61,8 +61,6 @@ gparted
 keepass
 vlc
 libreoffice
-Lutris
-Gnome system monitor
 firefox
 spotify
 steam
