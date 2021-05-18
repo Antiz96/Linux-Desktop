@@ -78,4 +78,8 @@ Tutorial : https://www.maketecheasier.com/disable-extension-version-checks-gnome
 After that, you'll be able to install your missing extensions through EGO (extensions.gnome.org)
 Be careful ! Only install extensions tagged available with Gnome 40 to ensure your system stability.
 
+Installing spotify thourh AUR gets a "GPG Key not found" error :
+Fix :
+$ curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -
+
 
