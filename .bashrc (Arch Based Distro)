@@ -47,7 +47,6 @@ alias vi="vim"
 #Packet Manager
 alias update="sudo pacman -Syy"
 alias upgrade="sudo pacman -Syu"
-alias fullupgrade="sudo pacman -Syu && flatpak update"
 alias install="sudo pacman -S"
 alias remove="sudo pacman -Rns"
 alias search="sudo pacman -Ss"
