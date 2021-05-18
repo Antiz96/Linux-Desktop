@@ -23,6 +23,9 @@ export Color="--color=auto"
 #Export Editor
 export EDITOR=/usr/bin/vim
 
+#Export Lang for dmenu
+export LC_CTYPE="fr_FR.UTF-8"
+
 ##Aliases##
 
 #Listing Files
