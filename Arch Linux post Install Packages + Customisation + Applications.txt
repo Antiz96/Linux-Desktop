@@ -1,6 +1,6 @@
 Package :
 
-## Install YAY, AUR, Pamac
+## Install YAY & Pamac
 $ sudo pacman -S git
 $ cd /tmp
 $ git clone https://aur.archlinux.org/yay.git
