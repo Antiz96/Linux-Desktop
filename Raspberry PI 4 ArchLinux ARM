@@ -2,7 +2,7 @@ https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-4
 
 Last pacman :
 
-$ sudo pacman -S base-devel linux-headers xf86-video-fbdev xorg xorg-server lxqt xdg-utils ttf-freefont sddm gvfs pulseaudio pavucontrol
+$ sudo pacman -S base-devel linux-headers xf86-video-fbdev xorg xorg-server lxqt xdg-utils ttf-freefont sddm gvfs alsa-utils pulseaudio pavucontrol
 $ sudo systemctl enable sddm
 
 # add to /boot/config.txt
