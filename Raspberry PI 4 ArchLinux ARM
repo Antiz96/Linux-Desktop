@@ -9,4 +9,9 @@ $ sudo systemctl enable sddm
 dtparam=audio=on
 hdmi_drive=2
 
+Spotify :
+yay -S spotifyd
+yay -S spotify-qt
+
+
 
