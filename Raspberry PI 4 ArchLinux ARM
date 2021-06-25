@@ -5,3 +5,8 @@ Last pacman :
 $ sudo pacman -S base-devel linux-headers xf86-video-fbdev xorg xorg-server lxqt xdg-utils ttf-freefont sddm gvfs pulseaudio pavucontrol
 $ sudo systemctl enable sddm
 
+# add to /boot/config.txt
+dtparam=audio=on
+hdmi_drive=2
+
+
