@@ -11,7 +11,7 @@ $ fdisk -l #Check the hard drives ID to create our partitions
 $ fdisk /dev/nvme0n1 #The disk I want to install Arch on
 
 Partitions :
-Delete actual partitions if you need to ---> d option (or o option to delete every partitions)
+Delete current partitions if you need to ---> d option (or o option to delete every partitions)
 Create a GPT partition table (cause I use EFI) ---> g option
 
 Create a 550M EFI partition ---> n option
@@ -64,7 +64,7 @@ $ pacman -S sudo #Install sudo
 $ visudo #Uncomment line that allows wheel group members to use sudo on any command
 
 $ pacman -S grub #Install the grub bootloader
-$ pacman -S efibootmgr dosfstools os-prober mtools #Install grub dependencies for EFI
+$ pacman -S efibootmgr dosfstools mtools #Install grub dependencies for EFI. Install also "os-prober" if you wish to do a dual boot.
 $ mkdir /boot/EFI #Create the EFI boot directory
 $ mount /dev/nvme0n1p1 /boot/EFI #Mount the EFI partition to the directory previously created
 $ grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck #Install grub on our EFI partition
@@ -81,7 +81,7 @@ $ reboot #Reboot the computer to go to our fresh Arch Install
 # Log in with my user (rcandau)
 
 $ sudo pacman -Syu #Update the system
-$ sudo pacman -S base-devel linux-headers intel-ucode nvidia xorg xorg-server gnome #Install base system package + nvidia drivers + gnome desktop environment
+$ sudo pacman -S base-devel linux-headers intel-ucode nvidia xorg gnome #Install base system package + nvidia drivers + gnome desktop environment
 $ sudo systemctl enable gdm #Configure autostart for the Gnome Display Manager
 
 $ localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
