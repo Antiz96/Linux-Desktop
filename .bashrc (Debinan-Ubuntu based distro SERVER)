@@ -56,5 +56,9 @@ alias package="sudo apt list --installed"
 alias cleancache="sudo apt-get clean"
 alias cleanorphans="sudo apt-get autoremove --purge"
 
+#Tmux
+alias tkill="tmux kill-session -t"
+alias tswitch="tmux a -t"
+
 #Sudoers
 alias sudo="sudo "
