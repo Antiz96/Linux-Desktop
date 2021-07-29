@@ -3,7 +3,7 @@ Package :
 ## Install YAY & Pamac
 $ sudo pacman -S git
 $ cd /tmp
-$ git clone https://aur.archlinux.org/yay.git
+$ git clone https://aur.archlinux.org/yay
 $ cd yay
 $ makepkg -si
 $ yay -S pamac
