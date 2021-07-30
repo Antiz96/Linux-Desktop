@@ -81,17 +81,3 @@ Be careful ! Only install extensions tagged available with Gnome 40 to ensure yo
 Installing spotify thourh AUR gets a "GPG Key not found" error :
 Fix :
 $ curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -
-
-Activate numlock by default in KDE and SDDM :
-$ sudo vi /usr/lib/sddm/sddm.conf.d/default.conf
-[...]
-# Initial NumLock state. Can be on, off or none.
-# If property is set to none, numlock won't be changed
-# NOTE: Currently ignored if autologin is enabled.
-Numlock=on
-[...]
-
-System Settings → Hardware → Input Devices → Keyboard → "Enable NumLock on startup"
-
-Enable double clik in dolphin - KDE Plasma :
-System Settings → Workspace Behavior → General → "Select"
