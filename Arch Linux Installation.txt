@@ -85,7 +85,7 @@ $ sudo pacman -S base-devel linux-headers intel-ucode nvidia xorg gnome #Install
 $ sudo systemctl enable gdm #Configure autostart for the Gnome Display Manager
 
 #KDE Plasma Installation
-$ sudo pacman -S base-devel linux-headers intel-ucode nvidia xorg plasma konsole dolphin dolphin-plugins gwenview kdeconnect ktorrent kwrite ark spectacle
+$ sudo pacman -S base-devel linux-headers intel-ucode nvidia xorg plasma konsole dolphin dolphin-plugins gwenview kdeconnect ktorrent kwrite ark spectacle kcalc
 $ sudo systemctl enable sddm
 
 $ localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
