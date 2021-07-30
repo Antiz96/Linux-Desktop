@@ -93,6 +93,9 @@ gnome tweaks
 settings
 Trash 
 
+Gnome Terminal :
 
+Preferences --> Dark Theme 
+Profile --> Colors ---> Gnome Dark --> Solarized
 
 
