@@ -16,7 +16,6 @@ $ sudo systemctl enable bluetooth
 
 ## Mount secondary disk in fstab
 
-##GNOME##
 ## Installing gnome extension support
 $ sudo pacman -S gnome-tweaks
 Install chrome-gnome-shell (aur)
@@ -48,9 +47,6 @@ Theme :
 applications : Kimi
 Icon : Tela-Circle-blue
 shell : Orchis-compact
-
-##KDE##
-https://www.youtube.com/watch?v=qTF9Nmt3iXY&t=158s
 
 Application : 
 
