@@ -51,9 +51,10 @@ shell : Orchis-compact
 Application : 
 
 Atom
-bluemail
-ckb-next (Last blue : 26, 95, 180)
+bluemail (AUR)
+ckb-next (Last blue : 26, 95, 180) (AUR)
 discord
+gnome-terminal-transparency (AUR)
 gparted
 keepass
 vlc
@@ -62,8 +63,8 @@ firefox
 spotify
 steam
 virtualbox
-imagewriter
-timeshift
+imagewriter (AUR)
+timeshift (AUR)
 tmux
 dmenu
 zathura
@@ -97,5 +98,6 @@ Gnome Terminal :
 
 Preferences --> Dark Theme 
 Profile --> Colors ---> Gnome Dark --> Solarized
+Transparent Background ---> Cursor between the two color squares above
 
 
