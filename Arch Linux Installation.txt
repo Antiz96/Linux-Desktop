@@ -80,7 +80,7 @@ $ reboot #Reboot the computer to go to our fresh Arch Install
 
 # Log in with my user (rcandau)
 
-$ sudo pacman -S base-devel linux-headers intel-ucode nvidia xorg gnome #Install base system package + CPU microcode + nvidia drivers + gnome desktop environment
+$ sudo pacman -S base-devel linux-headers intel-ucode nvidia bash-completion xorg gnome #Install base system package + CPU microcode + nvidia drivers + gnome desktop environment
 $ sudo systemctl enable gdm #Configure autostart for the Gnome Display Manager
 
 $ localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
