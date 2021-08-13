@@ -82,7 +82,7 @@ $ reboot #Reboot the computer to go to our fresh Arch Install
 
 ##Minimal Gnome Installation (according to my personal preferences##
 ##Check https://archlinux.org/groups/x86_64/gnome/ to see what you want to install or not##
-$ sudo pacman -S base-devel linux-headers xorg-server intel-ucode nvidia bash-completion gnome-shell gnome-control-center gnome-terminal gnome-calculator gnome-weather gnome-screenshot gnome-shell-extensions gnome-system-monitor nautilus gedit file-roller eog xdg-user-dirs-gtk gdm
+$ sudo pacman -S base-devel linux-headers man xorg-server intel-ucode nvidia bash-completion gnome-shell gnome-control-center gnome-terminal gnome-calculator gnome-weather gnome-screenshot gnome-shell-extensions gnome-system-monitor nautilus gedit file-roller eog xdg-user-dirs-gtk gdm
 $ sudo systemctl enable gdm 
 
 ##Normal Gnome Installation##
