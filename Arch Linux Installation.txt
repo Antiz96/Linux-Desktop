@@ -67,7 +67,7 @@ $ pacman -S grub #Install the grub bootloader
 $ pacman -S efibootmgr dosfstools mtools #Install grub dependencies for EFI. Install also "os-prober" if you wish to do a dual boot.
 $ mkdir /boot/EFI #Create the EFI boot directory
 $ mount /dev/nvme0n1p1 /boot/EFI #Mount the EFI partition to the directory previously created
-$ grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck #Install grub on our EFI partition
+$ grub-install --target=x86_64-efi --bootloader-id=arch-linux --recheck #Install grub on our EFI partition
 $ grub-mkconfig -o /boot/grub/grub.cfg #Generating the Grub configuration file
 
 $ pacman -S networkmanager #Install networkmanager to get internet at reboot
