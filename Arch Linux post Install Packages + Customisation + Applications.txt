@@ -50,7 +50,6 @@ shell : Orchis-compact
 
 Application : 
 
-Atom
 bluemail (AUR)
 ckb-next (Last blue : 26, 95, 180) (AUR)
 discord
