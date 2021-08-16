@@ -18,7 +18,7 @@ $ sudo systemctl enable bluetooth
 
 ## Installing gnome extension support
 $ sudo pacman -S gnome-tweaks
-Install chrome-gnome-shell (aur)
+$ yay -S chrome-gnome-shell
 
 ## Dependence for Arch Linux Upddates Indicator
 $ sudo pacman -S pacman-contrib
@@ -30,8 +30,8 @@ arcmenu
 Clipboard Indicator
 Compiz alike windows effect
 coverflow alt+tab
-Dash to dock
-frippery move clock
+#Dash to dock
+Frippery move clock
 Gsconnect
 Native window placement
 panel osd
