@@ -102,6 +102,7 @@ Transparent Background ---> Cursor between the two color squares above
 Keyboard Shortcuts :
 
 Super + F = Switch size of windows (Maximize/Minimize)
+Super + D = Close the window
 Super + E = Home directory
 Super + C = Start calculator
 Super + M = Hide all windows
