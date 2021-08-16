@@ -44,9 +44,10 @@ X11 Gestures #Only for laptop, enables trackpad gesture on Gnome 40, requires to
 
 Theme :
 
-applications : Kimi
-Icon : Tela-Circle-blue
-shell : Orchis-compact
+Applications : Kimi-Dark (V40) - https://www.gnome-look.org/p/1326889/
+Icon : Tela-Circle-blue - https://www.gnome-look.org/p/1359276/
+Shell : Orchis-dark-compact - https://www.gnome-look.org/p/1357889/
+Cursor : 
 
 Application : 
 
