@@ -99,4 +99,13 @@ Preferences --> Dark Theme
 Profile --> Colors ---> Gnome Dark --> Solarized
 Transparent Background ---> Cursor between the two color squares above
 
+Keyboard Shortcuts :
+
+Super + F = Switch size of windows (Maximize/Minimize)
+Super + E = Home directory
+Super + C = Start calculator
+Super + M = Hide all windows
+Super + A = Overview
+Super + T = gnome-terminal
+CTRL + ALT + C = gnome-system-monitor
 
