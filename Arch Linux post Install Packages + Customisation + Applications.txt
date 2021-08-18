@@ -26,18 +26,19 @@ $ sudo pacman -S pacman-contrib
 Gnome extensions :
 
 Arch Linux Updates Indicator
-arcmenu
+Arcmenu
 Clipboard Indicator
 Compiz alike windows effect
-coverflow alt+tab
+Coverflow alt+tab
 #Dash to dock
 Frippery move clock
 Gsconnect
 Native window placement
-panel osd
+Panel osd
 Transparent Shell
+Tray Icons: Reloaded
 User themes
-weather in the clock
+Weather in the clock
 Workspace indicator
 X11 Gestures #Only for laptop, enables trackpad gesture on Gnome 40, requires touchégg (AUR) started and enable
 
