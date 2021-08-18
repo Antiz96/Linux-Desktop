@@ -30,7 +30,7 @@ Arcmenu
 Clipboard Indicator
 Compiz alike windows effect
 Coverflow alt+tab
-#Dash to dock
+#Dash to dock --> Still not officially available for Gnome 40. I may completly use Arcmenu instead.
 Frippery move clock
 Gsconnect
 Native window placement
