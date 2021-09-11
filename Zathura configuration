@@ -1,6 +1,0 @@
-#Launch "sudo mandb" to update man db
-
-#File = .config/zathura/zathurarc
-
-set selection-clipboard clipboard
-
