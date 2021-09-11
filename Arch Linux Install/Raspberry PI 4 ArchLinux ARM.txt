@@ -1,0 +1,18 @@
+https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-4
+
+Last pacman :
+
+$ sudo pacman -S base-devel linux-headers xf86-video-fbdev xorg-server lxqt xdg-utils ttf-freefont lightdm lightdm-gtk-greeter gvfs alsa-utils pulseaudio pcmanfm-qt
+$ sudo systemctl enable lightdm
+
+# add to /boot/config.txt
+dtparam=audio=on
+hdmi_drive=2
+
+Spotify :
+yay -S spotifyd
+yay -S spotify-qt
+
+
+
+
