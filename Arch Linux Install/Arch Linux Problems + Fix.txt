@@ -1,0 +1,73 @@
+
+## Bluetooth USB Dongle (asus BT500) not working correctly
+## https://www.reddit.com/r/linuxquestions/comments/hy5mx2/bluetooth_adapter_asus_usbbt500_not_working_or/
+$ sudo vi /etc/modprobe.d/bluetooth-blacklist.conf --->
+blacklist btrtl
+blacklist btusb
+blacklist btintel
+blacklist btbcm
+#Then install bluetooth USB Dongle Driver (and potentially reboot)
+
+
+## GDM not starting correctly at boot (black screen with blinking white cursor)
+## https://wiki.archlinux.org/index.php/GDM#GDM_shows_black_screen_with_blinking_white_cursor
+$ sudo vi /usr/lib/systemd/system/gdm.service --> 
+[Service]
+ExecStartPre=/bin/sleep 2
+
+
+## Steam font problem
+## https://steamcommunity.com/app/221410/discussions/0/864961175388383181/
+$ cd ~/.fonts/ (create the folder if it doesn't exists)
+$ curl https://support.steampowered.com/downloads/1974-YFKL-4947/SteamFonts.zip -o SteamFonts.zip
+$ unzip SteamFonts.zip && rm SteamFonts.zip 
+
+
+## Gnome terminal font problem
+Preferences ---> Profil ---> Colors ---> Uncheck "Use the system theme colors"
+
+
+## Lutris wine doesn't work correctly on games
+$ sudo pacman -S wine
+$ sudo pacman -S lib32-lcms2
+
+
+## Bluetooth not working anymore after Kernel update (happens only when using USB Bluetooth Dongle)
+## $ sudo systemctl status bluetooth #shows "mars 31 13:11:18 Arch-Linux systemd[1]: Condition check resulted in Bluetooth service being skipped."
+## Link : https://wiki.archlinux.org/index.php/## Bluetooth#systemd:_Condition_check_resulted_in_Bluetooth_service_being_skipped
+## Reason : the /sys/class/bluetooth directory has been deleted for some reason.
+## More analyses : https://bbs.archlinux.org/viewtopic.php?id=265071
+Fix :
+$ sudo modprobe btusb #Recreates the directory
+$ sudo systemctl restart bluetooth #Restart the bluetooth service correctly
+$ install_bluetooth_driver #Reinstalling my bluetooth driver (this is a personal alias that calls a script I did to install/reinstall my bluetooth driver. Link to the script : https://github.com/Antiz96/Bash-Scripts/blob/master/install_bluetooth_driver.sh)
+
+
+## GDM does not have the right Keyboard Layout/the keyboard layout is not defined for X11 :
+$ localectl
+   System Locale: LANG=fr_FR.UTF-8
+       VC Keymap: fr
+      X11 Layout: n/a
+Link : https://wiki.archlinux.org/index.php/GDM#Keyboard_layout - https://wiki.archlinux.org/index.php/Xorg/Keyboard_configuration#Using_X_configuration_files
+Fix :
+$ localectl --no-convert set-x11-keymap fr
+It should create the following file :
+$ cat /etc/X11/xorg.conf.d/00-keyboard.conf 
+# Written by systemd-localed(8), read by systemd-localed and Xorg. It's
+# probably wise not to edit this file manually. Use localectl(1) to
+# instruct systemd-localed to update it.
+Section "InputClass"
+        Identifier "system-keyboard"
+        MatchIsKeyboard "on"
+        Option "XkbLayout" "fr"
+EndSection
+And now, locatectl should show an input for X11 :
+$ localectl 
+   System Locale: LANG=fr_FR.UTF-8
+       VC Keymap: fr
+      X11 Layout: fr
+
+## Installing spotify via AUR gets a "GPG Key not found" error
+Fix :
+$ curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -
+
