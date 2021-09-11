@@ -70,7 +70,7 @@ virtualbox
 imagewriter (AUR)
 timeshift (AUR)
 tmux
-dmenu
+rofi
 zathura
 zathura-pdf-poppler
 mlocate
