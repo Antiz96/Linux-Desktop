@@ -80,7 +80,7 @@ $ reboot #Reboot the computer to go to our fresh Arch Install
 
 # Log in with my user (rcandau)
 
-$ sudo pacman -S base-devel linux-headers man xorg-server intel-ucode nvidia bash-completion #Installing additional useful and necessary packages for my system
+$ sudo pacman -S base-devel linux-headers man bash-completion xorg-server intel-ucode nvidia #Installing additional useful and necessary packages for my system
 
 ##Minimal GNOME Installation (according to my personal preferences. Check https://archlinux.org/groups/x86_64/gnome/ to see what you want to install or not). If you want a complete GNOME installation, just install the gnome package##
 $ sudo pacman -S gnome-shell gnome-control-center gnome-terminal gnome-calculator gnome-weather gnome-screenshot gnome-menus gnome-shell-extensions gnome-system-monitor nautilus gedit file-roller eog xdg-user-dirs-gtk gdm
