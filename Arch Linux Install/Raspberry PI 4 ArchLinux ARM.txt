@@ -26,6 +26,6 @@ dtparam=audio=on
 hdmi_drive=2
 
 ## Raspberry Pi uncorrect date/time after boot
-# Raspberry Pi has no HWclock, so we'll use a fake one
+# Raspberry Pi has no HWclock, so we'll use a fake one from the AUR
 $ yay -S fake-hwclock
 $ sudo systemctl enable fake-hwclock
