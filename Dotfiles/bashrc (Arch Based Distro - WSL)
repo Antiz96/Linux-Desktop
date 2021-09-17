@@ -10,6 +10,7 @@
 PS1='[\u@\h \W]\$ '
 
 ##Change automatically to my /home directory at launch##
+
 cd
 
 ##Tmux Autostart##
