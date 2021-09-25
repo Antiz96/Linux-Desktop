@@ -1,0 +1,75 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+##Prompt##
+
+PS1='[\u@\h \W]\$ '
+
+##Tmux Autostart##
+
+if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ]; then
+          [ -z "${TMUX}" ] && (tmux attach || tmux) >/dev/null 2>&1
+fi
+
+##ENV##
+
+#Export Color
+export Color="--color=auto"
+
+#Export Editor
+export EDITOR=/usr/bin/vim
+
+#Export Lang for dmenu
+export LC_CTYPE="fr_FR.UTF-8"
+
+##Aliases##
+
+#Listing Files
+alias ls="ls $Color"
+alias ll="ls -ltr"
+alias l="ls -ltrA"
+
+#Grep
+alias grep="grep $Color"
+alias egrep="egrep $Color"
+alias fgrep="fgrep $Color"
+
+#Manipulating Files
+alias mv="mv -i"
+alias cp="cp -i"
+alias ln="ln -i"
+alias rm="rm -i"
+
+#Edit
+alias vi="vim"
+
+#Packet Manager
+alias update="sudo pacman -Syy"
+alias upgrade="sudo pacman -Syu"
+alias fullupgrade="sudo pacman -Syu && yay -Syu"
+alias install="sudo pacman -S"
+alias remove="sudo pacman -Rns"
+alias search="sudo pacman -Ss"
+alias package="sudo pacman -Q"
+alias aurpackage="sudo pacman -Qqm"
+alias cleancache="sudo pacman -Sc"
+alias cleanorphans="sudo pacman -Rns $(pacman -Qtdq)"
+
+#Tmux
+alias tkill="tmux kill-session -t"
+alias tswitch="tmux a -t"
+
+#Sudoers
+alias sudo="sudo "
+
+#Others
+alias pman="man -k . | awk '{print \$1}' | dmenu -l 30 | xargs -r man -Tpdf | zathura --mode=fullscreen -"
+alias tryhackme="sudo openvpn ~/Documents/Other/Antiz96.ovpn &"
+alias hackthebox="sudo openvpn ~/Documents/Other/Antiz.ovpn &"
+alias install_bluetooth_driver="~/Documents/scripts/install_bluetooth_driver.sh"
+alias repair_bluetooth="~/Documents/scripts/repair_bluetooth.sh"
+

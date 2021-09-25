@@ -1,0 +1,40 @@
+## Installation :
+https://github.com/yuk7/ArchWSL
+
+## Configuration
+$ pacman-key --init #Install and populate pacman Key 
+$ pacman-key --populate #Needed to use pacman
+
+$ passwd #Change Root password
+
+$ useradd -m rcandau #Create our user
+$ passwd rcandau #Change his password
+$ usermod -aG wheel rcandau #Put it in the wheel group so he can use sudo
+
+$ export EDITOR=/usr/bin/vim #Make vim our default editor to edit the sudo configuration file
+$ visudo #Uncomment line that allows wheel group members to use sudo on any command
+
+-- This two following commands has to be launch in the windows cmd --
+$ cd Documents\Arch\ #Change directory to our directory that contains Arch Linux WSL
+$ Arch.exe config --default-user rcandau #Make Arch log into our regular user at launch instead of root
+
+$ sudo pacman -Syu #Update our system
+$ sudo pacman -S base-devel linux-headers man bash-completion openssh inetutils dnsutils traceroute rsync zip unzip cronie diffutils git tmux mlocate htop neofetch #Install my needed packages. DO NOT INSTALL "fakeroot" (https://github.com/yuk7/ArchWSL/issues/3)
+
+$ cd /tmp #Change directory to tmp to download and install AUR support
+$ git clone https://aur.archlinux.org/yay.git #Download "yay" install sources
+$ cd yay #Change directory to "yay" install sources directory
+$ makepkg -si #Install "yay"
+
+-- Install my config files --
+https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/bashrc%20(Arch%20Based%20Distro%20-%20WSL) #.bashrc
+https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/tmux.conf #.tmux.conf
+
+-- Setup my DNS config for VPN --
+https://github.com/Antiz96/Linux-Customisation/blob/master/WSL/WSL%20-%20Resolve%20DNS%20using%20VPN
+
+ 
+
+
+
+
