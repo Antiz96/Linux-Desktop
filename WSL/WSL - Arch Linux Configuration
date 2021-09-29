@@ -34,7 +34,7 @@ https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/tm
 https://github.com/Antiz96/Linux-Customisation/blob/master/WSL/WSL%20-%20Resolve%20DNS%20using%20VPN
 
 --Setup Openssh to accept rsa keys--
-The newer version of openssh included in Arch Linux doesn't accept some type of ssh keys judged too old/insecure.
+The newest version of openssh included in Arch Linux doesn't accept some type of ssh keys judged too old/insecure.
 To correct that, you can either specify the type of key in your command like so : ssh -oHostKeyAlgorithms=+ssh-rsa user@host
 Or create the following file :
 $ vi .ssh/config
