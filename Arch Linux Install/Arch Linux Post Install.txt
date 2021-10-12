@@ -130,8 +130,6 @@ imagewriter (AUR)
 timeshift (AUR)
 lightdm-webkit2-theme-glorious (AUR) #https://github.com/manilarome/lightdm-webkit2-theme-glorious & https://github.com/manilarome/lightdm-webkit2-theme-glorious/issues/33
 mugshot (AUR)
-touchegg (AUR) #Only for laptop to enable trackpad gestures. After install : $ sudo systemctl start touchegg && sudo systemctl enable touchegg
-touche (AUR) #Only for laptop. This is a GUI to configure touchegg gestures.
 tmux
 dmenu
 zathura
