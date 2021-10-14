@@ -1,0 +1,71 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+##Prompt (RED when not running TMUX/White when running TMUX)##
+
+TMUX_STATUS=$(env | grep tmux)
+
+if [ -z "$TMUX_STATUS" ]; then
+        PS1="\e[0;31m[\u@\h \W]\$ \e[m"
+else
+        PS1="[\u@\h \W]\$ "
+fi
+
+##Tmux Autostart##
+
+[ -x "$(command -v tmux)" ] \
+  && [ -z "${TMUX}" ] \
+  && (tmux attach || tmux) >/dev/null 2>&1
+
+##ENV##
+
+#Export Color
+export Color="--color=auto"
+
+#Export Editor
+export EDITOR=/usr/bin/vim
+
+##Aliases##
+
+#Listing Files
+alias ls="ls $Color"
+alias ll="ls -ltr"
+alias l="ls -ltrA"
+
+#Grep
+alias grep="grep $Color"
+alias egrep="egrep $Color"
+alias fgrep="fgrep $Color"
+
+#Manipulating Files
+alias mv="mv -i"
+alias cp="cp -i"
+alias ln="ln -i"
+alias rm="rm -i"
+
+#Edit
+alias vi="vim"
+
+#Packet Manager
+alias update="sudo apt-get update"
+alias upgrade="sudo apt-get update && sudo apt-get upgrade"
+alias fullupgrade="sudo apt-get update && sudo apt-get full-upgrade && flatpak update"
+alias install="sudo apt-get install"
+alias remove="sudo apt-get remove"
+alias purge="sudo apt-get purge"
+alias search="sudo apt-cache search"
+alias package="sudo apt list --installed"
+alias cleancache="sudo apt-get clean"
+alias cleanorphans="sudo apt-get autoremove --purge"
+
+#Tmux
+alias tkill="tmux kill-session -t"
+alias tswitch="tmux a -t"
+
+#Sudoers
+alias sudo="sudo "
+
