@@ -1,0 +1,74 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+##Prompt (RED when not running TMUX/White when running TMUX)##
+
+TMUX_STATUS=$(env | grep tmux)
+
+if [ -z "$TMUX_STATUS" ]; then
+        PS1="\e[0;31m[\u@\h \W]\$ \e[m"
+else
+        PS1="[\u@\h \W]\$ "
+fi
+
+##Change automatically to my /home directory at launch##
+
+cd
+
+##Tmux Autostart##
+
+[ -x "$(command -v tmux)" ] \
+  && [ -z "${TMUX}" ] \
+  && (tmux attach || tmux) >/dev/null 2>&1
+
+##ENV##
+
+#Export Color
+export Color="--color=auto"
+
+#Export Editor
+export EDITOR=/usr/bin/vim
+
+##Aliases##
+
+#Listing Files
+alias ls="ls $Color"
+alias ll="ls -ltr"
+alias l="ls -ltrA"
+
+#Grep
+alias grep="grep $Color"
+alias egrep="egrep $Color"
+alias fgrep="fgrep $Color"
+
+#Manipulating Files
+alias mv="mv -i"
+alias cp="cp -i"
+alias ln="ln -i"
+alias rm="rm -i"
+
+#Edit
+alias vi="vim"
+
+#Packet Manager
+alias update="sudo pacman -Syy"
+alias upgrade="sudo pacman -Syu"
+alias fullupgrade="sudo pacman -Syu && yay -Syu"
+alias install="sudo pacman -S"
+alias remove="sudo pacman -Rns"
+alias search="sudo pacman -Ss"
+alias package="sudo pacman -Q"
+alias aurpackage="sudo pacman -Qqm"
+alias cleancache="sudo pacman -Sc"
+alias cleanorphans="pacman -Qtdq | sudo pacman -Rns -"
+
+#Tmux
+alias tkill="tmux kill-session -t"
+alias tswitch="tmux a -t"
+
+#Sudoers
+alias sudo="sudo "
