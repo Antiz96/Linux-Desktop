@@ -1,0 +1,1 @@
+gnome-shell gnome-control-center gnome-terminal gnome-calculator gnome-weather gnome-screenshot gnome-menus gnome-shell-extensions gnome-system-monitor nautilus gedit file-roller eog xdg-user-dirs-gtk gdm
