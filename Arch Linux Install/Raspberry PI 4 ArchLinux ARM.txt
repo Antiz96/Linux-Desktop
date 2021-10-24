@@ -15,7 +15,7 @@ $ vi /etc/fstab
 https://github.com/Antiz96/Linux-Customisation/blob/master/Arch%20Linux%20Install/Arch%20Linux%20Installation.txt
 
 ## Additionnal useful packages, drivers and DE
-$ sudo pacman -S base-devel linux-headers man bash-completion xorg-server xf86-video-fbdev xfce4 mousepad ristretto file-roller thunar-archive-plugin xdg-user-dirs-gtk pulseaudio networkmanager-applet lightdm lightdm-gtk-greeter
+$ sudo pacman -S base-devel linux-headers man bash-completion xorg-server xf86-video-fbdev xfce4 mousepad ristretto file-roller thunar-archive-plugin xdg-user-dirs-gtk pulseaudio network-manager-applet blueman xfce4-pulseaudio-plugin numlockx gvfs lightdm lightdm-gtk-greeter
 $ sudo systemctl enable lightdm
 
 ## Configuring keyboard layout in x11
