@@ -1,15 +1,21 @@
-## Arch Linux ARM Install tutorial
+##Install Arch Linux on my raspberry PI 4
 https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-4
 
+##Update the machine
 $ pacman -Syy
 $ pacman -Syu
-$ reboot
 
-## Then, I follow my Arch Linux Install Routine (without things that has already been done in the installation above like partitiong/filesystem, mount + pacstrap + genfstab, grub, exit and umount /mnt, etc... Also, I do not install the same drivers and same DE as my main machine. GNOME will be a bit too much to handle for the raspberry I guess. See the pacman command I'm using for raspberry below).
+##Activate the swap partition
+$ swapon /dev/mmcblk0p3
+$ vi /etc/fstab
+[...]
+/dev/mmcblk0p3  none    swap    defaults        0       0
+
+##Configure Arch Linux according to my preferences
 https://github.com/Antiz96/Linux-Customisation/blob/master/Arch%20Linux%20Install/Arch%20Linux%20Installation.txt
 
 ## Additionnal useful packages, drivers and DE
-$ sudo pacman -S base-devel linux-headers man bash-completion xorg-server xf86-video-fbdev xfce4 mousepad ristretto file-roller thunar-archive-plugin xdg-user-dirs-gtk pulseaudio lightdm lightdm-gtk-greeter
+$ sudo pacman -S base-devel linux-headers man bash-completion xorg-server xf86-video-fbdev xfce4 mousepad ristretto file-roller thunar-archive-plugin xdg-user-dirs-gtk pulseaudio networkmanager-applet lightdm lightdm-gtk-greeter
 $ sudo systemctl enable lightdm
 
 ## Configuring keyboard layout in x11
