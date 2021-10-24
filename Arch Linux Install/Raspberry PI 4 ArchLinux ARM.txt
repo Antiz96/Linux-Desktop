@@ -11,18 +11,32 @@ $ vi /etc/fstab
 [...]
 /dev/mmcblk0p3  none    swap    defaults        0       0
 
-##Configure Arch Linux according to my preferences
+##Configure Arch Linux according to my preferences (Additional packages and DE just below the link)
 https://github.com/Antiz96/Linux-Customisation/blob/master/Arch%20Linux%20Install/Arch%20Linux%20Installation.txt
-
-## Additionnal useful packages, drivers and DE
+#Additionnal useful packages, drivers and DE
 $ sudo pacman -S base-devel linux-headers man bash-completion xorg-server xf86-video-fbdev xfce4 mousepad ristretto file-roller thunar-archive-plugin xdg-user-dirs-gtk pulseaudio network-manager-applet blueman xfce4-pulseaudio-plugin numlockx gvfs lightdm lightdm-gtk-greeter
 $ sudo systemctl enable lightdm
 
-## Configuring keyboard layout in x11
-$ localectl --no-convert set-x11-keymap fr
+##Install yay, bluetooth support and useful packages
+https://github.com/Antiz96/Linux-Customisation/blob/master/Arch%20Linux%20Install/Arch%20Linux%20Post%20Install.txt
+$ sudo pacman -S bluez pulseaudio-bluetooth bluez-utils keepassxc vlc chromium tmux dmenu zathura zathura-pdf-poppler mlocate htop neofetch
+$ sudo systemctl start bluetooth
+$ sudo systemctl enable bluetooth
 
+##Modify the lightdm configuration file to activate numlock at boot
+$ sudo vi /etc/lightdm/lightdm.conf
+[Seat:*]
+[...]
+greeter-setup-script=/usr/bin/numlockx on
+[...]
+
+##Dotfiles
+~/.bashrc --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/bashrc%20(Arch%20Based%20Distro)
+~/.tmux.conf --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/tmux.conf
+~/.config/zathura/zathurarc --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/zathurarc | launch "sudo mandb" to update man entries for the pman alias
+
+##Reboot
 $ reboot
-
 
 -- Problems + FIX --
 
