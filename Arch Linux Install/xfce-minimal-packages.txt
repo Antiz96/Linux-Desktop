@@ -1,1 +1,0 @@
-xfce4 mousepad ristretto thunar-archive-plugin xfce4-clipman-plugin xfce4-notifyd xfce4-screenshooter xfce4-screensaver xfce4-weather-plugin xfce4-pulseaudio-plugin xfce4-whiskermenu-plugin numlockx plank gvfs gnome-calculator network-manager-applet blueman redshift file-roller picom xdg-user-dirs-gtk pulseaudio openssh lightdm lightdm-gtk-greeter
