@@ -169,7 +169,7 @@ XFCE Settings -> "Window Manager Tweaks" -> "Compositor" -> uncheck "Enable disp
 https://github.com/Antiz96/Linux-Customisation/blob/master/Dotfiles/xfce4-panel.xml
 Needs to be done manually :
 --Launcher Arch Update--
-/bin/bash -c "(echo -e 'Packages :\n' && /usr/bin/checkupdates | awk '{print \$1}' && echo -e '\nAUR Packages :\n' && /usr/bin/yay -Qua | awk '{print \$1}' && echo '' && read -n 1 -r -s -p $'Press enter to quit\n')"
+/bin/bash -c "(echo -e 'Packages :\n' && /usr/bin/checkupdates | awk '{print \$1}' && echo -e '\nAUR Packages :\n' && /usr/bin/yay -Qua | awk '{print \$1}' && echo '' && read -n 1 -r -s -p $'Press \"enter\" to apply or \"ctrl + c\" to quit\n' && sudo pacman -Syu && yay -Syu)"
 --Launcher Lock Screen--
 dm-tool switch-to-greeter
 --WhiskerMenu Configuration--
