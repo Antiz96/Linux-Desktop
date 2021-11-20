@@ -185,7 +185,7 @@ Modify App
 Modify Profil
 --Notification Greffon-- 
 Mask the confirmation for "Delete the journal"
---Power Management GReffon--
+--Power Management Greffon--
 Show the "presentation mode" indicator
 
 ## Autostart APP
