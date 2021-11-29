@@ -73,7 +73,7 @@ alias tswitch="tmux a -t"
 alias sudo="sudo "
 
 #Others
-alias pman="man -k . | awk '{print \$1}' | dmenu -l 30 | xargs -r man -Tpdf | zathura --mode=fullscreen -"
+alias pman="man -k . | awk '{print \$1}' | dmenu -l 15 | xargs -r man -Tpdf | zathura --mode=fullscreen -"
 alias tryhackme="sudo openvpn ~/Documents/Other/Antiz96.ovpn &"
 alias hackthebox="sudo openvpn ~/Documents/Other/Antiz.ovpn &"
 alias install_bluetooth_driver="~/Documents/scripts/install_bluetooth_driver.sh"
