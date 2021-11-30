@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Terminal=true
+Name=Arch Update
+Icon=/usr/share/icons/Tela-circle-blue/16/panel/mintupdate-updates-available.svg
+Exec=/home/rcandau/Documents/scripts/update.sh
