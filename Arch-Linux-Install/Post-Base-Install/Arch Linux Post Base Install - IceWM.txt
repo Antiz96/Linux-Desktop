@@ -27,7 +27,7 @@ keepassxc
 vlc
 libreoffice-fresh
 firefox
-spotify (AUR) # GPG Key to add --> $ curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -
+spotify (AUR)
 steam
 virtualbox
 imagewriter (AUR)
