@@ -108,7 +108,7 @@ pamac
 Arch Update
 Power
 
-## Keyboard Shortcuts (that's just a reminder, there's set in my config files)
+## Keyboard Shortcuts (that's just a reminder, those are set in my config files)
 Super = Open Start Menu
 Super + A = Open Dmenu App Finder/Launcher
 Super + F = Switch size of windows (Maximize/Minimize)
