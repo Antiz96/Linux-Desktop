@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Application
-Terminal=false
-Name=Power
-Icon=/usr/share/icons/Tela-circle-blue/scalable/apps/kshutdown.svg
-Exec=/home/rcandau/Documents/scripts/power.sh
