@@ -115,6 +115,8 @@ $ reboot
 $ sudo mandb
 
 ## Dock (plank)
+$ sudo sed -i "s/Icon=org.xfce.screenshooter/Icon=applets-screenshooter/g" /usr/share/applications/xfce4-screenshooter.desktop
+$ sudo sed -i "s/Icon=system-software-install/Icon=pamac/g" /usr/share/applications/org.manjaro.pamac.manager.desktop
 firefox
 terminal
 spotify
@@ -149,4 +151,5 @@ Super + M = Display the desktop
 Super + T = Terminal
 Super + L = Lock the screen
 Super + V = Tile open windows vertically
+Super + S = Iconifie active window
 Super + Esc = Open the logout menu
