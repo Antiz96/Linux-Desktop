@@ -80,6 +80,7 @@ libreoffice writter
 keepass
 steam
 discord
+hexchat
 virtualbox
 screenshot
 pamac
