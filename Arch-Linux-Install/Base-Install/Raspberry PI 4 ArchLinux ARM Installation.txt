@@ -19,7 +19,7 @@ $ usermod -d /home/rcandau -m rcandau
 $ sudo pacman -S $(curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Arch-Linux-Install/Packages/icewm-rpi-minimal-packages.txt)
 ----------------------------------------------
 
-## Also, don't forget to active the swap partition and delete default user after creating mine
+## Also, don't forget to activate the swap partition
 $ sudo swapon /dev/mmcblk0p3
 $ sudo vim /etc/fstab
 [...]
