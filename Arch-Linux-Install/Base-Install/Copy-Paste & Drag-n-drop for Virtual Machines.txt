@@ -1,7 +1,7 @@
-#Install the VBox utilities
+##Install the VBox utilities
 $ sudo pacman -S virtualbox-guest-utils
 
-#Autolaunch at boot for IceWM (and standalone Window Manager in general)
+##Autolaunch at boot for IceWM (and standalone Window Manager in general)
 $ vim ~/.icewm/startup
 [...]
 #VirtualBox Copy-Paste/Drag-n-Drop
@@ -9,4 +9,4 @@ $ vim ~/.icewm/startup
 /usr/bin/VBoxClient --seamless &
 /usr/bin/VBoxClient --draganddrop &
 
-#Enable Bidirectionnal copy-paste/drag-n-drop in the peripherals settings
+##Enable Bidirectionnal copy-paste/drag-n-drop in the peripherals settings
