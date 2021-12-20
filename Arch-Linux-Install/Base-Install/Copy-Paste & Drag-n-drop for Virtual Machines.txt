@@ -1,4 +1,4 @@
-#Install the Vbox utilities
+#Install the VBox utilities
 $ sudo pacman -S virtualbox-guest-utils
 
 #Autolaunch at boot for IceWM (and standalone Window Manager in general)
