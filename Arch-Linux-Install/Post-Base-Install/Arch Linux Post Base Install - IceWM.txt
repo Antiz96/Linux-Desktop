@@ -1,0 +1,160 @@
+## Install YAY & Pamac
+$ sudo pacman -S git
+$ cd /tmp
+$ git clone https://aur.archlinux.org/yay.git
+$ cd yay
+$ makepkg -si
+$ yay -S pamac
+
+## Installing bluetooth support
+$ sudo pacman -S bluez pulseaudio-bluetooth
+Install bluez-utils-compat (aur) #That package contains deprecated tools that I need to make my USB-Dongle work. If you don't need them, just install bluez-utils via pacman
+$ sudo systemctl start bluetooth
+$ sudo systemctl enable bluetooth
+
+## Dependence for Arch Linux Updates Indicator
+$ sudo pacman -S pacman-contrib
+
+## Mount secondary disk in fstab
+
+## Application (launch "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &" in a terminal to use pamac)
+bluemail (AUR)
+ckb-next (AUR) #Only for my Desktop PC to configure my Corsair Keyboard. Settings --> (Last blue : 26, 95, 180)
+discord
+gparted
+hexchat
+keepassxc
+vlc
+libreoffice-fresh
+firefox
+spotify (AUR)
+steam
+virtualbox
+imagewriter (AUR)
+timeshift (AUR)
+pa-applet-git (AUR)
+mkinitcpio-numlock (AUR) #Then add the "numlock" hook in /etc/mkinitcpio.conf between "autodetect" and "modconf" and then "sudo mkinitcpio -p linux"
+tmux
+dmenu
+zathura
+zathura-pdf-poppler
+mlocate
+htop
+neofetch
+
+## Theme
+Shell : Orchis-dark-compact - https://www.gnome-look.org/p/1357889/
+Icon : Tela-Circle-blue - https://www.gnome-look.org/p/1359276/
+Cursor : McMojave cursors - https://www.opendesktop.org/s/Gnome/p/1355701/
+
+## Command lines to automatically install my desktop configuration and files configuration ##
+/!\Reminder : "/home/rcandau" is hard-coded in "keys" (Lock Screen Shortcut) and in update.desktop (Exec=/home/rcandau/Documents/scripts/update.sh)/!\
+
+#IceWM Conf
+$ mkdir -p ~/.icewm && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/IceWM/icewm.zip -O && unzip icewm.zip -d ~/.icewm/ && chmod +x ~/.icewm/startup && rm -f icewm.zip
+/!\Remember to uncomment the right "Display resolution" command line in the "~/.icewm/startup" script according to the machine (First Line = Desktop | Second Line = Laptop)/!\
+/!\Remember to uncomment the CKB-Next command if on desktop (Corsair Keyboard)/!\
+
+#power.desktop
+$ mkdir -p ~/.local/share/applications && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/IceWM/power.desktop -o ~/.local/share/applications/power.desktop
+
+#update.desktop
+$ mkdir -p ~/.local/share/applications && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/IceWM/update.desktop -o ~/.local/share/applications/update.desktop
+
+#update.sh
+$ mkdir -p ~/Documents/scripts && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/IceWM/update.sh -o ~/Documents/scripts/update.sh && chmod +x ~/Documents/scripts/update.sh
+
+#update_notifier.sh
+$ mkdir -p ~/Documents/scripts && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/IceWM/update_notifier.sh -o ~/Documents/scripts/update_notifier.sh && chmod +x ~/Documents/scripts/update_notifier.sh
+
+#terminalrc
+$ mkdir -p ~/.config/xfce4/terminal && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/IceWM/terminalrc -o ~/.config/xfce4/terminal/terminalrc
+(Delete comments at the top)
+
+#.tmux.conf
+$ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/tmux.conf -o ~/.tmux.conf
+(Delete comments at the top and in the copy/paste section)
+
+#zathurarc
+$ mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/zathurarc -o ~/.config/zathura/zathurarc
+(Delete comments at the top)
+
+#gsimplecal conf
+$ mkdir -p ~/.config/gsimplecal/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/IceWM/config -o ~/.config/gsimplecal/config
+(Delete comments at the top)
+
+#.bashrc
+$ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/bashrc%20\(Arch%20Based%20Distro\) -o ~/.bashrc && source ~/.bashrc
+
+## Disable transparency on unfocused windows (also comment vsync option for Virtual Machines)
+$ sudo vi /etc/xdg/picom.conf
+[...]
+# Opacity of inactive windows. (0.1 - 1.0, defaults to 1.0)
+inactive-opacity = 1
+# inactive-opacity = 0.8;
+[...]
+
+## Setup the crontab for the update notifier
+$ sudo systemctl start cronie && sudo systemctl enable cronie
+$ crontab -e
+#Update Notifier
+*/30 * * * * ~/Documents/scripts/update_notifier.sh
+
+## Add touchpad click and navigation (Only for laptop)
+sudo vim /etc/X11/xorg.conf.d/90-touchpad.conf
+Section "InputClass"
+        Identifier "touchpad"
+        MatchIsTouchpad "on"
+        Driver "libinput"
+        Option "Tapping" "on"
+        Option "TappingButtonMap" "lrm"
+        Option "NaturalScrolling" "on"
+        Option "ScrollMethod" "twofinger"
+EndSection
+
+## Reboot to apply changes
+$ reboot
+
+## Update mandb for the pman alias
+$ sudo mandb
+
+## Dock (plank)
+$ sudo sed -i "s/Icon=org.xfce.screenshooter/Icon=applets-screenshooter/g" /usr/share/applications/xfce4-screenshooter.desktop
+$ sudo sed -i "s/Icon=system-software-install/Icon=pamac/g" /usr/share/applications/org.manjaro.pamac.manager.desktop
+firefox
+terminal
+spotify
+bluemail
+thunar
+mousepad 
+libreoffice writter 
+keepassxc
+steam
+discord
+hexchat
+virtualbox
+screenshot
+pamac
+Arch Update
+Power
+
+## Autoconnect to bluetooth headphones
+$ bluetoothctl trust 38:18:4C:E9:85:B4
+$ sudo vi /etc/pulse/default.pa
+[...]
+### Automatically switch to newly-connected devices
+load-module module-switch-on-connect
+
+## Keyboard Shortcuts (that's just a reminder, those are set in my config files)
+Super = Open Start Menu
+Super + A = Open Dmenu App Finder/Launcher
+Super + F = Switch size of windows (Maximize/Minimize)
+Super + D = Close the window
+Super + E = Thunar
+Super + C = Start calculator
+Super + M = Display the desktop
+Super + T = Terminal
+Super + L = Lock the screen
+Super + V = Tile open windows vertically
+Super + S = Iconifie active window
+Super + Esc = Open the logout menu
