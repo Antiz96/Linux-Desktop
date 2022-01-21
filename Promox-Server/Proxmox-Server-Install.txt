@@ -1,0 +1,37 @@
+##Install Debian minimal (No DE, no standard or aditionnal packages, nothing)
+
+#Partitioning :
+550 MB --> EFI Sytem
+4G --> Swap
+Left --> ext4 /
+
+
+##Log as root
+
+#Static IP Address (create the DNS record on Pihole)
+$ vi /etc/network/interfaces
+[...]
+iface enp0s3 inet static
+        address 192.168.1.100
+        netmask 255.255.255.0
+        gateway 192.168.1.254
+        dns-nameserveurs 192.168.1.1
+
+#Install sudo and put user in the sudo group
+$ apt install sudo
+$ usermod -aG sudo rcandau
+
+
+##Log as regular user
+
+#Update the machine and install usefull packages
+$ sudo apt update && sudo apt full-upgrade
+$ sudo apt install vim man bash-completion openssh-server mlocate htop curl
+
+#Download and edit my .bashrc
+$ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/bashrc%20\(Debian-Ubuntu%20Based%20Distro%20SERVER%20-%20WSL\) -o ~/.bashrc
+$ vim ~/.bashrc (delete all tmux part and flatpak in the fullupgrade alias)
+$ source ~/.bashrc
+
+##Install Proxmox
+https://pve.proxmox.com/wiki/Install_Proxmox_VE_on_Debian_11_Bullseye
