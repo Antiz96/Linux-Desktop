@@ -54,10 +54,10 @@ Linux Bridge Part : In Promox --> System --> Network, edit the actual network ca
 
 
 ##Add storage for VMs and ISO
-Datacenter --> Storage --> ADD
-1 - Type : directory | ID : VMs | Directory : /storage/VMs | Cotent : Disk Image
-2 - Type : directory | ID : ISO | Directory : /storage/ISO | Cotent : ISO Image
-
+Datacenter --> Storage
+ADD - Type : directory | ID : VMs | Directory : /storage/VMs | Cotent : Disk Image
+ADD - Type : directory | ID : ISO | Directory : /storage/ISO | Cotent : ISO Image
+EDIT local directory --> uncheck "activate" checkbox
 
 ##Additionnal tips
 
