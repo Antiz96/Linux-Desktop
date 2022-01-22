@@ -1,4 +1,4 @@
-##Install Debian 11 (bullseye) minimal (No DE, no standard or aditionnal packages, nothing)
+##Install Debian 11 (bullseye) minimal (No DE, no standard or additionnal packages, nothing)
 
 #Partitioning :
 --System Disk--
