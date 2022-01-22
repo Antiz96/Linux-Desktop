@@ -1,4 +1,4 @@
-##Install Debian minimal (No DE, no standard or aditionnal packages, nothing)
+##Install Debian 11 (bullseye) minimal (No DE, no standard or aditionnal packages, nothing)
 
 #Partitioning :
 --System Disk--
@@ -8,6 +8,7 @@ Left --> ext4 / (0% reserved block)
 
 --Storage Disk--
 All space --> ext4 /storage (0% reserved block)
+
 
 ##Log as root
 
@@ -25,11 +26,9 @@ $ usermod -aG sudo rcandau
 
 #Create a VMs directory with regular user permission in /storage
 $ mkdir -p /storage/VMs
-$ chown rcandau: /storage/VMs
 
 #Create a ISO directory with regular user permission in /storage
-$ mkdir -p /storage/ISO/template/iso
-$ chown -R rcandau: /storage/ISO/
+$ mkdir -p /storage/ISO
 
 #Reboot to apply all changes
 $ reboot
@@ -37,9 +36,16 @@ $ reboot
 
 ##Log as regular user
 
-#Update the machine and install usefull packages
+#Update the machine and install usefull packages (which I'll use to administrate the machine and perform various tasks. The selection is subjective tho)
 $ sudo apt update && sudo apt full-upgrade
 $ sudo apt install vim man bash-completion openssh-server mlocate htop curl chrony ksmtuned ssh-askpass
+
+#Configure ssh-askpass
+$ sudo vim /etc/sudo.conf
+[...]
+# Sudo askpass:
+Path askpass /usr/bin/ssh-askpass
+[...]
 
 #Download and edit my .bashrc
 $ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/bashrc%20\(Debian-Ubuntu%20Based%20Distro%20SERVER%20-%20WSL\) -o ~/.bashrc
@@ -80,6 +86,9 @@ void({
 $ sudo systemctl restart pveproxy
 
 
-##Usage
+##Useful informations/tips and general usage
 
+#Sum up of your 
+To upload an ISO to the ISOs storage, click on it 
+[rcandau@Arch-Linux ~]$ rsync -avzPhe "ssh -X" --rsync-path="sudo -A rsync" /run/media/rcandau/data/ISO/* rcandau@192.168.1.100:/storage/ISO/template/iso
 
