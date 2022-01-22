@@ -129,7 +129,7 @@ Snapshots --> Manage, delete, create or restore Snapshots of the VM
 Either click on "Plus" menu at the top right corner while on your VM and select "Clone" or select "Clone" directly in the right click menu of the VM
 
 #Delete a VM
-Clicl on "Plus" at the top right corner while on your VM and select "Delete"
+Click on "Plus" at the top right corner while on your VM and select "Delete"
 
 
 ##Reinstalling Proxmox without loosing VM
