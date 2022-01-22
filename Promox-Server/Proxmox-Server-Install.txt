@@ -35,7 +35,7 @@ $ reboot
 
 #Update the machine and install usefull packages
 $ sudo apt update && sudo apt full-upgrade
-$ sudo apt install vim man bash-completion openssh-server mlocate htop curl
+$ sudo apt install vim man bash-completion openssh-server mlocate htop curl chrony ksmtuned
 
 #Download and edit my .bashrc
 $ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/bashrc%20\(Debian-Ubuntu%20Based%20Distro%20SERVER%20-%20WSL\) -o ~/.bashrc
