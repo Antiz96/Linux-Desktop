@@ -59,4 +59,4 @@ https://drive.google.com/file/d/19hSC_O42fNMEZZUC-u2vSnqk02fEzGg_/view
 #Modify proxmox repo from "enterprise" to "no-subscription" (as I do not use a subscription for my personal needs, I do not have a subscription key. Therefore, I cannot authenticate to the enterprise repo and use it, leading to an error "401 unauthorized" when performing "apt update").
 $ sudo mv /etc/apt/sources.list.d/pve-enterprise.list /etc/apt/sources.list.d/pve-no-subscription.list
 $ sudo vim /etc/apt/sources.list.d/pve-no-subscription.list
-
+deb http://download.proxmox.com/debian bullseye pve-no-subscription
