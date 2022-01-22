@@ -1,10 +1,13 @@
 ##Install Debian minimal (No DE, no standard or aditionnal packages, nothing)
 
 #Partitioning :
+--System Disk--
 550 MB --> EFI Sytem
 4G --> Swap
 Left --> ext4 / (0% reserved block)
 
+--VMs Disk--
+All space --> ext4 /VMs (0% reserved block)
 
 ##Log as root
 
