@@ -59,7 +59,7 @@ User Management Part : Create regular user in Datacenter --> Permissions --> Use
 Linux Bridge Part : In Promox --> System --> Network, edit the actual network card and delete IP/Netmask and Gateway. Once done, create a new "Linux Bridge" card, add the IP/Netmask and Gateway and add the actual network card as the bridge port.
 
 
-##Add storage for VMs and ISO
+##Add storage for VMs and ISO via the Proxom interface
 Datacenter --> Storage
 ADD - Type : directory | ID : VMs | Directory : /storage/VMs | Cotent : Disk Image
 ADD - Type : directory | ID : ISO | Directory : /storage/ISO | Cotent : ISO Image
@@ -86,14 +86,30 @@ void({
 $ sudo systemctl restart pveproxy
 
 
-##Useful informations/tips and general usage
+##Useful informations/tips and general usage of the Proxmox interface
 
 #Datacenter
-Sum up --> gives you a sum up of your datacenter state
+Sum up --> Gives you a sum up of your datacenter state
 Storage --> Manage, delete and create different storage type for different usage (ISO, VMs Disk, Backup, Container, Templates, etc...)
 Permissions --> Manage, delete and create users, groups, roles, pools, API Token and realms. Also allow to enable and manage "Two Factor" authentication
 
-#
-To upload an ISO to the ISOs storage, click on it 
-$ rsync -vzPhe "ssh -X" --rsync-path="sudo -A rsync" /run/media/rcandau/data/ISO/* rcandau@192.168.1.100:/storage/ISO/template/iso
+#Proxmox (node)
+Sum up --> Gives you a sum up of your node state
+Shell --> Gives you a shell on your node (ssh)
+System --> Gives you a sum up of the different services state
+System/Network --> Manage, delete and create Network card, bridge, vlan, etc... (/etc/network/interfaces)
+System/DNS --> Manage your DNS (/etc/resolv.conf)
+System/Hosts --> Manage your hosts entry (/etc/hosts)
+System/Time --> Manage your NTP configuration (chrony.conf)
+System/Syslog --> Read the Proxmox's syslog in real time
+Disks --> Shows your mounter disks
+Tasks History --> Shows the history of tasks that has been performed recently
+
+#ISO (storage)
+Sum up --> Gives you a sum up of your storage state
+ISO Image --> Upload or Delete ISO(s). Note that you can only upload one ISO at once via the upload form. If I need to upload multiple ISOs from my computer to the Proxmox Server, I use the following command :
+/!\It requires a Linux PC running an X11 (Xorg/X) based graphical interface/!\ 
+/!\The "rsync" package has to be installed on both the source computer and the Proxmox Server (which should be the case as rsync is installed by default during the Promox installation)/!\
+/!\Finally, it needs the "ssh-askpass" packages installed and configured on the Proxmox Server (see the "##Log as general user" part above)/!\
+$ rsync -vzPhe "ssh -X" --rsync-path="sudo -A rsync" /run/media/rcandau/data/ISO/* rcandau@Promox:/storage/ISO/template/iso
 
