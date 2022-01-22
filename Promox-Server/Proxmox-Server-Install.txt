@@ -24,11 +24,10 @@ iface enp0s3 inet static
 $ apt install sudo
 $ usermod -aG sudo rcandau
 
-#Create a VMs directory with regular user permission in /storage
+#Create the VMs, ISO and Backup_VMs directories
 $ mkdir -p /storage/VMs
-
-#Create a ISO directory with regular user permission in /storage
 $ mkdir -p /storage/ISO
+$ mkdir -p /storage/Backup_Vms
 
 #Reboot to apply all changes
 $ reboot
@@ -61,8 +60,9 @@ Linux Bridge Part : In Promox --> System --> Network, edit the actual network ca
 
 ##Add storage for VMs and ISO via the Proxom interface
 Datacenter --> Storage
-ADD - Type : directory | ID : VMs | Directory : /storage/VMs | Cotent : Disk Image
-ADD - Type : directory | ID : ISO | Directory : /storage/ISO | Cotent : ISO Image
+ADD - Type : directory | ID : Backup | Directory : /storage/Backup_VMs | Content : Disk Image
+ADD - Type : directory | ID : ISO | Directory : /storage/ISO | Content : ISO Image
+ADD - Type : directory | ID : VMs | Directory : /storage/VMs | Content : Disk Image
 EDIT local directory --> uncheck "activate" checkbox
 
 
