@@ -27,6 +27,10 @@ $ usermod -aG sudo rcandau
 $ mkdir -p /storage/VMs
 $ chown rcandau: /storage/VMs
 
+#Create a ISO directory with regular user permission in /storage
+$ mkdir -p /storage/ISO
+$ chown rcandau: /storage/ISO
+
 #Reboot to apply all changes
 $ reboot
 
