@@ -3,7 +3,7 @@
 #Partitioning :
 550 MB --> EFI Sytem
 4G --> Swap
-Left --> ext4 /
+Left --> ext4 / (0% reserved block)
 
 
 ##Log as root
