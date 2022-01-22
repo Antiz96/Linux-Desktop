@@ -117,3 +117,5 @@ $ rsync -vzPhe "ssh -X" --rsync-path="sudo -A rsync" /run/media/rcandau/data/ISO
 Sum up --> Gives you a sum up of your storage state
 VMs Disks --> Manage (delete) VMs Disks
 
+#Create a VM
+Either click on "Create a VM" on the top right corner or in the right click menu of the Proxmox node
