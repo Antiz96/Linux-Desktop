@@ -32,7 +32,7 @@ $ reboot
 
 #Update the machine and install usefull packages (which I'll use to administrate the machine and perform various tasks. The selection is subjective tho)
 $ sudo apt update && sudo apt full-upgrade
-$ sudo apt install vim man bash-completion openssh-server mlocate htop curl chrony ksmtuned ssh-askpass
+$ sudo apt install vim man bash-completion openssh-server mlocate htop curl chrony ksmtuned ssh-askpass neofetch
 
 #Configure ssh-askpass
 $ sudo vim /etc/sudo.conf
