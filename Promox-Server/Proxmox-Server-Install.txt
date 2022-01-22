@@ -86,6 +86,7 @@ $ sudo systemctl restart pveproxy
 #Datacenter
 Sum up --> Gives you a sum up of your datacenter state
 Storage --> Manage, delete and create different storage type for different usage (ISO, VMs Disk, Backup, Container, Templates, etc...)
+Backup --> Manage, delete, and create backup automatic jobs for your node/VMs
 Permissions --> Manage, delete and create users, groups, roles, pools, API Token and realms. Also allow to enable and manage "Two Factor" authentication
 
 #Proxmox (node)
