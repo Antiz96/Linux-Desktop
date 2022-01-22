@@ -88,7 +88,11 @@ $ sudo systemctl restart pveproxy
 
 ##Useful informations/tips and general usage
 
-#Sum up of your 
+#Datacenter
+Sum up --> gives you a sum up of your datacenter state
+Storage --> Manage, delete and create different storage type for different usage (ISO, VMs Disk, Backup, Container, Templates, etc...)
+
+#
 To upload an ISO to the ISOs storage, click on it 
-[rcandau@Arch-Linux ~]$ rsync -avzPhe "ssh -X" --rsync-path="sudo -A rsync" /run/media/rcandau/data/ISO/* rcandau@192.168.1.100:/storage/ISO/template/iso
+$ rsync -vzPhe "ssh -X" --rsync-path="sudo -A rsync" /run/media/rcandau/data/ISO/* rcandau@192.168.1.100:/storage/ISO/template/iso
 
