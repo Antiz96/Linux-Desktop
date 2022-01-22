@@ -45,19 +45,4 @@ $ source ~/.bashrc
 ##Install Proxmox
 https://pve.proxmox.com/wiki/Install_Proxmox_VE_on_Debian_11_Bullseye
 User Management Part : Create regular user in Datacenter --> Permissions --> User (Linux Pam authentication)
-Linux Bridge Part : Edit /etc/network/interfaces like so (reboot to apply changes)
-[...]
-auto enp0s3
-allow-hotplug enp0s3
-iface enp0s3 inet manual
-
-auto vmbr0
-allow-hotplug vmbr0
-iface vmbr0 inet static
-        address 192.168.1.100/24
-        gateway 192.168.1.254
-        dns-nameservers 192.168.1.1
-        bridge_ports enp0s3
-        bridge_stp off
-        bridge_fd 0
- 
+Linux Bridge Part : In Promox --> System --> Network, edit the actual network card and delete IP/Netmask and Gateway. Once done, create a new "Linux Bridge" card, add the IP/Netmask and Gateway and add the actual network card as the bridge port.
