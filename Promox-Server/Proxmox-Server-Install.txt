@@ -122,7 +122,7 @@ Console --> Gives you a remote console on your VM (VNC)
 Hardware --> Manage, add, delete, edit or create hardware on the VM
 Options --> Manage options of the VM
 Tasks History --> Shows the history of tasks that has been performed recently on the VM
-Bakcup --> Manager, delete, create or restore Backup of the VM
+Backup --> Manager, delete, create or restore Backup of the VM
 Snapshots --> Manage, delete, create or restore Snapshots of the VM
 
 #Clone a VM
@@ -130,3 +130,8 @@ Either click on "Plus" menu at the top right corner while on your VM and select 
 
 #Delete a VM
 Clicl on "Plus" at the top right corner while on your VM and select "Delete"
+
+
+##Reinstalling Proxmox without loosing VM
+As VMs, ISOs and Backups are on a separate disk, I can actually completely reinstall my proxmox server without loosing any of my VMs, ISOs and Backups.
+To do so, I just need to redo this all procedure without formatting my secondary disk (/storage) which contains VMs, ISOs and Backups (otherwise I will loose everything).
