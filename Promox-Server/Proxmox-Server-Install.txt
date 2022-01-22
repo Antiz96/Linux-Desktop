@@ -24,11 +24,6 @@ iface enp0s3 inet static
 $ apt install sudo
 $ usermod -aG sudo rcandau
 
-#Create the VMs, ISO and Backup_VMs directories
-$ mkdir -p /storage/VMs
-$ mkdir -p /storage/ISO
-$ mkdir -p /storage/Backup_VMs
-
 #Reboot to apply all changes
 $ reboot
 
