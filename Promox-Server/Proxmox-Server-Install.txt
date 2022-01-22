@@ -122,7 +122,8 @@ Console --> Gives you a remote console on your VM (VNC)
 Hardware --> Manage, add, delete, edit or create hardware on the VM
 Options --> Manage options of the VM
 Tasks History --> Shows the history of tasks that has been performed recently on the VM
-Snapshots --> Manage, delete, create or restore Snapshots on the VM
+Bakcup --> Manager, delete, create or restore Backup of the VM
+Snapshots --> Manage, delete, create or restore Snapshots of the VM
 
 #Clone a VM
 Either click on "Plus" menu at the top right corner while on your VM and select "Clone" or select "Clone" directly in the right click menu of the VM
