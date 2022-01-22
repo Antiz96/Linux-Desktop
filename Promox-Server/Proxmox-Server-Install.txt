@@ -6,8 +6,8 @@
 4G --> Swap
 Left --> ext4 / (0% reserved block)
 
---VMs Disk--
-All space --> ext4 /VMs (0% reserved block)
+--Storage Disk--
+All space --> ext4 /storage (0% reserved block)
 
 ##Log as root
 
@@ -23,6 +23,10 @@ iface enp0s3 inet static
 #Install sudo and put user in the sudo group
 $ apt install sudo
 $ usermod -aG sudo rcandau
+
+#Create a VMs directory with regular user permission in /storage
+$ mkdir -p /storage/VMs
+$ chown rcandau: /storage/VMs
 
 #Reboot to apply all changes
 $ reboot
