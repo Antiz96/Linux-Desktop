@@ -103,7 +103,7 @@ System/Hosts --> Manage your hosts entry (/etc/hosts)
 System/Time --> Manage your NTP configuration (chrony.conf)
 System/Syslog --> Read the Proxmox's syslog in real time
 Disks --> Shows your mounter disks
-Tasks History --> Shows the history of tasks that has been performed recently
+Tasks History --> Shows the history of tasks that has been performed recently on the node
 
 #ISO (storage)
 Sum up --> Gives you a sum up of your storage state
@@ -113,9 +113,23 @@ ISO Image --> Upload or Delete ISO(s). Note that you can only upload one ISO at 
 /!\Finally, it needs the "ssh-askpass" packages installed and configured on the Proxmox Server (see the "##Log as general user" part above)/!\
 $ rsync -vzPhe "ssh -X" --rsync-path="sudo -A rsync" /run/media/rcandau/data/ISO/* rcandau@Promox:/storage/ISO/template/iso
 
-#VMs (storage
+#VMs (storage)
 Sum up --> Gives you a sum up of your storage state
 VMs Disks --> Manage (delete) VMs Disks
 
 #Create a VM
 Either click on "Create a VM" on the top right corner or in the right click menu of the Proxmox node
+
+#VM
+Sum up --> Gives you a sum up of your VM state
+Console --> Gives you a remote console on your VM (VNC)
+Hardware --> Manage, add, delete, edit or create hardware on the VM
+Options --> Manage options of the VM
+Tasks History --> Shows the history of tasks that has been performed recently on the VM
+Snapshots --> Manage, delete, create or restore Snapshots on the VM
+
+#Clone a VM
+Either click on "Plus" menu at the top right corner while on your VM and select "Clone" or select "Clone" directly in the right click menu of the VM
+
+#Delete a VM
+Clicl on "Plus" at the top right corner while on your VM and select "Delete"
