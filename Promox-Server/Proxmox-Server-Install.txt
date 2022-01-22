@@ -54,9 +54,24 @@ Linux Bridge Part : In Promox --> System --> Network, edit the actual network ca
 
 
 ##Additionnal tips
-https://drive.google.com/file/d/19hSC_O42fNMEZZUC-u2vSnqk02fEzGg_/view
 
 #Modify proxmox repo from "enterprise" to "no-subscription" (as I do not use a subscription for my personal needs, I do not have a subscription key. Therefore, I cannot authenticate to the enterprise repo and use it, leading to an error "401 unauthorized" when performing "apt update").
-$ sudo mv /etc/apt/sources.list.d/pve-enterprise.list /etc/apt/sources.list.d/pve-no-subscription.list
+https://drive.google.com/file/d/19hSC_O42fNMEZZUC-u2vSnqk02fEzGg_/view
+$ sudo mv /etc/apt/sources.list.d/pve-enterprise.list /etc/apt/sources.list.d/pve-enterprise.list-bck
+$ sudo cp -p /etc/apt/sources.list.d/pve-enterprise.list-bck /etc/apt/sources.list.d/pve-no-subscription.list
 $ sudo vim /etc/apt/sources.list.d/pve-no-subscription.list
 deb http://download.proxmox.com/debian bullseye pve-no-subscription
+
+#Get rid of the "No valid subscription key found" message when loggin in (for the same reason as above)
+https://johnscs.com/remove-proxmox51-subscription-notice/
+$ sudo cp -p /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js-bck
+$ sudo vim /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js --> Change "Ext.Msg.show" from "void"
+[...]
+void({
+  title: gettext('No valid subscription'),
+[...]
+$ sudo systemctl restart pveproxy
+
+
+
+
