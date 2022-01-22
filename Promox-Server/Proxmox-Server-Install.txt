@@ -53,6 +53,12 @@ User Management Part : Create regular user in Datacenter --> Permissions --> Use
 Linux Bridge Part : In Promox --> System --> Network, edit the actual network card and delete IP/Netmask and Gateway. Once done, create a new "Linux Bridge" card, add the IP/Netmask and Gateway and add the actual network card as the bridge port.
 
 
+##Add storage for VMs and ISO
+Datacenter --> Storage --> ADD
+1 - Type : directory | ID : VMs | Directory : /storage/VMs | Cotent : Disk Image
+2 - Type : directory | ID : ISO | Directory : /storage/ISO | Cotent : ISO Image
+
+
 ##Additionnal tips
 
 #Modify proxmox repo from "enterprise" to "no-subscription" (as I do not use a subscription for my personal needs, I do not have a subscription key. Therefore, I cannot authenticate to the enterprise repo and use it, leading to an error "401 unauthorized" when performing "apt update").
