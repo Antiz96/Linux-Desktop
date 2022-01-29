@@ -1,4 +1,4 @@
-##On Ubuntu/Debian distros, I often face an issue where the apt package manager takes forever to perform update, upgrade, etc... (specially upgrade).
+##On Ubuntu/Debian distros, I sometime face an issue where the apt package manager is pretty to download stuff during update, upgrade, etc...
 ##This is how I fix it
 
 https://www.techrepublic.com/article/how-to-fix-the-slow-apt-get-update-issue-on-linux-machines/
