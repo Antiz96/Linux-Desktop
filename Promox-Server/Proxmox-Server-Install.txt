@@ -20,6 +20,8 @@ iface enp0s3 inet static
         gateway 192.168.1.254
         dns-nameservers 192.168.1.1
 
+$ systemctl restart networking
+
 #Install sudo and put user in the sudo group
 $ apt install sudo
 $ usermod -aG sudo rcandau
