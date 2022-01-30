@@ -118,7 +118,7 @@ VMs Disks --> Manage (delete) VMs Disks
 
 #Backup (storage)
 Sum up --> Gives you a sum up of your storage state
-Backup --> Manage your different backup (edit/restore/delete)
+Backup --> Manage your different backups (edit/restore/delete)
 
 #Create a VM
 Either click on "Create a VM" on the top right corner or in the right click menu of the Proxmox node
