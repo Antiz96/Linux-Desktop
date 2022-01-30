@@ -60,12 +60,12 @@ Datacenter --> Storage
 ADD - Type : directory | ID : Backup | Directory : /storage/Backup_VMs | Content : VZDump Backup File
 ADD - Type : directory | ID : ISO | Directory : /storage/ISO | Content : ISO Image
 ADD - Type : directory | ID : VMs | Directory : /storage/VMs | Content : Disk Image
-EDIT local directory --> uncheck "activated" checkbox
+EDIT local directory --> uncheck "enabled" checkbox
 
 ##Disable the root account (for security reasons)
-Log in to your rregular PVEAdmin account
+Log in to your regular PVEAdmin account
 Datacenter --> Permissions --> User
-EDIT root account --> uncheck "activated" checkbox
+EDIT root account --> uncheck "enabled" checkbox
 (you can reactivate it the same way if you need it for some reasons)
 
 
