@@ -148,3 +148,9 @@ Click on "Plus" at the top right corner while on your VM and select "Delete"
 ##Reinstalling Proxmox without loosing VM
 As VMs, ISOs and Backups are on a separate disk, I can actually completely reinstall my proxmox server without loosing any of my VMs, ISOs and Backups.
 To do so, I just need to redo this all procedure WITHOUT FORMATTING MY SECONDARY DISK (/storage) (which contains VMs, ISOs and Backups) during the partioning process (otherwise I will loose everything).
+
+
+##Update procedure
+Promox and its component are no more than regular packages installed on the Debian server
+
+https://www.youtube.com/watch?v=NLoY4vuTI6g&
