@@ -150,7 +150,21 @@ As VMs, ISOs and Backups are on a separate disk, I can actually completely reins
 To do so, I just need to redo this all procedure WITHOUT FORMATTING MY SECONDARY DISK (/storage) (which contains VMs, ISOs and Backups) during the partioning process (otherwise I will loose everything).
 
 
-##Update procedure
-Promox and its component are no more than regular packages installed on the Debian server
+##Update/Upgrade procedure
+Promox and its components are no more than regular packages installed on the Debian server.
+So the update/upgrade procedure is basically just update/upgrade your system.
 
-https://www.youtube.com/watch?v=NLoY4vuTI6g&
+#Update Promox
+$ sudo apt update && sudo apt full-upgrade
+
+#Upgrade Proxmox
+Proxmox upgrades usually follow Debian upgrade.
+You have to fully update the system, change Debian and Proxmox repos to the new Debian version (for instance, from "buster" to "bullseye") and perform an update + dist-upgrade.
+Usually, Proxmox write a wiki page/tutorial on how to upgrade from a major release to another, both for Debian and Proxmox at the same time
+
+For instance, upgrade from "buster" to "bullseye" and from Proxmox v6 to Proxmox v7 :
+https://pve.proxmox.com/wiki/Upgrade_from_6.x_to_7.0
+
+If you prefer, you'll find video tutorial all over youtube :
+https://www.youtube.com/watch?v=NLoY4vuTI6g& (French)
+https://www.youtube.com/watch?v=RCSp6gT7LWs& (English)
