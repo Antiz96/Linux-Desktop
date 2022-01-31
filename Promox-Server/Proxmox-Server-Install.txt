@@ -116,7 +116,7 @@ ISO Image --> Upload or Delete ISO(s). Note that you can only upload one ISO at 
 /!\It requires a Linux PC running an X11 (Xorg/X) based graphical interface/!\ 
 /!\The "rsync" package has to be installed on both the source computer and the Proxmox Server (which should be the case as rsync is installed by default during the Promox installation)/!\
 /!\Finally, it needs the "ssh-askpass" packages installed and configured on the Proxmox Server (see the "##Log as general user" part above)/!\
-$ rsync -vzPhe "ssh -X" --rsync-path="sudo -A rsync" /run/media/rcandau/data/ISO/* rcandau@Promox:/storage/ISO/template/iso
+$ rsync -vzPhe "ssh -X" --rsync-path="sudo -A rsync" /run/media/rcandau/data/ISO/* rcandau@Promox:/storage/Promox/ISO/template/iso
 
 #VMs (storage)
 Sum up --> Gives you a sum up of your storage state
