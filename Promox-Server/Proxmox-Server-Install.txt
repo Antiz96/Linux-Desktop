@@ -26,8 +26,8 @@ $ systemctl restart networking
 $ apt install sudo
 $ usermod -aG sudo rcandau
 
-#Reboot to apply all changes
-$ reboot
+#Create the Proxmox main directory in /storage
+$ mkdir /storage/Proxmox
 
 
 ##Log as regular user
@@ -57,9 +57,9 @@ Linux Bridge Part : In Promox --> System --> Network, edit the actual network ca
 
 ##Add storage for VMs and ISO via the Proxom interface
 Datacenter --> Storage
-ADD - Type : directory | ID : Backup | Directory : /storage/Backup_VMs | Content : VZDump Backup File
-ADD - Type : directory | ID : ISO | Directory : /storage/ISO | Content : ISO Image
-ADD - Type : directory | ID : VMs | Directory : /storage/VMs | Content : Disk Image
+ADD - Type : directory | ID : Backup | Directory : /storage/Proxmox/Backup | Content : VZDump Backup File
+ADD - Type : directory | ID : ISO | Directory : /storage/Proxmox/ISO | Content : ISO Image
+ADD - Type : directory | ID : VMs | Directory : /storage/Proxmox/VMs | Content : Disk Image
 EDIT local directory --> uncheck "enabled" checkbox
 
 ##Disable the root account (for security reasons)
