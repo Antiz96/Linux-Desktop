@@ -58,3 +58,6 @@ $ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotf
 $ vim ~/.bashrc #Get rid of the flatpak part in the fullupgrade alias + delete all the "Other" section
 $ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/tmux.conf -o ~/.tmux.conf
 $ vim ~/.tmux.conf #Get rid of comments at the top of the file
+
+#Install Wine
+https://wine.htmlvalidator.com/install-wine-on-debian-11.html
