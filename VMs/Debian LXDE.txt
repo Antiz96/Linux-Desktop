@@ -60,4 +60,4 @@ $ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotf
 $ vim ~/.tmux.conf #Get rid of comments at the top of the file
 
 #Install Wine
-https://wine.htmlvalidator.com/install-wine-on-debian-11.html
+https://www.linuxcapable.com/how-to-install-wine-on-debian-11-bullseye/
