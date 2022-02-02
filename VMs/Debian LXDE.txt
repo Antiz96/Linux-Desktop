@@ -59,7 +59,7 @@ $ vim ~/.bashrc #Get rid of the flatpak part in the fullupgrade alias + delete a
 $ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/tmux.conf -o ~/.tmux.conf
 $ vim ~/.tmux.conf #Get rid of comments at the top of the file
 
-#Install Wine
+#Install Wine (if needed)
 https://www.linuxcapable.com/how-to-install-wine-on-debian-11-bullseye/
 $ sudo dpkg --add-architecture i386
 $ sudo apt-get update && sudo apt install wine32 wine64 -y
