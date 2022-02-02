@@ -156,5 +156,5 @@ Super + M = Display the desktop
 Super + T = Terminal
 Super + L = Lock the screen
 Super + V = Tile open windows vertically
-Super + S = Iconifie active window
+Super + H = Iconifie active window
 Super + Esc = Open the logout menu
