@@ -107,7 +107,7 @@ System/DNS --> Manage your DNS (/etc/resolv.conf)
 System/Hosts --> Manage your hosts entry (/etc/hosts)
 System/Time --> Manage your NTP configuration (chrony.conf)
 System/Syslog --> Read the Proxmox's syslog in real time
-Disks --> Shows your mounter disks
+Disks --> Shows your mounted disks
 Tasks History --> Shows the history of tasks that has been performed recently on the node
 
 #ISO (storage)
