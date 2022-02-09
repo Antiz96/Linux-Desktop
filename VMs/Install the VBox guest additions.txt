@@ -1,8 +1,0 @@
-#Insert the addons CD
-Peripherals --> insert the addons CD
-
-#Execute the run script with sudo privileges
-$ sudo /path/to/the/script/VBoxLinuxAdditions.run (you can actually drag & drop it from a file manager to the terminal)
-
-#Reboot to apply
-$ reboot
