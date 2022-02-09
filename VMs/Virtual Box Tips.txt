@@ -1,0 +1,34 @@
+##Video memory##
+You can actually go up to 256Mb video memory from the sum up of your VM compare to only 128Mb in the actual settings of the VM
+
+
+##Copy-Paste/Drag-n-drop##
+
+#Install the VBox utilities
+$ sudo pacman -S virtualbox-guest-utils
+OR
+$ sudo apt install virtualbox-guest-utils
+OR
+$ sudo dnf install virtualbox-guest-utils
+
+#Autolaunch at boot for IceWM (and standalone Window Manager in general)
+$ vim ~/.icewm/startup
+[...]
+#VirtualBox Copy-Paste/Drag-n-Drop
+/usr/bin/VBoxClient --clipboard &
+/usr/bin/VBoxClient --seamless &
+/usr/bin/VBoxClient --draganddrop &
+
+#Enable Bidirectionnal copy-paste/drag-n-drop in the peripherals settings
+
+
+##Install the VBox Guest Additions (for copy paste/drag-n-drop and auto scale screen resolution)##
+
+#Insert the addons CD
+Peripherals --> insert the addons CD
+
+#Execute the run script with sudo privileges
+$ sudo /path/to/the/script/VBoxLinuxAdditions.run (you can actually drag & drop it from a file manager to the terminal)
+
+#Reboot to apply
+$ reboot
