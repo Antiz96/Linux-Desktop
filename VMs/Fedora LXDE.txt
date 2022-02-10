@@ -23,7 +23,6 @@ Insert the addon disk and execute the "run" script with sudo privileges
 #Install qemu-agent for Proxmox (if needeed)
 $ sudo dnf install qemu-guest-agent
 $ sudo systemctl start qemu-guest-agent
-$ sudo systemctl enable qemu-guest-agent
 
 #Reboot to apply changes
 $ reboot
