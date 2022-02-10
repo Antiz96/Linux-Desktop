@@ -24,7 +24,6 @@ $ sudo sh /media/cdrom0/VBoxLinuxAdditions.run
 #Install qemu-agent for Proxmox (if needeed)
 $ sudo apt install qemu-guest-agent
 $ sudo systemctl start qemu-guest-agent
-$ sudo systemctl enable qemu-guest-agent
 
 #Reboot to apply changes
 $ reboot
