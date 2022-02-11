@@ -1,0 +1,72 @@
+##Elementary-OS
+Just a quick reminder on how I install an Elementary-OS environnement for various needs
+
+#Install Elementary-OS (regular user as administrator)
+Partitiong :
+550M EFI
+4G Swap
+Left ext4 root
+
+#Delete password feedback for sudo
+$ sudo rm /etc/sudoers.d/pwfeedback
+
+#Update the system and reboot
+$ sudo apt update && sudo apt full-upgrade && flatpak update
+$ reboot
+
+#Install dependencies and various stuff
+$ sudo apt install bash-completion mlocate man curl tmux vim htop neofetch firefox
+
+#Install virtualbox addons (if needed)
+Insert the addon disk and execute the run file with sudo privileges
+
+#Install qemu-agent for Proxmox (if needeed)
+$ sudo apt install qemu-guest-agent
+$ sudo systemctl start qemu-guest-agent
+
+#Reboot to apply changes
+$ reboot
+
+#Add Elementary Tweak to change Windows Layout
+$ sudo apt install software-properties-common
+$ sudo add-apt-repository ppa:philip.scott/pantheon-tweaks
+$ sudo apt update
+$ sudo apt install pantheon-tweaks
+
+#Dock
+Firefox
+Terminal
+Files
+[...]
+
+#Settings
+Tweaks --> Windows style for button
+Tweaks --> Disable alert for dangerous paste in terminal
+Applications --> Set firefox as default browser
+Security --> Uncheck the localisation service
+Power Management --> Set all to "never"
+Mouse and TrackPad --> Check paste with middle click
+Bluetooth --> Disable Bluetooth
+Date and Hour --> Set timezone
+
+#Install personal dotfiles
+$ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/bashrc%20\(Debian-Ubuntu%20Based%20Distro\) -o ~/.bashrc
+$ vim ~/.bashrc #Delete all the "Other" section
+$ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/tmux.conf -o ~/.tmux.conf
+$ vim ~/.tmux.conf #Get rid of comments at the top of the file
+
+#Static IP Address, if needed (+ DNS record on pihole)
+Settings --> Network --> Advanced settings --> IPV4 Settings --> Manual
+
+#Set up VNC for Apache Guacamole (if needed)
+$ sudo apt install vino
+Settings --> Applications --> Startup --> Personnalized command --> /usr/lib/vino/vino-server
+$ reboot
+
+#Set up RDP for Apache Guacamole (if needed)
+$ sudo apt install xrdp
+$ reboot
+
+#Install Wine (if needed)
+$ sudo dpkg --add-architecture i386
+$ sudo apt-get update && sudo apt install wine32 wine64 -y
