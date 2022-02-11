@@ -30,6 +30,7 @@ firefox
 spotify (AUR)
 steam
 virtualbox
+virt-viewer
 imagewriter (AUR)
 timeshift (AUR)
 pa-applet-git (AUR)

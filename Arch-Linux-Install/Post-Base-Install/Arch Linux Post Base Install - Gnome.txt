@@ -31,6 +31,7 @@ firefox
 spotify (AUR) # GPG Key to add --> $ curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -
 steam
 virtualbox
+virt-viewer
 imagewriter (AUR)
 timeshift (AUR)
 touchegg (AUR) #Only for laptop to enable trackpad gestures. After install : $ sudo systemctl start touchegg && sudo systemctl enable touchegg
