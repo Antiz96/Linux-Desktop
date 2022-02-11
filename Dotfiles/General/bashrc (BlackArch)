@@ -1,0 +1,79 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+##Prompt##
+
+PS1='[\u@\h \W]\$ '
+
+##ENV##
+
+#Export Color
+export Color="--color=auto"
+
+#Export Editor
+export EDITOR=/usr/bin/vim
+
+#Export Lang for dmenu
+export LC_CTYPE="fr_FR.UTF-8"
+
+#Export Blackarch
+export PATH="${HOME}/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:"
+export PATH="${PATH}/usr/local/sbin:/opt/bin:/usr/bin/core_perl:/usr/games/bin:"
+export LD_PRELOAD=""
+
+##Aliases##
+
+#Listing Files
+alias ls="ls $Color"
+alias ll="ls -ltr"
+alias l="ls -ltrA"
+
+#Grep
+alias grep="grep $Color"
+alias egrep="egrep $Color"
+alias fgrep="fgrep $Color"
+
+#Manipulating Files
+alias mv="mv -i"
+alias cp="cp -i"
+alias ln="ln -i"
+alias rm="rm -i"
+
+#Edit
+alias vi="vim"
+
+#Packet Manager
+alias update="pacman -Syy"
+alias upgrade="pacman -Syu"
+alias fullupgrade="pacman -Syu && yay -Syu"
+alias install="pacman -S"
+alias remove="pacman -Rns"
+alias search="pacman -Ss"
+alias package="pacman -Q"
+alias aurpackage="pacman -Qqm"
+alias cleancache="pacman -Sc"
+alias cleanorphans="pacman -Qtdq | pacman -Rns -"
+
+#Sudo
+alias sudo="sudo "
+
+#Others
+alias pman="man -k . | dmenu -l 30 | awk '{print \$1}' | xargs -r man -Tpdf | zathura --mode=fullscreen -"
+alias tryhackme="openvpn /home/rcandau/Documents/Other/Antiz96.ovpn &"
+alias hackthebox="openvpn /home/rcandau/Documents/Other/Antiz.ovpn &"
+
+#BlackArch
+alias wget="wget -U 'noleak'"
+alias curl="curl --user-agent 'noleak'"
+alias export_ip="source ~/Documents/scripts/export_ip.sh"
+alias nmap_ip="nmap -sV $ip > /tmp/nmap_result.txt && cat /tmp/nmap_result.txt"
+alias nmap_ip_full="nmap -sV $ip -p- > /tmp/nmap_result.txt && cat /tmp/nmap_result.txt"
+alias ssh2john="python3 /opt/john/ssh2john.py"
+
+# source files
+[ -r /usr/share/bash-completion/completions ] &&
+  . /usr/share/bash-completion/completions/*
