@@ -72,7 +72,6 @@ alias curl="curl --user-agent 'noleak'"
 alias export_ip="source ~/Documents/scripts/export_ip.sh"
 alias nmap_ip="nmap -sV $ip > /tmp/nmap_result.txt && cat /tmp/nmap_result.txt"
 alias nmap_ip_full="nmap -sV $ip -p- > /tmp/nmap_result.txt && cat /tmp/nmap_result.txt"
-alias ssh2john="python3 /opt/john/ssh2john.py"
 
 # source files
 [ -r /usr/share/bash-completion/completions ] &&
