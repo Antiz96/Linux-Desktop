@@ -63,8 +63,8 @@ alias sudo="sudo "
 
 #Others
 alias pman="man -k . | dmenu -l 30 | awk '{print \$1}' | xargs -r man -Tpdf | zathura --mode=fullscreen -"
-alias tryhackme="openvpn ~/Documents/Other/Antiz96.ovpn &"
-alias hackthebox="openvpn ~/Documents/Other/Antiz.ovpn &"
+alias tryhackme="sudo openvpn ~/Documents/Other/Antiz96.ovpn &"
+alias hackthebox="sudo openvpn ~/Documents/Other/Antiz.ovpn &"
 
 #BlackArch
 alias wget="wget -U 'noleak'"
