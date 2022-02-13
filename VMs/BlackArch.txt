@@ -2,6 +2,10 @@
 Just a quick reminder on how I install BlackArch to practice security stuff
 
 #Install BlackArch Slim (XFCE)
+Partitiong :
+550M EFI
+4G Swap
+Left ext4 root
 
 #Move user's shell to bash
 $ sudo vim /etc/passwd (change /bin/zsh to /bin/bash)
