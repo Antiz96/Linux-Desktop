@@ -16,7 +16,7 @@ $ sudo pacman -Syu && yay -Syu
 $ reboot
 
 #Install dependencies and various stuff
-$ sudo pacman bash-completion traceroute neofetch dmenu zathura zathura-pdf-poppler numlockx
+$ sudo pacman -S bash-completion traceroute neofetch dmenu zathura zathura-pdf-poppler numlockx
 
 #Install virtualbox addons (if needed)
 Insert the addon disk and execute the run file with sudo privileges
