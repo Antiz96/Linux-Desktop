@@ -1,0 +1,43 @@
+##VMs settings/tweaks I use while creating a VM (just a reminder for me)##
+
+#System
+Graphic Card --> "Spice" for desktop VMs | "Default" for server VMs
+BIOS --> OVMF (UEFI) /!\If the VMs boots with an error saying "access denied" and/or into an EFI Shell, recreate it with the "Pre-Enroll keys" option unchecked/!\
+Agent Qemu --> Check
+
+#CPU
+Type --> host
+
+#Memory
+Ballooning --> uncheck
+
+#For Desktop VMs only --> Go to hardware tab
+Display --> 128 MiB
+Add --> Audio card --> AC97 --> Spice
+
+
+##Copy-Paste/Drag-n-drop for Desktop VMs##
+
+#Install the Spice agent package
+$ sudo pacman -S spice-vdagent
+OR
+$ sudo apt install spice-vdagent
+OR
+$ sudo dnf install spice-vdagent
+
+#You may need to start it manually (or reboot) for it to work right after install
+$ sudo systemctl start spice-vdagentd
+
+#Autolaunch at boot for IceWM (and standalone Window Manager in general)
+$ vim ~/.icewm/startup
+[...]
+#Spice Agent
+/usr/bin/spice-vdagent &
+/usr/bin/spice-vdagentd &
+
+
+##Install the Qemu guest agent (for a better VM management by Proxmox)##
+
+$ sudo pacman -S qemu-guest-agent
+$ sudo systemctl start qemu-guest-agent
+$ sudo systemctl enable qemu-guest-agent
