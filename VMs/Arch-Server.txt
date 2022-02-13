@@ -1,0 +1,30 @@
+##Arch Server
+Just a quick reminder on how I install a minimalistic Arch Server environnement for various needs
+
+#Base Install
+https://github.com/Antiz96/Linux-Customisation/blob/master/Arch-Linux-Install/Base-Install/Arch%20Linux%20Base%20Installation.txt
+
+#Install useful packages
+$ sudo pacman -S base-devel linux-headers man bash-completion intel-ucode openssh inetutils dnsutils traceroute rsync zip unzip cronie diffutils git mlocate htop neofetch
+
+#Enable/start/configure various things
+$ sudo systemctl start sshd && sudo systemctl enable sshd
+$ sudo systemctl start cronie && sudo systemctl enable cronie
+$ sudo updatdb
+$ sudo mandb
+
+#Install qemu-guest-agent (if needed, for promox)
+$ sudo pacman -S qemu-guest-agent
+$ sudo systemctl start qemu-guest-agent
+$ sudo systemctl enable qemu-guest-agent
+
+#Update grub config (for intel-ucode)
+$ sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+#Downlaod my .bashrc
+$ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/bashrc%20\(Arch%20Based%20Distro%20-%20WSL\) -o ~/.bashrc
+$ vim ~/.bashrc #Get rid of TMUX things
+
+#Reboot
+$ sudo reboot
+
