@@ -24,7 +24,7 @@ $ sudo systemctl enable qemu-guest-agent
 
 #Install Spice agent (if needed)
 $ sudo pacman -S spice-vdagent
-$ sudo systemctl start spice-vdagent
+$ sudo systemctl start spice-vdagentd
 
 #Start and enable the SSH Daemon
 $ sudo systemctl start sshd
