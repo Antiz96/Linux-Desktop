@@ -1,0 +1,50 @@
+##Rocky/Alma/RedHat Server
+Just a quick reminder on how I install a minimalistic Redhat(-based) Server environnement for various needs
+
+#Base Install
+Minimal Install (nothing checked) + regular user as admin
+Partitionning :
+550 MB EFI
+4G Swap
+Left ext4 /
+
+#Activate network card
+$ sudo ifup ens18
+
+#Activate epel repo
+$ sudo dnf update && sudo dnf install epel-release
+
+#Install useful packages
+$ sudo dnf install man bash-completion openssh-server bind-utils traceroute rsync zip unzip diffutils firewalld mlocate htop curl vim openssl telnet (chronyd)
+
+#Enable/start/configure various things
+$ sudo systemctl start sshd && sudo systemctl enable sshd
+$ sudo updatdb
+$ sudo mandb
+$ sudo systemctl start firewalld && sudo systemctl enable firewalld
+$ sudo firewall-cmd --add-service="ssh" --permanent
+$ sudo firewall-cmd --reload
+
+#Install qemu-guest-agent (if needed, for promox)
+$ sudo dnf install qemu-guest-agent
+$ sudo systemctl start qemu-guest-agent
+$ sudo systemctl enable qemu-guest-agent
+
+#Downlaod my .bashrc
+$ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/bashrc%20\(Fedora-RedHat%20Based%20Distro%20SERVER%20-%20WSL\) -o ~/.bashrc
+$ vim ~/.bashrc #Get rid of TMUX things
+
+#Static IP Adress
+$ sudo vim /etc/sysconfig/network-scripts/ifcfg-ens18
+[...]
+BOOTPROTO=static
+[...]
+ONBOOT=yes
+[...]
+IPADDR=192.168.1.199
+NETMASK=255.255.255.0
+GATEWAY=192.168.1.254
+DNS1=192.168.1.1
+
+#Reboot
+$ sudo reboot
