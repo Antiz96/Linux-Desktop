@@ -24,6 +24,8 @@ OR
 $ sudo apt install spice-vdagent
 OR
 $ sudo dnf install spice-vdagent
+OR
+$ sudo emerge --ask spice-vdagent
 
 #You may need to start it manually (or reboot) for it to work right after install
 $ sudo systemctl start spice-vdagentd
@@ -39,5 +41,13 @@ $ vim ~/.icewm/startup
 ##Install the Qemu guest agent (for a better VM management by Proxmox)##
 
 $ sudo pacman -S qemu-guest-agent
+OR
+$ sudo apt install qemu-guest-agent
+OR
+$ sudo dnf install qemu-guest-agent
+OR
+$ sudo emerge --ask qemu-guest-agent
+
+#Start and enable it
 $ sudo systemctl start qemu-guest-agent
 $ sudo systemctl enable qemu-guest-agent

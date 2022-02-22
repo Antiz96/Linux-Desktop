@@ -227,6 +227,9 @@ $ reboot
 $ sudo emerge qemu-guest-agent
 $ sudo systemctl enable --now qemu-guest-agent
 
+#Install Spice Agent (if needed - Don't forget to put it to the startup script)
+$ sudo emerge --ask spice-vdagent
+
 #Install useful packages
 $ sudo emerge --ask app-shells/bash-completion x11-base/xorg-server x11-drivers/nvidia-drivers 
 
