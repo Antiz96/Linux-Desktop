@@ -50,7 +50,7 @@ alias rm="rm -i"
 #Edit
 alias vi="vim"
 
-#Packet Manager
+#Package Manager
 alias update="sudo dnf check-update"
 alias upgrade="sudo dnf upgrade --refresh"
 alias fullupgrade="sudo dnf distro-sync --refresh"

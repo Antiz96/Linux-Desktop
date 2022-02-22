@@ -50,7 +50,7 @@ alias rm="rm -i"
 #Edit
 alias vi="vim"
 
-#Packet Manager
+#Package Manager
 alias update="sudo dnf check-update"
 alias upgrade="sudo dnf upgrade --refresh"
 alias fullupgrade="sudo dnf distro-sync --refresh"
@@ -74,4 +74,3 @@ alias tryhackme="sudo openvpn ~/Documents/Other/Antiz96.ovpn &"
 alias hackthebox="sudo openvpn ~/Documents/Other/Antiz.ovpn &"
 alias install_bluetooth_driver="~/Documents/scripts/install_bluetooth_driver.sh"
 alias repair_bluetooth="~/Documents/scripts/repair_bluetooth.sh"
-

@@ -29,6 +29,9 @@ export Color="--color=auto"
 #Export Editor
 export EDITOR=/usr/bin/vim
 
+#Export Lang for dmenu
+export LC_CTYPE="fr_FR.UTF-8"
+
 ##Aliases##
 
 #Listing Files
@@ -51,16 +54,14 @@ alias rm="rm -i"
 alias vi="vim"
 
 #Package Manager
-alias update="sudo apt update"
-alias upgrade="sudo apt update && sudo apt upgrade"
-alias fullupgrade="sudo apt update && sudo apt full-upgrade && flatpak update"
-alias install="sudo apt install"
-alias remove="sudo apt remove"
-alias purge="sudo apt purge"
-alias search="sudo apt-cache search"
-alias package="sudo apt list --installed"
-alias cleancache="sudo apt clean"
-alias cleanorphans="sudo apt autoremove --purge"
+alias update="sudo emerge --sync"
+alias upgrade="sudo emerge -avuDN --with-bdeps=y @world"
+alias fullupgrade="sudo emerge -avuDN --with-bdeps=y @world"
+alias install="sudo emerge -av"
+alias remove="sudo emerge -aC"
+alias search="sudo emerge -s"
+alias package="sudo qlist -I"
+alias cleanorphans="sudo emerge -ac"
 
 #Tmux
 alias tkill="tmux kill-session -t"
@@ -75,4 +76,3 @@ alias tryhackme="sudo openvpn ~/Documents/Other/Antiz96.ovpn &"
 alias hackthebox="sudo openvpn ~/Documents/Other/Antiz.ovpn &"
 alias install_bluetooth_driver="~/Documents/scripts/install_bluetooth_driver.sh"
 alias repair_bluetooth="~/Documents/scripts/repair_bluetooth.sh"
-

@@ -50,7 +50,7 @@ alias rm="rm -i"
 #Edit
 alias vi="vim"
 
-#Packet Manager
+#Package Manager
 alias update="sudo apt update"
 alias upgrade="sudo apt update && sudo apt upgrade"
 alias fullupgrade="sudo apt update && sudo apt full-upgrade && flatpak update"

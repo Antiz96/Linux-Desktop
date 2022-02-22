@@ -54,7 +54,7 @@ alias rm="rm -i"
 #Edit
 alias vi="vim"
 
-#Packet Manager
+#Package Manager
 alias update="sudo pacman -Syy"
 alias upgrade="sudo pacman -Syu"
 alias fullupgrade="sudo pacman -Syu && yay -Syu"
