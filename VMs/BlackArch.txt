@@ -23,16 +23,14 @@ Insert the addon disk and execute the run file with sudo privileges
 
 #Install qemu-agent for Proxmox (if needeed)
 $ sudo pacman -S qemu-guest-agent
-$ sudo systemctl start qemu-guest-agent
-$ sudo systemctl enable qemu-guest-agent
+$ sudo systemctl enable --now qemu-guest-agent
 
 #Install Spice agent (if needed)
 $ sudo pacman -S spice-vdagent
 $ sudo systemctl start spice-vdagentd
 
 #Start and enable the SSH Daemon
-$ sudo systemctl start sshd
-$ sudo systemctl enable sshd
+$ sudo systemctl enable --now sshd
 
 #Reboot to apply changes
 $ reboot

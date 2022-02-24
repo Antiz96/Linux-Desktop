@@ -17,17 +17,16 @@ $ usermod -aG sudo rcandau
 $ sudo apt install man bash-completion openssh-server dnsutils traceroute rsync zip unzip diffutils firewalld mlocate htop curl vim openssl telnet (chronyd)
 
 #Enable/start/configure various things
-$ sudo systemctl start ssh && sudo systemctl enable ssh
+$ sudo systemctl enable --now ssh
 $ sudo updatdb
 $ sudo mandb
-$ sudo systemctl start firewalld && sudo systemctl enable firewalld
+$ sudo systemctl enable --now firewalld
 $ sudo firewall-cmd --add-service="ssh" --permanent
 $ sudo firewall-cmd --reload
 
 #Install qemu-guest-agent (if needed, for promox)
 $ sudo apt install qemu-guest-agent
-$ sudo systemctl start qemu-guest-agent
-$ sudo systemctl enable qemu-guest-agent
+$ sudo systemctl enable --now qemu-guest-agent
 
 #Downlaod my .bashrc
 $ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/bashrc%20\(Debian-Ubuntu%20Based%20Distro%20SERVER%20-%20WSL\) -o ~/.bashrc
