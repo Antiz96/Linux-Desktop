@@ -1,6 +1,4 @@
 # My personal routine to install Arch Linux with disk encryption
-# Even tho I do not use disk encryption on my main desktop PC (as it does not move from home and I'm the only one to access it)...
-# ...I generally use disk encryption on laptops and/or company's PC (for obvious security reasons)
 # Before encrypting your disk, make sure you know what are the consequences (https://www.makeuseof.com/tag/4-reasons-encrypt-linux-partitions/)
 
 $ loadkeys fr #Change Keyboard Layout
