@@ -71,8 +71,8 @@ $ sudo chown rcandau: /opt/busybox
 $ sudo mkdir /opt/revshell
 $ sudo chown rcandau: /opt/revshell
 
-#Install stegseek
-$ yay -S stegseek
+#Install various tools
+$ sudo pacman -S sqlitebrowser && yay -S stegseek
 
 #Firefox Bookmark
 https://gtfobins.github.io/
