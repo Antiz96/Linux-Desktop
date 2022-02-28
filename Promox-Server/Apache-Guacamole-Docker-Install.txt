@@ -1,4 +1,4 @@
-##Install Docker on my Debian Proxmox Server
+##Install Docker on the Debian Proxmox Server (if not already done)
 https://www.linode.com/docs/guides/installing-and-using-docker-on-ubuntu-and-debian/
 
 #Make sure docker is not installed on the machine
