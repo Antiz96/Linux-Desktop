@@ -19,7 +19,7 @@ $ cd Documents\Arch\ #Change directory to our directory that contains Arch Linux
 $ Arch.exe config --default-user rcandau #Make Arch log into our regular user at launch instead of root
 
 $ sudo pacman -Syu #Update our system
-$ sudo pacman -S base-devel linux-headers man bash-completion openssh inetutils dnsutils traceroute rsync zip unzip cronie diffutils git tmux mlocate htop neofetch #Install my needed packages. DO NOT INSTALL "fakeroot" (https://github.com/yuk7/ArchWSL/issues/3)
+$ sudo pacman -S base-devel linux-headers man bash-completion openssh sshpass inetutils dnsutils traceroute rsync zip unzip cronie diffutils git tmux mlocate htop neofetch #Install my needed packages. DO NOT INSTALL "fakeroot" (https://github.com/yuk7/ArchWSL/issues/3)
 
 $ cd /tmp #Change directory to tmp to download and install AUR support
 $ git clone https://aur.archlinux.org/yay.git #Download "yay" install sources
