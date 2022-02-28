@@ -1,0 +1,62 @@
+##Boot into the GParted Live Session to shrink the root partition (if not done already at install)
+New size : 20480 Mo for root partition (/dev/sda3)
+Then, reboot and create a new partition (/dev/sda4) with the left space (with fdisk) and mount it via the fstab on /nextcloud
+
+
+##Install Docker on my Debian Proxmox Server (if not done already)
+https://www.linode.com/docs/guides/installing-and-using-docker-on-ubuntu-and-debian/
+
+#Make sure docker is not installed on the machine
+$ sudo apt remove docker docker-engine docker.io
+
+#Install docker dependencies
+$ sudo apt install apt-transport-https ca-certificates curl gnupg lsb-release
+
+#Add docker GPG Key and repo
+$ curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+$ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+#Update repo list and install docker
+$ sudo apt update && sudo apt install docker-ce docker-ce-cli containerd.io
+
+#Start and enable the docker service
+$ sudo systemctl start docker
+$ sudo systemctl enable docker containerd
+
+
+##Installing Nextcloud on Docker
+https://github.com/nextcloud/docker
+
+#Pull and run the container
+#This run command contains the mapping to /nextcloud (previously created) to get persistent data for upgrades and backups
+#It also contains the Docker "always" restart policy (https://docs.docker.com/config/containers/start-containers-automatically/)
+#It will make nextcloud listen to the "8080" port. Make sure you don't have anything already listening to that port (like Apache Guacamole for instance).
+#If you do have anything already listening to the 8080, use another one in the below command
+$ sudo docker run --name nextcloud -v /nextcloud:/var/www/html -d --restart always -p 8080:80 nextcloud
+
+#You can now access and configure nextcloud on this URL
+http://[HOSTNAME]:8080/
+
+
+##Nextcloud administration guide
+https://docs.nextcloud.com/server/23/admin_manual/index.html
+
+
+##Update/Upgrade and reinstall procedure
+Since we use Docker, the update and upgrade procedure is actually the same as it does not rely directly on our server.
+Also, if you did a mapping between a volume stored on a local disk (like I did), all you need to do to reinstall your Nextcloud server is to re-download Docker (if you reinstalled your OS completly) and do the following steps.
+
+#Pull docker image to check if there's available updates
+$ sudo docker pull nextcloud
+
+#If there's an available update; then stop, delete and re-run the container to apply
+$ sudo docker stop nextcloud
+$ sudo docker rm nextcloud
+$ sudo docker run --name nextcloud -v /nextcloud:/var/www/html -d --restart always -p 8080:80 nextcloud
+
+#After any update, you can clean old dangling docker images (to regain spaces and clean up your local stored Docker images)
+$ sudo docker image prune
+
+#Alternatively, you can clean all unused Docker component (stopped containers, network not use by any containers, dangling images and build cache) 
+/!\If you choose to do that, make sure all your containers are running ! Otherwise, they will be deleted/!\
+$ sudo docker system prune
