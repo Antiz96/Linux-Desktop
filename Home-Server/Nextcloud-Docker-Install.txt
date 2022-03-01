@@ -42,8 +42,31 @@ http://[HOSTNAME]:8080/
 https://docs.nextcloud.com/server/23/admin_manual/index.html
 
 
-##OnlyOffice integration
+##Apps
+
+#Disable the following default apps
+Usage survey
+User status
+Weather status
+
+#Enable the following default apps
+Auditing/Logging
+External storage support (only if you plan to use external storage support such a FTP, S3, etc...)
+Default encryption module (only if you use remote storage(s). If not, you'd better use full disk encryption instead)
+
+#Only Office integration
 https://nextcloud.com/blog/how-to-install-onlyoffice-in-nextcloud-hub-and-new-integration-feature/
+Install the "Community Document Server" and the "OnlyOffice" app
+
+#Disk space monitoring
+Install the "Quota warning" app
+
+#Trello like integration (for enterprise purpose)
+Install the "Deck" app
+
+#2FA Authentication Support (for enterprise purpose)
+Install the "Two-Factor TOTP Provider" app
+Install the "Two-Factor Admin Support" app
 
 
 ##Update/Upgrade and reinstall procedure
