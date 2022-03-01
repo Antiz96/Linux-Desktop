@@ -42,6 +42,10 @@ http://[HOSTNAME]:8080/
 https://docs.nextcloud.com/server/23/admin_manual/index.html
 
 
+##OnlyOffice integration
+https://nextcloud.com/blog/how-to-install-onlyoffice-in-nextcloud-hub-and-new-integration-feature/
+
+
 ##Update/Upgrade and reinstall procedure
 Since we use Docker, the update and upgrade procedure is actually the same as it does not rely directly on our server.
 Also, if you did a mapping between a volume stored on a local disk (like I did), all you need to do to reinstall your Nextcloud server is to re-download Docker (if you reinstalled your OS completly) and do the following steps.
