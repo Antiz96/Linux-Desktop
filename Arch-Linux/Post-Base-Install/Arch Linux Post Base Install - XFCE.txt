@@ -26,7 +26,7 @@ gparted
 hexchat
 keepassxc
 vlc
-libreoffice-fresh
+onlyoffice-bin (AUR)
 firefox
 spotify (AUR) # GPG Key to add --> $ curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -
 steam
@@ -57,7 +57,7 @@ spotify
 bluemail
 thunar
 mousepad 
-libreoffice writter 
+onlyoffice
 keepass
 steam
 discord

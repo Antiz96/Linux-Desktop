@@ -25,7 +25,7 @@ gparted
 hexchat
 keepassxc
 vlc
-libreoffice-fresh
+onlyoffice-bin (AUR)
 firefox
 spotify (AUR)
 steam
@@ -128,7 +128,7 @@ spotify
 bluemail
 thunar
 mousepad 
-libreoffice writter 
+onlyoffice 
 keepassxc
 steam
 discord
