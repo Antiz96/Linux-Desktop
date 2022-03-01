@@ -9,7 +9,7 @@ OR
 --System Disk-- (With Nextcloud)
 550 MB --> EFI Sytem
 4G --> Swap
-20G --> ext4 / (0% reserved block)
+25G --> ext4 / (0% reserved block)
 Left --> ext4 /data (0% reserved block)
 
 --Storage Disk--
