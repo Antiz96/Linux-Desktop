@@ -1,6 +1,6 @@
 ##Boot into the GParted Live Session to shrink the root partition (if not done already at install)
 New size : 20480 Mo for root partition (/dev/sda3)
-Then, reboot and create a new partition (/dev/sda4) with the left space (with fdisk) and mount it via the fstab on /nextcloud
+Then, reboot and create a new partition (/dev/sda4) with the left space (with fdisk) and mount it via the fstab on /data
 
 
 ##Install Docker on my Debian Proxmox Server (if not done already)
@@ -27,12 +27,15 @@ $ sudo systemctl enable docker containerd
 ##Installing Nextcloud on Docker
 https://github.com/nextcloud/docker
 
+#Create the Nextcloud directory on my dedicated partition
+$ sudo mkdir /data/Nextcloud
+
 #Pull and run the container
 #This run command contains the mapping to /nextcloud (previously created) to get persistent data for upgrades and backups
 #It also contains the Docker "always" restart policy (https://docs.docker.com/config/containers/start-containers-automatically/)
 #It will make nextcloud listen to the "8080" port. Make sure you don't have anything already listening to that port (like Apache Guacamole for instance).
 #If you do have anything already listening to the 8080, use another one in the below command
-$ sudo docker run --name nextcloud -v /nextcloud:/var/www/html -d --restart always -p 8080:80 nextcloud
+$ sudo docker run --name nextcloud -v /data/Nextcloud:/var/www/html -d --restart always -p 8080:80 nextcloud
 
 #You can now access and configure nextcloud on this URL
 http://[HOSTNAME]:8080/
@@ -79,7 +82,7 @@ $ sudo docker pull nextcloud
 #If there's an available update; then stop, delete and re-run the container to apply
 $ sudo docker stop nextcloud
 $ sudo docker rm nextcloud
-$ sudo docker run --name nextcloud -v /nextcloud:/var/www/html -d --restart always -p 8080:80 nextcloud
+$ sudo docker run --name nextcloud -v /data/Nextcloud:/var/www/html -d --restart always -p 8080:80 nextcloud
 
 #After any update, you can clean old dangling docker images (to regain spaces and clean up your local stored Docker images)
 $ sudo docker image prune

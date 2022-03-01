@@ -10,7 +10,7 @@ OR
 550 MB --> EFI Sytem
 4G --> Swap
 20G --> ext4 / (0% reserved block)
-Left --> ext4 /nextcloud (0% reserved block)
+Left --> ext4 /data (0% reserved block)
 
 --Storage Disk--
 All space --> ext4 /storage (0% reserved block)
