@@ -13,11 +13,11 @@ $ sudo systemctl enable --now docker containerd
 $ sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Rasp-Server/conf.yml -o /opt/dashy/conf.yml
 
 #Pull and run the container
-$ sudo docker run -d -p 8080:80 -v /opt/dashy/conf.yml:/app/public/conf.yml --name dashy --restart=always lissy93/dashy:latest
-
+$ sudo docker run -d -p 8080:80 -v /opt/dashy/conf.yml:/app/public/conf.yml --name dashy --restart=always lissy93/dashy:arm64v8
+(if you're not using a Raspberry/ARM based computer, you should use the dashy:latest image instead)
 
 ##Update procedure
 $ sudo docker pull lissy93/dashy:latest
 $ sudo docker stop dashy
 $ sudo docker rm dashy
-$ sudo docker run -d -p 8080:80 -v /opt/dashy/conf.yml:/app/public/conf.yml --name dashy --restart=always lissy93/dashy:latest
+$ sudo docker run -d -p 8080:80 -v /opt/dashy/conf.yml:/app/public/conf.yml --name dashy --restart=always lissy93/dashy:arm64v8
