@@ -9,11 +9,12 @@ pageInfo:
 # Optional app settings and configuration
 appConfig:
   theme: One-Dark
+  statusCheck: true
 
 # Main content - An array of sections, each containing an array of items
 sections:
-- name: Self Hosted Services
-  icon: fas server
+- name: Services
+  icon: fas fa-server
   items:
   - title: Pihole
     description: DNS - Adblocker
@@ -24,11 +25,12 @@ sections:
     description: Virtualization platform
     icon: hl-proxmox
     url: https://proxmox:8006/
+    statusCheckAllowInsecure: true
   - title: Nextcloud
     description: Self hosted cloud
     icon: hl-nextcloud
     url: http://nextcloud:8080/
   - title: Router
     description: Router configuration interface
-    icon: fas router
+    icon:  hl-router
     url: https://mabbox.bytel.fr/
