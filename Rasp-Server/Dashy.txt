@@ -13,8 +13,8 @@ $ sudo systemctl enable --now docker containerd
 $ sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Rasp-Server/conf.yml -o /opt/dashy/conf.yml
 
 #Pull and run the container 
-(I'm using the "--add-host" docker option to specify the IP of my local service so dashy can check their status, but that's optionnal and you probably won't need it. My case's a bit special here).
-(I'm using the dashy:arm32v7 image since the Raspberry Pi 4 is an ARM7 board but you can use the dashy:arm64v7 image for ARM8, the dashy:latest image for x86_64 or the dashy:multi-arch which should work on every architecture)
+--I'm using the "--add-host" docker option to specify the IP of my local service so dashy can check their status (due to its specific environment on my home network, my dashy container cannot access to my local DNS records), but that's optionnal and you probably won't need it. My case's a bit special here--
+--I'm using the dashy:arm32v7 image since the Raspberry Pi 4 is an ARM7 board but you can use the dashy:arm64v8 image for ARM8, the dashy:latest image for x86_64 or the dashy:multi-arch which should work on every architecture--
 $ sudo docker run -d -p 8080:80 -v /opt/dashy/conf.yml:/app/public/conf.yml --add-host=pihole:192.168.1.1 --add-host=proxmox:192.168.1.100 --add-host=nextcloud:192.168.1.100 --add-host=mabbox.bytel.fr:192.168.1.254 --name dashy --restart=always lissy93/dashy:arm32v7
 
 ##Update procedure
