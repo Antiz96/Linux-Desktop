@@ -17,7 +17,7 @@ $ sudo docker run -d -p 8080:80 -v /opt/dashy/conf.yml:/app/public/conf.yml --na
 (I'm using the dashy:arm32v7 image since the Raspberry Pi 4 is an ARM7 board but you can use the dashy:arm64v7 image for ARM8, the dashy:latest image for x86_64 or the dashy:multi-arch which should work on every architecture)
 
 ##Update procedure
-$ sudo docker pull lissy93/dashy:latest
+$ sudo docker pull lissy93/dashy:arm32v7
 $ sudo docker stop dashy
 $ sudo docker rm dashy
 $ sudo docker run -d -p 8080:80 -v /opt/dashy/conf.yml:/app/public/conf.yml --name dashy --restart=always lissy93/dashy:arm32v7
