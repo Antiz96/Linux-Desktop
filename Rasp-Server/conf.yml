@@ -16,21 +16,28 @@ sections:
 - name: Services
   icon: fas fa-server
   items:
+
   - title: Pihole
     description: DNS - Adblocker
     icon: hl-pihole
     url: http://pihole/admin/
-    target: newtab
+    target: sametab
+
   - title: Proxmox
     description: Virtualization platform
     icon: hl-proxmox
     url: https://proxmox:8006/
     statusCheckAllowInsecure: true
+    target: sametab
+
   - title: Nextcloud
     description: Self hosted cloud
     icon: hl-nextcloud
     url: http://nextcloud:8080/
+    target: sametab
+
   - title: Router
     description: Router configuration interface
     icon:  hl-router
     url: https://mabbox.bytel.fr/
+    target: sametab
