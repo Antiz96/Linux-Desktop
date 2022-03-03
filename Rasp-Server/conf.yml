@@ -3,12 +3,12 @@
 
 # Page meta info, like heading, footer text and nav links
 pageInfo:
-  title: Home Infra
+  title: Home Dashboard
   description: Welcome to the Home Infra dashboard !
 
 # Optional app settings and configuration
 appConfig:
-  theme: One-Dark
+  theme: Adventure
   statusCheck: true
 
 # Main content - An array of sections, each containing an array of items
