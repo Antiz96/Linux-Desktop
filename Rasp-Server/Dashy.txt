@@ -1,5 +1,5 @@
 ##Dashy
-I also install Dashy on my Raspberry Pi, in order to get an easy access to all my various self hosted services
+I also installed Dashy on my Raspberry Pi, in order to get an easy access to all my various self hosted services
 https://github.com/lissy93/dashy
 
 #Create a dedicated dashy directory
