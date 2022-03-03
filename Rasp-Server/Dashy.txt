@@ -1,0 +1,23 @@
+##Dashy
+I also install Dashy on my Raspberry Pi, in order to get an easy access to all my various self hosted services
+https://github.com/lissy93/dashy
+
+#Create a dedicated dashy directory
+$ sudo mkdir /opt/dashy
+
+#Install and enable Docker
+$ sudo pacman -S docker
+$ sudo systemctl enable --now docker containerd
+
+#Download my dashy config file
+$ sudo curl https://raw.githubusercontent.com/Antiz96/Pihole-Configuration/master/conf.yml -o /opt/dashy/conf.yml
+
+#Pull and run the container
+$ sudo docker run -d -p 8080:80 -v /opt/dashy/conf.yml:/app/public/conf.yml --name dashy --restart=always lissy93/dashy:latest
+
+
+##Update procedure
+$ sudo docker pull lissy93/dashy:latest
+$ sudo docker stop dashy
+$ sudo docker rm dashy
+$ sudo docker run -d -p 8080:80 -v /opt/dashy/conf.yml:/app/public/conf.yml --name dashy --restart=always lissy93/dashy:latest

@@ -1,0 +1,34 @@
+---
+#Dashy's config file
+
+# Page meta info, like heading, footer text and nav links
+pageInfo:
+  title: Home Infra
+  description: Welcome to the Home Infra dashboard!
+
+# Optional app settings and configuration
+appConfig:
+  theme: One-Dark
+
+# Main content - An array of sections, each containing an array of items
+sections:
+- name: Self Hosted Services
+  icon: fas server
+  items:
+  - title: Pihole
+    description: DNS - Adblocker
+    icon: hl-pihole
+    url: http://pihole/admin/
+    target: newtab
+  - title: Proxmox
+    description: Virtualization platform
+    icon: hl-proxmox
+    url: https://proxmox:8006/
+  - title: Nextcloud
+    description: Self hosted cloud
+    icon: hl-nextcloud
+    url: http://proxmox:8080/
+  - title: Router
+    description: Router configuration interface
+    icon: fas router
+    url: https://mabbox.bytel.fr/
