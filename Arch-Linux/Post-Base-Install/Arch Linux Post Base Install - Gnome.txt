@@ -42,6 +42,7 @@ zathura-pdf-poppler
 mlocate
 htop
 neofetch
+wakeonlan (AUR)
 
 ## Theme
 Applications : Kimi-Dark (V40) - https://www.gnome-look.org/p/1326889/
