@@ -16,6 +16,12 @@ $ sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master
 I'm using the dashy:arm64v8 image since the Raspberry Pi 4 is an ARM8 board but you can use the dashy:arm37v7 image for ARM7, the dashy:latest image for x86_64 or the dashy:multi-arch which should work on every architecture
 $ sudo docker run -d -p 8080:80 -v /opt/dashy/conf.yml:/app/public/conf.yml --name dashy --restart=always lissy93/dashy:arm64v8
 
+
+##Re-read configuration file
+If you modified your configuration file or if dashy did not load it correctly for some reason, you can make dashy re-read it without having to restart the container
+$ sudo docker exec -it dashy yarn build
+
+
 ##Update procedure
 $ sudo docker pull lissy93/dashy:arm64v8
 $ sudo docker stop dashy
