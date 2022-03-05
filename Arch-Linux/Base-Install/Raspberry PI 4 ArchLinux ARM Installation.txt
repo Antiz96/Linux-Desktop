@@ -19,6 +19,7 @@ $ sudo pacman -S $(curl https://raw.githubusercontent.com/Antiz96/Linux-Customis
 ----------------------------------------------
 
 ## Also, don't forget to activate the swap partition
+$ sudo mkswap /dev/mmcblk0p3
 $ sudo swapon /dev/mmcblk0p3
 $ sudo vim /etc/fstab
 [...]
