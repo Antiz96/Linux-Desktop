@@ -1,5 +1,9 @@
 ##Install Debian 11 (bullseye) minimal (No DE, no standard or additionnal packages, nothing)
 
+--If it's the very first install, remember to enable intel virtualization technology and disable secure boot in the BIOS--
+https://rog.asus.com/us/support/FAQ/1043786
+https://techzillo.com/how-to-disable-or-enable-secure-boot-for-asus-motherboard/
+
 #Partitioning :
 --System Disk-- (Without Nextcloud)
 550 MB --> EFI Sytem
