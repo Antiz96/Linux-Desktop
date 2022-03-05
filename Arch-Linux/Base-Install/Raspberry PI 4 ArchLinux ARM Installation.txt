@@ -19,10 +19,11 @@ PermitRootLogin yes
 [...]
 $ reboot
 
-##Connect directly as root to rename the default "alarm" user
+##Connect directly as root to rename the default "alarm" user and set a new password
 $ usermod -l rcandau alarm
 $ groupmod -n rcandau alarm
 $ usermod -d /home/rcandau -m rcandau
+$ passwd rcandau
 
 ##Disabling root ssh connexion
 $ vi /etc/ssh/sshd_config
