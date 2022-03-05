@@ -41,6 +41,10 @@ $ sudo pacman -S $(curl https://raw.githubusercontent.com/Antiz96/Linux-Customis
 
 ##Disable the systemd-resolved
 $ sudo systemctl disable --now systemd-resolved
+
+##Delete the /etc/resolv.conf symlink, recreate the file and reboot to apply changes
+$ rm /etc/resolv.conf
+$ touch /etc/resolv.conf
 $ reboot
 
 ##Zip Archive containing IceWM conf for rapsberry :
