@@ -42,6 +42,7 @@ zathura-pdf-poppler
 mlocate
 htop
 neofetch
+wakeonlan (AUR)
 
 ## Theme
 Shell : Orchis-dark-compact - https://www.gnome-look.org/p/1357889/
