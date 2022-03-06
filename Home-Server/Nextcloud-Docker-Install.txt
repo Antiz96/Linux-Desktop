@@ -24,11 +24,6 @@ $ sudo systemctl start docker
 $ sudo systemctl enable docker containerd
 
 
-##--OPTIONAL--You do not have to open the port that will be used by the container on your firewall. Docker automatically open the port on iptable (see `sudo iptables -L DOCKER`) unless you've set the --iptables=false in the docker option. If you set that option, don't forget to open the port :
-$ sudo firewall-cmd --zone=public --add-port=8080/tcp --permanent
-$ sudo firewall-cmd --reload
-
-
 ##Installing Nextcloud on Docker
 https://github.com/nextcloud/docker
 
