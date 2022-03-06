@@ -28,6 +28,7 @@ $ sudo systemctl enable docker containerd
 $ sudo firewall-cmd --zone=public --add-port=8080/tcp --permanent
 $ sudo firewall-cmd --reload
 
+
 ##Installing Nextcloud on Docker
 https://github.com/nextcloud/docker
 
