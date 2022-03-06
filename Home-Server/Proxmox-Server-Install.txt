@@ -44,7 +44,12 @@ $ mkdir /storage/Proxmox
 
 #Update the machine and install usefull packages (which I'll use to administrate the machine and perform various tasks. The selection is subjective tho)
 $ sudo apt update && sudo apt full-upgrade
-$ sudo apt install vim man bash-completion openssh-server mlocate htop curl telnet chrony ksmtuned ssh-askpass neofetch
+$ sudo apt install vim man bash-completion openssh-server mlocate htop curl telnet firewalld chrony ksmtuned ssh-askpass neofetch
+
+#Start the firewalld and autorise the ssh port
+$ sudo systemctl enable --now firewalld
+$ sudo firewall-cmd --add-service="ssh" --permanent
+$ sudo firewall-cmd --reload
 
 #Configure ssh-askpass
 $ sudo vim /etc/sudo.conf
