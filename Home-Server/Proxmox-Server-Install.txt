@@ -70,8 +70,6 @@ $ sudo firewall-cmd --zone=public --add-port=8006/tcp --permanent #Web Interface
 success
 $ sudo firewall-cmd --zone=public --add-port=3128/tcp --permanent #Spice proxy port
 success
-$ sudo firewall-cmd --zone=public --add-port=111/udp --permanent #RPCBind port
-success
 $ sudo firewall-cmd --reload #Reload to apply
 success
 
