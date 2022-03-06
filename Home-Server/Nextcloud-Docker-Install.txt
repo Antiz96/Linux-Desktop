@@ -24,7 +24,7 @@ $ sudo systemctl start docker
 $ sudo systemctl enable docker containerd
 
 
-##Open the port use by Nextcloud (you can actually choose the one you want to use in the docker run command)
+##--OPTIONAL--You do not have to open the port that will be used by the container on your firewall. Docker automatically open the port on iptable (see `sudo iptables -L DOCKER`) unless you've set the --iptables=false in the docker option. If you set that option, don't forget to open the port :
 $ sudo firewall-cmd --zone=public --add-port=8080/tcp --permanent
 $ sudo firewall-cmd --reload
 
@@ -36,9 +36,9 @@ https://github.com/nextcloud/docker
 $ sudo mkdir /data/Nextcloud
 
 #Pull and run the container
-#This run command contains the mapping to /data/NExtcloud (previously created) to get persistent data for upgrades and backups
+#This run command contains the mapping to /data/Nextcloud (previously created) to get persistent data for upgrades and backups
 #It also contains the Docker "always" restart policy (https://docs.docker.com/config/containers/start-containers-automatically/)
-#It will make nextcloud listen to the "8080" port. Make sure you don't have anything already listening to that port (like Apache Guacamole for instance) and that the port is opened on your firewall
+#It will make nextcloud listen to the "8080" port. Make sure you don't have anything already listening to that port (like Apache Guacamole for instance).
 #If you do have anything already listening to the 8080, use another one in the below command
 $ sudo docker run --name nextcloud -v /data/Nextcloud:/var/www/html -d --restart always -p 8080:80 nextcloud
 
