@@ -22,7 +22,7 @@ $ sudo docker exec -it dashy yarn build
 
 
 ##Update procedure
-$ sudo docker pull lissy93/dashy:arm64v8
+$ sudo docker pull lissy93/dashy:latest
 $ sudo docker stop dashy
 $ sudo docker rm dashy
 $ sudo docker run -d -p 8080:80 -v /opt/dashy/conf.yml:/app/public/conf.yml --name dashy --restart=always lissy93/dashy:latest
