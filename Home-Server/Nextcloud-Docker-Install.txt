@@ -31,9 +31,9 @@ https://github.com/nextcloud/docker
 $ sudo mkdir /data/Nextcloud
 
 #Pull and run the container
-#This run command contains the mapping to /nextcloud (previously created) to get persistent data for upgrades and backups
+#This run command contains the mapping to /data/NExtcloud (previously created) to get persistent data for upgrades and backups
 #It also contains the Docker "always" restart policy (https://docs.docker.com/config/containers/start-containers-automatically/)
-#It will make nextcloud listen to the "8080" port. Make sure you don't have anything already listening to that port (like Apache Guacamole for instance).
+#It will make nextcloud listen to the "8080" port. Make sure you don't have anything already listening to that port (like Apache Guacamole for instance) and that the port is opened on your firewall
 #If you do have anything already listening to the 8080, use another one in the below command
 $ sudo docker run --name nextcloud -v /data/Nextcloud:/var/www/html -d --restart always -p 8080:80 nextcloud
 
