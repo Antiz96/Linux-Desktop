@@ -64,6 +64,20 @@ $ vim ~/.bashrc (delete all tmux part and flatpak in the fullupgrade alias)
 $ source ~/.bashrc
 
 
+##Open the port used by Proxmox and its component on the firewall
+I only open the port for proxmox service's that I use. For a full list of port use by the different proxmox services, refer to this link : https://pve.proxmox.com/wiki/Firewall#_ports_used_by_proxmox_ve
+$ sudo firewall-cmd --zone=public --add-port=8006/tcp --permanent #Web Interface port
+success
+$ sudo firewall-cmd --zone=public --add-port=5900-5999/tcp --permanent #VNC Console ports
+success
+$ sudo firewall-cmd --zone=public --add-port=3128/tcp --permanent #Spice proxy port
+success
+$ sudo firewall-cmd --zone=public --add-port=111/udp --permanent #RPCBind port
+success
+$ sudo firewall-cmd --reload #Reload to apply
+success
+
+
 ##Install Proxmox
 https://pve.proxmox.com/wiki/Install_Proxmox_VE_on_Debian_11_Bullseye
 If you're facing a dependency problem during this isntall (dpkg deb error subprocess paste was killed by signal broken pipe), then : $ sudo dpkg -P qemu-system-data && sudo apt install -f
