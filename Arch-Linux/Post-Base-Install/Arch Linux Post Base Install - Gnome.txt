@@ -27,6 +27,7 @@ hexchat
 keepassxc
 vlc
 onlyoffice-bin (AUR)
+openresolv #Only for Laptop in order to connect to my VPN
 firefox
 spotify (AUR) # GPG Key to add --> $ curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -
 steam
@@ -43,7 +44,7 @@ mlocate
 htop
 neofetch
 wakeonlan (AUR)
-wireguard-tools
+wireguard-tools #Only for Laptop in order to connect to my VPN
 
 ## Theme
 Applications : Kimi-Dark (V40) - https://www.gnome-look.org/p/1326889/
