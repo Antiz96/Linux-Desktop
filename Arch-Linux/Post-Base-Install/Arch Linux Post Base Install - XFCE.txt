@@ -44,6 +44,7 @@ mlocate
 htop
 neofetch
 wakeonlan (AUR)
+wireguard-tools
 
 ## Theme
 Applications : Kimi-Dark - https://www.gnome-look.org/p/1326889/
