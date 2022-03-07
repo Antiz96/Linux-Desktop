@@ -108,6 +108,8 @@ $ sudo wg-quick up /path/to/the/file.conf
 --Disconnect--
 $ sudo wg-quick down /path/to/the/file.conf
 
+If you have an error saying "/usr/bin/wg-quick: line XX: resolvconf: command not found", you may need to install the "openresolv" package aswell.
+
 
 ##Update/Upgrade procedure
 
