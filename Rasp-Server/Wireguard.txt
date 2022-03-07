@@ -107,3 +107,29 @@ $ sudo pacman -S wireguard-tools
 $ sudo wg-quick up /path/to/the/file.conf
 --Disconnect--
 $ sudo wg-quick down /path/to/the/file.conf
+
+
+##Update/Upgrade procedure
+
+$ sudo docker pull linuxserver/wireguard
+$ sudo docker stop wireguard
+$ sudo docker rm wireguard
+$ sudo docker run -d \
+  --name=wireguard \
+  --cap-add=NET_ADMIN \
+  --cap-add=SYS_MODULE \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europe/Paris \
+  -e SERVERURL=XXXX \
+  -e SERVERPORT=51820 \
+  -e PEERS=Arch-Linux,Arch-Laptop,R-phone \
+  -e PEERDNS=192.168.1.1 \
+  -e INTERNAL_SUBNET=10.10.10.0 \
+  -e ALLOWEDIPS=0.0.0.0/0 \
+  -p 51820:51820/udp \
+  -v /opt/wireguard:/config \
+  -v /lib/modules:/lib/modules \
+  --sysctl="net.ipv4.conf.all.src_valid_mark=1" \
+  --restart unless-stopped \
+  linuxserver/wireguard
