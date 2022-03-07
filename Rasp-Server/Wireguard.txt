@@ -123,7 +123,7 @@ $ sudo docker run -d \
   -e TZ=Europe/Paris \
   -e SERVERURL=XXXX \
   -e SERVERPORT=51820 \
-  -e PEERS=Arch-Linux,Arch-Laptop,R-phone \
+  -e PEERS=Arch-Linux, Arch-Laptop, R-phone \
   -e PEERDNS=192.168.1.1 \
   -e INTERNAL_SUBNET=10.10.10.0 \
   -e ALLOWEDIPS=0.0.0.0/0 \
