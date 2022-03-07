@@ -1,0 +1,114 @@
+##Wireguard VPN
+I installed a VPN service using Wireguard, so I can connect to my home Network from anywhere.
+https://www.youtube.com/watch?v=rtUl7BfCNMY
+https://hub.docker.com/r/linuxserver/wireguard
+
+
+##Create a dynamic DNS domain with a dynamic DNS provider
+There's plenty of them that are free, such as NO IP, DtDNS, ChangeIP, Free DNS, DuckDNS, DyNS, etc...
+If you already have your own DNS, you can use it aswell
+
+
+##Configure your DynDNS domain on your router or directly on the host that will server the Wireguard service
+
+#On your router
+If your router as a DynDNS service, you should use it instead of configuring it directly on the server that will host the Wireguard service.
+Indeed, although the selection of services may be limited, it will be easier to set up, will require little to no maintenance, and will have no downtime (if the router is down you will not have Internet anyway).
+To configure the DynDNS in your router, just go to the "DynDNS" service via the administration panel and enter the information according to the domain you've just created (Service, account, Domain, etc...).
+
+#Directly on the server (if your router doesn't have a DynDNS service)
+If your router cannot handle DynDNS, you'll have to configure it directly on the server that will host the wireguard service using "ddclient".
+More on that here :
+https://www.youtube.com/watch?v=rtUl7BfCNMY (from 10m47)
+https://wiki.archlinux.org/title/Dynamic_DNS
+
+
+##Enable port forwarding on your router for the wireguard port (in order to access your vpn from internet)
+Go to your router administration panel and add a new rule in the port forwarding service (NAT/PAT).
+Give the rule a name, select the UDP protocol, select "51820" as external and internal port and select the server that will host the Wireguard service as the destination device.
+You can also filter the external source IP but, unless you want your VPN to only be accessible from a specific network/location, it is not recommanded (as you're IP will differ depending on where you are).
+
+The rule should look like this :
+Protocol : UDP | Source IP : * | Source Port : 51820 | Destination IP : "IP of your wireguard server" | Destination Port : 51820
+
+
+##Deploy Wireguard on your server
+To easily deploy, manage and update my Wireguard VPN instance, I use docker (make sure you have docker installed on your server)
+https://hub.docker.com/r/linuxserver/wireguard
+
+#Create a local Wireguard folder to store the clients configuration and make data persistent for update/upgrade
+$ sudo mkdir /opt/wireguard
+
+#Install Wireguard
+To install it, the only thing you gotta do is to modify the parameters of the following command according to your needs/environment and launch it :
+
+$ sudo docker run -d \
+  --name=wireguard \ #Name of your wireguard container.
+  --cap-add=NET_ADMIN \
+  --cap-add=SYS_MODULE \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europe/London \ #Your timezone.
+  -e SERVERURL=wireguard.domain.com \ #The DynDNS domain you've created earlier.
+  -e SERVERPORT=51820 \ #The port on which the Wiregaurd server will listen to (make sure it matches the port forwarding rule you've created earlier), 51820 by default.
+  -e PEERS=1 \ #The number of client configuration you want to generate. It can either be a number or a list of strings separated by comma (if you want to name them).
+  -e PEERDNS=auto \ #The IP address of the DNS you want your client to use while connected to the VPN, auto option by default.
+  -e INTERNAL_SUBNET=10.10.10.0 \ #The IP subnet to use for the VPN tunnel.
+  -e ALLOWEDIPS=0.0.0.0/0 \ #The IP subnet you want to allow to connect to your VPN (0.0.0.0/0 = "Allow all" which is recommended, unless you want your VPN to only be accessible from a specific network/location).
+  -p 51820:51820/udp \ #Expose the port of the container to the host port (make sure it fits the SERVERPORT variable and the port forwarding rule you've set on your router).
+  -v /path/to/appdata/config:/config \ #Mapping the local directory you've created earlier to the /config directory on the container.
+  -v /lib/modules:/lib/modules \
+  --sysctl="net.ipv4.conf.all.src_valid_mark=1" \
+  --restart unless-stopped \ #Always restart the container unless you stopped it manually
+  linuxserver/wireguard
+
+This is my personal docker run command for wireguard (I masked the SERVERURL for obvious privacy and security reasons) :
+
+$ sudo docker run -d \
+  --name=wireguard \
+  --cap-add=NET_ADMIN \
+  --cap-add=SYS_MODULE \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europe/Paris \
+  -e SERVERURL=XXXX \
+  -e SERVERPORT=51820 \
+  -e PEERS=Arch-Linux,Arch-Laptop,R-phone \
+  -e PEERDNS=192.168.1.1 \
+  -e INTERNAL_SUBNET=10.10.10.0 \
+  -e ALLOWEDIPS=0.0.0.0/0 \
+  -p 51820:51820/udp \
+  -v /opt/wireguard:/config \
+  -v /lib/modules:/lib/modules \
+  --sysctl="net.ipv4.conf.all.src_valid_mark=1" \
+  --restart unless-stopped \
+  linuxserver/wireguard
+
+
+##Connect your clients to your VPN
+You can retrieve the configuration files for the client you've created with the docker run command in the directory you mapped (/opt/wireguard in my case).
+They are available in two formats : Text file or PNG file (QR Code - Those are also chown in the docker log output of the container).
+Copy the configuration files to their associated clients. 
+
+#Phone
+Install the Wireguard application. Check the following link to see how to install it, depending on your OS
+https://www.wireguard.com/install/
+
+Launch the application and either scan the QR Code with it or import the configuration file in order to connect to the VPN.
+
+#PC
+Install the wireguard client. Check the following link to see how to install it, depending on your OS
+https://www.wireguard.com/install/
+
+On Arch :
+--Install the wireguard package--
+$ sudo pacman -S wireguard-tools
+--Connect--
+$ sudo wg-quick up /path/to/the/file.conf
+--Disconnect--
+$ sudo wg-quick down /path/to/the/file.conf
+
+
+
+
+
