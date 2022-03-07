@@ -26,6 +26,7 @@ hexchat
 keepassxc
 vlc
 onlyoffice-bin (AUR)
+openresolv #Only for Laptop in order to connect to my VPN
 firefox
 spotify (AUR)
 steam
@@ -43,7 +44,7 @@ mlocate
 htop
 neofetch
 wakeonlan (AUR)
-wireguard-tools
+wireguard-tools #Only for Laptop in order to connect to my VPN
 
 ## Theme
 Shell : Orchis-dark-compact - https://www.gnome-look.org/p/1357889/
