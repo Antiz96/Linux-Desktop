@@ -135,3 +135,10 @@ $ sudo docker run -d \
   --sysctl="net.ipv4.conf.all.src_valid_mark=1" \
   --restart unless-stopped \
   linuxserver/wireguard
+  
+#After any update, you can clean old dangling docker images (to regain spaces and clean up your local stored Docker images)
+$ sudo docker image prune
+
+#Alternatively, you can clean all unused Docker component (stopped containers, network not use by any containers, dangling images and build cache) 
+/!\If you choose to do that, make sure all your containers are running ! Otherwise, they will be deleted/!\
+$ sudo docker system prune
