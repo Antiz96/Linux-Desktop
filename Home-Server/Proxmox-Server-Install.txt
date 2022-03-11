@@ -50,13 +50,13 @@ $ sudo apt install vim man bash-completion openssh-server mlocate htop curl teln
 ##Secure SSH connexions
 
 #Disabling root ssh connexion
-$ vi /etc/ssh/sshd_config
+$ sudo vim /etc/ssh/sshd_config
 [...]
 PermitRootLogin no
 [...]
 
 #Change the default SSH port (replace "X" by the port you wan to use)
-$ vi /etc/ssh/sshd_config
+$ sudo vim /etc/ssh/sshd_config
 [...]
 Port X
 [...]
@@ -66,7 +66,7 @@ Port X
 $ ssh-keygen -t rsa -b 4096 #Choose a revelant name to remember on which server you use this key. Also, set a strong passphrase for encryption
 $ ssh-copy-id -i ~/.ssh/"keyfile_name".pub "user"@"server" #Change "keyfile_name", "user" and "server" according to your environment
 --On the server--
-$ vi /etc/ssh/sshd_config
+$ sudo vim /etc/ssh/sshd_config
 [...]
 PasswordAuthentication no
 AuthenticationMethods publickey
@@ -76,7 +76,7 @@ AuthenticationMethods publickey
 At that point, I do not have a firewall service running, so I'll take care of that a bit later in this procedure.
 Also, be aware that from now you'll need to specify the port and the private key to connect to ssh like so : "ssh -p "port" -i "/path/to/privatekey" "user"@"server".
 You can still create a config file in ~/.ssh to avoir specify the port each time./!\
-$ systemctl restart sshd
+$ sudo systemctl restart sshd
 
 #Start the firewalld and autorise the ssh port
 $ sudo systemctl enable --now firewalld
