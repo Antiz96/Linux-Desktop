@@ -81,7 +81,7 @@ $ systemctl restart sshd
 #Start the firewalld and autorise the ssh port
 $ sudo systemctl enable --now firewalld
 $ sudo firewall-cmd --add-port=X/tcp #Open the port we've set for SSH (replace "X" by the port)
-$ sudo firewall-cmd --remove-service="ssh" --permanent "Close the default SSH port
+$ sudo firewall-cmd --remove-service="ssh" --permanent #Close the default SSH port
 $ sudo firewall-cmd --reload
 
 #Configure ssh-askpass
