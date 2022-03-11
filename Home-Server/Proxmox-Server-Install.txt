@@ -49,16 +49,16 @@ $ sudo apt install vim man bash-completion openssh-server mlocate htop curl teln
 
 ##Secure SSH connexions
 
-#Disabling root ssh connexion
-$ sudo vim /etc/ssh/sshd_config
-[...]
-PermitRootLogin no
-[...]
-
 #Change the default SSH port (replace "X" by the port you wan to use)
 $ sudo vim /etc/ssh/sshd_config
 [...]
 Port X
+[...]
+
+#Disabling root ssh connexion
+$ sudo vim /etc/ssh/sshd_config
+[...]
+PermitRootLogin no
 [...]
 
 #Copy ssh public key to the server
