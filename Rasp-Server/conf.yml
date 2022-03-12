@@ -36,6 +36,12 @@ sections:
     url: http://nextcloud:8080/
     target: sametab
 
+  - title: Portainer
+    description: Docker container manager
+    icon: hl-portainer
+    url: https://portainer:9443/
+    target: sametab
+
   - title: Router
     description: Router configuration interface
     icon:  hl-router

@@ -36,6 +36,9 @@ Protocol : UDP | Source IP : * | Source Port : 51820 | Destination IP : "IP of y
 To easily deploy, manage and update my Wireguard VPN instance, I use docker (make sure you have docker installed on your server)
 https://hub.docker.com/r/linuxserver/wireguard
 
+#Install docker if not done already
+https://github.com/Antiz96/Linux-Customisation/blob/master/Rasp-Server/Docker_Install.txt
+
 #Create a local Wireguard folder to store the clients configuration and make data persistent for update/upgrade
 $ sudo mkdir /opt/wireguard
 

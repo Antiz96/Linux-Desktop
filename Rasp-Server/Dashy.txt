@@ -2,12 +2,11 @@
 I also installed Dashy on my Raspberry Pi, in order to get an easy access to all my various self hosted services
 https://github.com/lissy93/dashy
 
+#Install docker if not done already
+https://github.com/Antiz96/Linux-Customisation/blob/master/Rasp-Server/Docker_Install.txt
+
 #Create a dedicated dashy directory
 $ sudo mkdir /opt/dashy
-
-#Install and enable Docker
-$ sudo pacman -S docker
-$ sudo systemctl enable --now docker containerd
 
 #Download my dashy config file
 $ sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Rasp-Server/conf.yml -o /opt/dashy/conf.yml
