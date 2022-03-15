@@ -87,8 +87,15 @@ $ grub-mkconfig -o /boot/grub/grub.cfg #Generating the Grub configuration file
 $ pacman -S networkmanager #Install networkmanager (needed to get and manage my internet connexion)
 $ systemctl enable NetworkManager #Autostart NetworkManager at boot
 
+--Firewall Section--
+Installing a firewall may be optionnal for a fresh and simple desktop install as Arch doesn't expose any service by default.
+But it is a supplementary security layer you might consider (even tho there's a little chance you ever need it).
 $ pacman -S firewalld #Install a firewall
 $ systemctl enable firewalld #Autostart the firewall at boot
+$ firewall-cmd --remove-service="ssh" --permanent #Remove the opened ssh port by default as my PC don't run a ssh server
+$ firewall-cmd --remove-service="dhcpv6-client" --permanent #Remove the opened DHCPV6-client port by default as I don't use it
+$ firewall-cmd --reload #Apply changes
+--End of the Firewall Section--
 
 $ exit #Get out of the chroot
 $ umount -l /mnt #Umount my /mnt mounted point
