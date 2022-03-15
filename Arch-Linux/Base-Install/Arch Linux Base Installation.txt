@@ -78,7 +78,7 @@ But it is a supplementary security layer you might consider (even tho there's a 
 Check this link for more info/reasons to install a firewall : https://unix.stackexchange.com/questions/30583/why-do-we-need-a-firewall-if-no-programs-are-running-on-your-ports
 $ pacman -S firewalld #Install a firewall
 $ systemctl enable firewalld #Autostart the firewall at boot
-$ firewall-cmd --remove-service="ssh" --permanent #Remove the opened ssh port by default as my PC don't run a ssh server
+$ firewall-cmd --remove-service="ssh" --permanent #Remove the opened ssh port by default as my PC doesn't run a ssh server
 $ firewall-cmd --remove-service="dhcpv6-client" --permanent #Remove the opened DHCPV6-client port by default as I don't use it
 $ firewall-cmd --reload #Apply changes
 --End of the Firewall Section--
