@@ -87,6 +87,9 @@ $ grub-mkconfig -o /boot/grub/grub.cfg #Generating the Grub configuration file
 $ pacman -S networkmanager #Install networkmanager (needed to get and manage my internet connexion)
 $ systemctl enable NetworkManager #Autostart NetworkManager at boot
 
+$ pacman -S firewalld #Install a firewall
+$ systemctl enable firewalld #Autostart the firewall at boot
+
 $ exit #Get out of the chroot
 $ umount -l /mnt #Umount my /mnt mounted point
 
