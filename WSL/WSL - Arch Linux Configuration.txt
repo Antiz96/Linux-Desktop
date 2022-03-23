@@ -1,4 +1,4 @@
-## Installation :
+## Installation
 https://github.com/yuk7/ArchWSL
 
 
