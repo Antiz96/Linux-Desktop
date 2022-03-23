@@ -1,9 +1,8 @@
 ## Installation :
 https://github.com/yuk7/ArchWSL
 
-## Configuration
-$ pacman-key --init #Install and populate pacman Key 
-$ pacman-key --populate #Needed to use pacman
+
+##Configuration
 
 $ passwd #Change Root password
 
