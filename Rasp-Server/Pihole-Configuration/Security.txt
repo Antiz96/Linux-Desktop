@@ -1,0 +1,58 @@
+#This is how I secured the way my pihole is working (and my raspbian installation, generally speaking)
+
+1 - I gave a strong password to the root user account and make it impossible to log directly as root through ssh in the sshd_config file :
+$ sudo vi /etc/ssh/sshd_config
+[...]
+PermitRootLogin no
+
+$ sudo systemctl restart sshd
+
+According to this, the only way to log as root via ssh is to log in to a different user first and use the "su" command.
+
+$ ssh root@pihole
+root@pihole's password: 
+Permission denied, please try again.
+root@pihole's password:
+
+2 - I gave a strong password to the regular user. 
+The password is obviously different from the root one.
+
+##ONLY FOR RASPBIAN (I guess...), I do not use RASPBIAN anymore##
+3 - I deleted the file under /etc/sudoers.d that makes the pi user capable of using sudo without password for any commands.
+This file is actually created by default during the raspbian installation. That is a big security threat/concern to me.
+I find it insane to create such a file by default. Anyway, I advise you to delete it aswell so the system will ask for your password when using sudo (just like it normally should) :
+$ sudo rm /etc/sudoers.d/010_pi-nopasswd
+
+##ONLY FOR RASPBIAN (I guess...), I do not use RASPBIAN anymore##
+4 - I gave a strong password to the pihole user (which is the default user created during the pihole installation). The password is obviously different from the root user and the pi user password.
+It looks like the pihole user is included in the sudo group by default, so I removed it.
+This way, this user cannot run commands with sudo. I only gave him specific sudo rights (more on that on point 6).
+$ sudo gpasswd -d pihole sudo
+
+5 - All the script automatically running through the crontab belong to the root user.
+Pihole user only has the right to read and execute them :
+-rwxr-x--- 1 root pihole  358 févr.  7 10:20 pihole_update.sh
+
+6 - I only gave sudo right (without password) to the pihole user for those scripts (and only for those scripts).
+According to that, the pihole user gain temporary sudo rights during the execution of those scripts.
+This way, the pihole user doesn't have sudo rights on the entire binaries/commands used in the script, but only on what is specifically written in the scripts and only during their execution.
+$ sudo visudo
+[...]
+pihole ALL=(ALL) NOPASSWD: /home/pihole/pihole_blacklist_update.sh,/home/pihole/pihole_whitelist_update.sh
+
+$ sudo -l
+Entrées par défaut pour pihole sur pihole :
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin, env_keep+=NO_AT_BRIDGE, env_keep+="http_proxy HTTP_PROXY", env_keep+="https_proxy HTTPS_PROXY", env_keep+="ftp_proxy FTP_PROXY",
+    env_keep+=RSYNC_PROXY, env_keep+="no_proxy NO_PROXY"
+
+L'utilisateur pihole peut utiliser les commandes suivantes sur pihole :
+    (ALL) NOPASSWD: /home/pihole/pihole_blacklist_update.sh, /home/pihole/pihole_whitelist_update.sh
+
+7 - I made the pihole user account not available for login via the /etc/passwd file :
+$ sudo vi /etc/passwd
+[...]
+pihole:x:999:995::/home/pihole:/usr/sbin/nologin
+
+This way, it is not possible to log in to the pihole user account. It acts as a service user, such as www-data for apache for instance. 
+It exists, it executes it's crontab, he has specific rights to do stuff that it has to do, but you canno't log in to it (at least, not without modifying the /etc/passwd file, which implies using sudo and typing your password)
+
