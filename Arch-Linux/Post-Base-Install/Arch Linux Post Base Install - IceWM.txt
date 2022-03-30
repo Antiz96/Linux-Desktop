@@ -63,15 +63,6 @@ $ mkdir -p ~/.icewm && curl https://raw.githubusercontent.com/Antiz96/Linux-Cust
 #power.desktop
 $ mkdir -p ~/.local/share/applications && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/IceWM/power.desktop -o ~/.local/share/applications/power.desktop
 
-#update.desktop
-$ mkdir -p ~/.local/share/applications && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/IceWM/update.desktop -o ~/.local/share/applications/update.desktop
-
-#update.sh
-$ mkdir -p ~/Documents/scripts && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/IceWM/update.sh -o ~/Documents/scripts/update.sh && chmod +x ~/Documents/scripts/update.sh
-
-#update_notifier.sh
-$ mkdir -p ~/Documents/scripts && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/IceWM/update_notifier.sh -o ~/Documents/scripts/update_notifier.sh && chmod +x ~/Documents/scripts/update_notifier.sh
-
 #terminalrc
 $ mkdir -p ~/.config/xfce4/terminal && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/IceWM/terminalrc -o ~/.config/xfce4/terminal/terminalrc
 (Delete comments at the top)
@@ -98,12 +89,6 @@ $ sudo vi /etc/xdg/picom.conf
 inactive-opacity = 1
 # inactive-opacity = 0.8;
 [...]
-
-## Setup the crontab for the update notifier
-$ sudo systemctl start cronie && sudo systemctl enable cronie
-$ crontab -e
-#Update Notifier
-*/30 * * * * ~/Documents/scripts/update_notifier.sh
 
 ## Add touchpad click and navigation (Only for laptop)
 sudo vim /etc/X11/xorg.conf.d/90-touchpad.conf
