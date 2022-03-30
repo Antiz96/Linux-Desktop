@@ -64,6 +64,7 @@ alias search="sudo pacman -Ss"
 alias package="sudo pacman -Q"
 alias aurpackage="sudo pacman -Qm"
 alias cleancache="sudo pacman -Sc"
+alias cleanaurcache="yay -Sc"
 alias cleanorphans="pacman -Qtdq | sudo pacman -Rns -"
 
 #Tmux
