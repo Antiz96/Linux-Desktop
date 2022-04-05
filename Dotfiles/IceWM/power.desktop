@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Name=Power
+Icon=/usr/share/icons/Tela-circle-blue/scalable/apps/kshutdown.svg
+Exec=xdotool key Super+Escape
