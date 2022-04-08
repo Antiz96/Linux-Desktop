@@ -45,6 +45,11 @@ $ hwclock --systohc #Update my Hardware Clock
 
 $ pacman -S vim #Install vim (or any other editor), needed for the rest
 
+$ vim /etc/pacman.conf #Enable parallel downloads
+[...]
+ParallelDownloads = 10
+[...]
+
 $ vim /etc/locale.gen #Uncomment my local in that file (for me : fr_FR.UTF-8 UTF-8)
 $ locale-gen #Apply the configuration
 $ vim /etc/locale.conf #Set the LANG variable accordingly in this file (for me : LANG=fr_FR.UTF-8
