@@ -1,4 +1,4 @@
-#This is how I secured the way my pihole is working (and my raspbian installation, generally speaking)
+#This is how I secured my pihole's installation
 
 1 - I gave a strong password to the root user account and make it impossible to log directly as root through ssh in the sshd_config file :
 $ sudo vi /etc/ssh/sshd_config
@@ -29,7 +29,7 @@ It looks like the pihole user is included in the sudo group by default, so I rem
 This way, this user cannot run commands with sudo. I only gave him specific sudo rights (more on that on point 6).
 $ sudo gpasswd -d pihole sudo
 
-5 - All the script automatically running through the crontab belong to the root user.
+5 - All the scripts running through the crontab belong to the root user.
 Pihole user only has the right to read and execute them :
 -rwxr-x--- 1 root pihole  358 févr.  7 10:20 pihole_update.sh
 
