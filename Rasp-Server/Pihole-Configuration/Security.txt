@@ -36,9 +36,9 @@ Pihole user only has the right to read and execute them :
 6 - I only gave sudo right (without password) to the pihole user for those scripts (and only for those scripts).
 According to that, the pihole user gain temporary sudo rights during the execution of those scripts.
 This way, the pihole user doesn't have sudo rights on the entire binaries/commands used in the script, but only on what is specifically written in the scripts and only during their execution.
-$ sudo visudo
+$ sudo vim /etc/sudoers.d/pihole_scripts
 [...]
-pihole ALL=(ALL) NOPASSWD: /home/pihole/pihole_blacklist_update.sh,/home/pihole/pihole_whitelist_update.sh
+pihole ALL=(ALL) NOPASSWD: /home/pihole/pihole_blacklist_update.sh, /home/pihole/pihole_whitelist_update.sh
 
 $ sudo -l
 Entrées par défaut pour pihole sur pihole :
