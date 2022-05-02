@@ -1,0 +1,41 @@
+##Install Docker on my Debian Proxmox Server (if not done already)
+https://github.com/Antiz96/Linux-Customisation/blob/master/Home-Server/Docker-Install.txt
+
+
+##Installing File Browser on Docker
+https://github.com/filebrowser/filebrowser
+
+#Create the File Browser directory and database files (with the right permission) on my dedicated partition
+$ sudo mkdir -p /data/FileBrowser/data
+$ sudo touch /data/FileBrowser/database.db && sudo chown root:rcandau /data/FileBrowser/database.db && sudo chmod 664 /data/FileBrowser/database.db
+
+#Pull and run the container
+$ sudo docker run -v /data/FileBrowser/data:/srv -v /data/FileBrowser/database.db:/database.db -u $(id -u):$(id -g) -p 8080:80 --name filebrowser -d --restart always filebrowser/filebrowser
+
+#You can now access and configure it on this URL (admin:admin)
+http://[HOSTNAME]:8080/
+
+
+##File Browser settings
+Global Settings --> Dark Mode
+User Management --> Change default username and password
+
+
+##Update/Upgrade and reinstall procedure
+Since we use Docker, the update and upgrade procedure is actually the same as it does not rely directly on our server.
+Also, if you did a mapping between a volume stored on a local disk (like I did), all you need to do to reinstall your Nextcloud server is to re-download Docker (if you reinstalled your OS completly) and do the following steps.
+
+#Pull docker image to check if there's available updates
+$ sudo docker pull filebrowser/filebrowser
+
+#If there's an available update; then stop, delete and re-run the container to apply
+$ sudo docker stop filebrowser
+$ sudo docker rm filebrowser
+$ sudo docker run -v /data/FileBrowser/data:/srv -v /data/FileBrowser/database.db:/database.db -u $(id -u):$(id -g) -p 8080:80 --name filebrowser -d --restart always filebrowser/filebrowser
+
+#After any update, you can clean old dangling docker images (to regain spaces and clean up your local stored Docker images)
+$ sudo docker image prune
+
+#Alternatively, you can clean all unused Docker component (stopped containers, network not use by any containers, dangling images and build cache) 
+/!\If you choose to do that, make sure all your containers are running ! Otherwise, they will be deleted/!\
+$ sudo docker system prune
