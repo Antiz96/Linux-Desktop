@@ -6,7 +6,7 @@ https://github.com/Antiz96/Linux-Customisation/blob/master/Home-Server/Docker-In
 https://github.com/filebrowser/filebrowser
 
 #Create the File Browser directory and database files (with the right permission) on my dedicated partition
-$ sudo mkdir -p /data/FileBrowser/data && chown rcandau: /data/FileBrowser/data && chmod 700 /data/FileBrowser/data
+$ sudo mkdir -p /data/FileBrowser/data && sudo chown rcandau: /data/FileBrowser/data && chmod 700 /data/FileBrowser/data
 $ sudo touch /data/FileBrowser/database.db && sudo chown rcandau: /data/FileBrowser/database.db && sudo chmod 600 /data/FileBrowser/database.db
 
 #Pull and run the container
