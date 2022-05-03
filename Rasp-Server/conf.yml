@@ -30,10 +30,10 @@ sections:
     statusCheckAllowInsecure: true
     target: sametab
 
-  - title: Nextcloud
+  - title: FileBrowser
     description: Self hosted cloud
-    icon: hl-nextcloud
-    url: http://nextcloud:8080/
+    icon: hl-filebrowser
+    url: http://filebrowser:8080/
     target: sametab
 
   - title: Portainer
