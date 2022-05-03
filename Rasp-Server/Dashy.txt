@@ -3,13 +3,13 @@ I also installed Dashy on my Raspberry Pi, in order to get an easy access to all
 https://github.com/lissy93/dashy
 
 #Install docker if not done already
-https://github.com/Antiz96/Linux-Customisation/blob/master/Rasp-Server/Docker_Install.txt
+https://github.com/Antiz96/Linux-Customisation/blob/main/Rasp-Server/Docker_Install.txt
 
 #Create a dedicated dashy directory
 $ sudo mkdir /opt/dashy
 
 #Download my dashy config file
-$ sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Rasp-Server/conf.yml -o /opt/dashy/conf.yml
+$ sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Rasp-Server/conf.yml -o /opt/dashy/conf.yml
 
 #Pull and run the container 
 $ sudo docker run -d -p 8080:80 -v /opt/dashy/conf.yml:/app/public/conf.yml --name dashy --restart=always lissy93/dashy:latest

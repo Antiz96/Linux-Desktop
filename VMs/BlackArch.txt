@@ -39,8 +39,8 @@ $ reboot
 $ ssh-keygen
 
 #Install my personal config files
-$ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/bashrc%20\(BlackArch\) -o ~/.bashrc && source ~/.bashrc
-$ mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/zathurarc -o ~/.config/zathura/zathurarc
+$ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/bashrc%20\(BlackArch\) -o ~/.bashrc && source ~/.bashrc
+$ mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/zathurarc -o ~/.config/zathura/zathurarc
 
 #Create my export IP script
 $ mkdir ~/Documents/scripts
@@ -77,7 +77,7 @@ $ sudo pacman -S sqlitebrowser && yay -S stegseek
 #Firefox Bookmark
 https://gtfobins.github.io/
 https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
-https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md
+https://github.com/swisskyrepo/PayloadsAllTheThings/blob/main/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md
 https://busybox.net/downloads/binaries/1.31.0-i686-uclibc/
 
 #Settings

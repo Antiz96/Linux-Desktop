@@ -59,9 +59,9 @@ User folder update
 Desktop Preferences --> Desktop Icon --> Uncheck all
 
 #Install personal dotfiles
-$ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/bashrc%20\(Fedora-RedHat%20Based%20Distro\) -o ~/.bashrc
+$ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/bashrc%20\(Fedora-RedHat%20Based%20Distro\) -o ~/.bashrc
 $ vim ~/.bashrc #Get rid of the "Other" section
-$ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/tmux.conf -o ~/.tmux.conf
+$ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/tmux.conf -o ~/.tmux.conf
 $ vim ~/.tmux.conf #Get rid of comments at the top of the file
 
 #Replace LXDM by LightDM

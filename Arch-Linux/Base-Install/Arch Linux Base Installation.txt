@@ -101,15 +101,15 @@ $ sudo pacman -S base-devel linux-headers man bash-completion xorg-server intel-
 I've used GNOME and XFCE in the past (performing minimal installations) but I recently switched to IceWM. Here's my installation routine for the three of them. 
 
 ##Minimal GNOME installation (according to my personal preferences. Check https://archlinux.org/groups/x86_64/gnome/ & https://archlinux.org/groups/x86_64/gnome-extra/ to see what you want to install or not). If you want a complete GNOME installation, just install the "gnome" package (and the "gnome-extra" package if you want to)##
-$ sudo pacman -S $(curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Arch-Linux/Packages/gnome-minimal-packages.txt)
+$ sudo pacman -S $(curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Arch-Linux/Packages/gnome-minimal-packages.txt)
 $ sudo systemctl enable gdm
 
 ##Minimal XFCE installation (according to my personal preferences. Check https://archlinux.org/groups/x86_64/xfce4/ & https://archlinux.org/groups/x86_64/xfce4-goodies/ to see what you want to install or not). If you want a complete XFCE installation, just install the "xfce4" and the "xfce4-goodies" packages##
-$ sudo pacman -S $(curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Arch-Linux/Packages/xfce-minimal-packages.txt)
+$ sudo pacman -S $(curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Arch-Linux/Packages/xfce-minimal-packages.txt)
 $ sudo systemctl enable lightdm
 
 ##Minimal IceWM installation (according to my personal preferences).
-$ sudo pacman -S $(curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Arch-Linux/Packages/icewm-minimal-packages.txt)
+$ sudo pacman -S $(curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Arch-Linux/Packages/icewm-minimal-packages.txt)
 
 $ cp /etc/X11/xinit/xinitrc ~/.xinitrc
 

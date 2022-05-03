@@ -78,7 +78,7 @@ $ sudo pacman -S lib32-lcms2
 ## https://bbs.archlinux.org/viewtopic.php?id=265071
 $ sudo modprobe btusb
 $ sudo systemctl restart bluetooth
-$ install_bluetooth_driver #Reinstalling my bluetooth driver (this is a personal alias that calls a script I did to install/reinstall my bluetooth driver. Link to the script : https://github.com/Antiz96/Bash-Scripts/blob/master/install_bluetooth_driver.sh)
+$ install_bluetooth_driver #Reinstalling my bluetooth driver (this is a personal alias that calls a script I did to install/reinstall my bluetooth driver. Link to the script : https://github.com/Antiz96/Bash-Scripts/blob/main/install_bluetooth_driver.sh)
 
 
 ## Installing spotify via AUR gets a "GPG Key not found" error

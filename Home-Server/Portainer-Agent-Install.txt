@@ -1,5 +1,5 @@
 ##Install Docker on my Debian Proxmox Server (if not done already)
-https://github.com/Antiz96/Linux-Customisation/blob/master/Home-Server/Docker-Install.txt
+https://github.com/Antiz96/Linux-Customisation/blob/main/Home-Server/Docker-Install.txt
 
 
 ##Installing Portainer agent on Docker

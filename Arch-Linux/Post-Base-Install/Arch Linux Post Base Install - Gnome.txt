@@ -111,8 +111,8 @@ Super + T = gnome-terminal
 CTRL + ALT + DEL = gnome-system-monitor
 
 ## Dotfiles
-~/.bashrc --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/bashrc%20(Arch%20Based%20Distro)
-~/.tmux.conf --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/tmux.conf
-~/.config/zathura/zathurarc --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/zathurarc ||| launch "sudo mandb" to update man entries for the pman alias
-ArcMenu-Settings --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/Gnome/ArcMenu-Settings
-ArceMenu-Theme --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/Gnome/ArcMenu-Theme
+~/.bashrc --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/bashrc%20(Arch%20Based%20Distro)
+~/.tmux.conf --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/tmux.conf
+~/.config/zathura/zathurarc --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/zathurarc ||| launch "sudo mandb" to update man entries for the pman alias
+ArcMenu-Settings --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/Gnome/ArcMenu-Settings
+ArceMenu-Theme --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/Gnome/ArcMenu-Theme

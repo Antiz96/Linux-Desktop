@@ -75,7 +75,7 @@ settings
 XFCE Settings -> "Window Manager Tweaks" -> "Compositor" -> uncheck "Enable display compositing"
 
 ## Top panel configuration (See Dotfiles part)
-https://github.com/Antiz96/Linux-Customisation/blob/master/Dotfiles/XFCE/xfce4-panel.xml
+https://github.com/Antiz96/Linux-Customisation/blob/main/Dotfiles/XFCE/xfce4-panel.xml
 Needs to be done manually :
 --Generic Monitor Arch Update--
 /home/rcandau/Documents/scripts/genmon_update.sh | Arch Update (No label) | 3600,00 sec
@@ -115,7 +115,7 @@ xapp-sn-watcher
 Xfce Notification Daemon
 
 ## Keyboard Shortcuts (See Dotfiles part)
-https://github.com/Antiz96/Linux-Customisation/blob/master/Dotfiles/XFCE/xfce4-keyboard-shortcuts.xml
+https://github.com/Antiz96/Linux-Customisation/blob/main/Dotfiles/XFCE/xfce4-keyboard-shortcuts.xml
 Super + A = Open Whisker Menu --> xfce4-popup-whiskermenu
 Super + F = Switch size of windows (Maximize/Minimize)
 Super + D = Close the window
@@ -133,7 +133,7 @@ $ sudo vi /etc/pulse/default.pa
 load-module module-switch-on-connect
 
 ## Disable transparency on unfocused windows
-https://github.com/Antiz96/Linux-Customisation/blob/master/Dotfiles/XFCE/picom.conf
+https://github.com/Antiz96/Linux-Customisation/blob/main/Dotfiles/XFCE/picom.conf
 $ sudo vi /etc/xdg/picom.conf
 [...]
 # Opacity of inactive windows. (0.1 - 1.0, defaults to 1.0)
@@ -142,14 +142,14 @@ inactive-opacity = 1
 [...]
 
 ## Dotfiles
-~/.bashrc --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/bashrc%20(Arch%20Based%20Distro)
-~/.tmux.conf --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/tmux.conf
-~/.config/zathura/zathurarc --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/zathurarc ||| launch "sudo mandb" to update man entries for the pman alias
-~/.config/xfce4/terminal/terminalrc --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/XFCE/terminalrc
-~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/XFCE/xfce4-panel.xml
-~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/XFCE/xfce4-keyboard-shortcuts.xml
-/etc/lightdm/lightdm.conf --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/LightDM/lightdm.conf
-/etc/lightdm/lightdm-webkit2-greeter.conf --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/LightDM/lightdm-webkit2-greeter.conf
-/usr/share/lightdm-webkit/themes/glorious/js/authenticate.js --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/LightDM/authenticate.js
+~/.bashrc --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/bashrc%20(Arch%20Based%20Distro)
+~/.tmux.conf --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/tmux.conf
+~/.config/zathura/zathurarc --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/zathurarc ||| launch "sudo mandb" to update man entries for the pman alias
+~/.config/xfce4/terminal/terminalrc --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/XFCE/terminalrc
+~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/XFCE/xfce4-panel.xml
+~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/XFCE/xfce4-keyboard-shortcuts.xml
+/etc/lightdm/lightdm.conf --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/LightDM/lightdm.conf
+/etc/lightdm/lightdm-webkit2-greeter.conf --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/LightDM/lightdm-webkit2-greeter.conf
+/usr/share/lightdm-webkit/themes/glorious/js/authenticate.js --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/LightDM/authenticate.js
 
 

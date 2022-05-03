@@ -30,7 +30,7 @@ $ sudo dnf install qemu-guest-agent
 $ sudo systemctl enable --now qemu-guest-agent
 
 #Downlaod my .bashrc
-$ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/bashrc%20\(Fedora-RedHat%20Based%20Distro%20SERVER%20-%20WSL\) -o ~/.bashrc
+$ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/bashrc%20\(Fedora-RedHat%20Based%20Distro%20SERVER%20-%20WSL\) -o ~/.bashrc
 $ vim ~/.bashrc #Get rid of TMUX things
 
 #Static IP Adress

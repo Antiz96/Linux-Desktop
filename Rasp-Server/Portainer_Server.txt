@@ -3,7 +3,7 @@ Portainer provides a simple and intuitive Web Interface to manage and deploy all
 https://docs.portainer.io/v/ce-2.11/start/install/server/docker/linux
 
 #Install docker if not done already
-https://github.com/Antiz96/Linux-Customisation/blob/master/Rasp-Server/Docker_Install.txt
+https://github.com/Antiz96/Linux-Customisation/blob/main/Rasp-Server/Docker_Install.txt
 
 ##Installation
 

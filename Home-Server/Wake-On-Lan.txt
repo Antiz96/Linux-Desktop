@@ -30,7 +30,7 @@ $ yay -S wakeonlan
 #Get the the mac address of the network card of the machine to wake up
 $ ip a
 [...]
-2: enp3s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast master vmbr0 state UP group default qlen 1000
+2: enp3s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast maaster vmbr0 state UP group default qlen 1000
     link/ether *7c:10:c9:8c:88:9d* brd ff:ff:ff:ff:ff:ff
 [...]
 

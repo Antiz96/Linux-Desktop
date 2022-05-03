@@ -1,12 +1,12 @@
 ##Install Docker on my Debian Proxmox Server (if not done already)
-https://github.com/Antiz96/Linux-Customisation/blob/master/Home-Server/Docker-Install.txt
+https://github.com/Antiz96/Linux-Customisation/blob/main/Home-Server/Docker-Install.txt
 
 
 ##Installing File Browser on Docker
 https://github.com/filebrowser/filebrowser
 
 #Create the File Browser directory and database files (with the right permission) on my dedicated partition
-$ sudo mkdir -p /data/FileBrowser/data && sudo chown rcandau: /data/FileBrowser/data && chmod 700 /data/FileBrowser/data
+$ sudo mkdir -p /data/FileBrowser/data && chown rcandau: /data/FileBrowser/data && chmod 700 /data/FileBrowser/data
 $ sudo touch /data/FileBrowser/database.db && sudo chown rcandau: /data/FileBrowser/database.db && chmod 600 /data/FileBrowser/database.db
 
 #Pull and run the container

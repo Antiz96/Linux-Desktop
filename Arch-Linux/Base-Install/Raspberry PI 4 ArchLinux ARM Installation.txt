@@ -33,10 +33,10 @@ $ vi /etc/ssh/sshd_config
 $ reboot
 
 ##Then, I follow my Arch Linux Install Routine (without things that has already been done in the installation above like partitiong/filesystem, mount + pacstrap + genfstab, grub, exit and umount /mnt, etc... Also, I do not install the same drivers and same DE component as my main machine. See the pacman command I'm using for raspberry below.
-https://github.com/Antiz96/Linux-Customisation/blob/master/Arch-Linux/Base-Install/Arch%20Linux%20Base%20Installation.txt
+https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Base-Install/Arch%20Linux%20Base%20Installation.txt
 ----------------------------------------------
 ##Additionnal useful packages, drivers and DE
-$ sudo pacman -S $(curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Arch-Linux/Packages/icewm-rpi-minimal-packages.txt)
+$ sudo pacman -S $(curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Arch-Linux/Packages/icewm-rpi-minimal-packages.txt)
 ----------------------------------------------
 
 ##Disable the systemd-resolved
@@ -48,4 +48,4 @@ $ touch /etc/resolv.conf
 $ reboot
 
 ##Zip Archive containing IceWM conf for rapsberry :
-$ mkdir -p ~/.icewm && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/IceWM/icewm-rpi.zip -O && unzip icewm-rpi.zip -d ~/.icewm/ && chmod +x ~/.icewm/startup && rm -f icewm-rpi.zip
+$ mkdir -p ~/.icewm && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/IceWM/icewm-rpi.zip -O && unzip icewm-rpi.zip -d ~/.icewm/ && chmod +x ~/.icewm/startup && rm -f icewm-rpi.zip

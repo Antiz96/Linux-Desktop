@@ -63,7 +63,7 @@ $ systemctl restart sshd
 
 
 ##Configure Arch Linux according to my preferences, without the things that has already been done during the Arch Linux ARM installation and the above steps (partitiong/filesystem, mount + pacstrap + genfstab, creating my user, grub bootloader, exit and umount /mnt, etc...)
-https://github.com/Antiz96/Linux-Customisation/blob/master/Arch-Linux/Base-Install/Arch%20Linux%20Base%20Installation.txt
+https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Base-Install/Arch%20Linux%20Base%20Installation.txt
 
 
 ##Edit and disable the systemd-resolved service (because it causes problems with the pihole-FTL service and it also causes interferences with NetworkManager)
@@ -103,7 +103,7 @@ $ yay -S wakeonlan
 
 
 ##Downlaod my .bashrc
-$ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/bashrc%20\(Arch%20Based%20Distro%20SERVER%20-%20WSL\) -o ~/.bashrc
+$ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/bashrc%20\(Arch%20Based%20Distro%20SERVER%20-%20WSL\) -o ~/.bashrc
 $ vim ~/.bashrc #Get rid of TMUX things and "cd || return" (which is specific to wsl)
 
 

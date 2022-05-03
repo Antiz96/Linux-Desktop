@@ -26,11 +26,11 @@ $ cd yay #Change directory to "yay" install sources directory
 $ makepkg -si #Install "yay"
 
 -- Install my config files --
-https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/bashrc%20(Arch%20Based%20Distro%20SERVER%20-%20WSL) #.bashrc
-https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/tmux.conf #.tmux.conf
+https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/bashrc%20(Arch%20Based%20Distro%20SERVER%20-%20WSL) #.bashrc
+https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/tmux.conf #.tmux.conf
 
 -- Setup my DNS config for VPN --
-https://github.com/Antiz96/Linux-Customisation/blob/master/WSL/WSL%20-%20Resolve%20DNS%20using%20VPN.txt
+https://github.com/Antiz96/Linux-Customisation/blob/main/WSL/WSL%20-%20Resolve%20DNS%20using%20VPN.txt
 
 --Setup Openssh to accept rsa keys--
 The newest version of openssh included in Arch Linux (openssl 8.8p1-1) doesn't accept some type of ssh keys judged too old/insecure.

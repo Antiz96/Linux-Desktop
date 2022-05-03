@@ -56,31 +56,31 @@ Cursor : McMojave cursors - https://www.opendesktop.org/s/Gnome/p/1355701/
 /!\Reminder : "/home/rcandau" is hard-coded in "keys" (Lock Screen Shortcut) and in update.desktop (Exec=/home/rcandau/Documents/scripts/update.sh)/!\
 
 #IceWM Conf
-$ mkdir -p ~/.icewm && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/IceWM/icewm.zip -O && unzip icewm.zip -d ~/.icewm/ && chmod +x ~/.icewm/startup && rm -f icewm.zip
+$ mkdir -p ~/.icewm && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/IceWM/icewm.zip -O && unzip icewm.zip -d ~/.icewm/ && chmod +x ~/.icewm/startup && rm -f icewm.zip
 /!\Remember to uncomment the right "Display resolution" command line in the "~/.icewm/startup" script according to the machine (First Line = Desktop | Second Line = Laptop)/!\
 /!\Remember to uncomment the CKB-Next command if on desktop (Corsair Keyboard)/!\
 
 #power.desktop
-$ mkdir -p ~/.local/share/applications && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/IceWM/power.desktop -o ~/.local/share/applications/power.desktop
+$ mkdir -p ~/.local/share/applications && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/IceWM/power.desktop -o ~/.local/share/applications/power.desktop
 
 #terminalrc
-$ mkdir -p ~/.config/xfce4/terminal && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/IceWM/terminalrc -o ~/.config/xfce4/terminal/terminalrc
+$ mkdir -p ~/.config/xfce4/terminal && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/IceWM/terminalrc -o ~/.config/xfce4/terminal/terminalrc
 (Delete comments at the top)
 
 #.tmux.conf
-$ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/tmux.conf -o ~/.tmux.conf
+$ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/tmux.conf -o ~/.tmux.conf
 (Delete comments at the top and in the copy/paste section)
 
 #zathurarc
-$ mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/zathurarc -o ~/.config/zathura/zathurarc
+$ mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/zathurarc -o ~/.config/zathura/zathurarc
 (Delete comments at the top)
 
 #gsimplecal conf
-$ mkdir -p ~/.config/gsimplecal/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/IceWM/config -o ~/.config/gsimplecal/config
+$ mkdir -p ~/.config/gsimplecal/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/IceWM/config -o ~/.config/gsimplecal/config
 (Delete comments at the top)
 
 #.bashrc
-$ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/master/Dotfiles/General/bashrc%20\(Arch%20Based%20Distro\) -o ~/.bashrc && source ~/.bashrc
+$ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/bashrc%20\(Arch%20Based%20Distro\) -o ~/.bashrc && source ~/.bashrc
 
 ## Disable transparency on unfocused windows (also comment vsync option for Virtual Machines)
 $ sudo vi /etc/xdg/picom.conf
