@@ -22,10 +22,10 @@ arch-update (AUR) --> https://github.com/Antiz96/arch-update
 bluemail (AUR)
 ckb-next (AUR) #Only for my Desktop PC to configure my Corsair Keyboard. Settings --> (Last blue : 26, 95, 180)
 discord
-gparted
 hexchat
 keepassxc
 vlc
+gparted
 onlyoffice-bin (AUR)
 openresolv #Only for Laptop in order to connect to my VPN
 firefox
@@ -72,7 +72,7 @@ $ curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfil
 (Delete comments at the top and in the copy/paste section)
 
 #zathurarc
-$ mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/zathurarc -o ~/.config/zathura/zathurarc
+$ mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/zathurarc -o ~/.config/zathura/zathurarc && xdg-mime default org.pwmt.zathura.desktop application/pdf
 (Delete comments at the top)
 
 #gsimplecal conf
@@ -105,7 +105,7 @@ EndSection
 ## Reboot to apply changes
 $ reboot
 
-## Update mandb for the pman alias
+## Update mandb
 $ sudo mandb
 
 ## Dock (plank)
