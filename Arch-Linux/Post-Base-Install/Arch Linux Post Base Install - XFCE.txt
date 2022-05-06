@@ -1,4 +1,3 @@
---GENERAL--
 ## Install YAY & Pamac
 $ sudo pacman -S git
 $ cd /tmp
