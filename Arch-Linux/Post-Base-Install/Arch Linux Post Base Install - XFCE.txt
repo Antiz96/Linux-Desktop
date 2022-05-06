@@ -13,7 +13,7 @@ Install bluez-utils-compat (aur) #That package contains deprecated tools that I 
 $ sudo systemctl start bluetooth
 $ sudo systemctl enable bluetooth
 
-## Dependence for Arch Linux Updates Indicator
+## Dependency for Arch Linux Updates Indicator
 $ sudo pacman -S pacman-contrib
 
 ## Mount secondary disk in fstab
