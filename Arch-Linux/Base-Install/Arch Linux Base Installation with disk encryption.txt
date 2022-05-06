@@ -149,3 +149,8 @@ $ sudo grub-mkconfig -o /boot/grub/grub.cfg #Regenerating grub configuration (Sp
 $ reboot #Reboot into my system with GUI (select GNOME on XORG in GDM if I installed GNOME)
 
 # Base Installation complete
+
+# Post Base install
+Gnome : https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Post-Base-Install/Arch%20Linux%20Post%20Base%20Install%20-%20Gnome.txt
+XFCE : https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Post-Base-Install/Arch%20Linux%20Post%20Base%20Install%20-%20XFCE.txt
+IceWM : https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Post-Base-Install/Arch%20Linux%20Post%20Base%20Install%20-%20IceWM.txt
