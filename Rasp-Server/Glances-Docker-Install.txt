@@ -9,6 +9,26 @@ https://github.com/nicolargo/glances
 $ sudo docker pull nicolargo/glances:latest-full 
 $ sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w" -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
 
+#Set a username and password for the web interface (optionnal but recommended)
+$ sudo mkdir /opt/glances
+$ sudo docker exec -it glances bash
+$ glances -s --username --password
+
+Define the Glances server username: your_username #Replace "your_username" by the username you want to use
+Define the Glances server password (your_username username):
+Password (confirm):
+Do you want to save the password? [Yes/No]: Yes
+Glances XML-RPC server is running on 0.0.0.0:61209
+Announce the Glances server on the LAN (using 172.17.0.5 IP address)
+
+Then press ctrl+\ to interupt the proccess and exit the container
+
+$ sudo docker cp glances:/root/.config/glances/your_username.pwd /opt/glances/your_username.pwd
+$ sudo docker stop glances
+$ sudo docker rm glances
+#Replace "your_username" by the username you've set earlier
+$ sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u your_username --password" -v /opt/glances/your_username.pwd:/root/.config/glances/your_username.pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
+
 #You can now access it on this URL (admin:admin)
 http://[HOSTNAME]:61208/
 
@@ -24,6 +44,8 @@ $ sudo docker pull nicolargo/glances:latest-full
 $ sudo docker stop glances
 $ sudo docker rm glances
 $ sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w" -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
+#OR if you set a username and password (Replace "your_username" by the username you've set earlier)
+sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u your_username --password" -v /opt/glances/your_username.pwd:/root/.config/glances/your_username.pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
 
 #After any update, you can clean old dangling docker images (to regain spaces and clean up your local stored Docker images)
 $ sudo docker image prune
