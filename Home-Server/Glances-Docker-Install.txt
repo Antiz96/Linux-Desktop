@@ -1,0 +1,33 @@
+##Install Docker on my Debian Proxmox Server (if not done already)
+https://github.com/Antiz96/Linux-Customisation/blob/main/Home-Server/Docker-Install.txt
+
+
+##Installing File Browser on Docker
+https://github.com/nicolargo/glances
+
+#Pull and run the container
+$ sudo docker pull nicolargo/glances:latest-full 
+$ sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w" -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
+
+#You can now access it on this URL (admin:admin)
+http://[HOSTNAME]:61208/
+
+
+##Update/Upgrade and reinstall procedure
+Since we use Docker, the update and upgrade procedure is actually the same as it does not rely directly on our server.
+Also, if you did a mapping between a volume stored on a local disk (like I did), all you need to do to reinstall your Nextcloud server is to re-download Docker (if you reinstalled your OS completly) and do the following steps.
+
+#Pull docker image to check if there's available updates
+$ sudo docker pull nicolargo/glances:latest-full
+
+#If there's an available update; then stop, delete and re-run the container to apply
+$ sudo docker stop glances
+$ sudo docker rm glances
+$ sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w" -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
+
+#After any update, you can clean old dangling docker images (to regain spaces and clean up your local stored Docker images)
+$ sudo docker image prune
+
+#Alternatively, you can clean all unused Docker component (stopped containers, network not use by any containers, dangling images and build cache) 
+/!\If you choose to do that, make sure all your containers are running ! Otherwise, they will be deleted/!\
+$ sudo docker system prune
