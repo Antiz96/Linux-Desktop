@@ -12,7 +12,7 @@ $ sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OP
 #Set a username and password for the web interface (optionnal but recommended)
 $ sudo mkdir /opt/glances
 $ sudo docker exec -it glances bash
-$ glances -s --username --password
+# glances -s --username --password
 
 Define the Glances server username: your_username #Replace "your_username" by the username you want to use
 Define the Glances server password (your_username username):
