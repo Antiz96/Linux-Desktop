@@ -2,7 +2,7 @@
 https://github.com/Antiz96/Linux-Customisation/blob/main/Home-Server/Docker-Install.txt
 
 
-##Installing File Browser on Docker
+##Installing Glances on Docker
 https://github.com/nicolargo/glances
 
 #Pull and run the container
