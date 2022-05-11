@@ -43,6 +43,8 @@ server {
 
         location / {
 		proxy_pass “URL_to_redirect_to”;
+		#Header needed for Pihole		
+		#proxy_set_header Host $host;
 
 		#HSTS Vulnerability
 		add_header Strict-Transport-Security 'max-age=63072000; includeSubDomains; preload';
