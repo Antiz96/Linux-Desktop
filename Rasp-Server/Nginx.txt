@@ -48,7 +48,12 @@ server {
 		proxy_pass “URL_to_redirect_to”;
 		#Header needed for Pihole		
 		#proxy_set_header Host $host;
-
+		#Extra configuration needed for portainer (websocket for container consoles)
+                #proxy_http_version 1.1;
+                #proxy_set_header Upgrade $http_upgrade;
+                #proxy_set_header Connection "Upgrade";
+                #proxy_set_header Host $host;
+	
 		#HSTS Vulnerability
 		add_header Strict-Transport-Security 'max-age=63072000; includeSubDomains; preload';
 
@@ -57,7 +62,7 @@ server {
 		add_header X-XSS-Protection "1; mode=block";
 		add_header X-Frame-Options SAMEORIGIN always;
 		add_header Content-Security-Policy "frame-ancestors 'self';base-uri 'self';";
-                }
+        }
 }
 
 ##Validate and apply new configuration(s)
