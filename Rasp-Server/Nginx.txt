@@ -1,0 +1,64 @@
+##Nginx
+I use nginx as a reverse proxy to access all my self hosted services.
+It allows me to easily manage headers and various settings of my self hosted service's access as well as easily securing them with SSL and extra security settings.
+
+##Installation and pre-configuration
+$ sudo pacman -S nginx
+$ sudo mkdir /etc/nginx/{conf.d,ssl} #Create directories for URL configuration files and ssl related files
+$ sudo vim /etc/nginx/nginx.conf
+[...]
+worker_processes 4; #Change worker_processes from 1 to the number of CPU cores
+[...]
+types_hash_max_size 4096; #Add this to the http context to get rid of the warning "could not build optimal types_has" --> https://bugzilla.redhat.com/show_bug.cgi?id=1564878
+[...]
+server_tokens off; #Add this to the http context to hide the nginx version
+[...]
+include /etc/nginx/conf.d/*.conf; #Add this to use configuration files from the conf.d directory previously created
+[...]
+listen 443 #Change default port from 80 to 443 in the server context
+[...]
+$ sudo firewall-cmd --add-port=443/tcp --permanent
+$ sudo firewall-cmd --reload
+$ sudo systemctl enable --now nginx
+
+##Creation of a self signed wildcard SSL certificate
+$ cd /etc/nginx/ssl/
+$ sudo openssl genrsa -out xxx.key 4096
+$ sudo openssl req -key xxx.key -new -sha256 -out xxx.csr -addext "subjectAltName = DNS:'CN_OF_CERTIFICATE'"
+$ sudo openssl x509 -signkey xxx.key -in xxx.csr -req -days 365 -out xxx.crt
+
+##URL Configuration Template
+$ sudo vim "URL".conf
+server {
+        listen “IP”:443 ssl;
+        server_name “URL”;
+
+        #Log Path
+        access_log /var/log/nginx/”URL”_access.log;
+        error_log /var/log/nginx/”URL”_error.log;
+
+        #SSL
+        ssl_certificate /etc/nginx/ssl/”Filename”.crt;
+        ssl_certificate_key /etc/nginx/ssl/”Filename”.key;
+
+        location / {
+		proxy_pass “URL_to_redirect_to”;
+
+		#HSTS Vulnerability
+		add_header Strict-Transport-Security 'max-age=63072000; includeSubDomains; preload';
+
+		#Nosniff & XSS Protection
+		add_header X-Content-Type-Options nosniff;
+		add_header X-XSS-Protection "1; mode=block";
+		add_header X-Frame-Options SAMEORIGIN always;
+		add_header Content-Security-Policy "frame-ancestors 'self';base-uri 'self';";
+
+                }
+}
+
+##Validate and apply new configuration(s)
+$ sudo nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+
+$ sudo nginx -s reload
