@@ -39,16 +39,16 @@ server {
 
         #SSL
 	ssl_protocols TLSv1.2 TLSv1.3;
-	#Protocols needed for Portainer
+	##Protocols needed for Portainer
 	#proxy_ssl_protocols TLSv1.2 TLSv1.3;
         ssl_certificate /etc/nginx/ssl/”Filename”.crt;
         ssl_certificate_key /etc/nginx/ssl/”Filename”.key;
 
         location / {
 		proxy_pass “URL_to_redirect_to”;
-		#Header needed for Pihole		
+		##Header needed for Pihole		
 		#proxy_set_header Host $host;
-		#Extra configuration needed for portainer (websocket for container consoles)
+		##Extra configuration needed for portainer (websocket for container consoles)
                 #proxy_http_version 1.1;
                 #proxy_set_header Upgrade $http_upgrade;
                 #proxy_set_header Connection "Upgrade";
