@@ -38,7 +38,9 @@ server {
         error_log /var/log/nginx/”URL”_error.log;
 
         #SSL
-	ssl_protocols TLSv1.2;
+	ssl_protocols TLSv1.2 TLSv1.3;
+	#Protocols needed for Portainer
+	#proxy_ssl_protocols TLSv1.2 TLSv1.3;
         ssl_certificate /etc/nginx/ssl/”Filename”.crt;
         ssl_certificate_key /etc/nginx/ssl/”Filename”.key;
 
