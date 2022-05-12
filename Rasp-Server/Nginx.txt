@@ -14,9 +14,11 @@ types_hash_max_size 4096; #Add this to the http context to get rid of the warnin
 [...]
 server_tokens off; #Add this to the http context to hide the nginx version
 [...]
-include /etc/nginx/conf.d/*.conf; #Add this to use configuration files from the conf.d directory previously created
+include /etc/nginx/conf.d/*.conf; #Add this to the http context to use configuration files from the conf.d directory previously created
 [...]
-listen 443 #Change default port from 80 to 443 in the server context
+#server { #Comment the WHOLE default server block (first three lines below)
+	#listen       80;
+        #server_name  localhost;
 [...]
 $ sudo firewall-cmd --add-port=443/tcp --permanent
 $ sudo firewall-cmd --reload
