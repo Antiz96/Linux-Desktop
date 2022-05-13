@@ -8,7 +8,7 @@ https://github.com/Antiz96/Linux-Customisation/blob/main/Rasp-Server/Docker_Inst
 #Create a dedicated dashy directory
 $ sudo mkdir /opt/dashy
 
-#Download my dashy config file
+#Download my dashy config file (remember to fill in the "username" and "password" fields for the monitoring sections)
 $ sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Rasp-Server/conf.yml -o /opt/dashy/conf.yml
 
 #Pull and run the container 
