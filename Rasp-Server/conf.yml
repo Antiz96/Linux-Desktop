@@ -4,7 +4,7 @@
 # Page meta info, like heading, footer text and nav links
 pageInfo:
   title: Home Dashboard
-  description: Welcome to the Home Infra dashboard !
+  description: Welcome to the RC Home Infra dashboard !
 
 # Optional app settings and configuration
 appConfig:
@@ -12,39 +12,162 @@ appConfig:
   statusCheck: true
 
 # Main content - An array of sections, each containing an array of items
+# Widget section
 sections:
-- name: Services
+- name: Widget
+  icon: fas fa-rocket-launch
+  widgets:
+
+  - type: clock
+    options:
+      timeZone: Europe/Paris
+      format: fr-FR
+      customCityName: Rouen
+
+  - type: weather
+    options:
+      apiKey: 1599151d7e028c2406c4eaf11cf0a7dd
+      city: Rouen
+      units: metric
+
+# Self Hosted Services section
+- name: Self Hosted Services
   icon: fas fa-server
   items:
+
+  - title: Nginx
+    description: Reverse proxy
+    icon: hl-nginx
+    url: https://nginx.home-infra.rc/wallpaper.png
+    statusCheckAllowInsecure: true
+    target: sametab
 
   - title: Pihole
     description: DNS - Adblocker
     icon: hl-pihole
-    url: http://pihole/admin/
+    url: https://pihole.home-infra.rc
+    statusCheckAllowInsecure: true
     target: sametab
 
   - title: Proxmox
     description: Virtualization platform
     icon: hl-proxmox
-    url: https://proxmox:8006/
+    url: https://proxmox.home-infra.rc
     statusCheckAllowInsecure: true
     target: sametab
 
   - title: FileBrowser
     description: Self hosted cloud
     icon: hl-filebrowser
-    url: http://filebrowser:8080/
+    url: https://filebrowser.home-infra.rc
+    statusCheckAllowInsecure: true
     target: sametab
 
   - title: Portainer
     description: Docker container manager
     icon: hl-portainer
-    url: https://portainer:9443/
+    url: https://portainer.home-infra.rc
     statusCheckAllowInsecure: true
     target: sametab
 
   - title: Router
     description: Router configuration interface
-    icon:  hl-router
-    url: https://mabbox.bytel.fr/
+    icon: hl-router
+    url: https://mabbox.bytel.fr
     target: sametab
+
+  - title: Glances Home-Server
+    description: Monitoring tool
+    icon: hl-glances
+    url: https://glances-home.home-infra.rc
+    statusCheckAcceptCodes: 401
+    statusCheckAllowInsecure: true
+    target: sametab
+
+  - title: Glances Rasp-Server
+    description: Monitoring tool
+    icon: hl-glances
+    url: https://glances-rasp.home-infra.rc
+    statusCheckAcceptCodes: 401
+    statusCheckAllowInsecure: true
+    target: sametab
+
+# Monitoring Home-Server section
+- name: Monitoring Home-Server
+  icon: fas fa-chart-line
+  widgets:
+
+  - type: gl-current-cpu
+    options:
+      hostname: http://home-server:61208
+      username: 
+      password: 
+      useProxy: true
+
+  - type: gl-current-mem
+    options:
+      hostname: http://home-server:61208
+      username: 
+      password: 
+      useProxy: true
+
+  - type: gl-alerts
+    options:
+      hostname: http://home-server:61208
+      username: 
+      password: 
+      useProxy: true
+
+  - type: gl-cpu-history
+    options:
+      hostname: http://home-server:61208
+      username: 
+      password: 
+      useProxy: true
+
+  - type: gl-mem-history
+    options:
+      hostname: http://home-server:61208
+      username: 
+      password: 
+      useProxy: true
+
+# Monitoring Rasp-Server section
+- name: Monitoring Rasp-Server
+  icon: fas fa-chart-line
+  widgets:
+
+  - type: gl-current-cpu
+    options:
+      hostname: http://rasp-server:61208
+      username: 
+      password: 
+      useProxy: true
+
+  - type: gl-current-mem
+    options:
+      hostname: http://rasp-server:61208
+      username: 
+      password: 
+      useProxy: true
+
+  - type: gl-alerts
+    options:
+      hostname: http://rasp-server:61208
+      username: 
+      password: 
+      useProxy: true
+
+  - type: gl-cpu-history
+    options:
+      hostname: http://rasp-server:61208
+      username: 
+      password: 
+      useProxy: true
+
+  - type: gl-mem-history
+    options:
+      hostname: http://rasp-server:61208
+      username: 
+      password: 
+      useProxy: true
