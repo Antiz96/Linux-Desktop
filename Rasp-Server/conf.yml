@@ -36,7 +36,7 @@ sections:
   items:
 
   - title: Nginx - KeepAlived
-    description: Reverse proxy - VIP Manager
+    description: Reverse proxy - VIP manager
     icon: hl-nginx
     url: https://vip.home-infra.rc
     statusCheckAllowInsecure: true
