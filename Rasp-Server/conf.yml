@@ -35,10 +35,10 @@ sections:
   icon: fas fa-server
   items:
 
-  - title: Nginx
-    description: Reverse proxy
+  - title: Nginx - KeepAlived
+    description: Reverse proxy - VIP Manager
     icon: hl-nginx
-    url: https://nginx.home-infra.rc/wallpaper.png
+    url: https://vip.home-infra.rc
     statusCheckAllowInsecure: true
     target: sametab
 
