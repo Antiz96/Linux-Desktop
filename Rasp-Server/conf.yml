@@ -23,6 +23,7 @@ sections:
       timeZone: Europe/Paris
       format: fr-FR
       customCityName: Rouen
+      hideSeconds: true
 
   - type: weather
     options:
