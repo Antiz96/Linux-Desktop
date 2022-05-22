@@ -15,9 +15,9 @@ Create the directory in which the configuration and the data will be stored :
 
 ## Pull and run the container
 
-This run command contains the mapping to /data/Nextcloud (previously created) to get persistent data for upgrades and backups
+This run command contains the mapping to /data/Nextcloud (previously created) to get persistent data for upgrades and backups.
 <br>
-It also contains the Docker "always" restart policy (https://docs.docker.com/config/containers/start-containers-automatically/)
+It also contains the Docker "always" restart policy (https://docs.docker.com/config/containers/start-containers-automatically/).
 <br>
 It will make nextcloud listen to the "8080" port. Make sure you don't have anything already listening to that port.
 <br>
@@ -58,20 +58,20 @@ Default encryption module *(only if you use remote storage(s). If not, you'd bet
 
 https://nextcloud.com/blog/how-to-install-onlyoffice-in-nextcloud-hub-and-new-integration-feature/
 <br>
-Install the **Community Document Server** and the **OnlyOffice** app
+Install the **Community Document Server** and the **OnlyOffice** app.
 
 ## Disk space monitoring
 
-Install the **Quota warning** app
+Install the **Quota warning** app.
 
 ## Trello like integration (for enterprise purpose)
 
-Install the **Deck** app
+Install the **Deck** app.
 
 ## 2FA Authentication Support (for enterprise purpose)
 
-Install the **Two-Factor TOTP Provider** app
-Install the **Two-Factor Admin Support** app
+Install the **Two-Factor TOTP Provider** app.
+Install the **Two-Factor Admin Support** app.
 
 
 # Update/Upgrade and reinstall procedure
@@ -88,7 +88,7 @@ Also, if you did a mapping between a volume stored on a local disk (like I did),
 
 ## Apply the update
 
-Stop, delete and re-run the container in order to apply the update
+Stop, delete and re-run the container in order to apply the update.
 ```
 sudo docker stop nextcloud
 sudo docker rm nextcloud
@@ -97,13 +97,13 @@ sudo docker run --name nextcloud -v /data/Nextcloud:/var/www/html -d --restart a
 
 ## After an update
 
-After an update, you can clean old dangling docker images (to regain spaces and clean up your local stored Docker images)
+After an update, you can clean old dangling docker images (to regain spaces and clean up your local stored Docker images) :
 <br>
 `sudo docker image prune`
 <br>
 <br>
-Alternatively, you can clean all unused Docker component (stopped containers, network not use by any containers, dangling images and build cache)
+Alternatively, you can clean all unused Docker component (stopped containers, network not use by any containers, dangling images and build cache) :
 <br>
-**If you choose to do that, make sure all your containers are running ! Otherwise, stopped ones will be deleted**
+**If you choose to do that, make sure all your containers are running ! Otherwise, stopped ones will be deleted.**
 <br>
 `sudo docker system prune`
