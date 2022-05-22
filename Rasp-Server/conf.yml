@@ -41,57 +41,57 @@ sections:
     icon: hl-nginx
     url: https://vip.home-infra.rc
     statusCheckAllowInsecure: true
-    target: sametab
+    target: newtab
 
   - title: Pihole
     description: DNS - Adblocker
     icon: hl-pihole
     url: https://pihole.home-infra.rc
     statusCheckAllowInsecure: true
-    target: sametab
+    target: newtab
 
   - title: Proxmox
     description: Virtualization platform
     icon: hl-proxmox
     url: https://proxmox.home-infra.rc
     statusCheckAllowInsecure: true
-    target: sametab
+    target: newtab
 
   - title: FileBrowser
     description: Self hosted cloud
     icon: hl-filebrowser
     url: https://filebrowser.home-infra.rc
     statusCheckAllowInsecure: true
-    target: sametab
+    target: newtab
 
   - title: Portainer
     description: Docker container manager
     icon: hl-portainer
     url: https://portainer.home-infra.rc
     statusCheckAllowInsecure: true
-    target: sametab
+    target: newtab
 
   - title: Router
     description: Router configuration interface
     icon: hl-router
     url: https://mabbox.bytel.fr
-    target: sametab
+    target: newtab
 
   - title: Glances Home-Server
     description: Monitoring tool
     icon: hl-glances
     url: https://glances-home.home-infra.rc
-    statusCheckAcceptCodes: 401
+    statusCheckAcceptCodes: '401'
     statusCheckAllowInsecure: true
-    target: sametab
+    target: newtab
 
   - title: Glances Rasp-Server
     description: Monitoring tool
     icon: hl-glances
     url: https://glances-rasp.home-infra.rc
-    statusCheckAcceptCodes: 401
+    statusCheckAcceptCodes: '401'
     statusCheckAllowInsecure: true
-    target: sametab
+    target: newtab
 
 # Monitoring Home-Server section
 - name: Monitoring Home-Server
