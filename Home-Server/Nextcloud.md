@@ -1,4 +1,4 @@
-# Install Docker on my Debian Proxmox Server (if not done already)
+# Install Docker on my Debian Server (if not done already)
 
 https://github.com/Antiz96/Linux-Customisation/blob/main/Home-Server/Docker-Install.md
 
@@ -9,7 +9,8 @@ https://github.com/nextcloud/docker
 
 ## Create the Nextcloud directory
 
-Create the directory in which the configuration and the data will be stored
+Create the directory in which the configuration and the data will be stored :
+<br>
 `sudo mkdir /data/Nextcloud`
 
 ## Pull and run the container
@@ -20,12 +21,14 @@ It also contains the Docker "always" restart policy (https://docs.docker.com/con
 <br>
 It will make nextcloud listen to the "8080" port. Make sure you don't have anything already listening to that port.
 <br>
-If you do have anything already listening to the 8080, use another one in the below command
+*If you do have anything already listening to the 8080, use another one in the below command*
+<br>
 `sudo docker run --name nextcloud -v /data/Nextcloud:/var/www/html -d --restart always -p 8080:80 nextcloud`
 
 ## Access
 
 You can access your nextcloud instance with the following URL :
+<br>
 http://[HOSTNAME]:8080/
 
 ## Nextcloud administration guide
@@ -47,28 +50,28 @@ Weather status
 
 Auditing/Logging
 <br>
-External storage support (only if you plan to use external storage support such a FTP, S3, etc...)
+External storage support *(only if you plan to use external storage support such a FTP, S3, etc...)*
 <br>
-Default encryption module (only if you use remote storage(s). If not, you'd better use full disk encryption instead)
+Default encryption module *(only if you use remote storage(s). If not, you'd better use full disk encryption instead)*
 
 ## Only Office integration
 
 https://nextcloud.com/blog/how-to-install-onlyoffice-in-nextcloud-hub-and-new-integration-feature/
 <br>
-Install the "Community Document Server" and the "OnlyOffice" app
+Install the **Community Document Server** and the **OnlyOffice** app
 
 ## Disk space monitoring
 
-Install the "Quota warning" app
+Install the **Quota warning** app
 
 ## Trello like integration (for enterprise purpose)
 
-Install the "Deck" app
+Install the **Deck** app
 
 ## 2FA Authentication Support (for enterprise purpose)
 
-Install the "Two-Factor TOTP Provider" app
-Install the "Two-Factor Admin Support" app
+Install the **Two-Factor TOTP Provider** app
+Install the **Two-Factor Admin Support** app
 
 
 # Update/Upgrade and reinstall procedure
@@ -79,7 +82,8 @@ Also, if you did a mapping between a volume stored on a local disk (like I did),
 
 ## Pull the docker image
 
-(... to check if there's an available update)
+*(... to check if there's an available update)*
+<br>
 `sudo docker pull nextcloud`
 
 ## Apply the update
@@ -94,9 +98,12 @@ sudo docker run --name nextcloud -v /data/Nextcloud:/var/www/html -d --restart a
 ## After an update
 
 After an update, you can clean old dangling docker images (to regain spaces and clean up your local stored Docker images)
+<br>
 `sudo docker image prune`
 <br>
 <br>
 Alternatively, you can clean all unused Docker component (stopped containers, network not use by any containers, dangling images and build cache)
+<br>
 **If you choose to do that, make sure all your containers are running ! Otherwise, stopped ones will be deleted**
+<br>
 `sudo docker system prune`
