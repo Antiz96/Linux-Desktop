@@ -109,28 +109,14 @@ sections:
     options:
       hostname: http://home-server:61208
       username: 
-      password: 
+      password:
       useProxy: true
 
   - type: gl-alerts
     options:
       hostname: http://home-server:61208
       username: 
-      password: 
-      useProxy: true
-
-  - type: gl-cpu-history
-    options:
-      hostname: http://home-server:61208
-      username: 
-      password: 
-      useProxy: true
-
-  - type: gl-mem-history
-    options:
-      hostname: http://home-server:61208
-      username: 
-      password: 
+      password:
       useProxy: true
 
 # Monitoring Rasp-Server section
@@ -142,33 +128,59 @@ sections:
     options:
       hostname: http://rasp-server:61208
       username: 
-      password: 
+      password:
       useProxy: true
 
   - type: gl-current-mem
     options:
       hostname: http://rasp-server:61208
       username: 
-      password: 
+      password:
       useProxy: true
 
   - type: gl-alerts
     options:
       hostname: http://rasp-server:61208
       username: 
-      password: 
+      password:
       useProxy: true
 
-  - type: gl-cpu-history
-    options:
-      hostname: http://rasp-server:61208
-      username: 
-      password: 
-      useProxy: true
+# Vulnerability Feed section
+- name: Vulnerability Feed
+  icon: fas fa-exclamation
+  widgets:
 
-  - type: gl-mem-history
+    - type: cve-vulnerabilities
+      options:
+        limit: 15
+        useProxy: true
+
+# GitHub Trending section
+- name: GitHub Trending
+  icon: fab fa-github
+  widgets:
+
+  - type: github-trending-repos
     options:
-      hostname: http://rasp-server:61208
-      username: 
-      password: 
-      useProxy: true
+      limit: 25
+
+# GitHub Trending section (Bash)
+- name: GitHub Trending (Bash)
+  icon: fab fa-github
+  widgets:
+
+  - type: github-trending-repos
+    options:
+      lang: bash
+      limit: 25
+
+# Arch-Linux News section
+- name: Arch-Linux News
+  icon: fab fa-linux
+  widgets:
+
+  - type: rss-feed
+    options:
+      rssUrl: https://archlinux.org/feeds/news/
+      apiKey: 3r5tcdttooyafa4qhcsgqmo5eaddkfudtxxwnevf
+      limit: 5
