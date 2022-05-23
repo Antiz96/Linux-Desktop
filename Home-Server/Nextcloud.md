@@ -109,5 +109,4 @@ Alternatively, you can clean all unused Docker component (stopped containers, ne
 `sudo docker system prune`
 
 <br>
-Bonjour
-`test`
+Bonjour `test`
