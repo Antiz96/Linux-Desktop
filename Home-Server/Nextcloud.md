@@ -107,6 +107,3 @@ Alternatively, you can clean all unused Docker component (stopped containers, ne
 **If you choose to do that, make sure all your containers are running ! Otherwise, stopped ones will be deleted.**
 <br>
 `sudo docker system prune`
-
-<br>
-Bonjour `test fds` fds
