@@ -114,5 +114,4 @@ Hello
 World
 <br>
 <br>
-Salut  
-Monde
+Salut  Monde
