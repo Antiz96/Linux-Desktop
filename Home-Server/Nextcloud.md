@@ -76,7 +76,7 @@ Also, if you did a mapping between a volume stored on a local disk (like I did),
 
 ### Apply the update
 
-Stop, delete and re-run the container in order to apply the update :  
+Stop, delete and re-run the container in order to apply the update :
 ```
 sudo docker stop nextcloud
 sudo docker rm nextcloud
