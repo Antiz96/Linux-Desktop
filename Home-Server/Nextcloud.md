@@ -10,21 +10,25 @@ https://github.com/nextcloud/docker
 
 ### Create the Nextcloud directory
 
-Create the directory in which the configuration and the data will be stored :  
-`sudo mkdir /data/Nextcloud`
+Create the directory in which the configuration and the data will be stored :
+```  
+sudo mkdir /data/Nextcloud
+```
 
 ### Pull and run the container
 
 This run command contains the mapping to /data/Nextcloud (previously created) to get persistent data for upgrades and backups.  
 It also contains the Docker "always" restart policy (https://docs.docker.com/config/containers/start-containers-automatically/).  
 It will make nextcloud listen to the "8080" port. Make sure you don't have anything already listening to that port.  
-*If you do have anything already listening to the 8080, use another one in the below command*  
-`sudo docker run --name nextcloud -v /data/Nextcloud:/var/www/html -d --restart always -p 8080:80 nextcloud`
+*If you do have anything already listening to the 8080, use another one in the below command*
+```
+sudo docker run --name nextcloud -v /data/Nextcloud:/var/www/html -d --restart always -p 8080:80 nextcloud
+```
 
 ### Access
 
 You can access your nextcloud instance with the following URL :  
-http://[HOSTNAME]:8080/
+`http://[HOSTNAME]:8080/`
 
 ### Nextcloud administration guide
 
@@ -71,8 +75,10 @@ Also, if you did a mapping between a volume stored on a local disk (like I did),
 
 ### Pull the docker image
 
-*(... to check if there's an available update)*  
-`sudo docker pull nextcloud`
+*(... to check if there's an available update)*
+```
+sudo docker pull nextcloud
+```
 
 ### Apply the update
 
@@ -85,8 +91,10 @@ sudo docker run --name nextcloud -v /data/Nextcloud:/var/www/html -d --restart a
 
 ### After an update
 
-After an update, you can clean old dangling docker images (to regain spaces and clean up your local stored Docker images) :   
-`sudo docker image prune`  
+After an update, you can clean old dangling docker images (to regain spaces and clean up your local stored Docker images) :
+```
+sudo docker image prune
+```
   
 Alternatively, you can clean all unused Docker component (stopped containers, network not use by any containers, dangling images and build cache) :  
 **If you choose to do that, make sure all your containers are running ! Otherwise, stopped ones will be deleted.**  
