@@ -2,7 +2,7 @@
 
 ## Install Docker on my Debian Server (if not done already)
 
-https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/Docker-Install.md
+https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/Docker.md
 
 ## Installing Nextcloud on Docker
 
