@@ -102,8 +102,8 @@ At that point, I do not have a firewall service running, but I'll take care of t
 sudo systemctl restart sshd
 ```
 
-Also, be aware that from now you'll need to specify the port and the private key to connect to ssh, like so : `ssh -p "port" -i "/path/to/privatekey" "user"@"server"`.  
-Be aware that you can create a config file in "~/.ssh" to avoid having to specify the port, the user and/or the ssh key each time :
+Also, be aware that, from now, you'll need to specify the port and the private key to connect to ssh, like so : `ssh -p "port" -i "/path/to/privatekey" "user"@"server"`.  
+However, you can create a config file in "~/.ssh" to avoid having to specify the port, the user and/or the ssh key each time :
 
 ```
 vim ~/.ssh/config
