@@ -6,11 +6,15 @@ https://www.linode.com/docs/guides/installing-and-using-docker-on-ubuntu-and-deb
 
 ### Make sure docker is not already installed via the regular Debian repos
 
-`sudo apt remove docker docker-engine docker.io`
+```
+sudo apt remove docker docker-engine docker.io
+```
 
 ### Install docker dependencies
 
-`sudo apt install apt-transport-https ca-certificates curl gnupg lsb-release`
+```
+sudo apt install apt-transport-https ca-certificates curl gnupg lsb-release
+```
 
 ### Add docker GPG Key and repo
 
@@ -21,7 +25,9 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] 
 
 ### Update repo list and install docker
 
-`sudo apt update && sudo apt install docker-ce docker-ce-cli containerd.io`
+```
+sudo apt update && sudo apt install docker-ce docker-ce-cli containerd.io
+```
 
 ### Start and enable the docker service
 
