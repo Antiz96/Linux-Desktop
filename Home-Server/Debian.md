@@ -36,7 +36,7 @@ usermod -aG sudo rcandau
 sudo vi /etc/network/interfaces
 ```
 
-> [...]
+> [...]  
 > iface enp0s3 inet static  
 > > address 192.168.1.2/24  
 > > gateway 192.168.1.254  
@@ -63,7 +63,7 @@ sudo apt install vim man bash-completion openssh-server mlocate htop curl telnet
 sudo vim /etc/ssh/sshd_config
 ```
 > [...]  
-> Port X  
+> Port **"X"** *#Where "X" is the port you want to set*  
 > [...]
 
 ### Disable ssh connexion for the root account
@@ -109,11 +109,11 @@ Be aware that you can create a config file in "~/.ssh" to avoid having to specif
 vim ~/.ssh/config
 ```
 
-> Host **Host alias**  
-> > User **Username**  
-> > Port **SSH port**  
-> > IdentityFile **Path to the keyfile**  
-> > Hostname **Hostname of the server**
+> Host **"Host alias"**  
+> > User **"Username"**  
+> > Port **"SSH port"**  
+> > IdentityFile **"Path to the keyfile"**  
+> > Hostname **"Hostname of the server"**
 
 ## Configure and start the firewall 
 
