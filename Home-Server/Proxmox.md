@@ -64,7 +64,7 @@ sudo vim /etc/sudo.conf
 ### Add storages for VMs, Backups and ISO via the Proxmox Web interface
 
 Datacenter --> Storage  
-  
+   
 ADD - Type : directory | ID : Backup | Directory : /storage/Proxmox/Backup | Content : VZDump Backup File  
 ADD - Type : directory | ID : ISO | Directory : /storage/Proxmox/ISO | Content : ISO Image  
 ADD - Type : directory | ID : VMs | Directory : /storage/Proxmox/VMs | Content : Disk Image  
@@ -73,6 +73,7 @@ EDIT local directory --> uncheck "enabled" checkbox
 ### Disable the root account on the Web Interface (for security reasons)
 
 Log in to your regular PVEAdmin account  
+   
 Datacenter --> Permissions --> User  
 EDIT root account --> uncheck "enabled" checkbox  
 (you can reactivate it the same way if you need it for some reasons)
@@ -85,7 +86,7 @@ EDIT root account --> uncheck "enabled" checkbox
 sudo vim /etc/apt/sources.list.d/pve-enterprise.list
 ```
 
-> **#**deb https://enterprise.proxmox.com/debian/pve bullseye pve-enterprise
+> **#** deb https://enterprise.proxmox.com/debian/pve bullseye pve-enterprise
 
 ```
 sudo vim /etc/apt/sources.list.d/pve-no-subscription.list
