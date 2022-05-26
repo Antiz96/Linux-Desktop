@@ -148,11 +148,11 @@ sudo ethtool enp3s0
 sudo vim /etc/network/interfaces
 ```
 
-> [...]
-> auto enp3s0
-> iface enp3s0 inet manual
-> > **post-up /sbin/ethtool -s enp3s0 wol g**
-> > **post-down /sbin/ethtool -s enp3s0 wol g**
+> [...]  
+> auto enp3s0 
+> iface enp3s0 inet manual  
+> > **post-up /sbin/ethtool -s enp3s0 wol g**  
+> > **post-down /sbin/ethtool -s enp3s0 wol g**  
 > [...]
 
 
@@ -172,9 +172,9 @@ yay -S wakeonlan
 ip a
 ```
 
-> [...]
-> 2: enp3s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast maaster vmbr0 state UP group default qlen 1000
-> link/ether **7c:10:c9:8c:88:9d** brd ff:ff:ff:ff:ff:ff
+> [...]  
+> 2: enp3s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast maaster vmbr0 state UP group default qlen 1000  
+> link/ether **7c:10:c9:8c:88:9d** brd ff:ff:ff:ff:ff:ff  
 > [...]
 
 #### Switch on the server remotly from the client
