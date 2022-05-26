@@ -55,7 +55,7 @@ sudo vim /etc/sudo.conf
 ```
 
 > [...]  
-> # Sudo askpass:  
+> #Sudo askpass:  
 > **Path askpass /usr/bin/ssh-askpass**  
 > [...]
 
