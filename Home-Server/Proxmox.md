@@ -86,7 +86,7 @@ EDIT root account --> uncheck "enabled" checkbox
 sudo vim /etc/apt/sources.list.d/pve-enterprise.list
 ```
 
-> **#** deb https://enterprise.proxmox.com/debian/pve bullseye pve-enterprise
+> **#**deb https://enterprise.proxmox.com/debian/pve bullseye pve-enterprise
 
 ```
 sudo vim /etc/apt/sources.list.d/pve-no-subscription.list
