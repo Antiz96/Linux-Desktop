@@ -63,7 +63,7 @@ sudo docker image prune
 ```
 
 Alternatively, you can clean all unused Docker component (stopped containers, network not use by any containers, dangling images and build cache) :  
-**If you choose to do that, make sure all your containers are running ! Otherwise, they will be deleted**  
+**If you choose to do that, make sure all your containers are running ! Otherwise, they will be deleted.**  
 
 ```
 sudo docker system prune
