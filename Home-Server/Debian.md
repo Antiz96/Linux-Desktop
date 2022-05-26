@@ -1,5 +1,7 @@
 # Debian
 
+https://www.debian.org/  
+  
 **If it's the very first install, remember to enable the intel virtualization technology (for Proxmox) and disable secure boot in the BIOS.** 
 https://rog.asus.com/us/support/FAQ/1043786  
 https://techzillo.com/how-to-disable-or-enable-secure-boot-for-asus-motherboard/ 
@@ -20,15 +22,14 @@ I do not select anything during the installation process (no DE, no standard or 
 
 - /storage --> All free space (0% reserver block) - ext4
 
-
 ## Install sudo and give sudo privileges to the regular user
 
 As root (**only for this part**) :
+
 ```
 apt install sudo
 usermod -aG sudo rcandau
 ```
-
 
 ## Setup a static IP Address (if not done already during the installation process)
 
@@ -46,14 +47,12 @@ sudo vi /etc/network/interfaces
 sudo systemctl restart networking
 ```
 
-
 ## Update the server and install useful packages
 
 ```
 sudo apt update && sudo apt full-upgrade
 sudo apt install vim man bash-completion openssh-server mlocate htop curl telnet firewalld chrony neofetch
 ```
-
 
 ## Secure SSH connexions
 
@@ -71,6 +70,7 @@ sudo vim /etc/ssh/sshd_config
 ```
 sudo vim /etc/ssh/sshd_config
 ```
+
 > [...]  
 > PermitRootLogin no  
 > [...]  
@@ -89,6 +89,7 @@ ssh-copy-id -i ~/.ssh/"keyfile_name".pub "user"@"server" #Change "keyfile_name",
 ```
 sudo vim /etc/ssh/sshd_config
 ```
+
 > [...]  
 > PasswordAuthentication no  
 > AuthenticationMethods publickey
@@ -177,7 +178,7 @@ ip a
 > link/ether **7c:10:c9:8c:88:9d** brd ff:ff:ff:ff:ff:ff  
 > [...]
 
-#### Switch on the server remotly from the client
+#### Power on the server remotely from the client
 
 ```
 wakeonlan 7c:10:c9:8c:88:9d
