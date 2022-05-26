@@ -64,6 +64,7 @@ sudo vim /etc/sudo.conf
 ### Add storages for VMs, Backups and ISO via the Proxmox Web interface
 
 Datacenter --> Storage  
+  
 ADD - Type : directory | ID : Backup | Directory : /storage/Proxmox/Backup | Content : VZDump Backup File  
 ADD - Type : directory | ID : ISO | Directory : /storage/Proxmox/ISO | Content : ISO Image  
 ADD - Type : directory | ID : VMs | Directory : /storage/Proxmox/VMs | Content : Disk Image  
