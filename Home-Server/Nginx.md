@@ -105,7 +105,9 @@ sudo vim "URL".conf
 > > > add_header X-XSS-Protection "1; mode=block";  
 > > > add_header X-Frame-Options SAMEORIGIN always;  
 > > > add_header Content-Security-Policy "frame-ancestors 'self';base-uri 'self';";  
+> >
 > > }  
+>
 > }
 
 ## Validate and apply new configuration(s)

@@ -46,6 +46,7 @@ sudo vim /opt/keepalived/keepalived_check.sh
 >    
 > if [ -n "$MASTER" ]; then  
 > > pidof nginx || exit 1  
+>
 > else  
 > > nginx -t 2>&1 | grep -w "syntax is ok" || exit 1  
 > 
@@ -65,19 +66,24 @@ sudo vim /opt/keepalived/keepalived_notify.sh
 > > "MASTER")  
 > > > systemctl start nginx  
 > > > exit 0  
+> >
 > > ;;  
 > > "BACKUP")  
 > > > systemctl stop nginx  
 > > > exit 0  
+> >
 > > ;;  
 > > "FAULT")  
 > > > systemctl stop nginx  
 > > > exit 0  
+> >
 > > ;;  
 > > \*)  
 > > > echo "Unknown state $STATE for VRRP $TYPE $NAME"  
 > > > exit 1  
+> >
 > > ;;
+> 
 > esac
 
 ```
@@ -95,6 +101,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > global_defs {  
 > > enable_script_security  
 > > script_user root  
+> 
 > }
 >  
 > vrrp_script check_script {  
@@ -104,6 +111,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > rise 2 #Require 2 consecutive successes to exit FAULT state  
 > > #timeout 1 #Wait 1 second before assuming a failure  
 > > #weight 10 #Reduce priority by 10 on complete fall  
+> 
 > }  
 >  
 > vrrp_instance VIP_Nginx {  
@@ -115,15 +123,19 @@ sudo vim /etc/keepalived/keepalived.conf
 > > authentication {  
 > > > auth_type PASS  
 > > > auth_pass 1234  
+> >
 > > }  
 > >   
 > > virtual_ipaddress {  
 > > > 192.168.1.20/24  
+> >
 > > }  
 > > notify "/opt/keepalived/keepalived_notify.sh"  
 > > track_script {  
 > > > check_script  
+> >
 > > }  
+>
 > }  
   
 **Rasp-Server (The Backup node) :**  
@@ -135,6 +147,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > global_defs {  
 > > enable_script_security  
 > > script_user root  
+> 
 > }
 >  
 > vrrp_script check_script {  
@@ -144,6 +157,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > rise 2 #Require 2 consecutive successes to exit FAULT state  
 > > #timeout 1 #Wait 1 second before assuming a failure  
 > > #weight 10 #Reduce priority by 10 on complete fall  
+>
 > }  
 >  
 > vrrp_instance VIP_Nginx {  
@@ -155,15 +169,19 @@ sudo vim /etc/keepalived/keepalived.conf
 > > authentication {  
 > > > auth_type PASS  
 > > > auth_pass 1234  
+> >
 > > }  
 > >   
 > > virtual_ipaddress {  
 > > > 192.168.1.20/24  
+> >
 > > }  
 > > notify "/opt/keepalived/keepalived_notify.sh"  
 > > track_script {  
 > > > check_script  
+> >
 > > }  
+>
 > } 
 
 ## Start/Enable the keepalived service
@@ -185,6 +203,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > global_defs {  
 > > enable_script_security  
 > > script_user root  
+>
 > }
 >  
 > vrrp_script check_script {  
@@ -194,6 +213,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > rise 2 #Require 2 consecutive successes to exit FAULT state  
 > > #timeout 1 #Wait 1 second before assuming a failure  
 > > #weight 10 #Reduce priority by 10 on complete fall  
+>
 > }  
 >  
 > vrrp_instance VIP_Nginx {  
@@ -206,15 +226,19 @@ sudo vim /etc/keepalived/keepalived.conf
 > > authentication {  
 > > > auth_type PASS  
 > > > auth_pass 1234  
+> >
 > > }  
 > >   
 > > virtual_ipaddress {  
 > > > 192.168.1.20/24  
+> >
 > > }  
 > > notify "/opt/keepalived/keepalived_notify.sh"  
 > > track_script {  
 > > > check_script  
+> >
 > > }  
+>
 > }  
   
 **Rasp-Server (The second node) :**  
@@ -226,6 +250,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > global_defs {  
 > > enable_script_security  
 > > script_user root  
+>
 > }
 >  
 > vrrp_script check_script {  
@@ -235,6 +260,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > rise 2 #Require 2 consecutive successes to exit FAULT state  
 > > #timeout 1 #Wait 1 second before assuming a failure  
 > > #weight 10 #Reduce priority by 10 on complete fall  
+>
 > }  
 >  
 > vrrp_instance VIP_Nginx {  
@@ -247,13 +273,17 @@ sudo vim /etc/keepalived/keepalived.conf
 > > authentication {  
 > > > auth_type PASS  
 > > > auth_pass 1234  
+> >
 > > }  
 > >   
 > > virtual_ipaddress {  
 > > > 192.168.1.20/24  
+> >
 > > }  
 > > notify "/opt/keepalived/keepalived_notify.sh"  
 > > track_script {  
 > > > check_script  
+> >
 > > }  
+>
 > } 
