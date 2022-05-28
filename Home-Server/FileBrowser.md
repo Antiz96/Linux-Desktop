@@ -23,8 +23,9 @@ sudo touch /data/FileBrowser/database.db && sudo chown rcandau: /data/FileBrowse
 sudo docker run -v /data/FileBrowser/data:/srv -v /data/FileBrowser/database.db:/database.db -u $(id -u):$(id -g) -p 8080:80 --name filebrowser -d --restart always filebrowser/filebrowser
 ```
 
-### You can now access and configure it on this URL (admin:admin)
+### Access
 
+You can now access and configure it on this URL (admin:admin) :
 `http://[HOSTNAME]:8080/`
 
 
