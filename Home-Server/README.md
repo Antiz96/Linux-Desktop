@@ -12,4 +12,4 @@ This is the list of installation (and configuration) procedures of service that 
 * [Portainer Agent](https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/Portainer-Agent.md)
 * [Watchtower](https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/Watchtower.md)
 * [Nginx](https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/Nginx.md)
-* [KeepAlived] (https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/KeepAlived.md)
+* [KeepAlived](https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/KeepAlived.md)
