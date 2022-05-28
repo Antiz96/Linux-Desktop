@@ -66,8 +66,8 @@ sudo vim "URL".conf
 > > server_name “URL”;  
 > >    
 > > #Log Path  
-> > access_log /var/log/nginx/”URL”_access.log;  
-> > error_log /var/log/nginx/”URL”_error.log;  
+> > access_log /var/log/nginx/”URL”\_access.log;  
+> > error_log /var/log/nginx/”URL”\_error.log;  
 > >  
 > > #SSL
 > > ssl_protocols TLSv1.2 TLSv1.3;  
@@ -75,7 +75,7 @@ sudo vim "URL".conf
 > > #proxy_ssl_protocols TLSv1.2 TLSv1.3;  
 > > ssl_certificate /etc/nginx/ssl/”Filename”.crt;  
 > > ssl_certificate_key /etc/nginx/ssl/”Filename”.key;  
-> >  
+> >    
 > > location / {  
 > > > proxy_pass “URL_to_redirect_to”;
 > > >   
@@ -113,7 +113,8 @@ sudo vim "URL".conf
 ```
 sudo nginx -t
 ```
-> nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+
+> nginx: the configuration file /etc/nginx/nginx.conf syntax is ok  
 > nginx: configuration file /etc/nginx/nginx.conf test is successful
     
 ```
@@ -128,17 +129,18 @@ Only for the nginx node **not** running directly on the Proxmox machine
 sudo vim /etc/nginx/nginx.conf
 ```
 
-> [...]
-> stream {
-> > include /etc/nginx/conf.d/proxmox-spice.stream;
+> [...]  
+> stream {  
+> > include /etc/nginx/conf.d/proxmox-spice.stream;  
 > }
 
 ```
 sudo vim /etc/nginx/conf.d/proxmox-spice.stream
 ```
-> server {
-> > listen "HOSTNAME or IP":3128;
-> > proxy_pass "PROXMOX_SERVER":3128;
+
+> server {  
+> > listen "HOSTNAME or IP":3128;  
+> > proxy_pass "PROXMOX_SERVER":3128;  
 > }
 
 ```
