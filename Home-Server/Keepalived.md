@@ -48,6 +48,7 @@ sudo vim /opt/keepalived/keepalived_check.sh
 > > pidof nginx || exit 1  
 > else  
 > > nginx -t 2>&1 | grep -w "syntax is ok" || exit 1  
+> 
 > fi
   
 ```
