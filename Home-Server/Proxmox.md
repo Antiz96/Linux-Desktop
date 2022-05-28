@@ -62,7 +62,7 @@ sudo vim /etc/sudo.conf
 ## Access
 
 You can now access the Proxmox's web interface on the following URL :  
-`https://[HOSTNAME]:8006/
+`https://[HOSTNAME]:8006/`
 
 ## Configuration
 
