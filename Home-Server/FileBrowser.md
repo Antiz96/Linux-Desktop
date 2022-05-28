@@ -25,7 +25,7 @@ sudo docker run -v /data/FileBrowser/data:/srv -v /data/FileBrowser/database.db:
 
 ### Access
 
-You can now access and configure it on this URL (admin:admin) :
+You can now access and configure it on this URL (admin:admin) :  
 `http://[HOSTNAME]:8080/`
 
 
