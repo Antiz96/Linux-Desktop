@@ -95,7 +95,7 @@ sudo docker run --name guacd -d guacamole/guacd
 
 ### Start the guacamole container and link it to the guacd and mysql containers 
 
-*Change "MYSQL_DATABASE", "MYSQL_USER" and "MYSQL_PASSWORD" to what you configured*  
+*Change "MYSQL_DATABASE", "MYSQL_USER" and "MYSQL_PASSWORD" to what you configured.*  
 
 ```
 sudo docker run --name guacamole --link guacd:guacd --link mysql:mysql -e MYSQL_DATABASE=guacamole_db -e MYSQL_USER=guacamole_user -e MYSQL_PASSWORD=guacamole_user_password -d -p 8080:8080 guacamole/guacamole
@@ -103,7 +103,7 @@ sudo docker run --name guacamole --link guacd:guacd --link mysql:mysql -e MYSQL_
 
 ### Access
 
-You can now access and configure guacamole on this URL (Default Login/Pass = guacadmin/guacadmin) :
+You can now access and configure guacamole on this URL (Default Login/Pass = guacadmin/guacadmin) :  
 `http://[HOSTNAME]:8080/guacamole`
 
 ## Configuration
