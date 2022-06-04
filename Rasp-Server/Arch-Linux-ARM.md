@@ -32,6 +32,8 @@ sudo vi /etc/pacman.conf
 > ParallelDownloads = 10  
 > [...]
 
+#### Update
+
 ```
 sudo pacman -Syy
 sudo pacman -Syu
