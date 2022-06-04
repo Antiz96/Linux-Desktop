@@ -52,19 +52,6 @@ sudo vi /etc/fstab
 > [...]  
 > /dev/mmcblk0p3  none    swap    defaults        0       0
 
-### Setup a static IP address
-
-https://nanxiao.me/en/configure-static-ip-address-on-arch-linux/  
-
-```
-nmcli con show
-sudo nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.addresses 192.168.1.1/24
-sudo nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.gateway 192.168.1.254
-sudo nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.dns 192.168.1.254
-sudo nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.method manual
-sudo nmcli con up 03994945-5119-3b3c-acbc-b599437851e8
-```
-
 ### Rename the default "alarm" user
 
 #### Temporarely enable ssh connexion for the root user
@@ -220,3 +207,17 @@ curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles
 vim ~/.bashrc #Get rid of TMUX things and "cd || return" (which is specific to wsl)
 source ~/.bashrc
 ```
+
+## Setup a static IP address
+
+https://nanxiao.me/en/configure-static-ip-address-on-arch-linux/  
+
+```
+nmcli con show
+sudo nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.addresses 192.168.1.1/24
+sudo nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.gateway 192.168.1.254
+sudo nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.dns 192.168.1.254
+sudo nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.method manual
+sudo nmcli con up 03994945-5119-3b3c-acbc-b599437851e8
+```
+
