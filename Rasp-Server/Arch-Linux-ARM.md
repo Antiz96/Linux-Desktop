@@ -164,9 +164,9 @@ sudo vim /etc/systemd/resolved.conf
 
 ```
 sudo systemctl disable --now systemd-resolved
-rm /etc/resolv.conf
-touch /etc/resolv.conf
-reboot
+sudo rm /etc/resolv.conf
+sudo touch /etc/resolv.conf
+sudo reboot
 ```
 
 ## Install useful packages and starting/configuring the firewall
