@@ -22,6 +22,16 @@ Uncomment the following line :
 
 ### Update the server
 
+#### Enable parallel downloads
+
+```
+sudo vi /etc/pacman.conf
+```
+
+> [...]  
+> ParallelDownloads = 10  
+> [...]
+
 ```
 sudo pacman -Syy
 sudo pacman -Syu
