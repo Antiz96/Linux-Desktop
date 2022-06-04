@@ -84,7 +84,7 @@ passwd rcandau
 ### Change the default SSH port
 
 ```
-sudo vim /etc/ssh/sshd_config
+sudo vi /etc/ssh/sshd_config
 ```
 
 > [...]  
@@ -94,7 +94,7 @@ sudo vim /etc/ssh/sshd_config
 ### Disable ssh connexion for the root account
 
 ```
-sudo vim /etc/ssh/sshd_config
+sudo vi /etc/ssh/sshd_config
 ```
 
 > [...]  
@@ -113,7 +113,7 @@ ssh-copy-id -i ~/.ssh/"keyfile_name".pub "user"@"server" #Change "keyfile_name",
 **On the Server :**
 
 ```
-sudo vim /etc/ssh/sshd_config
+sudo vi /etc/ssh/sshd_config
 ```
 
 > [...]  
@@ -133,7 +133,7 @@ Also, be aware that, from now, you'll need to specify the port and the private k
 However, you can create a config file in "~/.ssh" to avoid having to specify the port, the user and/or the ssh key each time :
 
 ```
-vim ~/.ssh/config
+vi ~/.ssh/config
 ```
 
 > Host **"Host alias"**  
