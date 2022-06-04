@@ -8,6 +8,18 @@ https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-4
 
 ## Configuration
 
+### Install sudo and give sudo privileges to the regular user
+
+As root (**only for this part**) :
+
+```
+pacman -S sudo
+visudo
+```
+
+Uncomment the following line :  
+> %wheel ALL=(ALL:ALL) ALL
+
 ### Update the server
 
 ```
