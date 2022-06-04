@@ -1,6 +1,6 @@
 # Home-Server
 
-This is the list of installation (and configuration) procedures of service that I have (or had) running on my Home-Server  
+This is the list of installation (and configuration) procedures of services that I have (or had) running on my Home-Server  
 
 * [Debian (OS Installation and configuration)](https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/Debian.md)
 * [Proxmox](https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/Proxmox.md)
