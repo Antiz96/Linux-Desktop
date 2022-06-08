@@ -21,15 +21,23 @@ I basically just need to launch the following command each time I want to update
 sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --run-once
 ```
   
-I can then clean all dangling docker images
+I can then clean all dangling docker images :
 
 ```
 sudo docker image prune
 ```
 
-## Tips and tricks
-I've setuped the following alias in my .bashrc *(the "docker pull" at the beginning is just to make sure I always run the latest image of watchtower)* :
+**OR**  
+  
+Cleaning the dangling docker images can be automatically done by Watchtower itself with the `--cleanup` argument :  
 
 ```
-alias dockup="sudo docker pull containrrr/watchtower && sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --run-once && sudo docker image prune --force"
+sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup --run-once
+```
+
+## Tips and tricks
+I've setuped the following alias in my .bashrc *(the "docker pull" at the beginning is just to make sure I always run the latest watchtower image)* :
+
+```
+alias dockup="sudo docker pull containrrr/watchtower && sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup --run-once"
 ```
