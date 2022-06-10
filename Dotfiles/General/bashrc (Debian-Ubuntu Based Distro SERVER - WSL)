@@ -67,7 +67,7 @@ alias tkill="tmux kill-session -t"
 alias tswitch="tmux a -t"
 
 #Docker
-alias dockup="sudo docker pull containrrr/watchtower && sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --run-once && sudo docker image prune --force"
+alias dockup="sudo docker pull containrrr/watchtower && sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup --run-once"
 
 #Sudoers
 alias sudo="sudo "
