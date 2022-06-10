@@ -1,3 +1,0 @@
-#Install Docker of my Arch Server
-$ sudo pacman -S docker
-$ sudo systemctl enable --now docker containerd
