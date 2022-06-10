@@ -1,0 +1,223 @@
+##Install Arch Linux ARM on my raspberry PI 4
+https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-4
+
+
+##Update the machine
+$ pacman -Syy
+$ pacman -Syu
+
+
+##Activate the swap partition
+$ mkswap /dev/mmcblk1p3
+$ swapon /dev/mmcblk1p3
+$ vi /etc/fstab
+[...]
+/dev/mmcblk1p3  none    swap    defaults        0       0
+
+
+##Enabling root ssh connexion temporarely to modify the default "alarm" user
+$ vi /etc/ssh/sshd_config
+[...]
+PermitRootLogin yes
+[...]
+$ reboot
+
+
+##Connect directly as root to rename the default "alarm" user and set a new password
+$ usermod -l rcandau alarm
+$ groupmod -n rcandau alarm
+$ usermod -d /home/rcandau -m rcandau
+$ passwd rcandau
+
+
+##Secure SSH connexions
+
+#Change the default SSH port (replace "X" by the port you wan to use)
+$ vi /etc/ssh/sshd_config
+[...]
+Port X
+[...]
+
+#Disabling root ssh connexion
+$ vi /etc/ssh/sshd_config
+[...]
+PermitRootLogin no
+[...]
+
+#Copy ssh public key to the server
+--On the client(s)--
+$ ssh-keygen -t rsa -b 4096 #Choose a revelant name to remember on which server you use this key. Also, set a strong passphrase for encryption
+$ ssh-copy-id -i ~/.ssh/"keyfile_name".pub "user"@"server" #Change "keyfile_name", "user" and "server" according to your environment
+--On the server--
+$ vi /etc/ssh/sshd_config
+[...]
+PasswordAuthentication no
+AuthenticationMethods publickey
+
+#Restart the service to apply changes
+/!\If you already have a firewall service running, be sure you opened the port you've set for SSH before restarting the service, otherwise you won't be able to log back to your server. 
+At that point, I do not have a firewall service running, so I'll take care of that a bit later in this procedure.
+Also, be aware that from now you'll need to specify the port and the private key to connect to ssh like so : "ssh -p "port" -i "/path/to/privatekey" "user"@"server".
+You can still create a config file in ~/.ssh to avoir specify the port each time./!\
+$ systemctl restart sshd
+
+
+##Configure Arch Linux according to my preferences, without the things that has already been done during the Arch Linux ARM installation and the above steps (partitiong/filesystem, mount + pacstrap + genfstab, creating my user, grub bootloader, exit and umount /mnt, etc...)
+https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Base-Install/Arch%20Linux%20Base%20Installation.txt
+
+
+##Edit and disable the systemd-resolved service (because it causes problems with the pihole-FTL service and it also causes interferences with NetworkManager)
+$ vim /etc/systemd/resolved.conf
+[...]
+[Resolve]
+DNSStubListener=no
+[...]
+$ systemctl disable --now systemd-resolved
+
+
+#Delete the /etc/resolv.conf symlink, recreate the file and reboot to apply changes
+$ rm /etc/resolv.conf
+$ touch /etc/resolv.conf
+$ reboot
+
+
+##Install useful packages for administration
+$ sudo pacman -S base-devel linux-headers man bash-completion openssh inetutils dnsutils postfix firewalld traceroute rsync zip unzip cronie diffutils git mlocate htop neofetch
+$ sudo systemctl enable --now sshd cronie postfix firewalld
+$ sudo updatedb
+$ sudo mandb
+$ sudo firewall-cmd --add-port=X/tcp --permanent #Open the port we've set for SSH (replace "X" by the port)
+$ sudo firewall-cmd --remove-service="ssh" --permanent #Close the default SSH port
+$ sudo firewall-cmd --reload
+
+
+##Install yay
+$ cd /tmp
+$ git clone https://aur.archlinux.org/yay.git
+$ cd yay
+$ makepkg -si
+
+
+##Install wakeonlan (to wake home server via VPN by connecting via ssh to the rasp server to do so)
+$ yay -S wakeonlan
+
+
+##Downlaod my .bashrc
+$ curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles/General/bashrc%20\(Arch%20Based%20Distro%20SERVER%20-%20WSL\) -o ~/.bashrc
+$ vim ~/.bashrc #Get rid of TMUX things and "cd || return" (which is specific to wsl)
+
+
+##Setup a static IP address (putting my router as DNS while configuring the Pihole)
+https://nanxiao.me/en/configure-static-ip-address-on-arch-linux/
+$ nmcli con show 
+$ sudo nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.addresses 192.168.1.1/24
+$ sudo nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.gateway 192.168.1.254
+$ sudo nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.dns 192.168.1.254
+$ sudo nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.method manual
+$ sudo nmcli con up 03994945-5119-3b3c-acbc-b599437851e8
+
+
+##Open the necessary port for Pihole and its component
+I'm not opening the DHCPv6 port as I don't use it on my pihole. 
+Refer to this link for the full list of port you may need to open and how to open them depending on your firewall : https://docs.pi-hole.net/main/prerequisites/
+$ sudo firewall-cmd --permanent --add-service=http --add-service=dns --add-service=dhcp #Opening port for web interface (80), DNS (50) and DHCP (67)
+$ sudo firewall-cmd --permanent --new-zone=ftl #Creating a new zone dedicated to the FTL port (which has to be open only on the localhost interface)
+$ sudo firewall-cmd --permanent --zone=ftl --add-interface=lo #Add the localhost interface to the new FTL zone
+$ sudo firewall-cmd --permanent --zone=ftl --add-port=4711/tcp #Opening the FTL port on the dedicated zone with the localhost interface
+$ sudo firewall-cmd --reload #Reload to apply changes
+
+
+##Install and configure Pihole (I basically followed the Arch Wiki)
+https://wiki.archlinux.org/title/Pi-hole
+$ yay -S pi-hole-server
+$ sudo systemctl status pihole-FTL #If it's in "Failed" state, you might need to reboot
+$ sudo pacman -S php-sqlite 
+$ sudo vi /etc/php/php.ini
+[...]
+extension=pdo_sqlite
+[...]
+extension=sockets
+[...]
+extension=sqlite3
+[...]
+$ sudo pacman -S lighttpd php-cgi
+$ sudo cp /usr/share/pihole/configs/lighttpd.example.conf /etc/lighttpd/lighttpd.conf
+$ sudo systemctl enable --now lighttpd
+$ sudo vi /etc/hosts
+[...]
+ip.address.of.pihole   pi.hole myhostname
+$ pihole -a -p
+
+
+##Edit config file for the PHP8 compatibility of the Web Interface
+#https://wiki.archlinux.org/title/Pi-hole#...but_I_need_to_stick_with_PHP_8_for_my_system
+$ sudo vim /srv/http/pihole/admin/scripts/pi-hole/php/savesettings.php
+#Before
+[...]
+foreach(["v4_1", "v4_2", "v6_1", "v6_2"] as $type)
+[...]
+#After
+[...]
+foreach(["v4_1", "v4_2"] as $type)
+[...]
+
+
+##Enable DHCP Services on my pihole through the web interface and disable DHCP on my router (to make sure each devices on my network uses Pihole).
+
+
+##Change the DNS of the Pihole from my router to its own IP (So he is its own DNS)
+https://nanxiao.me/en/configure-static-ip-address-on-arch-linux/
+$ nmcli con show
+$ sudo nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.dns 192.168.1.1
+$ reboot
+
+
+##Configure postfix to work with gmail (https://www.howtoforge.com/tutorial/configure-postfix-to-use-gmail-as-a-mail-relay/)
+$ sudo vi /etc/postfix/sasl_passwd
+[smtp.gmail.com]:587    username@gmail.com:password
+$ sudo chmod 400 /etc/postfix/sasl_passwd
+$ sudo vi /etc/postfix/main.cf
+[...]
+# Personal configuration (for Pihole notification)
+relayhost = [smtp.gmail.com]:587
+smtp_use_tls = yes
+smtp_sasl_auth_enable = yes
+smtp_sasl_security_options =
+smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
+
+$ sudo postmap /etc/postfix/sasl_passwd
+$ sudo systemctl restart postfix
+#Enable Less Secure App on your gmail account (postfix is categorized as so)
+
+
+##Create a symlink of the logs files in /var/log (I do prefer watching logs in /var/log)
+$ cd /var/log/
+$ sudo ln -s /run/log/pihole pihole
+$ sudo ln -s /run/log/pihole-ftl pihole-ftl
+
+
+##Deploy all my scripts and crontab for the "pihole" user, with all the security it involves
+https://github.com/Antiz96/Pihole-Configuration
+
+
+##Bind the Pihole-FTL DNS service to the actual Pihole IP address (instead of 0.0.0.0) --Optional (but recommended)-- 
+https://discourse.pi-hole.net/t/make-pihole-ftl-bind-only-on-certain-ips-v4-0/11883/5
+https://discourse.pi-hole.net/t/solve-dns-resolution-in-other-containers-when-using-docker-pihole/31413
+https://wiki.archlinux.org/title/Talk:Pi-hole#Bind_the_Pihole-FTL_DNS_service_to_the_actual_IP_address_of_the_Pi-hole_%28instead_of_0.0.0.0%29_to_prevent_DNS_resolution_issues_for_other_virtual_hosts
+
+By default, the DNS service (pihole-FTL) will be bind to the 0.0.0.0 IP address (you can see this with "netstat -lntp | grep 53")
+This will prevent any other virtual host onto the same machine hosting your pihole instance (such as docker containers) to get DNS resolution.
+
+In order to solve this, you need to uncomment the "bind-interfaces" line in the /etc/dnsmasq.conf file.
+This will tell the DNS service (pihole-FTL) to bind itself to each interface explicitely (and thus to the IP address of your pihole, and not "0.0.0.0").
+
+Then, you need to restart the pihole-FTL service to apply changes
+$ sudo systemctl restart pihole-FTL
+
+/!\It is worth mentioning that, since I uncommented the line "bind-interfaces" in /etc/dnsmasq.conf, the pihole-FTL service often fails to start at boot/reboot saying that it couldn't bind the requested IP address.
+I'm guessing the pihole-FTL service tries to start before the network service comes completely up, so it cannot bind the IP address as it is not available already.
+In order to solve that, I added the below line to the /usr/lib/systemd/system/pihole-FTL.service file, which tells the pihole-FTL service to wait 2 seconds before starting (in order to let the time to the network service to fully come up)/!\
+[...]
+ExecStartPre=/bin/sleep 2
+[...]

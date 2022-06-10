@@ -1,0 +1,2 @@
+#Check update
+0 12 * * 0 /home/rcandau/check_update.sh

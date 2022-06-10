@@ -1,0 +1,186 @@
+---
+## Dashy's config file
+
+# Page meta info, like heading, footer text and nav links
+pageInfo:
+  title: Home Dashboard
+  description: Welcome to the RC Home Infra dashboard !
+
+# Optional app settings and configuration
+appConfig:
+  theme: Adventure
+  statusCheck: true
+
+# Main content - An array of sections, each containing an array of items
+# Widget section
+sections:
+- name: Widget
+  icon: fas fa-rocket-launch
+  widgets:
+
+  - type: clock
+    options:
+      timeZone: Europe/Paris
+      format: fr-FR
+      customCityName: Rouen
+      hideSeconds: true
+
+  - type: weather
+    options:
+      apiKey: 1599151d7e028c2406c4eaf11cf0a7dd
+      city: Rouen
+      units: metric
+
+# Self Hosted Services section
+- name: Self Hosted Services
+  icon: fas fa-server
+  items:
+
+  - title: Nginx - KeepAlived
+    description: Reverse proxy - VIP manager
+    icon: hl-nginx
+    url: https://vip.home-infra.rc
+    statusCheckAllowInsecure: true
+    target: newtab
+
+  - title: Pihole
+    description: DNS - Adblocker
+    icon: hl-pihole
+    url: https://pihole.home-infra.rc
+    statusCheckAllowInsecure: true
+    target: newtab
+
+  - title: Proxmox
+    description: Virtualization platform
+    icon: hl-proxmox
+    url: https://proxmox.home-infra.rc
+    statusCheckAllowInsecure: true
+    target: newtab
+
+  - title: FileBrowser
+    description: Self hosted cloud
+    icon: hl-filebrowser
+    url: https://filebrowser.home-infra.rc
+    statusCheckAllowInsecure: true
+    target: newtab
+
+  - title: Portainer
+    description: Docker container manager
+    icon: hl-portainer
+    url: https://portainer.home-infra.rc
+    statusCheckAllowInsecure: true
+    target: newtab
+
+  - title: Router
+    description: Router configuration interface
+    icon: hl-router
+    url: https://mabbox.bytel.fr
+    target: newtab
+
+  - title: Glances Home-Server
+    description: Monitoring tool
+    icon: hl-glances
+    url: https://glances-home.home-infra.rc
+    statusCheckAcceptCodes: '401'
+    statusCheckAllowInsecure: true
+    target: newtab
+
+  - title: Glances Rasp-Server
+    description: Monitoring tool
+    icon: hl-glances
+    url: https://glances-rasp.home-infra.rc
+    statusCheckAcceptCodes: '401'
+    statusCheckAllowInsecure: true
+    target: newtab
+
+# Monitoring Home-Server section
+- name: Monitoring Home-Server
+  icon: fas fa-chart-line
+  widgets:
+
+  - type: gl-current-cpu
+    options:
+      hostname: http://home-server:61208
+      username: 
+      password: 
+      useProxy: true
+
+  - type: gl-current-mem
+    options:
+      hostname: http://home-server:61208
+      username: 
+      password:
+      useProxy: true
+
+  - type: gl-alerts
+    options:
+      hostname: http://home-server:61208
+      username: 
+      password:
+      useProxy: true
+
+# Monitoring Rasp-Server section
+- name: Monitoring Rasp-Server
+  icon: fas fa-chart-line
+  widgets:
+
+  - type: gl-current-cpu
+    options:
+      hostname: http://rasp-server:61208
+      username: 
+      password:
+      useProxy: true
+
+  - type: gl-current-mem
+    options:
+      hostname: http://rasp-server:61208
+      username: 
+      password:
+      useProxy: true
+
+  - type: gl-alerts
+    options:
+      hostname: http://rasp-server:61208
+      username: 
+      password:
+      useProxy: true
+
+# Vulnerability Feed section
+- name: Vulnerability Feed
+  icon: fas fa-exclamation
+  widgets:
+
+    - type: cve-vulnerabilities
+      options:
+        limit: 15
+        useProxy: true
+
+# GitHub Trending section
+- name: GitHub Trending
+  icon: fab fa-github
+  widgets:
+
+  - type: github-trending-repos
+    options:
+      limit: 25
+
+# GitHub Trending section (Bash)
+- name: GitHub Trending (Bash)
+  icon: fab fa-github
+  widgets:
+
+  - type: github-trending-repos
+    options:
+      lang: bash
+      limit: 25
+
+# Arch-Linux News section
+- name: Arch-Linux News
+  icon: fab fa-linux
+  widgets:
+
+  - type: rss-feed
+    options:
+      rssUrl: https://archlinux.org/feeds/news/
+      apiKey: 3r5tcdttooyafa4qhcsgqmo5eaddkfudtxxwnevf
+      limit: 5
