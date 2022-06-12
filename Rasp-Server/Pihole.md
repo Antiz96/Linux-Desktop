@@ -201,7 +201,7 @@ sudo vim /etc/passwd
 ```
 
 > [...]  
-> pihole:x:972:972:pihole daemon:/home/pihole:**/usr/bin/nologin**
+> pihole\:x:972:972:pihole daemon:/home/pihole:**/usr/bin/nologin**
 
 ### Create a symlink of the logs files in /var/log 
 
