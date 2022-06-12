@@ -122,7 +122,7 @@ sudo vi /etc/postfix/main.cf
 ```
 
 > [...]  
-> # Personal configuration (for Pihole notification)  
+> #Personal configuration (for Pihole notification)  
 > relayhost = [smtp.gmail.com]:587  
 > smtp_use_tls = yes  
 > smtp_sasl_auth_enable = yes  
