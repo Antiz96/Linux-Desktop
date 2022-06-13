@@ -2,6 +2,9 @@
 
 https://www.portainer.io/
 
+**This is the procedure to connect an agent to an already existing Portainer server**   
+**To install a Portainer server, see :** https://github.com/Antiz96/Linux-Configuration/blob/main/Rasp-Server/Portainer-Server.md
+
 ## Install Docker on my Debian Server (if not done already)
 
 https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/Docker.md
