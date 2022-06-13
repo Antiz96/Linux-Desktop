@@ -12,7 +12,9 @@ https://github.com/Antiz96/Linux-Configuration/blob/main/Rasp-Server/Docker.md
 sudo mkdir /opt/dashy
 ```
 
-## Download my dashy config file (remember to fill in the "username" and "password" fields for the monitoring sections)
+## Download my dashy config file 
+
+(Remember to fill in the "username" and "password" fields for the monitoring sections)
 
 ```
 sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Rasp-Server/conf.yml -o /opt/dashy/conf.yml
