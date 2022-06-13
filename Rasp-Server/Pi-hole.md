@@ -60,7 +60,7 @@ sudo systemctl enable --now lighttpd
 sudo vi /etc/hosts
 ```
 
-> [...]
+> [...]  
 > "ip.address.of.pihole"   pi.hole "hostname"
 
 ### Set up the password for the admin panel
