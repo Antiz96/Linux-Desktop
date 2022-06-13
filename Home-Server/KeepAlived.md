@@ -1,13 +1,12 @@
 # KeepAlived
 
-https://github.com/acassen/keepalived
-
-https://www.redhat.com/sysadmin/keepalived-basics
-https://tobru.ch/keepalived-check-and-notify-scripts/
-https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/load_balancer_administration/s1-lvs-connect-vsa
-I use Keepalived to manage a VIP (Virtual IP Address) between both of my servers for the NGINX service.
-I configured it to check for the NGINX service state and to use a Master/Backup model for the VIP, with the master being my home-server (but I'll show how you to configure as a active/passive model).
-
+https://github.com/acassen/keepalived  
+  
+https://www.redhat.com/sysadmin/keepalived-basics  
+https://tobru.ch/keepalived-check-and-notify-scripts/  
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/load_balancer_administration/s1-lvs-connect-vsa  
+I use Keepalived to manage a VIP (Virtual IP Address) between both of my servers for the NGINX service.  
+I configured it to check for the NGINX service state and to use a Master/Backup model for the VIP, with the master being my home-server (but I'll show how you to configure as a active/passive model).  
 
 ## Installation
 
