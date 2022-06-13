@@ -134,6 +134,7 @@ sudo vim /etc/nginx/nginx.conf
 > [...]  
 > stream {  
 > > include /etc/nginx/conf.d/proxmox-spice.stream;  
+>  
 > }
 
 ```
@@ -143,6 +144,7 @@ sudo vim /etc/nginx/conf.d/proxmox-spice.stream
 > server {  
 > > listen "HOSTNAME or IP":3128;  
 > > proxy_pass "PROXMOX_SERVER":3128;  
+>  
 > }
 
 ```
