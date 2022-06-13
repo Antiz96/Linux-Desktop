@@ -5,7 +5,7 @@ https://pi-hole.net/
 *Pi-hole is not officially supported on Arch Linux but it is still available through the AUR.*  
 *If you are running Arch (as I do on my raspberry) and still want an officially supported Pi-hole installation, you should install Pi-hole in a docker container (https://github.com/pi-hole/docker-pi-hole/#running-pi-hole-docker).*  
   
-*I personally use the Pi-hole AUR packages for various reasons.*  
+*I personally use the Pi-hole AUR packages anyway for various reasons.*  
 
 ## Open the port for Pihole and its component on the firwall
 
@@ -22,7 +22,7 @@ sudo firewall-cmd --reload #Reload to apply changes
 
 ## Install and configure Pihole on Arch
 
-*I basically followed the Arch Wiki : https://wiki.archlinux.org/title/Pi-hole*
+I basically followed the Arch Wiki : https://wiki.archlinux.org/title/Pi-hole
 
 ### Install the AUR Package and enable the service
 
@@ -38,12 +38,12 @@ sudo pacman -S php-sqlite
 sudo vi /etc/php/php.ini
 ```
 
-> [...]
-> extension=pdo_sqlite
-> [...]
-> extension=sockets
-> [...]
-> extension=sqlite3
+> [...]  
+> extension=pdo_sqlite  
+> [...]  
+> extension=sockets  
+> [...]  
+> extension=sqlite3  
 > [...]
 
 ### Install lighttpd (front-end web server)
