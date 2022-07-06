@@ -1,0 +1,55 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+##Prompt##
+
+PS1="[\u@\h \W]\$ "
+
+##ENV##
+
+#Export Color
+export Color="--color=auto"
+
+#Export Editor
+export EDITOR=/usr/bin/vim
+
+##Aliases##
+
+#Listing Files
+alias ls='ls $Color'
+alias ll="ls -ltr"
+alias l="ls -ltrA"
+
+#Grep
+alias grep='grep $Color'
+alias egrep='egrep $Color'
+alias fgrep='fgrep $Color'
+
+#Manipulating Files
+alias mv="mv -i"
+alias cp="cp -i"
+alias ln="ln -i"
+alias rm="rm -i"
+
+#Edit
+alias vi="vim"
+
+#Package Manager
+alias update="sudo emerge --sync"
+alias upgrade="sudo emerge -avuDN --with-bdeps=y @world"
+alias fullupgrade="sudo emerge --sync && sudo emerge -avuDN --with-bdeps=y @world"
+alias install="sudo emerge -av"
+alias remove="sudo emerge -aC"
+alias search="emerge -s"
+alias package="qlist -I"
+alias cleanorphans="sudo emerge -ac"
+
+#Docker
+alias dockup="sudo docker pull containrrr/watchtower && sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup --run-once"
+
+#Sudoers
+alias sudo="sudo "

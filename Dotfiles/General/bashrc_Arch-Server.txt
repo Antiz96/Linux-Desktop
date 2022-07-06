@@ -1,0 +1,58 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+##Prompt##
+
+PS1="[\u@\h \W]\$ "
+
+##ENV##
+
+#Export Color
+export Color="--color=auto"
+
+#Export Editor
+export EDITOR=/usr/bin/vim
+
+##Aliases##
+
+#Listing Files
+alias ls='ls $Color'
+alias ll="ls -ltr"
+alias l="ls -ltrA"
+
+#Grep
+alias grep='grep $Color'
+alias egrep='egrep $Color'
+alias fgrep='fgrep $Color'
+
+#Manipulating Files
+alias mv="mv -i"
+alias cp="cp -i"
+alias ln="ln -i"
+alias rm="rm -i"
+
+#Edit
+alias vi="vim"
+
+#Package Manager
+alias update="sudo pacman -Syy"
+alias upgrade="sudo pacman -Syu"
+alias fullupgrade="sudo pacman -Syu && yay -Syu"
+alias install="sudo pacman -S"
+alias remove="sudo pacman -Rns"
+alias search="pacman -Ss"
+alias package="pacman -Q"
+alias aurpackage="pacman -Qm"
+alias cleancache="sudo pacman -Sc"
+alias cleanaurcache="yay -Sc"
+alias cleanorphans="pacman -Qtdq | sudo pacman -Rns -"
+
+#Docker
+alias dockup="sudo docker pull containrrr/watchtower && sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup --run-once"
+
+#Sudoers
+alias sudo="sudo "

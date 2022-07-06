@@ -5,21 +5,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-##Prompt (RED when not running TMUX/White when running TMUX)##
+##Prompt##
 
-TMUX_STATUS=$(env | grep tmux)
-
-if [ -z "$TMUX_STATUS" ]; then
-        PS1="\[\e[0;31m[\u@\h \W]\$ \e[m\]"
-else
-        PS1="[\u@\h \W]\$ "
-fi
-
-##Tmux Autostart##
-
-[ -x "$(command -v tmux)" ] \
-  && [ -z "${TMUX}" ] \
-  && (tmux attach || tmux) >/dev/null 2>&1
+PS1="[\u@\h \W]\$ "
 
 ##ENV##
 
@@ -51,19 +39,15 @@ alias rm="rm -i"
 alias vi="vim"
 
 #Package Manager
-alias update="sudo dnf check-update"
+alias update="dnf check-update"
 alias upgrade="sudo dnf upgrade --refresh"
 alias fullupgrade="sudo dnf distro-sync --refresh"
 alias install="sudo dnf install"
 alias remove="sudo dnf remove"
-alias search="sudo dnf search"
-alias package="sudo dnf list installed"
+alias search="dnf search"
+alias package="dnf list installed"
 alias cleancache="sudo dnf clean all"
 alias cleanorphans="sudo dnf autoremove"
-
-#Tmux
-alias tkill="tmux kill-session -t"
-alias tswitch="tmux a -t"
 
 #Docker
 alias dockup="sudo docker pull containrrr/watchtower && sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup --run-once"

@@ -1,0 +1,78 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+##Prompt (RED when not running TMUX/White when running TMUX)##
+
+TMUX_STATUS=$(env | grep tmux)
+
+if [ -z "$TMUX_STATUS" ]; then
+        PS1="\[\e[0;31m[\u@\h \W]\$ \e[m\]"
+else
+        PS1="[\u@\h \W]\$ "
+fi
+
+##Tmux Autostart##
+
+[ -x "$(command -v tmux)" ] \
+  && [ -z "${TMUX}" ] \
+  && (tmux attach || tmux) >/dev/null 2>&1
+
+##Change dir automatically to my /home directory at launch##
+
+cd || return
+
+##ENV##
+
+#Export Color
+export Color="--color=auto"
+
+#Export Editor
+export EDITOR=/usr/bin/vim
+
+#Export term type (since tmux v3.3, the term type is "tmux-256color" which is not compatible with old machines so I force the old term type)
+export TERM=screen
+
+#Export Browser (for ddgr)
+export BROWSER=/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe
+
+##Aliases##
+
+#Listing Files
+alias ls='ls $Color'
+alias ll="ls -ltr"
+alias l="ls -ltrA"
+
+#Grep
+alias grep='grep $Color'
+alias egrep='egrep $Color'
+alias fgrep='fgrep $Color'
+
+#Manipulating Files
+alias mv="mv -i"
+alias cp="cp -i"
+alias ln="ln -i"
+alias rm="rm -i"
+
+#Edit
+alias vi="vim"
+
+#Package Manager
+alias update="sudo emerge --sync"
+alias upgrade="sudo emerge -avuDN --with-bdeps=y @world"
+alias fullupgrade="sudo emerge --sync && sudo emerge -avuDN --with-bdeps=y @world"
+alias install="sudo emerge -av"
+alias remove="sudo emerge -aC"
+alias search="emerge -s"
+alias package="qlist -I"
+alias cleanorphans="sudo emerge -ac"
+
+#Tmux
+alias tkill="tmux kill-session -t"
+alias tswitch="tmux a -t"
+
+#Sudoers
+alias sudo="sudo "

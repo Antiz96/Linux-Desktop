@@ -21,6 +21,10 @@ fi
   && [ -z "${TMUX}" ] \
   && (tmux attach || tmux) >/dev/null 2>&1
 
+##Change dir automatically to my /home directory at launch##
+
+cd || return
+
 ##ENV##
 
 #Export Color
@@ -28,6 +32,12 @@ export Color="--color=auto"
 
 #Export Editor
 export EDITOR=/usr/bin/vim
+
+#Export term type (since tmux v3.3, the term type is "tmux-256color" which is not compatible with old machines so I force the old term type)
+export TERM=screen
+
+#Export Browser (for ddgr)
+export BROWSER=/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe
 
 ##Aliases##
 
@@ -51,24 +61,19 @@ alias rm="rm -i"
 alias vi="vim"
 
 #Package Manager
-alias update="sudo apt update"
-alias upgrade="sudo apt update && sudo apt upgrade"
-alias fullupgrade="sudo apt update && sudo apt full-upgrade && flatpak update"
-alias install="sudo apt install"
-alias remove="sudo apt remove"
-alias purge="sudo apt purge"
-alias search="sudo apt search"
-alias package="sudo apt list --installed"
-alias cleancache="sudo apt clean"
-alias cleanorphans="sudo apt autoremove --purge"
+alias update="dnf check-update"
+alias upgrade="sudo dnf upgrade --refresh"
+alias fullupgrade="sudo dnf distro-sync --refresh"
+alias install="sudo dnf install"
+alias remove="sudo dnf remove"
+alias search="dnf search"
+alias package="dnf list installed"
+alias cleancache="sudo dnf clean all"
+alias cleanorphans="sudo dnf autoremove"
 
 #Tmux
 alias tkill="tmux kill-session -t"
 alias tswitch="tmux a -t"
 
-#Docker
-alias dockup="sudo docker pull containrrr/watchtower && sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup --run-once"
-
 #Sudoers
 alias sudo="sudo "
-
