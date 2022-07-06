@@ -255,7 +255,7 @@ sudo vim /usr/lib/systemd/system/pihole-FTL.service
 
 ### Automatically check for system update(s)
 
-*This is nothing to do with pi-hole itself directly but I do use the following scripts to get notified by email for any available updates on my Arch server. This is also a way to see if the pi-hole packages needs to be updated, so I know that I'll need to redo the above step (adding a 2 seconds wait before the pihole-FTL service start.*
+*This has nothing to do with pi-hole itself but I do use the following script to get notified by email for any available updates on my Arch server. This is also a way to see if the pi-hole packages need to be updated, so I know that I'll need to redo the above step (adding a 2 seconds wait before the pihole-FTL service start).*
 
 ```
 sudo pacman -S pacman-contrib
