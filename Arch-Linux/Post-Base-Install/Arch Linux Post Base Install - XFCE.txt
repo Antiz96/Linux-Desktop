@@ -147,8 +147,8 @@ inactive-opacity = 1
 ~/.config/xfce4/terminal/terminalrc --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/XFCE/terminalrc
 ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/XFCE/xfce4-panel.xml
 ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/XFCE/xfce4-keyboard-shortcuts.xml
-/etc/lightdm/lightdm.conf --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/LightDM/lightdm.conf
-/etc/lightdm/lightdm-webkit2-greeter.conf --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/LightDM/lightdm-webkit2-greeter.conf
-/usr/share/lightdm-webkit/themes/glorious/js/authenticate.js --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/LightDM/authenticate.js
+/etc/lightdm/lightdm.conf --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/XFCE/lightdm.conf
+/etc/lightdm/lightdm-webkit2-greeter.conf --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/XFCE/lightdm-webkit2-greeter.conf
+/usr/share/lightdm-webkit/themes/glorious/js/authenticate.js --> https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/XFCE/authenticate.js
 
 
