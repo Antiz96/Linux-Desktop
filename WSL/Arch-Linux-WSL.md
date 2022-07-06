@@ -20,7 +20,18 @@ cd Documents\Arch\ #Change directory to the directory that contains Arch Linux W
 Arch.exe config --default-user rcandau #Make Arch log into our regular user at launch instead of root
 ```
 
-Back to Arch :
+Back to Arch, enable color and parallel download in pacman :
+
+```
+sudo vi /etc/pacman.conf
+```
+> [...]  
+> Color  
+> [...]  
+> ParallelDownloads = 10  
+> [...]  
+
+Install my needed packages :  
 
 ```
 sudo pacman -Syu #Update our system
