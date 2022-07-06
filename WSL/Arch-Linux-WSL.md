@@ -24,18 +24,19 @@ Back to Arch :
 
 ```
 sudo pacman -Syu #Update our system
-sudo pacman -S base-devel linux-headers man bash-completion openssh sshpass inetutils dnsutils traceroute rsync zip unzip cronie diffutils git tmux mlocate htop neofetch #Install my needed packages. DO NOT INSTALL "fakeroot" (https://github.com/yuk7/ArchWSL/issues/3)
+sudo pacman -S base-devel linux-headers man bash-completion openssh sshpass inetutils dnsutils traceroute rsync zip unzip cronie diffutils git tmux mlocate htop neofetch glow #Install my needed packages. DO NOT INSTALL "fakeroot" (https://github.com/yuk7/ArchWSL/issues/3)
 cd /tmp #Change directory to tmp to download and install AUR support
 git clone https://aur.archlinux.org/yay.git #Download "yay" install sources
 cd yay #Change directory to "yay" install sources directory
 makepkg -si #Install "yay"
+yay -S ddgr #Install "ddgr"
 ```
   
 Install my config files :  
   
 ```
-curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/bashrc%20\(Arch%20Based%20Distro\) -o ~/.bashrc
-curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/tmux.conf -o ~/.tmux.conf
+curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles/General/bashrc_Arch-WSL.txt -o ~/.bashrc
+curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles/General/tmux.conf -o ~/.tmux.conf
 ```
   
 Setup my DNS config for VPN :
@@ -51,7 +52,7 @@ To correct that, you can either specify the type of key in your command like so 
 vi .ssh/config
 ```
 > Host *
->  HostKeyAlgorithms +ssh-rsa
+> >  HostKeyAlgorithms +ssh-rsa
 
 
  

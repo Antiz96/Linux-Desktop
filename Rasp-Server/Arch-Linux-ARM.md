@@ -203,8 +203,7 @@ yay -S wakeonlan
 ## Download my .bashrc
 
 ```
-curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles/General/bashrc%20\(Arch%20Based%20Distro%20SERVER%20-%20WSL\) -o ~/.bashrc
-vim ~/.bashrc #Get rid of TMUX things and "cd || return" (which is specific to wsl)
+curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles/General/bashrc_Arch-Server.txt -o ~/.bashrc
 source ~/.bashrc
 ```
 

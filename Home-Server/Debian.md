@@ -187,7 +187,6 @@ wakeonlan 7c:10:c9:8c:88:9d
 ## Download my .bashrc
 
 ```
-curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles/General/bashrc%20\(Debian-Ubuntu%20Based%20Distro%20SERVER%20-%20WSL\) -o ~/.bashrc
-vim ~/.bashrc #(delete all tmux part and flatpak in the fullupgrade alias)
+curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles/General/bashrc_Debian-Ubuntu-Server.txt -o ~/.bashrc
 source ~/.bashrc
 ```
