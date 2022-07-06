@@ -32,11 +32,12 @@ makepkg -si #Install "yay"
 yay -S ddgr #Install "ddgr"
 ```
   
-Install my config files :  
+Download my config files :  
   
 ```
 curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles/General/bashrc_Arch-WSL.txt -o ~/.bashrc
 curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles/General/tmux.conf -o ~/.tmux.conf
+source ~/.bashrc
 ```
   
 Setup my DNS config for VPN :
