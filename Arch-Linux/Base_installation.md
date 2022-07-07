@@ -20,7 +20,7 @@ fdisk -l #Check the hard drives name to select the one I want to install Arch Li
 ### Partition scheme
 
 > EFI partition mounted on /boot --> 550M  
-> Swap partition mounted --> 4G (https://itsfoss.com/swap-size)  
+> Swap partition --> 4G (https://itsfoss.com/swap-size)  
 > Root partition mounted on / --> Left free space
 
 ### Partitioning the disk  
@@ -73,7 +73,7 @@ arch-chroot /mnt #Chroot in my new system's base on the root partition
 
 ```
 pacman -S vim #Install my favorite editor
-vim /etc/pacman.conf #Enable the color and parallel download options 
+vim /etc/pacman.conf #Enable the color and parallel downloads options 
 ```
 > [...]   
 > Color   
@@ -85,7 +85,7 @@ vim /etc/pacman.conf #Enable the color and parallel download options
 
 ```
 ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime #Set up my Region
-hwclock --systohc #Synchronize my Hardware Clock
+hwclock --systohc #Synchronize the Hardware Clock
 vim /etc/locale.gen #Uncomment my local in that file (for me : fr_FR.UTF-8 UTF-8)
 locale-gen #Apply the configuration
 vim /etc/locale.conf #Set the LANG variable accordingly in this file (for me : LANG=fr_FR.UTF-8
@@ -95,7 +95,11 @@ vim /etc/vconsole.conf #Set my Keymap in this file (for me : KEYMAP=fr)
 ### Host configuration
 
 ```
-vim /etc/hostname #Create the hostname file and put my hostname in it (for me : Arch Linux)
+vim /etc/hostname #Create the hostname file and put my hostname in it (for me : Arch-Linux)
+```
+> Arch-Linux  
+
+```
 vim /etc/hosts #Edit the hosts file and add lines from the Arch Wiki ---> https://wiki.archlinux.org/index.php/Installation_guide#Network_configuration.
 ```
 > 127.0.0.1	localhost  
@@ -164,7 +168,8 @@ sudo pacman -S base-devel linux-headers man bash-completion xorg-server intel-uc
 
 ## Install a Desktop Environment/Standalone Window Manager
 
-I've used GNOME and XFCE in the past (doing minimal installations) but I recently switched to IceWM. Here's my installation routine for the three of them.  
+I've used GNOME and XFCE in the past (doing minimal installations) but I switched to IceWM since then.  
+Here's my installation routine for the three of them.  
 
 ### GNOME (Minimal installation)
 
@@ -217,7 +222,7 @@ vim ~/.bash_profile
 ```
 > [...]  
 > #Autostart IceWM  
-> if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then    
+> if [ -z "${DISPLAY}" ] \\&\\& [ "${XDG_VTNR}" -eq 1 ]; then    
 > > exec startx  
 >  
 > fi  
@@ -227,11 +232,11 @@ vim ~/.bash_profile
 ```
 sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
 sudo grub-mkconfig -o /boot/grub/grub.cfg #Re-generate grub configuration for CPU microcode
-reboot #Reboot into my system with GUI (select GNOME on XORG in GDM if I installed GNOME)
+reboot #Reboot my system (then select GNOME on XORG in GDM if I installed GNOME)
 ```
 
-**Base Installation complete !**  
-**Post Base install :**
+**Base installation complete !**  
+**Post base install :**
 - GNOME : https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Arch%20Linux%20Post%20Base%20Install%20-%20Gnome.txt
 - XFCE : https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Arch%20Linux%20Post%20Base%20Install%20-%20XFCE.txt
 - ICEWM : https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Arch%20Linux%20Post%20Base%20Install%20-%20IceWM.txt

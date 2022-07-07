@@ -22,7 +22,7 @@ Uncomment the following line :
 
 ### Update the server
 
-#### Enable color & parallel download in pacman
+#### Enable color & parallel downloads in pacman
 
 ```
 sudo vi /etc/pacman.conf
