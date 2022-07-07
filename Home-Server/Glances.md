@@ -25,27 +25,27 @@ sudo docker exec -it glances bash
 glances -s --username --password
 ```
 
-> Define the Glances server username: your_username #Replace **your_username** by the username you want to use  
-> Define the Glances server password (your_username username):  
-> Password (confirm):  
+> Define the Glances server username: rcandau #Replace **rcandau** by the username you want to use  
+> Define the Glances server password (rcandau username): #Type the password you want to use   
+> Password (confirm): #Confirm it  
 > Do you want to save the password? [Yes/No]: **Yes**  
 > Glances XML-RPC server is running on 0.0.0.0:61209  
 > Announce the Glances server on the LAN (using 172.17.0.5 IP address)  
   
 Then press "ctrl+\" to interupt the proccess and `exit` the container.    
-Finally, copy the password file locally and re-run the container mapping it (replace **your_username** by the username you've set earlier).    
+Finally, copy the password file locally and re-run the container mapping it (replace **rcandau** by the username you've set earlier).    
 
 ```
-sudo docker cp glances:/root/.config/glances/your_username.pwd /opt/glances/your_username.pwd
+sudo docker cp glances:/root/.config/glances/rcandau.pwd /opt/glances/rcandau.pwd
 sudo docker stop glances
 sudo docker rm glances
-sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u your_username --password" -v /opt/glances/your_username.pwd:/root/.config/glances/your_username.pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
+sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u rcandau --password" -v /opt/glances/rcandau.pwd:/root/.config/glances/rcandau.pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
 ```
 
 ### Access
 
-You can now access it on this URL (admin:admin) :  
-`http://[HOSTNAME]:61208/`
+You can now access it on this URL :  
+`http://[HOSTNAME]:61208/` 
 
 ## Update/Upgrade and reinstall procedure
 
@@ -67,10 +67,10 @@ sudo docker rm glances
 sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w" -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
 ```
 
-Or, if you set a username and password (Replace **your_username** by the username you've set earlier) :
+Or, if you set a username and password (Replace **rcandau** by the username you've set earlier) :
 
 ```
-sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u your_username --password" -v /opt/glances/your_username.pwd:/root/.config/glances/your_username.pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
+sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u rcandau --password" -v /opt/glances/rcandau.pwd:/root/.config/glances/rcandau.pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
 ```
 
 ### After an update 
