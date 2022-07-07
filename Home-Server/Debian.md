@@ -20,7 +20,7 @@ I do not select anything during the installation process (no DE, no standard or 
   
 **Secondary Disk :**
 
-- /storage --> All free space (0% reserver block) - ext4
+- /storage --> All free space (0% reserved block) - ext4
 
 ## Install sudo and give sudo privileges to the regular user
 
