@@ -217,7 +217,7 @@ vim ~/.bash_profile
 ```
 > [...]  
 > #Autostart IceWM  
-> if [ -z "${DISPLAY}" ] \&\& [ "${XDG_VTNR}" -eq 1 ]; then  
+> if [ -z "${DISPLAY}" ] &amp;&amp; [ "${XDG_VTNR}" -eq 1 ]; then  
 > > exec startx  
 >  
 > fi  
