@@ -1,1 +1,0 @@
-base-devel linux-headers man bash-completion xorg-server xf86-video-fbdev icewm xfce4-terminal polkit-gnome pulseaudio mousepad ristretto thunar thunar-archive-plugin file-roller gvfs notification-daemon xdg-user-dirs-gtk network-manager-applet xorg-xinit xorg-xrandr i3lock numlockx xdotool playerctl

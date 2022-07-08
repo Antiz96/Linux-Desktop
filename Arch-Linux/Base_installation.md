@@ -164,8 +164,16 @@ reboot #Reboot the computer to boot into my fresh Arch Install
 
 ## Log in with my user (rcandau) and install other useful packages
 
+- For regular computers :  
+
 ```
 sudo pacman -S base-devel linux-headers man bash-completion xorg-server intel-ucode nvidia #Installing additional useful packages and drivers for my system
+```
+
+- For Raspberry Pi :  
+
+```
+sudo pacman -S base-devel linux-headers man bash-completion xorg-server xf86-video-fbdev #Installing additional useful packages and drivers for my system
 ```
 
 ## Install a Desktop Environment/Standalone Window Manager
@@ -200,11 +208,19 @@ sudo systemctl enable lightdm
 IceWM with a few extra packages according to my personal preferences.  
 Still a very minimal installation though, the most minimal of the three.  
 
+- For regular computers :  
+
 ```
 sudo pacman -S icewm xfce4-terminal polkit-gnome pulseaudio picom plank thunar thunar-archive-plugin file-roller gvfs xdg-user-dirs-gtk mousepad ristretto xfce4-screenshooter notification-daemon gnome-calculator network-manager-applet blueman redshift openssh xorg-xinit xorg-xrandr xautolock i3lock lxappearance numlockx xdotool playerctl gsimplecal
 ```
 
-#### Configurin startx for IceWM
+- For Raspberry Pi :  
+
+```
+sudo pacman -S icewm xfce4-terminal polkit-gnome pulseaudio mousepad ristretto thunar thunar-archive-plugin file-roller gvfs notification-daemon xdg-user-dirs-gtk network-manager-applet xorg-xinit xorg-xrandr i3lock numlockx xdotool playerctl
+```
+
+#### Configuring startx for IceWM
 
 I'm not using any display manager with IceWM.  
 I'm using startx instead. I configure it this way :  
@@ -239,6 +255,6 @@ reboot #Reboot my system (then select GNOME on XORG in GDM if I installed GNOME)
 
 **Base installation complete !**  
 **Post base install :**
-- GNOME : https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Arch%20Linux%20Post%20Base%20Install%20-%20Gnome.txt
-- XFCE : https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Arch%20Linux%20Post%20Base%20Install%20-%20XFCE.txt
-- ICEWM : https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Arch%20Linux%20Post%20Base%20Install%20-%20IceWM.txt
+- GNOME : https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Post_base_installation-Gnome.md
+- XFCE : https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Post_base_installation-XFCE.md
+- ICEWM : https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Post_base_installation-IceWM.md

@@ -1,4 +1,4 @@
-# Arch Linux base installation 
+# Arch Linux base installation with disk encryption 
 
 This is my personal routine to install Arch Linux with full disk encryption.  
 Before encrypting your disk, be aware of the consequences : https://www.makeuseof.com/tag/4-reasons-encrypt-linux-partitions/  
@@ -124,7 +124,7 @@ usermod -aG wheel,audio,video,optical,storage,games rcandau #Add my user to some
 pacman -S sudo #Install sudo
 visudo #Uncomment the line that allows wheel group members to use sudo on any command 
 ```
-> [...]  
+> [...]   
 > %wheel ALL=(ALL) ALL  
 > [...]  
 
@@ -230,7 +230,7 @@ Still a very minimal installation though, the most minimal of the three.
 sudo pacman -S icewm xfce4-terminal polkit-gnome pulseaudio picom plank thunar thunar-archive-plugin file-roller gvfs xdg-user-dirs-gtk mousepad ristretto xfce4-screenshooter notification-daemon gnome-calculator network-manager-applet blueman redshift openssh xorg-xinit xorg-xrandr xautolock i3lock lxappearance numlockx xdotool playerctl gsimplecal
 ```
 
-#### Configurin startx for IceWM
+#### Configuring startx for IceWM
 
 I'm not using any display manager with IceWM.  
 I'm using startx instead. I configure it this way :  
@@ -265,6 +265,6 @@ reboot #Reboot my system (then select GNOME on XORG in GDM if I installed GNOME)
 
 **Base installation complete !**  
 **Post base install :**
-- GNOME : https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Arch%20Linux%20Post%20Base%20Install%20-%20Gnome.txt
-- XFCE : https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Arch%20Linux%20Post%20Base%20Install%20-%20XFCE.txt
-- ICEWM : https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Arch%20Linux%20Post%20Base%20Install%20-%20IceWM.txt
+- GNOME : https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Post_base_installation-Gnome.md
+- XFCE : https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Post_base_installation-XFCE.md
+- ICEWM : https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Post_base_installation-IceWM.md
