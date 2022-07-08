@@ -148,9 +148,8 @@ mkinitcpio -p linux #Apply the configuration to the linux kernel
 blkid #Show and copy the UUID of my encrypted root partition
 vim /etc/default/grub #Modify the grub default configuration to tell it which of my partition is encrypted (in the following format : cryptdevice=UUID=*UUID_of_the_encrypted_partition*:*Name_of_the_encrypted_partition* root=/dev/mapper/*Name_of_the_encrypted_partition*)
 ```
-> [...]
-> GRUB_CMDLINE_LINUX="cryptdevice=UUID=a8d3a797-ed29-4c3e-8c1e-aaaaa6b1c989:root root=/dev/mapp
-er/root"  
+> [...]  
+> GRUB_CMDLINE_LINUX="cryptdevice=UUID=a8d3a797-ed29-4c3e-8c1e-aaaaa6b1c989:root root=/dev/mapper/root"  
 > [...]  
 
 #### Install grub
