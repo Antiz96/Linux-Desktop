@@ -7,7 +7,7 @@ https://docs.microsoft.com/en-us/windows/wsl/install-manual#downloading-distribu
 ## Installation
 
 Launch the AppxBundle and click "Install".  
-Then follow the instruction to create a user
+Then follow the instruction to create a user.
 
 ## Configuration
 
