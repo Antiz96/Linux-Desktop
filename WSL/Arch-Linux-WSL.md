@@ -1,8 +1,12 @@
-# Installation
+# Arch Linux WSL
+
+## Downloand and installation procedure
 
 https://github.com/yuk7/ArchWSL
 
-# Configuration
+## Configuration
+
+### Creating and configuring my user
 
 ```
 passwd #Change Root password
@@ -13,6 +17,8 @@ export EDITOR=/usr/bin/vim #Make vim our default editor to edit the sudo configu
 visudo #Uncomment line that allows wheel group members to use sudo on any command
 ```
   
+### Set the default user as my regular user (instead of the root user)
+
 The two following commands has to be launch in the windows cmd :  
 
 ```
@@ -20,7 +26,7 @@ cd Documents\Arch\ #Change directory to the directory that contains Arch Linux W
 Arch.exe config --default-user rcandau #Make Arch log into our regular user at launch instead of root
 ```
 
-Back to Arch, enable color and parallel downloads in pacman :
+### Configuring pacman
 
 ```
 sudo vi /etc/pacman.conf
@@ -31,11 +37,11 @@ sudo vi /etc/pacman.conf
 > ParallelDownloads = 10  
 > [...]  
 
-Install my needed packages :  
+### Install my needed packages
 
 ```
 sudo pacman -Syu #Update our system
-sudo pacman -S base-devel linux-headers man bash-completion openssh sshpass inetutils dnsutils traceroute rsync zip unzip cronie diffutils git tmux mlocate htop neofetch glow #Install my needed packages. DO NOT INSTALL "fakeroot" (https://github.com/yuk7/ArchWSL/issues/3)
+sudo pacman -S base-devel linux-headers man bash-completion openssh inetutils dnsutils traceroute rsync zip unzip cronie diffutils git tmux mlocate htop neofetch glow #Install my needed packages. DO NOT INSTALL "fakeroot" (https://github.com/yuk7/ArchWSL/issues/3)
 cd /tmp #Change directory to tmp to download and install AUR support
 git clone https://aur.archlinux.org/yay.git #Download "yay" install sources
 cd yay #Change directory to "yay" install sources directory
@@ -43,7 +49,7 @@ makepkg -si #Install "yay"
 yay -S ddgr #Install "ddgr"
 ```
   
-Download my config files :  
+### Download my config files
   
 ```
 curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles/General/bashrc_Arch-WSL.txt -o ~/.bashrc
@@ -51,11 +57,11 @@ curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles
 source ~/.bashrc
 ```
   
-Setup my DNS config for VPN :
+### Setup my DNS config for VPN
   
 https://github.com/Antiz96/Linux-Configuration/blob/main/WSL/Resolve_DNS_Using_VPN.md
   
-Setup Openssh to accept rsa keys :
+### Setup Openssh to accept rsa keys
 
 The newest version of openssh included in Arch Linux (from openssl 8.8p1-1) doesn't accept some type of ssh keys judged too old/insecured.  
 To correct that, you can either specify the type of key in your command like so : `ssh -oHostKeyAlgorithms=+ssh-rsa user@host` or create the following file :
@@ -65,10 +71,3 @@ vi .ssh/config
 ```
 > Host *
 > >  HostKeyAlgorithms +ssh-rsa
-
-
- 
-
-
-
-
