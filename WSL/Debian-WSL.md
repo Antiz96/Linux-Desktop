@@ -31,7 +31,8 @@ curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles
 source ~/.bashrc
 ```
 
-**Uncomment the copy/paste option for WSL and comment the one for Linux in ~/.tmux.conf** 
+**Uncomment the copy/paste option for WSL and comment the one for Linux in ~/.tmux.conf**  
+**Also, change the default shell to /bin/bash (rather than /usr/bin/bash) in ~/.tmux.conf**   
 
 ### Setup my DNS config for VPN :
   
