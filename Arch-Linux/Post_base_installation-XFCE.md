@@ -25,7 +25,7 @@ sudo systemctl enable --now bluetooth
 sudo blkid #Show and copy the UUID of my secondary disk
 sudo vim /etc/fstab
 ```
-> # Data  
+> #Data  
 > UUID=107b1979-e8ed-466d-bb10-15e72f7dd2ae       /run/media/rcandau/data         ext4          defaults 0 2  
 
 ## Application
@@ -117,7 +117,7 @@ bluetoothctl trust 38:18:4C:E9:85:B4
 sudo vi /etc/pulse/default.pa
 ```
 > [...]
-> ### Automatically switch to newly-connected devices
+> #Automatically switch to newly-connected devices
 > load-module module-switch-on-connect
 
 ## Top panel configuration (See Dotfiles part)

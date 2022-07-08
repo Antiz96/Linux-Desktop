@@ -25,7 +25,7 @@ sudo systemctl enable --now bluetooth
 sudo blkid #Show and copy the UUID of my secondary disk
 sudo vim /etc/fstab
 ```
-> # Data  
+> #Data  
 > UUID=107b1979-e8ed-466d-bb10-15e72f7dd2ae       /run/media/rcandau/data         ext4          defaults 0 2  
 
 ## Packages to install

@@ -1,6 +1,6 @@
 # Issues and fix
 
-A list of issues I encountered during my Arch-Linux journey and how to fix them
+A list of issues I encountered during my Arch-Linux journey and how I fixed them
 
 ## Bluetooth USB Dongle (asus BT500) not working correctly
 
