@@ -56,6 +56,8 @@ curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles
 curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles/General/tmux.conf -o ~/.tmux.conf
 source ~/.bashrc
 ```
+
+**Uncomment the copy/paste option for WSL and comment the one for Linux in ~/.tmux.conf**
   
 ### Setup my DNS config for VPN
   
