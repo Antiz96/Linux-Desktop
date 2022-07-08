@@ -116,9 +116,9 @@ I use picom instead, for window animations and transparency support (see the "Au
 bluetoothctl trust 38:18:4C:E9:85:B4
 sudo vi /etc/pulse/default.pa
 ```
-> [...]
-> #Automatically switch to newly-connected devices
-> load-module module-switch-on-connect
+> [...]  
+> #Automatically switch to newly-connected devices  
+> load-module module-switch-on-connect  
 
 ## Top panel configuration (See Dotfiles part)
 

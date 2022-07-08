@@ -129,9 +129,9 @@ sudo sed -i "s/Icon=system-software-install/Icon=pamac/g" /usr/share/application
 bluetoothctl trust 38:18:4C:E9:85:B4
 sudo vi /etc/pulse/default.pa
 ```
-> [...]
-> #Automatically switch to newly-connected devices
-> load-module module-switch-on-connect
+> [...]  
+> #Automatically switch to newly-connected devices  
+> load-module module-switch-on-connect  
 
 ### Dotfiles
 
