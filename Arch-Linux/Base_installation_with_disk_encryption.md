@@ -1,6 +1,7 @@
 # Arch Linux base installation 
 
-This is my personal routine to install Arch Linux
+This is my personal routine to install Arch Linux with full disk encryption.  
+Before encrypting your disk, be aware of the consequences : https://www.makeuseof.com/tag/4-reasons-encrypt-linux-partitions/  
 
 ## Pre-configuration
 
@@ -48,15 +49,17 @@ fdisk /dev/nvme0n1 #Partitioning the disk I want to install Arch on
 mkfs.fat -F32 /dev/nvme0n1p1 #Create the filesystem for the EFI partition
 mkswap /dev/nvme0n1p2 #Create the filesystem for the Swap partition
 swapon /dev/nvme0n1p2 #Activate swap on the system
-mkfs.ext4 /dev/nvme0n1p3 #Create the filesystem for the Root partition
+cryptsetup -y -v luksFormat /dev/nvme0n1p3 #Setup the encryption for the root partition and choose a passphrase
+cryptsetup open /dev/nvme0n1p3 root #Open the encryption container on the root partition and give it a name that will be used by the mapper. In my case, the name is "root"
+mkfs.ext4 /dev/mapper/root #Make the filesystem for the root partition
 ```
 
 ## Mounting the partitions and install the system's base 
 
 ```
-mount /dev/nvme0n1p3 /mnt #Mount the Root partition on /mnt to install my system's base on it
-mkdir -p /mnt/boot/EFI #Create the /boot/EFI directory in /mnt
-mount /dev/nvme0n1p1 /mnt/boot/EFI #Mount my EFI partition on it
+mount /dev/mapper/root /mnt #Mount the Root partition on /mnt to install my system's base on it
+mkdir /mnt/boot ##Create the /boot directory in /mnt (the EFI partition has to be mounted specifically in /boot when doing LUKS encryption and not /boot/EFI, otherwise it will also be encrypted and you'll need extra steps to make grub being able to decrypt it. Futhermore, grub only has a partial Luks2 support, so even tho it is possible I do not recommend it. If you want to do it anyway, check https://wiki.archlinux.org/title/GRUB#Encrypted_/boot)
+mount /dev/nvme0n1p1 /mnt/boot #Mount my EFI partition on it
 pacstrap /mnt base linux linux-firmware #Install my system's base on the root partition
 genfstab -U /mnt >> /mnt/etc/fstab #Generate the fstab
 ```
@@ -121,15 +124,39 @@ usermod -aG wheel,audio,video,optical,storage,games rcandau #Add my user to some
 pacman -S sudo #Install sudo
 visudo #Uncomment the line that allows wheel group members to use sudo on any command 
 ```
-> [...]  
+> [...]
 > %wheel ALL=(ALL) ALL  
-> [...]  
+> [...]
 
 ### Install and configure grub
 
 ```
 pacman -S grub efibootmgr dosfstools mtools #Install the grub bootloader and dependencies for EFI. Also install "os-prober" if you wish to do a dual boot with another distro/OS.
-grub-install --target=x86_64-efi --bootloader-id=arch-linux --recheck #Install grub on my EFI partition
+```
+
+#### Configure the kernel and grub for encryption
+
+```
+vim /etc/mkinitcpio.conf #Add the "keyboard", "keymap" and "encrypt" kernel hooks into the initkernel configuration for the encrytion.
+```
+> [...]  
+> HOOKS=(base udev autodetect **keyboard** **keymap** modconf block **encrypt** filesystems fsck)  
+> [...]   
+
+```
+mkinitcpio -p linux #Apply the configuration to the linux kernel
+blkid #Show and copy the UUID of my encrypted root partition
+vim /etc/default/grub #Modify the grub default configuration to tell it which of my partition is encrypted (in the following format : cryptdevice=UUID=*UUID_of_the_encrypted_partition*:*Name_of_the_encrypted_partition* root=/dev/mapper/*Name_of_the_encrypted_partition*)
+```
+> [...]
+> GRUB_CMDLINE_LINUX="cryptdevice=UUID=a8d3a797-ed29-4c3e-8c1e-aaaaa6b1c989:root root=/dev/mapp
+er/root"  
+> [...]  
+
+#### Install grub
+
+```
+grub-install --target=x86_64-efi --bootloader-id=arch-linux --efi-directory=/boot --recheck #Install grub on my EFI partition
 grub-mkconfig -o /boot/grub/grub.cfg #Generating the Grub configuration file
 ```
 
