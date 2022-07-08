@@ -124,9 +124,9 @@ usermod -aG wheel,audio,video,optical,storage,games rcandau #Add my user to some
 pacman -S sudo #Install sudo
 visudo #Uncomment the line that allows wheel group members to use sudo on any command 
 ```
-> [...]
+> [...]  
 > %wheel ALL=(ALL) ALL  
-> [...]
+> [...]  
 
 ### Install and configure grub
 
@@ -139,8 +139,8 @@ pacman -S grub efibootmgr dosfstools mtools #Install the grub bootloader and dep
 ```
 vim /etc/mkinitcpio.conf #Add the "keyboard", "keymap" and "encrypt" kernel hooks into the initkernel configuration for the encrytion.
 ```
-> [...]  
-> HOOKS=(base udev autodetect **keyboard** **keymap** modconf block **encrypt** filesystems fsck)  
+> [...]    
+> HOOKS=(base udev autodetect **keyboard** **keymap** modconf block **encrypt** filesystems fsck)    
 > [...]   
 
 ```

@@ -121,7 +121,7 @@ usermod -aG wheel,audio,video,optical,storage,games rcandau #Add my user to some
 pacman -S sudo #Install sudo
 visudo #Uncomment the line that allows wheel group members to use sudo on any command 
 ```
-> [...]  
+> [...]   
 > %wheel ALL=(ALL) ALL  
 > [...]  
 
