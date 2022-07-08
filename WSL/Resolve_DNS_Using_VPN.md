@@ -1,5 +1,7 @@
 # Resolving DNS when using a VPN on WSL
 
+## Fix
+
 link for full explanation : https://unix.stackexchange.com/questions/589683/wsl-dns-not-working-when-connected-to-vpn
 
 ```
@@ -20,7 +22,7 @@ sudo vi /etc/resolv.conf
 
 Reboot your WSL machine to apply changes and you're done !  
   
-# Potential other related issue
+## Potential other related issue
 
 *At this point, DNS should work when using VPN.*    
 *But you might face a weird issue where DNS resolution are really slow when using the VPN (It happened to me on Ubuntu, but not on Arch).*    
