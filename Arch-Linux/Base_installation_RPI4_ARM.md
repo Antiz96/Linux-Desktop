@@ -113,6 +113,6 @@ sudo reboot
 
 ## Post base installation procedure for IceWM
 
-I use IceWM on my RPI also as it is really light :  
+I use IceWM on my RPI as it is very light :  
   
 https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Post_base_installation-IceWM.md
