@@ -49,7 +49,6 @@ sudo mkswap /dev/mmcblk0p3
 sudo swapon /dev/mmcblk0p3
 sudo vi /etc/fstab
 ```
-
 > [...]  
 > /dev/mmcblk0p3  none    swap    defaults        0       0
 
@@ -60,7 +59,6 @@ sudo vi /etc/fstab
 ```
 sudo vi /etc/ssh/sshd_config
 ```
-
 > [...]  
 > PermitRootLogin yes  
 > [...]  
@@ -87,7 +85,6 @@ passwd rcandau
 ```
 sudo vi /etc/ssh/sshd_config
 ```
-
 > [...]  
 > Port **"X"** *#Where "X" is the port you want to set*  
 > [...]
@@ -97,7 +94,6 @@ sudo vi /etc/ssh/sshd_config
 ```
 sudo vi /etc/ssh/sshd_config
 ```
-
 > [...]  
 > PermitRootLogin no  
 > [...]  
@@ -116,7 +112,6 @@ ssh-copy-id -i ~/.ssh/"keyfile_name".pub "user"@"server" #Change "keyfile_name",
 ```
 sudo vi /etc/ssh/sshd_config
 ```
-
 > [...]  
 > PasswordAuthentication no  
 > AuthenticationMethods publickey
@@ -136,7 +131,6 @@ However, you can create a config file in "~/.ssh" to avoid having to specify the
 ```
 vi ~/.ssh/config
 ```
-
 > Host **"Host alias"**  
 > > User **"Username"**  
 > > Port **"SSH port"**  
@@ -157,7 +151,6 @@ It causes interferences with NetworkManager (and Pihole-FTL as well) :
 ```
 sudo vim /etc/systemd/resolved.conf
 ```
-
 > [...]  
 > [Resolve]  
 > DNSStubListener=no  
@@ -220,4 +213,3 @@ sudo nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.dns 192.168.1.25
 sudo nmcli con modify 03994945-5119-3b3c-acbc-b599437851e8 ipv4.method manual
 sudo nmcli con up 03994945-5119-3b3c-acbc-b599437851e8
 ```
-

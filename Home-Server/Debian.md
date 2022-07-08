@@ -36,7 +36,6 @@ usermod -aG sudo rcandau
 ```
 sudo vi /etc/network/interfaces
 ```
-
 > [...]  
 > iface enp0s3 inet static  
 > > address 192.168.1.2/24  
@@ -70,7 +69,6 @@ sudo vim /etc/ssh/sshd_config
 ```
 sudo vim /etc/ssh/sshd_config
 ```
-
 > [...]  
 > PermitRootLogin no  
 > [...]  
@@ -89,7 +87,6 @@ ssh-copy-id -i ~/.ssh/"keyfile_name".pub "user"@"server" #Change "keyfile_name",
 ```
 sudo vim /etc/ssh/sshd_config
 ```
-
 > [...]  
 > PasswordAuthentication no  
 > AuthenticationMethods publickey
@@ -109,7 +106,6 @@ However, you can create a config file in "~/.ssh" to avoid having to specify the
 ```
 vim ~/.ssh/config
 ```
-
 > Host **"Host alias"**  
 > > User **"Username"**  
 > > Port **"SSH port"**  
@@ -148,12 +144,12 @@ sudo ethtool enp3s0
 ```
 sudo vim /etc/network/interfaces
 ```
-
 > [...]  
 > auto enp3s0 
 > iface enp3s0 inet manual  
 > > **post-up /sbin/ethtool -s enp3s0 wol g**  
-> > **post-down /sbin/ethtool -s enp3s0 wol g**  
+> > **post-down /sbin/ethtool -s enp3s0 wol g** 
+> 
 > [...]
 
 
@@ -172,7 +168,6 @@ yay -S wakeonlan
 ```
 ip a
 ```
-
 > [...]  
 > 2: enp3s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast maaster vmbr0 state UP group default qlen 1000  
 > link/ether **7c:10:c9:8c:88:9d** brd ff:ff:ff:ff:ff:ff  
