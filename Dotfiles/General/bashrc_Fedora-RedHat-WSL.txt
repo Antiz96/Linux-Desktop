@@ -21,10 +21,6 @@ fi
   && [ -z "${TMUX}" ] \
   && (tmux attach || tmux) >/dev/null 2>&1
 
-##Change dir automatically to my /home directory at launch##
-
-cd || return
-
 ##ENV##
 
 #Export Color
