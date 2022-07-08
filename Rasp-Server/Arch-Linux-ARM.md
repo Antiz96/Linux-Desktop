@@ -147,7 +147,7 @@ vi ~/.ssh/config
 
 Then I Configure Arch Linux according to my preferences, without the things that has already been done during the Arch Linux ARM installation and the above steps (partitiong/filesystem, mount + pacstrap + genfstab, creating my user, grub bootloader, exit and umount /mnt, etc...) :  
 
-https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Base-Install/Arch-Linux-Base-Installation.md
+https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Base-installation.md
 
 ## Disable systemd-resolved
 
