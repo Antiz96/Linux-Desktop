@@ -2,7 +2,9 @@
 
 ## Installation
 
-https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-4
+https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-4  
+     
+I also create a third partition of 4G for Swap.
 
 ## Configuration
 
