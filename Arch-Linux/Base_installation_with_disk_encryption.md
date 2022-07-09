@@ -188,7 +188,7 @@ umount -l /mnt #Umount my /mnt mounted point
 reboot #Reboot the computer to boot into my fresh Arch Install
 ```
 
-## Log in with my user (rcandau) and install other useful packages
+## Log in with my regular user and install other useful packages
 
 ```
 sudo pacman -S base-devel linux-headers man bash-completion xorg-server intel-ucode nvidia #Installing additional useful packages and drivers for my system

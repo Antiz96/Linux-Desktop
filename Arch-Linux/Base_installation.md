@@ -162,7 +162,7 @@ umount -l /mnt #Umount my /mnt mounted point
 reboot #Reboot the computer to boot into my fresh Arch Install
 ```
 
-## Log in with my user (rcandau) and install other useful packages
+## Log in with my regular user and install other useful packages
 
 - For regular computers :  
 
