@@ -20,9 +20,9 @@ fdisk -l #Check the hard drives name to select the one I want to install Arch Li
 
 ### Partition scheme
 
-> EFI partition mounted on /boot --> 550M  
-> Swap partition --> 4G (https://itsfoss.com/swap-size)  
-> Root partition mounted on / --> Left free space
+> EFI partition mounted on /boot --> 550M - FAT32 
+> Swap partition --> 4G - SWAP (https://itsfoss.com/swap-size)  
+> Root partition mounted on / --> Left free space - EXT4
 
 ### Partitioning the disk  
 
