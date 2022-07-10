@@ -79,7 +79,7 @@ firewall-cmd --add-port=X/tcp --permanent #Open the port we've set for SSH (repl
 firewall-cmd --reload #Apply changes
 ```
 
-#### Install qemu-guest-agent (for promox)
+#### Install qemu-guest-agent (for proxmox)
 
 ```
 pacman -S qemu-guest-agent

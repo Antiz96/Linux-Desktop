@@ -37,7 +37,7 @@ sudo dpkg -P qemu-system-data && sudo apt install -f
 ```
 
 *User Management Part : Create regular user in Datacenter --> Permissions --> User (PVE Realm) and then, add PVEAdmin role in the main "Permission tab"*   
-*Linux Bridge Part : In Promox --> System --> Network, edit the actual network card and delete IP/Netmask and Gateway. Once done, create a new "Linux Bridge" card, add the IP/Netmask and Gateway and add the actual network card as the bridge port.*
+*Linux Bridge Part : In Proxmox --> System --> Network, edit the actual network card and delete IP/Netmask and Gateway. Once done, create a new "Linux Bridge" card, add the IP/Netmask and Gateway and add the actual network card as the bridge port.*
 
 ### Install additionnal useful packages
 
@@ -118,7 +118,7 @@ sudo systemctl restart pveproxy
 
 ## Update/Upgrade procedure
 
-Promox and its components are no more than regular packages installed on the Debian server.
+Proxmox and its components are no more than regular packages installed on the Debian server.
 So the update/upgrade procedure is basically just update/upgrade your system.
 
 ### Update Proxmox

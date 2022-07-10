@@ -9,5 +9,5 @@ This repo also contains some tips about both Virtual Box and Proxmox.
 * [Ubuntu Server Template - Installation and configuration procedures for my Ubuntu Server Template (according to my preferences)](https://github.com/Antiz96/Linux-Configuration/blob/main/VMs/Ubuntu_Server_Template.md)
 * [BlackArch - Installation and configuration procedures for my BlackArch VM (according to my preferences)](https://github.com/Antiz96/Linux-Configuration/blob/main/VMs/BlackArch.md)
 * [Gentoo IceWM - Installation and configuration procedures for my Gentoo VM (according to my preferences)](https://github.com/Antiz96/Linux-Configuration/blob/main/VMs/Gentoo_IceWM.md)
-* [Proxmox Tips - A list of useful tips for Promox (reminder for me)](https://github.com/Antiz96/Linux-Configuration/blob/main/VMs/Proxmox_Tips.md)
-* [Virtual Box Tips - A list of useful tips for Promox (reminder for me)](https://github.com/Antiz96/Linux-Configuration/blob/main/VMs/Virtual-Box_Tips.md)
+* [Proxmox Tips - A list of useful tips for Proxmox (reminder for me)](https://github.com/Antiz96/Linux-Configuration/blob/main/VMs/Proxmox_Tips.md)
+* [Virtual Box Tips - A list of useful tips for Proxmox (reminder for me)](https://github.com/Antiz96/Linux-Configuration/blob/main/VMs/Virtual-Box_Tips.md)
