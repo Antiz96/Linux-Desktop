@@ -69,7 +69,7 @@ The newest version of openssh included in Arch Linux (from openssl 8.8p1-1) does
 To correct that, you can either specify the type of key in your command like so : `ssh -oHostKeyAlgorithms=+ssh-rsa user@host` or create the following file :
 
 ```
-vi .ssh/config
+vi ~/.ssh/config
 ```
 > Host *
 > >  HostKeyAlgorithms +ssh-rsa
