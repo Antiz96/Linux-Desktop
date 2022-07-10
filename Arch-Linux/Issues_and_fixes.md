@@ -130,3 +130,27 @@ install_bluetooth_driver #Reinstalling my bluetooth driver (this is a personal a
 ```
 curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -
 ```
+
+## Using old SSH key types
+
+Arch has the lastest version of OpenSSH which disable some "old" key types.  
+It makes using SSH on older machines that doesn't have that version yet impossible :  
+
+```
+journalctl -xe
+```
+> févr. 09 18:10:35 pihole sshd[1185]: Unable to negotiate with 192.168.1.100 port 59724: no matching host key type found. Their offer: ssh-rsa,ssh-dss [preauth]  
+    
+In order to be able to connect to use those old SSH key types with Arch Linux, we need to autorize them :  
+
+- As a SSH server :  
+
+```
+sudo vim /etc/ssh/sshd_config
+```
+> [...]  
+> HostKeyAlgorithms +ssh-rsa,ssh-dss  
+  
+- As a SSH client :
+
+
