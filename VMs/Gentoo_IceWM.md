@@ -204,14 +204,14 @@ lspci && echo "" && lsmod #Get information about the system
 cd /usr/src/linux 
 make menuconfig #Generate a menu-driver kernel configuration screen. Below are all the things I had to manually select, the rest was already selected by default
 ```
-> [*] Virtualization  
-> > [*] Kernel-based Virtual Machine (KVM) support  
-> > [*] KVM for Intel (and compatible) processor support  
+> [\*] Virtualization  
+> > [\*] Kernel-based Virtual Machine (KVM) support  
+> > [\*] KVM for Intel (and compatible) processor support  
 >  
-> -*- Enable the block layer  
+> -\*- Enable the block layer  
 > > Partition Types  
-> > > [*] Advancer partition selection  
-> > > [*] EFI GUID Partition support  
+> > > [\*] Advancer partition selection  
+> > > [\*] EFI GUID Partition support  
 
 ### Compiling and installing the kernel
 
