@@ -7,5 +7,5 @@ This repo also contains my various configuration files (Dotfiles) and some "fix"
 * [Dotfiles - My various configuration files (.bashrc, .tmux.conf, specific services config files, etc...)  ](https://github.com/Antiz96/Linux-Configuration/tree/main/Dotfiles)
 * [Home-Server - Installation and configuration procedures for services that I have (or had) running on my Debian Server](https://github.com/Antiz96/Linux-Configuration/tree/main/Home-Server)
 * [Rasp-Server - Installation and configuration procedures for services that I have (or had) running on my Arch-Linux ARM Server](https://github.com/Antiz96/Linux-Configuration/tree/main/Rasp-Server)
-* [VMs - Installation and configuration procedures for the various VMs I use on my Proxmox instance (Home-Server)](https://github.com/Antiz96/Linux-Configuration/tree/main/VMs)
+* [VMs - Installation and configuration procedures for the various VMs I use on my Proxmox instance + Various tips](https://github.com/Antiz96/Linux-Configuration/tree/main/VMs)
 * [WSL - Installation and configuration procedures of my WSL instance(s) for my workstation](https://github.com/Antiz96/Linux-Configuration/tree/main/WSL)
