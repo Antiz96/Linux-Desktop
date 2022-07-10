@@ -153,4 +153,8 @@ sudo vim /etc/ssh/sshd_config
   
 - As a SSH client :
 
-
+```
+vi ~/.ssh/config
+```
+> Host *  
+> >  HostKeyAlgorithms +ssh-rsa  
