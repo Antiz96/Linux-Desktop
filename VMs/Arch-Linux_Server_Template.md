@@ -9,7 +9,7 @@ I basically follow my [Arch Linux base installation guide](https://github.com/An
   
 - I use a different partition scheme depending on if the context is personal or professional (see : [Partition scheme](https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux-Server-Template.md#partition-scheme))
 - I substitute the list of "useful packages to install" with one suited for servers (see [Install useful packages](https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux-Server-Template.md#install-useful-packages))
-- I do not create a regular user for my personal use. Indeed, this will be handled by an ansible playbook. I do create a "ansible" user for that purpose instead (see [Create and configure the ansible user](https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux-Server-Template.md#create-and-configure-the-ansible-user))
+- I do not create a regular user for my personal use during the install. Indeed, this will be handled by an ansible playbook. I do create a "ansible" user for that purpose afterward instead (see [Create and configure the ansible user](https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux-Server-Template.md#create-and-configure-the-ansible-user)). **Remember to set a password for the root account during the installation process anyway, otherwise you won't be able to log in to the server after reboot**
 - I skip the "Desktop Environment/Standalone Window Manager" part, obviously.
 
 ## Partition scheme
@@ -91,7 +91,6 @@ systemctl enable --now qemu-guest-agent
 Replaces : https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Base_installation.md#user-configuration
 
 ```
-passwd #Setup a simple password for the root account just to be able to log to it while preparing the template. It will be changed later by an ansible playbook anyway.
 useradd -m ansible #Create the ansible user
 vim /etc/sudoers.d/ansible #Make the ansible user a sudoer
 ```
