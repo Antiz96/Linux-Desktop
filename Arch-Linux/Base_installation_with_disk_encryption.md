@@ -181,6 +181,8 @@ systemctl enable firewalld #Autostart the firewall at boot
 
 ```
 exit #Get out of the chroot
+```
+```
 umount -l /mnt #Umount my /mnt mounted point
 reboot #Reboot the computer to boot into my fresh Arch Install
 ```
