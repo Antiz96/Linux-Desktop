@@ -41,6 +41,20 @@ dnf update && dnf install sudo vim man bash-completion openssh-server bind-utils
 
 ### Configure various things
 
+#### Set Selinux to "permissive"
+
+- For the current session :  
+  
+```
+setenforce 0
+```
+  
+- Permanently :  
+  
+```
+vim /etc/selinux/config
+```
+
 #### Enable ssh
 
 ```
