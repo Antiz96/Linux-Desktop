@@ -100,7 +100,7 @@ vim /home/ansible/.ssh/authorized_keys #Insert the ansible master server's SSH p
 ## Setup static IP Address
 
 ```
-sudo vi /etc/network/interfaces
+vi /etc/network/interfaces
 ```
 > [...]  
 > iface enp0s3 inet static  
