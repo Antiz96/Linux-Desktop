@@ -35,7 +35,7 @@ I basically follow each installation steps normally with the following exception
 ### Install useful packages
 
 ```
-apt update && apt install sudo vim man bash-completion openssh-server dnsutils traceroute rsync zip unzip diffutils firewalld mlocate htop curl openssl telnet chronyd parted wget postfix
+apt update && apt install sudo vim man bash-completion openssh-server dnsutils traceroute rsync zip unzip diffutils firewalld mlocate htop curl openssl telnet chrony parted wget postfix
 ```
 
 ### Configure various things
