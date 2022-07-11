@@ -54,6 +54,9 @@ setenforce 0
 ```
 vim /etc/selinux/config
 ```
+> [...]  
+> SELINUX=permissive  
+> [...]  
 
 #### Enable ssh
 
