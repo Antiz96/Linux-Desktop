@@ -103,7 +103,7 @@ vim /home/ansible/.ssh/authorized_keys #Insert the ansible master server's SSH p
 vi /etc/network/interfaces
 ```
 > [...]  
-> iface enp0s3 inet static  
+> iface ens18 inet static  
 > > address 192.168.1.100/24  
 > > gateway 192.168.1.254  
 > > dns-nameservers 192.168.1.1
