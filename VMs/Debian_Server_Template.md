@@ -91,6 +91,7 @@ vim /etc/sudoers.d/ansible #Make the ansible user a sudoer
 > ansible ALL=(ALL) NOPASSWD: ALL  
 
 ```
+mkdir -p /home/ansible/.ssh && chmod 700 /home/ansible/.ssh && chown ansible: /home/ansible/.ssh
 touch /home/ansible/.ssh/authorized_keys && chmod 644 /home/ansible/.ssh/authorized_keys && chown ansible: /home/ansible/.ssh/authorized_keys #Create the authorized_keys file for the user ansible
 vim /home/ansible/.ssh/authorized_keys #Insert the ansible master server's SSH public key in it (ansible@ansible-server)
 ```
