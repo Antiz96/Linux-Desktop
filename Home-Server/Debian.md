@@ -78,7 +78,7 @@ sudo vim /etc/ssh/sshd_config
 **On the client :**
 
 ```
-ssh-keygen -t rsa -b 4096 #Choose a relevant name to remember on which server you use this key. Also, set a strong passphrase for encryption.
+ssh-keygen -t rsa -b 4096 #Choose a relevant name to remember on which server/service/entity you use this key. Also, set a strong passphrase for encryption.
 ssh-copy-id -i ~/.ssh/"keyfile_name".pub "user"@"server" #Change "keyfile_name", "user" and "server" according to your environment
 ```
   
