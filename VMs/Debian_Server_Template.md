@@ -9,7 +9,8 @@ I basically follow each installation steps normally with the following exception
 
 - I use a different partition scheme depending on if the context is personal or professional (see : [Partition scheme](https://github.com/Antiz96/Linux-Configuration/blob/main/Debian-Server-Template.md#partition-scheme))
 - I don't check anything during the **Software selection** step so I get a minimal installation. I install useful packages after the installation instead (see [Install useful packages](https://github.com/Antiz96/Linux-Configuration/blob/main/Debian-Server-Template.md#install-useful-packages))
-- I don't create any user during the installation process. Indeed, this will be handled by an ansible playbook. I do create a "ansible" user for that purpose afterward instead (see [Create and configure the ansible user](https://github.com/Antiz96/Linux-Configuration/blob/main/Debian-Server-Template.md#create-and-configure-the-ansible-user)). **Remember to set a password for the root account during the installation process anyway, otherwise you won't be able to log in to the server after reboot**
+- I don't create any user during the installation process. Indeed, this will be handled by an ansible playbook. I do create a "ansible" user for that purpose afterward instead (see [Create and configure the ansible user](https://github.com/Antiz96/Linux-Configuration/blob/main/Debian-Server-Template.md#create-and-configure-the-ansible-user)).  
+**Remember to set a password for the root account during the installation process anyway, otherwise you won't be able to log in to the server after reboot !**
 
 ### Partition scheme
 
