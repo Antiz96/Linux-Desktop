@@ -140,7 +140,7 @@ pacman -S networkmanager #Install networkmanager (needed to get and manage my in
 systemctl enable NetworkManager #Autostart NetworkManager at boot
 ```
 
-### Configure and install the firewall
+### Install a firewall
 
 Installing a firewall may be optionnal for a fresh and simple desktop install as Arch doesn't expose any service/ports by default.  
 However, it is a supplementary security layer you might consider (even tho there's a little chance you ever need it).  
@@ -149,9 +149,6 @@ Check this link for more info/reasons to install a firewall : https://unix.stack
 ```
 pacman -S firewalld #Install the firewall
 systemctl enable firewalld #Autostart the firewall at boot
-firewall-cmd --remove-service="ssh" --permanent #Remove the opened ssh port by default as my PC doesn't run a ssh server
-firewall-cmd --remove-service="dhcpv6-client" --permanent #Remove the opened DHCPV6-client port by default as I don't use it
-firewall-cmd --reload #Apply changes
 ```
 
 ## Exit the system and reboot the computer
@@ -174,6 +171,14 @@ sudo pacman -S base-devel linux-headers man bash-completion xorg-server intel-uc
 
 ```
 sudo pacman -S base-devel linux-headers man bash-completion xorg-server xf86-video-fbdev #Installing additional useful packages and drivers for my system
+```
+
+## Configure the firewall
+
+```
+firewall-cmd --remove-service="ssh" --permanent #Remove the opened ssh port by default as my PC doesn't run a ssh server
+firewall-cmd --remove-service="dhcpv6-client" --permanent #Remove the opened DHCPV6-client port by default as I don't use it
+firewall-cmd --reload #Apply changes
 ```
 
 ## Install a Desktop Environment/Standalone Window Manager
