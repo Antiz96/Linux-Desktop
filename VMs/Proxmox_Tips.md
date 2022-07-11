@@ -17,10 +17,6 @@
 
 - Ballooning Device (Advanced option) --> uncheck
 
-### Once created --> Option tab
-
-- Hotplug --> Disk, Network, USB, Memory, CPU
-
 ### For Desktop VMs only --> Go to hardware tab
 
 - Display --> 128 MiB
@@ -101,4 +97,4 @@ vim ~/.icewm/startup
 > [...]  
 > #Spice Agent  
 > /usr/bin/spice-vdagent &  
-> /usr/bin/spice-vdagentd &  
+> /usr/bin/spice-vdagentd & 
