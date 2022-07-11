@@ -1,20 +1,25 @@
 # Proxmox Tips
 
-## VMs settings/tweaks I use while creating a VM (just a reminder for me
+## VMs settings/tweaks I use while creating a VM (just a reminder for me)
 
 ### System
 
-- Graphic Card --> "Spice" for desktop VMs | "Default" for server VMs  
+- Graphic Card --> "Spice" for desktop VMs | "Default" for server VMs 
 - BIOS --> OVMF (UEFI) **If the VMs boots with an error saying "access denied" and/or into an EFI Shell, recreate it with the "Pre-Enroll keys" option unchecked**
 - Agent Qemu --> Check
 
 ### CPU
 
 - Type --> host
+- Enable NUMA (Advanced option) --> checked
 
 ### Memory
 
-- Ballooning --> uncheck
+- Ballooning Device (Advanced option) --> uncheck
+
+### Once created --> Option tab
+
+- Hotplug --> Disk, Network, USB, Memory, CPU
 
 ### For Desktop VMs only --> Go to hardware tab
 
