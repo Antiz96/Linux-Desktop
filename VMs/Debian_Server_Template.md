@@ -85,7 +85,7 @@ systemctl enable --now qemu-guest-agent
 ### Create and configure the ansible user
 
 ```
-userdel temp #Delete the temporary user created during the installation
+userdel temp && rm -rf /home/temp #Delete the temporary user created during the installation
 useradd -m ansible #Create the ansible user
 vim /etc/sudoers.d/ansible #Make the ansible user a sudoer
 ```
