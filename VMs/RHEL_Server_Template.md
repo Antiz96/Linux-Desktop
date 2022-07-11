@@ -36,7 +36,7 @@ I basically follow each installation steps normally with the following exception
 ### Install useful packages
 
 ```
-dnf update && dnf install sudo vim man bash-completion openssh-server bind-utils traceroute rsync zip unzip diffutils firewalld mlocate htop curl openssl telnet chronyd parted wget postfix epel-release
+dnf update && dnf install sudo vim man bash-completion openssh-server bind-utils traceroute rsync zip unzip diffutils firewalld mlocate curl openssl telnet chrony parted wget postfix epel-release && dnf install htop
 ```
 
 ### Configure various things
