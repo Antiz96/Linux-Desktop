@@ -97,6 +97,16 @@ touch /home/ansible/.ssh/authorized_keys && chmod 600 /home/ansible/.ssh/authori
 vim /home/ansible/.ssh/authorized_keys #Insert the ansible master server's SSH public key in it (ansible@ansible-server)
 ```
 > Copy the ansible master server's SSH public key here (ansible@ansible-server)  
+## Setup static IP Address
+
+```
+sudo vi /etc/network/interfaces
+```
+> [...]  
+> iface enp0s3 inet static  
+> > address 192.168.1.100/24  
+> > gateway 192.168.1.254  
+> > dns-nameservers 192.168.1.1
 
 ## Reboot
 
