@@ -31,7 +31,6 @@ sudo vim /etc/fstab
 ## Application
 - arch-update (AUR) --> https://github.com/Antiz96/arch-update
 - bluemail (AUR)
-- ckb-next (AUR) **Only for my Desktop PC to configure my Corsair Keyboard. Settings --> (Last blue : 26, 95, 180)**
 - ddgr (AUR)
 - discord
 - glow
@@ -97,7 +96,6 @@ I use picom instead, for window animations and transparency support (see the "Au
 
 - PolicyKit
 - Applet Blueman
-- ckb-next
 - Screensaver
 - Power Management
 - Picom compositor --> picom --xrender-sync-fence #(This xrender argument is needed for some people that has nvidia card : https://superuser.com/questions/1601366/picom-failed-to-trigger-fence) 

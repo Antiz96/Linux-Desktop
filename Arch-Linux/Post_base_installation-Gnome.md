@@ -32,7 +32,6 @@ sudo vim /etc/fstab
 
 - arch-update (AUR) --> https://github.com/Antiz96/arch-update  
 - bluemail (AUR)  
-- ckb-next (AUR) **Only for my Desktop PC to configure my Corsair Keyboard. Settings --> (Last blue : 26, 95, 180)**
 - chrome-gnome-shell (AUR) 
 - ddgr (AUR) 
 - discord  

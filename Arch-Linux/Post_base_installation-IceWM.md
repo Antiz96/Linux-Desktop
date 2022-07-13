@@ -36,7 +36,6 @@ sudo vim /etc/fstab
 
 - arch-update (AUR) --> https://github.com/Antiz96/arch-update
 - bluemail (AUR)
-- ckb-next (AUR) **Only for my Desktop PC to configure my Corsair Keyboard. Settings --> (Last blue : 26, 95, 180)**
 - ddgr
 - discord
 - glow
@@ -85,7 +84,6 @@ sudo vim /etc/fstab
 mkdir -p ~/.icewm && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/IceWM/icewm.zip -O && unzip icewm.zip -d ~/.icewm/ && chmod +x ~/.icewm/startup && rm -f icewm.zip
 ```
 **Remember to uncomment the correct "Display resolution" line in the "~/.icewm/startup" script depending on the machine (First Line = Desktop | Second Line = Laptop)**  
-**Remember to uncomment the CKB-Next command for Desktop PC (Corsair Keyboard)**  
 
 - For Raspberry Pi :  
 
