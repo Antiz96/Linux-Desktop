@@ -22,9 +22,13 @@ sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT=
 ```
 sudo mkdir /data/glances
 sudo docker exec -it glances bash
-glances -s --username --password
 ```
 
+Inside the container :  
+
+```
+glances -s --username --password
+```
 > Define the Glances server username: rcandau #Replace **rcandau** by the username you want to use  
 > Define the Glances server password (rcandau username): #Type the password you want to use   
 > Password (confirm): #Confirm it  
