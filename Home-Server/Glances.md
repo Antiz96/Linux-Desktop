@@ -20,7 +20,7 @@ sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT=
 ### Set a username and password for the web interface (optionnal but recommended)
 
 ```
-sudo mkdir /opt/glances
+sudo mkdir /data/glances
 sudo docker exec -it glances bash
 glances -s --username --password
 ```
@@ -36,10 +36,10 @@ Then press "ctrl+\" to interupt the proccess and `exit` the container.
 Finally, copy the password file locally and re-run the container mapping it (replace **rcandau** by the username you've set earlier).    
 
 ```
-sudo docker cp glances:/root/.config/glances/rcandau.pwd /opt/glances/rcandau.pwd
+sudo docker cp glances:/root/.config/glances/rcandau.pwd /data/glances/rcandau.pwd
 sudo docker stop glances
 sudo docker rm glances
-sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u rcandau --password" -v /opt/glances/rcandau.pwd:/root/.config/glances/rcandau.pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
+sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u rcandau --password" -v /data/glances/rcandau.pwd:/root/.config/glances/rcandau.pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
 ```
 
 ### Access
@@ -70,7 +70,7 @@ sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT=
 Or, if you set a username and password (Replace **rcandau** by the username you've set earlier) :
 
 ```
-sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u rcandau --password" -v /opt/glances/rcandau.pwd:/root/.config/glances/rcandau.pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
+sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u rcandau --password" -v /data/glances/rcandau.pwd:/root/.config/glances/rcandau.pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
 ```
 
 ### After an update 
