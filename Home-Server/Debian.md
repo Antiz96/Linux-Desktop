@@ -50,7 +50,7 @@ sudo systemctl restart networking
 
 ```
 sudo apt update && sudo apt full-upgrade
-sudo apt install vim man bash-completion openssh-server mlocate htop curl telnet firewalld chrony neofetch
+sudo apt install vim man bash-completion openssh-server dnsutils traceroute rsync zip unzip diffutils firewalld mlocate htop curl openssl telnet chrony parted wget postfix
 ```
 
 ## Secure SSH connexions
