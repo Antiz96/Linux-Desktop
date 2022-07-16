@@ -16,7 +16,7 @@ https://docs.portainer.io/v/ce-2.11/start/install/agent/docker/linux
 ### Pull and run the container
 
 ```
-sudo docker run -d -p 9001:9001 --name portainer-agent --hostname portainer-agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent:latest
+sudo docker run -d -p 9001:9001 --name portainer-agent --hostname portainer-agent --restart=unless-stopped -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent:latest
 ```
 
 ### Add the agent to the Portainer Server
@@ -30,7 +30,7 @@ Add the following URL to the environment tab in your portainer server's web inte
 sudo docker pull portainer/agent:latest
 sudo docker stop portainer-agent
 sudo docker rm portainer-agent
-sudo docker run -d -p 9001:9001 --name portainer-agent --hostname portainer-agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent:latest
+sudo docker run -d -p 9001:9001 --name portainer-agent --hostname portainer-agent --restart=unless-stopped -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent:latest
 ```
 
 ### After an update 
