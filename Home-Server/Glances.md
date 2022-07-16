@@ -36,7 +36,7 @@ glances -s --username --password
 > Glances XML-RPC server is running on 0.0.0.0:61209  
 > Announce the Glances server on the LAN (using 172.17.0.5 IP address)  
   
-Then press "ctrl+\" to interupt the proccess and `exit` the container.    
+Then press `ctrl+\` to interupt the proccess and `exit` the container.    
 Finally, copy the password file locally and re-run the container mapping it (replace **rcandau** by the username you've set earlier).    
 
 ```
