@@ -118,6 +118,7 @@ vim ~/.ssh/config
 sudo systemctl enable --now firewalld
 sudo firewall-cmd --add-port=X/tcp --permanent #Open the port we've set for SSH (replace "X" by the port)
 sudo firewall-cmd --remove-service="ssh" --permanent #Close the default SSH port
+sudo firewall-cmd --remove-service="dhcpv6-client" --permanent #Close the dhcpv6-client port as I don't use it
 sudo firewall-cmd --reload
 ```
 
