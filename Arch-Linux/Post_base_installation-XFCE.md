@@ -58,7 +58,6 @@ sudo vim /etc/fstab
 - mlocate
 - htop
 - neofetch
-- wakeonlan (AUR)
 - wireguard-tools **Only for my Laptop in order to connect to my VPN**
 
 ## Theme
