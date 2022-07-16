@@ -15,12 +15,13 @@ sudo firewall-cmd --zone=public --add-port=3128/tcp --permanent #Spice proxy por
 sudo firewall-cmd --reload
 ```
 
-### Create the Proxmox main directory
+### Create the Proxmox main directory and the Proxmox data directory
 
 *(...to store the VMs, backups, etc...)*
 
 ```
 sudo mkdir /storage/Proxmox
+sudo mkdir /data/Proxmox
 ```
 
 ## Installation 
@@ -73,6 +74,7 @@ Datacenter --> Storage
 ADD - Type : directory | ID : Backup | Directory : /storage/Proxmox/Backup | Content : VZDump Backup File  
 ADD - Type : directory | ID : ISO | Directory : /storage/Proxmox/ISO | Content : ISO Image  
 ADD - Type : directory | ID : VMs | Directory : /storage/Proxmox/VMs | Content : Disk Image  
+ADD - Type : directory | ID : Data | Directory : /data/Proxmox | Content : Disk Image  
 EDIT local directory --> uncheck "enabled" checkbox
 
 ### Disable the root account on the Web Interface (for security reasons)
