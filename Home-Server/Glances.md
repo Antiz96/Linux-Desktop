@@ -14,7 +14,7 @@ https://github.com/nicolargo/glances#docker-the-fun-way
 
 ```
 sudo docker pull nicolargo/glances:latest-full 
-sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w" -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
+sudo docker run -d --restart="unless-stopped" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w" -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
 ```
 
 ### Set a username and password for the web interface (optionnal but recommended)
@@ -43,7 +43,7 @@ Finally, copy the password file locally and re-run the container mapping it (rep
 sudo docker cp glances:/root/.config/glances/rcandau.pwd /data/glances/rcandau.pwd
 sudo docker stop glances
 sudo docker rm glances
-sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u rcandau --password" -v /data/glances/rcandau.pwd:/root/.config/glances/rcandau.pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
+sudo docker run -d --restart="unless-stopped" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u rcandau --password" -v /data/glances/rcandau.pwd:/root/.config/glances/rcandau.pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
 ```
 
 ### Access
@@ -68,13 +68,13 @@ sudo docker pull nicolargo/glances:latest-full
 ```
 sudo docker stop glances
 sudo docker rm glances
-sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w" -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
+sudo docker run -d --restart="unless-stopped" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w" -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
 ```
 
 Or, if you set a username and password (Replace **rcandau** by the username you've set earlier) :
 
 ```
-sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u rcandau --password" -v /data/glances/rcandau.pwd:/root/.config/glances/rcandau.pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
+sudo docker run -d --restart="unless-stopped" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u rcandau --password" -v /data/glances/rcandau.pwd:/root/.config/glances/rcandau.pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
 ```
 
 ### After an update 
