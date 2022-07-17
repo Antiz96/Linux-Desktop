@@ -67,7 +67,7 @@ sudo vim /etc/fstab
 ## Theme
 
 - Shell : Orchis-dark-compact - https://www.gnome-look.org/p/1357889/
-- Icon : Tela-Circle-blue - https://www.gnome-look.org/p/1359276/
+- Icon : Tela-Circle-dark - https://www.gnome-look.org/p/1359276/
 - Cursor : McMojave cursors - https://www.opendesktop.org/s/Gnome/p/1355701/
 
 ## Configuration
