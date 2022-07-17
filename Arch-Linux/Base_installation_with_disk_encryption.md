@@ -244,7 +244,7 @@ I'm using startx instead. I configure it this way :
 
 ```
 cp /etc/X11/xinit/xinitrc ~/.xinitrc
-vim ~/.xinitrc #(Delete the 5 last lines and add the following ones instead)
+vim ~/.xinitrc #Delete the 5 last lines and add the following ones instead
 ```
 > [...]  
 > #Start IceWM  
