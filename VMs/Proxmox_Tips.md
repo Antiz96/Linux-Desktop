@@ -8,6 +8,10 @@
 - BIOS --> OVMF (UEFI) **If the VMs boots with an error saying "access denied" and/or into an EFI Shell, recreate it with the "Pre-Enroll keys" option unchecked**
 - Agent Qemu --> Check
 
+### Disk
+
+- Check the "Discard" option (for thin provisioning)
+
 ### CPU
 
 - Type --> host
