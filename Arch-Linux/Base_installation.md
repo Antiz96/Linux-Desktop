@@ -178,9 +178,9 @@ sudo pacman -S base-devel linux-headers man bash-completion xorg-server xf86-vid
 ## Configure the firewall
 
 ```
-firewall-cmd --remove-service="ssh" --permanent #Remove the opened ssh port by default as my PC doesn't run a ssh server
-firewall-cmd --remove-service="dhcpv6-client" --permanent #Remove the opened DHCPV6-client port by default as I don't use it
-firewall-cmd --reload #Apply changes
+sudo firewall-cmd --remove-service="ssh" --permanent #Remove the opened ssh port by default as my PC doesn't run a ssh server
+sudo firewall-cmd --remove-service="dhcpv6-client" --permanent #Remove the opened DHCPV6-client port by default as I don't use it
+sudo firewall-cmd --reload #Apply changes
 ```
 
 ## Install a Desktop Environment/Standalone Window Manager
