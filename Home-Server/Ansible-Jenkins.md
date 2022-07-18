@@ -23,10 +23,10 @@ I use the [ansible user](https://github.com/Antiz96/Linux-Configuration/blob/mai
 rm /home/ansible/.ssh/authorized_keys #Delete the public key which is only needed for ansible client
 vim /home/ansible/.ssh/config #Create the ssh config according to my ssh configuration
 ```
-> Host \*.domain  
-> > User ansible  
-> > Port X #Replace X by the port you configured SSH with 
-> > IdentityFile ~/.ssh/id_rsa_ansible   
+> Host \*.domain    
+> > User ansible    
+> > Port X #Replace X by the port you configured SSH with   
+> > IdentityFile ~/.ssh/id_rsa_ansible  
   
 ```
 vim /home/ansible/.ssh/id_rsa_ansible
