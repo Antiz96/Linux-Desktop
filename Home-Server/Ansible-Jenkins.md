@@ -23,10 +23,10 @@ I use the [ansible user](https://github.com/Antiz96/Linux-Configuration/blob/mai
 rm /home/ansible/.ssh/authorized_keys #Delete the public key which is only needed for ansible client
 vim /home/ansible/.ssh/config #Create the ssh config according to my ssh configuration
 ```
-> Host \*.domain
-> > User ansible
-> > Port X #Replace X by the port you configured SSH with
-> > IdentityFile ~/.ssh/id_rsa_ansible 
+> Host \*.domain  
+> > User ansible  
+> > Port X #Replace X by the port you configured SSH with 
+> > IdentityFile ~/.ssh/id_rsa_ansible   
   
 ```
 vim /home/ansible/.ssh/id_rsa_ansible
@@ -44,7 +44,7 @@ chown -R ansible: /opt/ansible
 
 ### Playbooks
 
-My ansible playbooks are available [here]()
+My ansible playbooks are available [here]().
 
 ## Jenkins
 
@@ -73,4 +73,4 @@ After I created my user from the initial setup, I change the jenkins security li
   
 - Administrate Jenkins --> Configure global security --> Matrix authorization policy based on project --> Add my user with the "Administrate" global permission.
   
-That allows me to set permissions per user, either globally or directly on projects.
+This allows me to set permissions per user, either globally or directly on projects.
