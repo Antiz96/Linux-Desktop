@@ -166,12 +166,13 @@ sudo reboot
 ## Install useful packages and starting/configuring the firewall
 
 ```
-sudo pacman -S base-devel linux-headers man bash-completion openssh inetutils dnsutils postfix firewalld traceroute rsync zip unzip cronie diffutils git mlocate htop neofetch
+sudo pacman -S base-devel linux-headers man bash-completion openssh inetutils dnsutils postfix firewalld traceroute rsync zip unzip cronie diffutils git mlocate htop pacman-contrib
 sudo systemctl enable --now sshd cronie postfix firewalld
 sudo updatedb
 sudo mandb
 sudo firewall-cmd --add-port=X/tcp --permanent #Open the port we've set for SSH (replace "X" by the port)
 sudo firewall-cmd --remove-service="ssh" --permanent #Close the default SSH port
+sudo firewall-cmd --remove-service="dhcpv6-client" --permanent #Close the dhcpv6-client port as I do not use it
 sudo firewall-cmd --reload
 ```
 

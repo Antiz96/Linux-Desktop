@@ -41,7 +41,7 @@ Replaces : https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/B
 Replaces : https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Base_installation.md#log-in-with-my-regular-user-and-install-other-useful-packages  
 
 ```
-pacman -S base-devel linux-headers man bash-completion intel-ucode openssh inetutils dnsutils wget traceroute rsync zip unzip cronie diffutils mlocate htop parted postfix 
+pacman -S base-devel linux-headers man bash-completion intel-ucode openssh inetutils dnsutils wget traceroute rsync zip unzip cronie diffutils mlocate htop parted postfix pacman-contrib 
 ```
 
 ### Configure various things
