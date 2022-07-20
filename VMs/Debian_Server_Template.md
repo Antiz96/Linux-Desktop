@@ -96,7 +96,14 @@ mkdir -p /home/ansible/.ssh && chmod 700 /home/ansible/.ssh && chown ansible: /h
 touch /home/ansible/.ssh/authorized_keys && chmod 600 /home/ansible/.ssh/authorized_keys && chown ansible: /home/ansible/.ssh/authorized_keys #Create the authorized_keys file for the user ansible
 vim /home/ansible/.ssh/authorized_keys #Insert the ansible master server's SSH public key in it (ansible@ansible-server)
 ```
-> Copy the ansible master server's SSH public key here (ansible@ansible-server)  
+> Copy the ansible master server's SSH public key here (ansible@ansible-server)   
+  
+```
+vim /etc/passwd #Set the default ansible's shell to /bin/bash
+```
+> [...]  
+> ansible:x:1001:1001::/home/ansible:/bin/**bash**  
+ 
 ## Setup static IP Address
 
 ```
