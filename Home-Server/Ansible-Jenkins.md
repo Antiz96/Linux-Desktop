@@ -48,7 +48,7 @@ chown -R ansible: /opt/ansible
 vim /etc/ansible/ansible.cfg
 ```
 > [defaults]  
-> host_key_checking = False #Disable ssh key checking when connection to a new host 
+> host_key_checking = False #Disable ssh key checking when connection to a new host   
 > retry_files_enabled = True #Enable retry files in case of a failure during a playbook execution
 
 ### Playbooks
