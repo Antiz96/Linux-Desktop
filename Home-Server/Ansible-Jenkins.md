@@ -53,7 +53,7 @@ vim /etc/ansible/ansible.cfg
 
 ### Playbooks
 
-My ansible playbooks are available [here]().
+My ansible playbooks are available [here](https://github.com/Antiz96/Linux-Configuration/tree/main/Home-Server/ansible).
 
 ## Jenkins
 
