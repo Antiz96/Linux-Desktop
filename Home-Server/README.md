@@ -4,6 +4,7 @@ This is the list of installation (and configuration) procedures of services that
 
 * [Debian - OS](https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/Debian.md)
 * [Proxmox - Hypervisor/Virtualization platform](https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/Proxmox.md)
+* [Ansible/Jenkins - Automation and orchestration server](https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/Ansible-Jenkins.md)
 * [Docker - Container manager](https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/Docker.md)
 * [Apache Guacamole - Remote Gateway (Docker)](https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/Apache-Guacamole.md)
 * [Nextcloud - Cloud, file sharing and collaborative platform (Docker)](https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/Nextcloud.md)
