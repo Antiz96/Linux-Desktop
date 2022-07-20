@@ -1,0 +1,5 @@
+---
+- name: "Configure Template"
+  hosts: all
+  roles:
+    - role: "configure_template"

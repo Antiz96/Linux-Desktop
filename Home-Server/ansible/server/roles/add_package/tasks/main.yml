@@ -1,0 +1,24 @@
+---
+# tasks file for add_package
+
+# Stop the playbook if both the "package_debian" and the "package_arch" variables are empty
+- name: Check the "package_debian" and the "package_arch" variables
+  fail:
+    msg: The 'package_debian' and the 'package_arch' variables are both empty
+  when: not package_debian and not package_arch
+
+# If the server is a Debian Server and the "package_debian" var is not empty, install the package(s) listed in the "package_debian" variable via "apt" (apt update && apt install xxx).
+- name: Install package - Debian
+  apt:
+    update_cache: yes
+    name: "{{package_debian}}"
+    state: present
+  when: ansible_facts['distribution'] == "Debian" and package_debian
+
+# If the server is an Arch Server and the "package_arch" var is not empty, install the package(s) listed in the "package_arch" variable via "pacman" (pacman -Su && pacman -S xxx).
+- name: Install package - Arch
+  pacman:
+    update_cache: yes
+    name: "{{package_arch}}"
+    state: present
+  when: ansible_facts['distribution'] == "Archlinux" and package_arch

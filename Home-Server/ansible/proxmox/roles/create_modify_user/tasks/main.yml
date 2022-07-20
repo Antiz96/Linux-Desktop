@@ -1,0 +1,67 @@
+---
+# tasks file for create_modify_user
+
+# Stop the playbook if the "username" var is empty
+- name: Check the "username" variable
+  fail:
+    msg: The 'username' variable is empty
+  when: not username
+
+# Stop the playbook if the "user_passwd" var is empty
+- name: Check the "user_passwd" variable
+  fail:
+    msg: The 'user_passwd' variable is empty
+  when: not user_passwd
+
+# Stop the playbook if the "pubkey" var is empty
+- name: Check the "pubkey" variable
+  fail:
+    msg: The 'pubkey' variable is empty
+  when: not pubkey
+
+# Create the user (if it does not already exists) as well as its /home and set/modify its password
+- name: Create user
+  user:
+    name: "{{username}}"
+    state: present
+    shell: /bin/bash
+    create_home: yes
+    password: "{{user_passwd|password_hash('sha256')}}"
+    update_password: always
+
+# If the "sudo" var is set to true, add the user to the "sudo" group (and remove it from all potential other group(s) it might be a part of)
+- name: Add sudo privileges
+  user:
+    name: "{{username}}"
+    groups: sudo
+  when: sudo | bool
+
+# If the "sudo" var is set to false, remove the user from the "sudo" group
+- name: Remove sudo privileges
+  shell:
+    cmd: gpasswd -d "{{username}}" sudo
+  ignore_errors: yes
+  when: not sudo | bool
+
+# Create the ".ssh" directory in the user's home folder (if it does not already exists)
+- name: Create ".ssh" directory
+  file:
+    path: "/home/{{username}}/.ssh/"
+    state: directory
+    owner: "{{username}}"
+    group: "{{username}}"
+    mode: "0700"
+
+# Create the "authorized_keys" file in the user's ssh folder (if it does not already exists)
+- name: Create "authorized_keys" file
+  file:
+    path: "/home/{{username}}/.ssh/authorized_keys"
+    state: touch
+    owner: "{{username}}"
+    group: "{{username}}"
+    mode: "0600"
+
+# Set/modify the authorized SSH public key for the user
+- name: Set SSH key
+  shell:
+    cmd: echo "{{pubkey}}" > "/home/{{username}}/.ssh/authorized_keys"

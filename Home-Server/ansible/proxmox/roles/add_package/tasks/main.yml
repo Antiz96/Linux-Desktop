@@ -1,0 +1,15 @@
+---
+# tasks file for add_package
+
+# Stop the playbook if the "package" variable is empty
+- name: Check the "package" variable
+  fail:
+    msg: The 'package' variable is empty
+  when: not package
+
+# If the "package" var is not empty, install the package(s) listed in the "package" variable via "apt" (apt update && apt install xxx).
+- name: Install package
+  apt:
+    update_cache: yes
+    name: "{{package}}"
+    state: present

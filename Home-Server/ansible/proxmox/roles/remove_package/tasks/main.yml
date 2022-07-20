@@ -1,0 +1,15 @@
+---
+# tasks file for add_package
+
+# Stop the playbook if the "package" variable is empty
+- name: Check the "package" variable
+  fail:
+    msg: The 'package' variable is empty
+  when: not package
+
+# If the "package" var is not empty, remove the package(s) listed in the "package" variable via "apt" (apt remove xxx && apt autoremove).
+- name: Remove package
+  apt:
+    name: "{{package}}"
+    state: absent
+    autoremove: yes

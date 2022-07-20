@@ -1,0 +1,27 @@
+---
+# tasks file for update_docker_container
+
+# Pull the latest watchtower image (https://github.com/containrrr/watchtower)
+- name: Pull watchtower
+  shell:
+    cmd: docker pull containrrr/watchtower
+  register: pull_watchtower_out
+  ignore_errors: yes
+
+- name: Pull watchtower out
+  debug:
+    msg: "{{pull_watchtower_out.stdout_lines}}"
+  when: pull_watchtower_out.stdout_lines
+
+# Update every docker containers (if they can be updated) via watchtower and print the result
+
+- name: Update docker containers
+  shell:
+    cmd: docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup --run-once
+  register: docker_watchtower_out
+  ignore_errors: yes
+
+- name: Update docker containers out
+  debug:
+    msg: "{{docker_watchtower_out.stderr_lines}}" #For some reason, the docker run output goes into stderr ?
+  when: docker_watchtower_out.stderr_lines 

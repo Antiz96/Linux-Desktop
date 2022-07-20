@@ -1,0 +1,64 @@
+---
+# tasks file for update_server
+
+# If the server is a Debian Server, update the repositories with "apt" (apt update)
+- name : Update repos - Debian
+  apt:
+    update_cache: yes
+  when: ansible_facts['distribution'] == "Debian"
+
+# If the server is an Arch Server, update the repositories with "pacman" (pacman -Sy)
+- name : Update repos - Arch
+  pacman:
+    update_cache: yes
+  when: ansible_facts['distribution'] == "Archlinux"
+
+# If the server is a Debian Server, print the list of package(s) marked for update via "apt" (apt list --upgradable)
+- name: List packages - Debian
+  shell:
+    cmd: apt list --upgradable
+  register: apt_packages_out
+  when: ansible_facts['distribution'] == "Debian"
+
+- name: List packages - Debian out
+  debug:
+    msg: "{{apt_packages_out.stdout_lines}}"
+  when: ansible_facts['distribution'] == "Debian"
+
+# If the server is an Arch Server, print the list of package(s) marked for update via "pacman-contrib" (checkupdates)
+- name: List packages - Arch
+  shell:
+    cmd: checkupdates
+  register: pacman_packages_out
+  ignore_errors: yes
+  when: ansible_facts['distribution'] == "Archlinux"
+
+- name: List packages - Arch out
+  debug:
+    msg: "{{pacman_packages_out.stdout_lines}}"
+  when: ansible_facts['distribution'] == "Archlinux"
+
+# If the server is a Debian Server, update it via "apt" (apt full-upgrade && apt autoremove)
+- name: Update - Debian
+  apt:
+    upgrade: full
+    autoremove: yes
+  when: ansible_facts['distribution'] == "Debian"
+
+# If the server is an Arch Server, update it via "pacman" (pacman -Sy && pacman -Su)
+- name: Update - Arch
+  pacman:
+    upgrade: yes
+  when: ansible_facts['distribution'] == "Archlinux"
+
+# Reboot to apply changes and check if the machine rebooted correctly (except for the ansible server itself that will have to be rebooted manually).
+- name: Reboot
+  reboot:
+    test_command: echo "$(hostname) OK"
+  register: echo_out
+  when: ansible_facts['hostname'] != "amprd01"
+
+- name: Final check
+  debug:
+    msg: "{{echo_out.stdout_lines}}"
+  when: ansible_facts['hostname'] != "amprd01"

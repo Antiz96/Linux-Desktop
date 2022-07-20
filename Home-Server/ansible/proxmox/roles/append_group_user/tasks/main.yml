@@ -1,0 +1,30 @@
+---
+# tasks file for append_group_user
+
+# Stop the playbook if the "username" var is empty
+- name: Check the "username" variable
+  fail:
+    msg: The 'username' variable is empty
+  when: not username
+
+# If the "sudo" var is set to true, add the user to the "sudo" group (and remove it from all potential other group(s) it might be a part of)
+- name: Add sudo privileges
+  user:
+    name: "{{username}}"
+    groups: sudo
+  when: sudo | bool
+
+# If the "sudo" var is set to false, remove the user from the "sudo" group
+- name: Remove sudo privileges
+  shell:
+    cmd: gpasswd -d "{{username}}" sudo
+  ignore_errors: yes
+  when: not sudo | bool
+
+# If the "sudo" var is set to false and the "group" var is not empty, append the group(s) contained in the "group" var to the user
+- name: Append group
+  user:
+    name: "{{username}}"
+    groups: "{{group}}"
+    append: yes
+  when: not sudo | bool and group

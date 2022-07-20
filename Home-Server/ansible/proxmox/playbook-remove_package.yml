@@ -1,0 +1,5 @@
+---
+- name: "Remove package(s) from hosts"
+  hosts: all
+  roles:
+    - role: "remove_package"

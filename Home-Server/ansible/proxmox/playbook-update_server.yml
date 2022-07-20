@@ -1,0 +1,5 @@
+---
+- name: "Update hosts"
+  hosts: "{{hosts}}"
+  roles:
+    - role: "update_server"

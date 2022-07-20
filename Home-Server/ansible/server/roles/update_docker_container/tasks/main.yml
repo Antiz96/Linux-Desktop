@@ -1,0 +1,14 @@
+---
+# tasks file for update_docker_container
+
+# Update every docker containers (if they can be updated) via watchtower (https://github.com/containrrr/watchtower) and print the result
+- name: Update docker containers
+  shell:
+    cmd: docker pull containrrr/watchtower && docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup --run-once
+  register: docker_watchtower_out
+  ignore_errors: yes
+
+- name: Update docker containers out
+  debug:
+    msg: "{{docker_watchtower_out.stdout_lines}}"
+  when: docker_watchtower_out.stdout_lines
