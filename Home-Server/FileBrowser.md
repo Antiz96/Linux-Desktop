@@ -13,14 +13,14 @@ https://github.com/filebrowser/filebrowser
 ### Create the FileBrowser directory and the database file (with the right permission)
 
 ```
-sudo mkdir -p /data/FileBrowser/data && chown rcandau: /data/FileBrowser/data && chmod 700 /data/FileBrowser/data
+sudo mkdir -p /data/FileBrowser/data && sudo chown rcandau: /data/FileBrowser/data && chmod 700 /data/FileBrowser/data
 sudo touch /data/FileBrowser/database.db && sudo chown rcandau: /data/FileBrowser/database.db && chmod 600 /data/FileBrowser/database.db
 ```
 
 ### Pull and run the container
 
 ```
-sudo docker run -v /data/FileBrowser/data:/srv -v /data/FileBrowser/database.db:/database.db -u $(id -u):$(id -g) -p 8080:80 --name filebrowser -d --restart always filebrowser/filebrowser
+sudo docker run -v /data/FileBrowser/data:/srv -v /data/FileBrowser/database.db:/database.db -u $(id -u):$(id -g) -p 8080:80 --name filebrowser -d --restart="unless-stopped" filebrowser/filebrowser
 ```
 
 ### Access
@@ -52,7 +52,7 @@ sudo docker pull filebrowser/filebrowser
 ```
 sudo docker stop filebrowser
 sudo docker rm filebrowser
-sudo docker run -v /data/FileBrowser/data:/srv -v /data/FileBrowser/database.db:/database.db -u $(id -u):$(id -g) -p 8080:80 --name filebrowser -d --restart always filebrowser/filebrowser
+sudo docker run -v /data/FileBrowser/data:/srv -v /data/FileBrowser/database.db:/database.db -u $(id -u):$(id -g) -p 8080:80 --name filebrowser -d --restart="unless-stopped" filebrowser/filebrowser
 ```
 
 ### After an update
