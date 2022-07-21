@@ -220,8 +220,8 @@ sudo vim /etc/keepalived/keepalived.conf
 > > state BACKUP  
 > > interface vmbr0  
 > > virtual_router_id 1  
-> > priority 150 
-> > nopreempt 
+> > priority 150  
+> > nopreempt  
 > > advert_int 1  
 > > authentication {  
 > > > auth_type PASS  
@@ -267,8 +267,8 @@ sudo vim /etc/keepalived/keepalived.conf
 > > state BACKUP  
 > > interface wlan0  
 > > virtual_router_id 1  
-> > priority 100 
-> > nopreemt 
+> > priority 100  
+> > nopreemt  
 > > advert_int 1  
 > > authentication {  
 > > > auth_type PASS  
