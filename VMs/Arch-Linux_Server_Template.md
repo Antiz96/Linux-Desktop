@@ -92,7 +92,7 @@ systemctl enable --now qemu-guest-agent
 Replaces : https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Base_installation.md#user-configuration
 
 ```
-useradd -m -u 1200 ansible #Create the ansible user
+useradd -m -u 999 ansible #Create the ansible user
 vim /etc/sudoers.d/ansible #Make the ansible user a sudoer
 ```
 > ansible ALL=(ALL) NOPASSWD: ALL  
