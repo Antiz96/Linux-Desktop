@@ -114,9 +114,9 @@ sudo vim /etc/keepalived/keepalived.conf
 > 
 > }  
 >  
-> vrrp_instance VIP_Nginx {  
+> vrrp_instance VIP_HOSTNAME {  
 > > state MASTER  
-> > interface vmbr0  
+> > interface eth0  
 > > virtual_router_id 1  
 > > priority 150  
 > > weight 125  
@@ -161,9 +161,9 @@ sudo vim /etc/keepalived/keepalived.conf
 >
 > }  
 >  
-> vrrp_instance VIP_Nginx {  
+> vrrp_instance VIP_HOSTNAME {  
 > > state BACKUP  
-> > interface wlan0  
+> > interface eth0  
 > > virtual_router_id 1  
 > > priority 100  
 > > weight 100  
@@ -218,9 +218,9 @@ sudo vim /etc/keepalived/keepalived.conf
 >
 > }  
 >  
-> vrrp_instance VIP_Nginx {  
+> vrrp_instance VIP_HOSTNAME {  
 > > state BACKUP  
-> > interface vmbr0  
+> > interface eth0  
 > > virtual_router_id 1  
 > > priority 150  
 > > weight 125   
@@ -266,9 +266,9 @@ sudo vim /etc/keepalived/keepalived.conf
 >
 > }  
 >  
-> vrrp_instance VIP_Nginx {  
+> vrrp_instance VIP_HOSTNAME {  
 > > state BACKUP  
-> > interface wlan0  
+> > interface eth0  
 > > virtual_router_id 1  
 > > priority 100  
 > > weight 100  
