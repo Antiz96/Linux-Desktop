@@ -2,9 +2,9 @@
 
 https://nicolargo.github.io/glances/
 
-## Install Docker on my Arch Server (if not done already)
+## Install Docker on my Debian Server (if not done already)
 
-https://github.com/Antiz96/Linux-Configuration/blob/main/Rasp-Server/Docker.md
+https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/Docker.md
 
 ## Installing Glances on Docker
 
@@ -14,17 +14,21 @@ https://github.com/nicolargo/glances#docker-the-fun-way
 
 ```
 sudo docker pull nicolargo/glances:latest-full 
-sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w" -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
+sudo docker run -d --restart="unless-stopped" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w" -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
 ```
 
 ### Set a username and password for the web interface (optionnal but recommended)
 
 ```
-sudo mkdir /opt/glances
+sudo mkdir /data/glances
 sudo docker exec -it glances bash
-glances -s --username --password
 ```
 
+Inside the container :  
+
+```
+glances -s --username --password
+```
 > Define the Glances server username: rcandau #Replace **rcandau** by the username you want to use  
 > Define the Glances server password (rcandau username): #Type the password you want to use   
 > Password (confirm): #Confirm it  
@@ -32,14 +36,14 @@ glances -s --username --password
 > Glances XML-RPC server is running on 0.0.0.0:61209  
 > Announce the Glances server on the LAN (using 172.17.0.5 IP address)  
   
-Then press "ctrl+\" to interupt the proccess and `exit` the container.    
+Then press `ctrl+\` to interupt the proccess and `exit` the container.    
 Finally, copy the password file locally and re-run the container mapping it (replace **rcandau** by the username you've set earlier).    
 
 ```
-sudo docker cp glances:/root/.config/glances/rcandau.pwd /opt/glances/rcandau.pwd
+sudo docker cp glances:/root/.config/glances/rcandau.pwd /data/glances/rcandau.pwd
 sudo docker stop glances
 sudo docker rm glances
-sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u rcandau --password" -v /opt/glances/rcandau.pwd:/root/.config/glances/rcandau.pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
+sudo docker run -d --restart="unless-stopped" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u rcandau --password" -v /data/glances/rcandau.pwd:/root/.config/glances/rcandau.pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
 ```
 
 ### Access
@@ -64,13 +68,13 @@ sudo docker pull nicolargo/glances:latest-full
 ```
 sudo docker stop glances
 sudo docker rm glances
-sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w" -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
+sudo docker run -d --restart="unless-stopped" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w" -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
 ```
 
 Or, if you set a username and password (Replace **rcandau** by the username you've set earlier) :
 
 ```
-sudo docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u rcandau --password" -v /opt/glances/rcandau.pwd:/root/.config/glances/rcandau.pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
+sudo docker run -d --restart="unless-stopped" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w -u rcandau --password" -v /data/glances/rcandau.pwd:/root/.config/glances/rcandau.pwd -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --name glances nicolargo/glances:latest-full
 ```
 
 ### After an update 
