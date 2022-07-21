@@ -80,8 +80,8 @@ sudo docker run -d \
   --name=wireguard \
   --cap-add=NET_ADMIN \
   --cap-add=SYS_MODULE \
-  -e PUID=$(uid -u) \
-  -e PGID=$(uid -g) \
+  -e PUID=$(id -u) \
+  -e PGID=$(id -g) \
   -e TZ=Europe/Paris \
   -e SERVERURL=XXXX \
   -e SERVERPORT=51820 \
@@ -139,8 +139,8 @@ sudo docker run -d \
   --name=wireguard \
   --cap-add=NET_ADMIN \
   --cap-add=SYS_MODULE \
-  -e PUID=$(uid -u) \
-  -e PGID=$(uid -g) \
+  -e PUID=$(id -u) \
+  -e PGID=$(id -g) \
   -e TZ=Europe/Paris \
   -e SERVERURL=XXXX \
   -e SERVERPORT=51820 \
