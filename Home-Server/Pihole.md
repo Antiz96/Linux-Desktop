@@ -57,7 +57,7 @@ sudo docker exec -it pihole pihole -a -p
 ## Access and configuration
 
 You can access the pihole web interface here :
-`https://HOSTNAME/admin/"`
+`http://HOSTNAME/admin/"`
 
 ## Update/Upgrade and reinstall procedure
 
