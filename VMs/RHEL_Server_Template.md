@@ -102,7 +102,7 @@ systemctl enable --now qemu-guest-agent
 ### Create and configure the ansible user
 
 ```
-useradd -m -u 999 ansible #Create the ansible user
+useradd -m ansible #Create the ansible user
 vim /etc/sudoers.d/ansible #Make the ansible user a sudoer
 ```
 > ansible ALL=(ALL) NOPASSWD: ALL
