@@ -51,7 +51,7 @@ sudo systemctl enable --now nginx
 ```
 cd /etc/nginx/ssl/
 sudo openssl genrsa -out xxx.key 4096
-sudo openssl req -key xxx.key -new -sha256 -out xxx.csr -addext "subjectAltName = DNS:'CN_OF_CERTIFICATE'"
+sudo openssl req -key xxx.key -new -sha256 -out xxx.csr -addext "subjectAltName = DNS:CN_OF_CERTIFICATE"
 sudo openssl x509 -signkey xxx.key -in xxx.csr -req -days 365 -out xxx.crt
 ```
 
