@@ -77,18 +77,10 @@ sections:
     url: https://mabbox.bytel.fr
     target: newtab
 
-  - title: Glances Home-Server
+  - title: Glances pmx01
     description: Monitoring tool
     icon: hl-glances
-    url: https://glances-home.home-infra.rc
-    statusCheckAcceptCodes: '401'
-    statusCheckAllowInsecure: true
-    target: newtab
-
-  - title: Glances Rasp-Server
-    description: Monitoring tool
-    icon: hl-glances
-    url: https://glances-rasp.home-infra.rc
+    url: https://glances-pmx01.home-infra.rc
     statusCheckAcceptCodes: '401'
     statusCheckAllowInsecure: true
     target: newtab
@@ -100,48 +92,22 @@ sections:
 
   - type: gl-current-cpu
     options:
-      hostname: http://home-server:61208
-      username: 
-      password: 
-      useProxy: true
-
-  - type: gl-current-mem
-    options:
-      hostname: http://home-server:61208
-      username: 
-      password:
-      useProxy: true
-
-  - type: gl-alerts
-    options:
-      hostname: http://home-server:61208
-      username: 
-      password:
-      useProxy: true
-
-# Monitoring Rasp-Server section
-- name: Monitoring Rasp-Server
-  icon: fas fa-chart-line
-  widgets:
-
-  - type: gl-current-cpu
-    options:
-      hostname: http://rasp-server:61208
-      username: 
+      hostname: http://pmx01.rc:61208
+      username:
       password:
       useProxy: true
 
   - type: gl-current-mem
     options:
-      hostname: http://rasp-server:61208
-      username: 
+      hostname: http://pmx01.rc:61208
+      username:
       password:
       useProxy: true
 
   - type: gl-alerts
     options:
-      hostname: http://rasp-server:61208
-      username: 
+      hostname: http://pmx01.rc:61208
+      username:
       password:
       useProxy: true
 
