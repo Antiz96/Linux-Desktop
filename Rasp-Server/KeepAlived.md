@@ -31,6 +31,20 @@ sudo firewall-cmd --reload
 
 ## Configuration
 
+### Configure the hosts file on all cluster nodes
+
+I configure the hosts file of all nodes so they can still "talk" to each user in case there's a DNS issue (it's always DNS).
+
+```
+sudo vim /etc/hosts
+```
+> [...]  
+> # Cluster  
+> IP_OF_NODE1        Hostname.domain Hostname
+> IP_OF_NODE2        Hostname.domain Hostname
+> IP_OF_NODE3        Hostname.domain Hostname
+> IP_OF_VIP          Hostname.domain Hostname
+
 ### Create a directory to store the check and the notify script on both of my servers 
 
 *(respectively aimed to trigger the changing state and the changing state action(s))*
