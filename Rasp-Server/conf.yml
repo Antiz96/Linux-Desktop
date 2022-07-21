@@ -39,7 +39,7 @@ sections:
   - title: Nginx - KeepAlived
     description: Reverse proxy - VIP manager
     icon: hl-nginx
-    url: https://vip.home-infra.rc
+    url: https://vip-clprd01.home-infra.rc
     statusCheckAllowInsecure: true
     target: newtab
 
