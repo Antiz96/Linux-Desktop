@@ -69,7 +69,7 @@ sudo vim "URL".conf
 > > access_log /var/log/nginx/”URL”\_access.log;  
 > > error_log /var/log/nginx/”URL”\_error.log;  
 > >  
-> > #SSL
+> > #SSL  
 > > ssl_protocols TLSv1.2 TLSv1.3;  
 > > #Protocols needed for Portainer  
 > > #proxy_ssl_protocols TLSv1.2 TLSv1.3;  
