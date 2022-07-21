@@ -39,11 +39,11 @@ I configure the hosts file of all nodes so they can still "talk" to each user in
 sudo vim /etc/hosts
 ```
 > [...]  
-> # Cluster  
-> IP_OF_NODE1        Hostname.domain Hostname
-> IP_OF_NODE2        Hostname.domain Hostname
-> IP_OF_NODE3        Hostname.domain Hostname
-> IP_OF_VIP          Hostname.domain Hostname
+> #Cluster  
+> IP_OF_NODE1        Hostname.domain Hostname  
+> IP_OF_NODE2        Hostname.domain Hostname  
+> IP_OF_NODE3        Hostname.domain Hostname  
+> IP_OF_VIP          Hostname.domain Hostname  
 
 ### Create a directory to store the check and the notify script on both of my servers 
 
