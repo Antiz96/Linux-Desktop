@@ -35,7 +35,8 @@ sudo firewall-cmd --reload
 
 *(respectively aimed to trigger the changing state and the changing state action(s))*
 
-```sudo mkdir /opt/keepalived/
+```
+sudo mkdir /opt/keepalived/
 sudo vim /opt/keepalived/keepalived_check.sh
 ```
 
