@@ -22,7 +22,7 @@ sudo mkdir /opt/pihole
 
 ### Launch the container
 
-The 67 port is only needed if you are using Pi-hole as your DHCP server.  
+The 67 port and the `--cap-add=NET_ADMIN` arguments are only needed if you are using Pi-hole as your DHCP server.  
 ServerIP should be replaced with your external ip.  
 
 ```
@@ -31,6 +31,7 @@ sudo docker run -d \
     -p 53:53/tcp -p 53:53/udp \
     -p 80:80 \
     -p 67:67 \
+    --cap-add=NET_ADMIN \
     -e TZ="Europe/Paris" \
     -v "/opt/pihole/etc-pihole:/etc/pihole" \
     -v "/opt/pihole/etc-dnsmasq.d:/etc/dnsmasq.d" \
@@ -81,6 +82,7 @@ sudo docker run -d \
     -p 53:53/tcp -p 53:53/udp \
     -p 80:80 \
     -p 67:67 \
+    --cap-add=NET_ADMIN \
     -e TZ="Europe/Paris" \
     -v "/opt/pihole/etc-pihole:/etc/pihole" \
     -v "/opt/pihole/etc-dnsmasq.d:/etc/dnsmasq.d" \
