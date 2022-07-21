@@ -32,7 +32,7 @@ sudo docker run -d \
     -p 80:80 \
     -p 67:67 \
     --cap-add=NET_ADMIN \
-    --net=host
+    --net=host \
     -e TZ="Europe/Paris" \
     -v "/opt/pihole/etc-pihole:/etc/pihole" \
     -v "/opt/pihole/etc-dnsmasq.d:/etc/dnsmasq.d" \
@@ -84,7 +84,7 @@ sudo docker run -d \
     -p 80:80 \
     -p 67:67 \
     --cap-add=NET_ADMIN \
-    --net=host
+    --net=host \
     -e TZ="Europe/Paris" \
     -v "/opt/pihole/etc-pihole:/etc/pihole" \
     -v "/opt/pihole/etc-dnsmasq.d:/etc/dnsmasq.d" \
