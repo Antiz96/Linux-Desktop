@@ -43,6 +43,13 @@ sections:
     statusCheckAllowInsecure: true
     target: newtab
 
+  - title: Proxmox
+    description: Virtualization platform
+    icon: hl-proxmox
+    url: https://proxmox.home-infra.rc
+    statusCheckAllowInsecure: true
+    target: newtab
+
   - title: Pihole
     description: DNS - Adblocker
     icon: hl-pihole
@@ -50,10 +57,10 @@ sections:
     statusCheckAllowInsecure: true
     target: newtab
 
-  - title: Proxmox
-    description: Virtualization platform
-    icon: hl-proxmox
-    url: https://proxmox.home-infra.rc
+  - title: Jenkins
+    description: Automation - Orchestrator
+    icon: hl-jenkins
+    url: https://jenkins.home-infra.rc
     statusCheckAllowInsecure: true
     target: newtab
 
@@ -93,22 +100,22 @@ sections:
   - type: gl-current-cpu
     options:
       hostname: http://pmx01.rc:61208
-      username:
-      password:
+      username: 
+      password: 
       useProxy: true
 
   - type: gl-current-mem
     options:
       hostname: http://pmx01.rc:61208
-      username:
-      password:
+      username: 
+      password: 
       useProxy: true
 
   - type: gl-alerts
     options:
       hostname: http://pmx01.rc:61208
-      username:
-      password:
+      username: 
+      password: 
       useProxy: true
 
 # Vulnerability Feed section
