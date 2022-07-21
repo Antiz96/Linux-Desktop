@@ -7,6 +7,7 @@ This is the list of installation (and configuration) procedures of services that
 * [Ansible/Jenkins - Automation and orchestration server](https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/Ansible-Jenkins.md)
 * [ansible - My ansible playbooks](https://github.com/Antiz96/Linux-Configuration/tree/main/Home-Server/ansible)
 * [Docker - Container manager](https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/Docker.md)
+* [Pihole - DNS, DHCP and global Ad-Blocking server (Docker)](https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/Pihole.md)
 * [Apache Guacamole - Remote Gateway (Docker)](https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/Apache-Guacamole.md)
 * [Nextcloud - Cloud, file sharing and collaborative platform (Docker)](https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/Nextcloud.md)
 * [FileBrowser - Cloud and file sharing (Docker)](https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/FileBrowser.md)
