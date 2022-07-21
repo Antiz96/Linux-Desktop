@@ -84,6 +84,8 @@ sudo docker run -d \
     pihole/pihole:latest
 ```
 
+Finally, you'll need to select "Permit all origins" in the "interface settings" in the DNS settings panel via the web interface, in order to get the DHCP to work.
+
 ### Set a password for the web interface
 
 A random password is automatically generated the first time you run the pihole container.  
