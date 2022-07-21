@@ -141,14 +141,14 @@ https://www.techrepublic.com/article/how-to-ensure-your-docker-containers-automa
 Docker containers will not automatically launch at startup by default, you'll need to launch them yourself each time the server boot/reboot with "sudo docker start mysql guacd guacamole" unless you do the following.  
 To make guacamole containers automatically launch at startup, we'll use "Docker Restart Policies".  
 There are different Docker restart policies available, I let you refer to the link above to choose the right one for you.
-I'll personally use the "always" Docker restart policy.  
+I'll personally use the "unless-stopped" Docker restart policy.  
   
 Update the Docker restart policy of each containers :  
 
 ```
-sudo docker update --restart always mysql
-sudo docker update --restart always guacd
-sudo docker update --restart always guacamole
+sudo docker update --restart unless-stopped mysql
+sudo docker update --restart unless-stopped guacd
+sudo docker update --restart unless-stopped guacamole
 ```
 
 ## Update/Upgrade and reinstall procedure
@@ -173,7 +173,7 @@ sudo docker pull mysql/mysql-server
 ```
 sudo docker stop mysql
 sudo docker rm mysql
-sudo docker run --name mysql -v /storage/Guacamole/Database:/var/lib/mysql -d --restart always mysql/mysql-server
+sudo docker run --name mysql -v /storage/Guacamole/Database:/var/lib/mysql -d --restart unless-stopped mysql/mysql-server
 ```
 
 #### For guacd
@@ -181,7 +181,7 @@ sudo docker run --name mysql -v /storage/Guacamole/Database:/var/lib/mysql -d --
 ```
 sudo docker stop guacd
 sudo docker rm guacd
-sudo docker run --name guacd -d --restart always guacamole/guacd 
+sudo docker run --name guacd -d --restart unless-stopped guacamole/guacd 
 ```
 
 #### For guacamole 
@@ -191,7 +191,7 @@ sudo docker run --name guacd -d --restart always guacamole/guacd
 ```
 sudo docker stop guacamole
 sudo docker rm guacamole
-sudo docker run --name guacamole --link guacd:guacd --link mysql:mysql -e MYSQL_DATABASE=guacamole_db -e MYSQL_USER=guacamole_user -e MYSQL_PASSWORD=guacamole_user_password -d --restart always -p 8080:8080 guacamole/guacamole 
+sudo docker run --name guacamole --link guacd:guacd --link mysql:mysql -e MYSQL_DATABASE=guacamole_db -e MYSQL_USER=guacamole_user -e MYSQL_PASSWORD=guacamole_user_password -d --restart unless-stopped -p 8080:8080 guacamole/guacamole 
 ```
 
 ### After an update

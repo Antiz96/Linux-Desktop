@@ -21,12 +21,12 @@ sudo mkdir /data/Nextcloud
 ### Pull and run the container
 
 This run command contains the mapping to /data/Nextcloud (previously created) to get persistent data for upgrades and backups.  
-It also contains the Docker "always" restart policy (https://docs.docker.com/config/containers/start-containers-automatically/).  
+It also contains the Docker "unless-stopped" restart policy (https://docs.docker.com/config/containers/start-containers-automatically/).  
 It will make nextcloud listen to the "8080" port. Make sure you don't have anything already listening to that port.  
 *If you do have anything already listening to the 8080, use another one in the below command*
 
 ```
-sudo docker run --name nextcloud -v /data/Nextcloud:/var/www/html -d --restart always -p 8080:80 nextcloud
+sudo docker run --name nextcloud -v /data/Nextcloud:/var/www/html -d --restart unless-stopped -p 8080:80 nextcloud
 ```
 
 ### Access
@@ -90,7 +90,7 @@ Stop, delete and re-run the container in order to apply the update :
 ```
 sudo docker stop nextcloud
 sudo docker rm nextcloud
-sudo docker run --name nextcloud -v /data/Nextcloud:/var/www/html -d --restart always -p 8080:80 nextcloud
+sudo docker run --name nextcloud -v /data/Nextcloud:/var/www/html -d --restart unless-stopped -p 8080:80 nextcloud
 ```
 
 ### After an update

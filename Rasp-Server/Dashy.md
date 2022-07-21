@@ -23,7 +23,7 @@ sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Ras
 ## Pull and run the container 
 
 ```
-sudo docker run -d -p 8080:80 -v /opt/dashy/conf.yml:/app/public/conf.yml --name dashy --restart=always lissy93/dashy:latest
+sudo docker run -d -p 8080:80 -v /opt/dashy/conf.yml:/app/public/conf.yml --name dashy --restart=unless-stopped lissy93/dashy:latest
 ```
 
 ## Update procedure
@@ -32,7 +32,7 @@ sudo docker run -d -p 8080:80 -v /opt/dashy/conf.yml:/app/public/conf.yml --name
 sudo docker pull lissy93/dashy:latest
 sudo docker stop dashy
 sudo docker rm dashy
-sudo docker run -d -p 8080:80 -v /opt/dashy/conf.yml:/app/public/conf.yml --name dashy --restart=always lissy93/dashy:latest
+sudo docker run -d -p 8080:80 -v /opt/dashy/conf.yml:/app/public/conf.yml --name dashy --restart=unless-stopped lissy93/dashy:latest
 ```
 
 # After an update
