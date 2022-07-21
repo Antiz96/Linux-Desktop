@@ -6,7 +6,7 @@ https://www.redhat.com/sysadmin/keepalived-basics
 https://tobru.ch/keepalived-check-and-notify-scripts/  
 https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/load_balancer_administration/s1-lvs-connect-vsa  
 I use Keepalived to manage a VIP (Virtual IP Address) between both of my servers for the NGINX service.  
-I configured it to check for the NGINX service state and to use a Master/Backup model for the VIP, with the master being my home-server (but I'll show how you to configure it as a active/passive model as well).
+I configured it to check for the NGINX service state and to use a Master/Backup model for the VIP, with the master being my home-server (but I'll show how you to configure it as a active/passive model as well).  
 
 ## Installation
 
@@ -110,7 +110,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > fall 2 #Require 2 consecutive failures to enter FAULT state  
 > > rise 2 #Require 2 consecutive successes to exit FAULT state  
 > > #timeout 1 #Wait 1 second before assuming a failure  
-> > #weight 10 #Reduce priority by 10 on complete fall  
+> > weight 10 #Reduce priority by 10 on complete fall  
 > 
 > }  
 >  
@@ -119,6 +119,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > interface vmbr0  
 > > virtual_router_id 1  
 > > priority 150  
+> > weight 125  
 > > advert_int 1  
 > > authentication {  
 > > > auth_type PASS  
@@ -156,7 +157,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > fall 2 #Require 2 consecutive failures to enter FAULT state  
 > > rise 2 #Require 2 consecutive successes to exit FAULT state  
 > > #timeout 1 #Wait 1 second before assuming a failure  
-> > #weight 10 #Reduce priority by 10 on complete fall  
+> > weight 10 #Reduce priority by 10 on complete fall  
 >
 > }  
 >  
@@ -165,6 +166,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > interface wlan0  
 > > virtual_router_id 1  
 > > priority 100  
+> > weight 100  
 > > advert_int 1  
 > > authentication {  
 > > > auth_type PASS  
@@ -212,7 +214,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > fall 2 #Require 2 consecutive failures to enter FAULT state  
 > > rise 2 #Require 2 consecutive successes to exit FAULT state  
 > > #timeout 1 #Wait 1 second before assuming a failure  
-> > #weight 10 #Reduce priority by 10 on complete fall  
+> > weight 10 #Reduce priority by 10 on complete fall  
 >
 > }  
 >  
@@ -221,7 +223,8 @@ sudo vim /etc/keepalived/keepalived.conf
 > > interface vmbr0  
 > > virtual_router_id 1  
 > > priority 150  
-> > nopreempt  
+> > weight 125   
+> > nopreempt   
 > > advert_int 1  
 > > authentication {  
 > > > auth_type PASS  
@@ -259,7 +262,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > fall 2 #Require 2 consecutive failures to enter FAULT state  
 > > rise 2 #Require 2 consecutive successes to exit FAULT state  
 > > #timeout 1 #Wait 1 second before assuming a failure  
-> > #weight 10 #Reduce priority by 10 on complete fall  
+> > weight 10 #Reduce priority by 10 on complete fall  
 >
 > }  
 >  
@@ -268,6 +271,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > interface wlan0  
 > > virtual_router_id 1  
 > > priority 100  
+> > weight 100  
 > > nopreemt  
 > > advert_int 1  
 > > authentication {  

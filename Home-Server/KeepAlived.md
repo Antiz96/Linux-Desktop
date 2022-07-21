@@ -110,7 +110,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > fall 2 #Require 2 consecutive failures to enter FAULT state  
 > > rise 2 #Require 2 consecutive successes to exit FAULT state  
 > > #timeout 1 #Wait 1 second before assuming a failure  
-> > #weight 10 #Reduce priority by 10 on complete fall  
+> > weight 10 #Reduce priority by 10 on complete fall  
 > 
 > }  
 >  
@@ -119,6 +119,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > interface vmbr0  
 > > virtual_router_id 1  
 > > priority 150  
+> > weight 125  
 > > advert_int 1  
 > > authentication {  
 > > > auth_type PASS  
@@ -156,7 +157,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > fall 2 #Require 2 consecutive failures to enter FAULT state  
 > > rise 2 #Require 2 consecutive successes to exit FAULT state  
 > > #timeout 1 #Wait 1 second before assuming a failure  
-> > #weight 10 #Reduce priority by 10 on complete fall  
+> > weight 10 #Reduce priority by 10 on complete fall  
 >
 > }  
 >  
@@ -165,6 +166,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > interface wlan0  
 > > virtual_router_id 1  
 > > priority 100  
+> > weight 100  
 > > advert_int 1  
 > > authentication {  
 > > > auth_type PASS  
@@ -212,7 +214,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > fall 2 #Require 2 consecutive failures to enter FAULT state  
 > > rise 2 #Require 2 consecutive successes to exit FAULT state  
 > > #timeout 1 #Wait 1 second before assuming a failure  
-> > #weight 10 #Reduce priority by 10 on complete fall  
+> > weight 10 #Reduce priority by 10 on complete fall  
 >
 > }  
 >  
@@ -221,6 +223,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > interface vmbr0  
 > > virtual_router_id 1  
 > > priority 150  
+> > weight 125   
 > > nopreempt   
 > > advert_int 1  
 > > authentication {  
@@ -259,7 +262,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > fall 2 #Require 2 consecutive failures to enter FAULT state  
 > > rise 2 #Require 2 consecutive successes to exit FAULT state  
 > > #timeout 1 #Wait 1 second before assuming a failure  
-> > #weight 10 #Reduce priority by 10 on complete fall  
+> > weight 10 #Reduce priority by 10 on complete fall  
 >
 > }  
 >  
@@ -268,6 +271,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > interface wlan0  
 > > virtual_router_id 1  
 > > priority 100  
+> > weight 100  
 > > nopreemt  
 > > advert_int 1  
 > > authentication {  
