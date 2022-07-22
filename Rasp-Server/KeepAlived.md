@@ -75,6 +75,8 @@ sudo vim /opt/keepalived/keepalived_notify.sh
 > TYPE=$1  
 > NAME=$2  
 > STATE=$3  
+>     
+> echo "$STATE" > /opt/keepalived/state.txt  
 >  
 > case $STATE in  
 > > "MASTER")  
@@ -93,7 +95,7 @@ sudo vim /opt/keepalived/keepalived_notify.sh
 > >
 > > ;;  
 > > \*)  
-> > > echo "Unknown state $STATE for VRRP $TYPE $NAME"  
+> > > echo "Unknown state : $STATE" > /opt/keepalived/state.txt  
 > > > exit 1  
 > >
 > > ;;
@@ -104,9 +106,18 @@ sudo vim /opt/keepalived/keepalived_notify.sh
 sudo chmod 774 /opt/keepalived/*.sh
 ```
 
-### Create the configuration file on both of my servers
+### Create the state file
 
-**Home-Server (The Master node) :**
+This is a basic txt file I create to collect the current state of my nodes (see the keepalived_notify.sh script above).   
+That's really useful to monitor their current state for instance.   
+
+```
+sudo touch /opt/keepalived/state.txt && sudo chmod 644 /opt/keepalived/state.txt
+```
+
+### Create the configuration file on all of my servers
+
+**Server1 (The Master node) :**
 
 ```
 sudo vim /etc/keepalived/keepalived.conf
@@ -124,7 +135,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > fall 2 #Require 2 consecutive failures to enter FAULT state  
 > > rise 2 #Require 2 consecutive successes to exit FAULT state  
 > > #timeout 1 #Wait 1 second before assuming a failure  
-> > weight 10 #Reduce priority by 10 on complete fall  
+> > #weight 10 #Reduce priority by 10 on complete fall  
 > 
 > }  
 >  
@@ -133,7 +144,6 @@ sudo vim /etc/keepalived/keepalived.conf
 > > interface eth0  
 > > virtual_router_id 1  
 > > priority 150  
-> > weight 125  
 > > advert_int 1  
 > > authentication {  
 > > > auth_type PASS  
@@ -153,7 +163,7 @@ sudo vim /etc/keepalived/keepalived.conf
 >
 > }  
   
-**Rasp-Server (The Backup node) :**  
+**Server2 (The Backup node) :**  
 
 ```
 sudo vim /etc/keepalived/keepalived.conf
@@ -171,7 +181,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > fall 2 #Require 2 consecutive failures to enter FAULT state  
 > > rise 2 #Require 2 consecutive successes to exit FAULT state  
 > > #timeout 1 #Wait 1 second before assuming a failure  
-> > weight 10 #Reduce priority by 10 on complete fall  
+> > #weight 10 #Reduce priority by 10 on complete fall  
 >
 > }  
 >  
@@ -180,7 +190,6 @@ sudo vim /etc/keepalived/keepalived.conf
 > > interface eth0  
 > > virtual_router_id 1  
 > > priority 100  
-> > weight 100  
 > > advert_int 1  
 > > authentication {  
 > > > auth_type PASS  
@@ -210,7 +219,7 @@ sudo systemctl enable --now keepalived
 
 If you want to use an Active/Passive mode rather then a Master/Backup mode, modify state as "BACKUP" and add the "nopreempt" option for **both** nodes in the config file, like so :  
 
-**Home-Server (The First node) :**
+**Server1 (The First node) :**
 
 ```
 sudo vim /etc/keepalived/keepalived.conf
@@ -228,7 +237,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > fall 2 #Require 2 consecutive failures to enter FAULT state  
 > > rise 2 #Require 2 consecutive successes to exit FAULT state  
 > > #timeout 1 #Wait 1 second before assuming a failure  
-> > weight 10 #Reduce priority by 10 on complete fall  
+> > #weight 10 #Reduce priority by 10 on complete fall  
 >
 > }  
 >  
@@ -237,7 +246,6 @@ sudo vim /etc/keepalived/keepalived.conf
 > > interface eth0  
 > > virtual_router_id 1  
 > > priority 150  
-> > weight 125   
 > > nopreempt   
 > > advert_int 1  
 > > authentication {  
@@ -258,7 +266,7 @@ sudo vim /etc/keepalived/keepalived.conf
 >
 > }  
   
-**Rasp-Server (The second node) :**  
+**Server2 (The second node) :**  
 
 ```
 sudo vim /etc/keepalived/keepalived.conf
@@ -276,7 +284,7 @@ sudo vim /etc/keepalived/keepalived.conf
 > > fall 2 #Require 2 consecutive failures to enter FAULT state  
 > > rise 2 #Require 2 consecutive successes to exit FAULT state  
 > > #timeout 1 #Wait 1 second before assuming a failure  
-> > weight 10 #Reduce priority by 10 on complete fall  
+> > #weight 10 #Reduce priority by 10 on complete fall  
 >
 > }  
 >  
@@ -285,7 +293,6 @@ sudo vim /etc/keepalived/keepalived.conf
 > > interface eth0  
 > > virtual_router_id 1  
 > > priority 100  
-> > weight 100  
 > > nopreemt  
 > > advert_int 1  
 > > authentication {  
