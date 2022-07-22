@@ -93,8 +93,8 @@ sections:
     statusCheckAllowInsecure: true
     target: newtab
 
-# Monitoring Home-Server section
-- name: Monitoring Home-Server
+# Monitoring Servers section
+- name: Monitoring pmx01
   icon: fas fa-chart-line
   widgets:
 
