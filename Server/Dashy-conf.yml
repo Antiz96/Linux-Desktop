@@ -133,7 +133,7 @@ sections:
           - Antiz96/malias
 
 # Vulnerability Feed section
-- name: Vulnerability Feed
+- name: Vulnerability Feed (Debian)
   icon: fas fa-exclamation
   widgets:
 
