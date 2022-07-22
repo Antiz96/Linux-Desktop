@@ -82,6 +82,17 @@ apt install qemu-guest-agent
 systemctl enable --now qemu-guest-agent
 ```
 
+#### Configure the inactivity timeout
+
+```
+sudo vim /etc/bash.bashrc #Set the inactivity timeout to 15 min
+```
+> [...]  
+> #Set inactivity timeout  
+> TMOUT=900  
+> readonly TMOUT  
+> export TMOUT
+
 ### Create and configure the ansible user
 
 ```
