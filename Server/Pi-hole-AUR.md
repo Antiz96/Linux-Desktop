@@ -1,9 +1,10 @@
-# Pi-hole
+# Pi-hole AUR
 
 https://pi-hole.net/  
+https://aur.archlinux.org/packages/pi-hole-server  
   
 *Pi-hole is not officially supported on Arch Linux but it is still available through the AUR.*  
-*If you are running Arch (as I do on my raspberry) and still want an officially supported Pi-hole installation, you should install Pi-hole in a docker container (https://github.com/pi-hole/docker-pi-hole).* 
+*If you are running Arch (as I do on my raspberry) and still want an officially supported Pi-hole installation, you should install Pi-hole in a docker container (https://github.com/pi-hole/docker-pi-hole).*   
 *I did a procedure for that as well : https://github.com/Antiz96/Linux-Configuration/blob/main/Server/Pi-hole.md* 
 
 ## Open the port for Pihole and its component on the firwall
