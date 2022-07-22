@@ -1,14 +1,10 @@
 # Pihole
 
 https://pi-hole.net/  
-  
-This server is a VM running on my Proxmox instance that has been cloned from my Arch-Linux Server Template.  
-  
-In that sense, the base installation and configuration of the VM is not covered here (see the link above).
 
-## Install Docker on my Arch Server (if not done already)
+## Install Docker on my Server (if not done already)
 
-https://github.com/Antiz96/Linux-Configuration/blob/main/Rasp-Server/Docker.md
+https://github.com/Antiz96/Linux-Configuration/blob/main/Server/Docker.md
 
 ## Installing Pi-hole on Docker
 

@@ -7,13 +7,13 @@ It allows me to easily manage headers and various settings of my self hosted ser
 
 ## Installation
 
-**Rasp-Server :** 
+**Arch :** 
 
 ```
 sudo pacman -S nginx
 ```
   
-**Home-Server :**
+**Debian :**
 
 ```
 sudo apt install nginx

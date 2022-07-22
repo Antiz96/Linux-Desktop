@@ -37,9 +37,9 @@ The rule should look like this :
 
 https://hub.docker.com/r/linuxserver/wireguard
 
-### Install docker on my Arch server (if not done already)
+### Install docker on my server (if not done already)
 
-https://github.com/Antiz96/Linux-Configuration/blob/main/Rasp-Server/Docker.md
+https://github.com/Antiz96/Linux-Configuration/blob/main/Server/Docker.md
 
 ### Create a local folder to store the clients configuration and make data persistent for update/upgrade
 

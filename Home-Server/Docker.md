@@ -2,6 +2,13 @@
 
 https://www.docker.com/
 
+## Install Docker on Arch
+
+```
+sudo pacman -S docker
+sudo systemctl enable --now docker containerd
+```
+
 ## Install Docker on Debian
 
 https://www.linode.com/docs/guides/installing-and-using-docker-on-ubuntu-and-debian/

@@ -3,9 +3,8 @@
 https://pi-hole.net/  
   
 *Pi-hole is not officially supported on Arch Linux but it is still available through the AUR.*  
-*If you are running Arch (as I do on my raspberry) and still want an officially supported Pi-hole installation, you should install Pi-hole in a docker container (https://github.com/pi-hole/docker-pi-hole).*  
-  
-*I personally use the Pi-hole AUR packages anyway for various reasons.*  
+*If you are running Arch (as I do on my raspberry) and still want an officially supported Pi-hole installation, you should install Pi-hole in a docker container (https://github.com/pi-hole/docker-pi-hole).* 
+*I did a procedure for that as well : https://github.com/Antiz96/Linux-Configuration/blob/main/Server/Pi-hole.md* 
 
 ## Open the port for Pihole and its component on the firwall
 
@@ -268,10 +267,10 @@ sudo vim ~/check_update.sh
 > PACKAGES=$(/usr/bin/checkupdates | awk '{print $1}' && /usr/bin/yay -Qua | awk '{print $1}')  
 >   
 > if [ -n "$PACKAGES" ]; then  
-> > echo -e "Subject:Rasp server's package list available for update\n\nHello,\n\nThe following packages can be updated on the Rasp server :\n$PACKAGES" | /usr/sbin/sendmail yourmail@example.com, yourmail2@example.com  
+> > echo -e "Subject:Server's package list available for update\n\nHello,\n\nThe following packages can be updated on the server :\n$PACKAGES" | /usr/sbin/sendmail yourmail@example.com, yourmail2@example.com  
 >  
 > else
-> > echo -e "Subject:No packages to update on Rasp Server\n\nHello,\n\nThere is no packages to update on Rasp Server.\nThe Rasp server is up to date" | /usr/sbin/sendmail yourmail@example.com, yourmail2@example.com  
+> > echo -e "Subject:No packages to update on Server\n\nHello,\n\nThere is no packages to update on Server.\nThe server is up to date" | /usr/sbin/sendmail yourmail@example.com, yourmail2@example.com  
 >  
 > fi 
   

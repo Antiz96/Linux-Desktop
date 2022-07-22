@@ -2,9 +2,9 @@
 
 https://nicolargo.github.io/glances/
 
-## Install Docker on my Debian Server (if not done already)
+## Install Docker on my Server (if not done already)
 
-https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/Docker.md
+https://github.com/Antiz96/Linux-Configuration/blob/main/Server/Docker.md
 
 ## Installing Glances on Docker
 

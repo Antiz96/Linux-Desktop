@@ -2,8 +2,9 @@
 
 https://guacamole.apache.org/
 
-## Install Docker on my Debian Server (if not done already)
-https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/Docker.md
+## Install Docker on my Server (if not done already)
+
+https://github.com/Antiz96/Linux-Configuration/blob/main/Server/Docker.md
 
 ## Installing Apache Guacamole on Docker
 

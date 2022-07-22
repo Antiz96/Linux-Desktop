@@ -178,7 +178,7 @@ sudo firewall-cmd --reload
 
 ## Install wakeonlan
 
-*(... so I can power on my home-server remotly via ssh on this rasp-server)*  
+*(... so I can power on my server remotly via ssh on this server)*  
 
 ### Install yay
 

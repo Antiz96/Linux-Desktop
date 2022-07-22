@@ -2,9 +2,9 @@
 
 https://www.portainer.io/ 
 
-## Install Docker on my Arch Server (if not done already)
+## Install Docker on my Server (if not done already)
 
-https://github.com/Antiz96/Linux-Configuration/blob/main/Rasp-Server/Docker.md
+https://github.com/Antiz96/Linux-Configuration/blob/main/Server/Docker.md
 
 ## Installing Portainer server on Docker
 

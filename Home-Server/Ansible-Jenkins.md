@@ -2,17 +2,21 @@
 
 This is the server I use to automate long and/or repetitive tasks.  
 It uses ansible playbooks to perform the various tasks and Jenkins to ochestrate them and automate their executions (if necessary).  
-  
-This server is a VM running on my [Proxmox instance](https://github.com/Antiz96/Linux-Configuration/blob/main/Home-Server/Proxmox.md) that has been cloned from my [Arch-Linux Server Template](https://github.com/Antiz96/Linux-Configuration/blob/main/VMs/Arch-Linux_Server_Template.md).  
-  
-In that sense, the base installation and configuration of the VM is not covered here (see the link above).
 
 ## Ansible
 
 ### Installation
 
+**Arch :**  
+
 ```
 pacman -S ansible
+```
+
+**Debian :**  
+
+```
+apt install ansible
 ```
 
 ### Configuring the user
@@ -53,14 +57,22 @@ vim /etc/ansible/ansible.cfg
 
 ### Playbooks
 
-My ansible playbooks are available [here](https://github.com/Antiz96/Linux-Configuration/tree/main/Home-Server/ansible).
+My ansible playbooks are available [here](https://github.com/Antiz96/Linux-Configuration/tree/main/Server/ansible).
 
 ## Jenkins
 
 ### Installation
 
+**Arch :**  
+
 ```
 pacman -S jenkins fontconfig #Installing jenkins and its dependencies. Installing fontconfig is necessary to make jenkins work on a Arch server (that might be Arch specific ?).
+```
+
+**Debian :**  
+
+```
+apt install jenkins
 ```
 
 ### Configuration
