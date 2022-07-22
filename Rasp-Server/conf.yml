@@ -61,6 +61,7 @@ sections:
     description: Automation - Orchestrator
     icon: hl-jenkins
     url: https://jenkins.home-infra.rc
+    statusCheckAcceptCodes: '403'
     statusCheckAllowInsecure: true
     target: newtab
 
