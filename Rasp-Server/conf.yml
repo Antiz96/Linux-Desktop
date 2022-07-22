@@ -101,23 +101,36 @@ sections:
   - type: gl-current-cpu
     options:
       hostname: http://pmx01.rc:61208
-      username: 
-      password: 
+      username:
+      password:
       useProxy: true
 
   - type: gl-current-mem
     options:
       hostname: http://pmx01.rc:61208
-      username: 
-      password: 
+      username:
+      password:
       useProxy: true
 
   - type: gl-alerts
     options:
       hostname: http://pmx01.rc:61208
-      username: 
+      username:
       password: 
       useProxy: true
+
+# Github stats section
+- name: GitHub Stats
+  icon: fab fa-github
+  widgets:
+
+    - type: github-profile-stats
+      options:
+        username: Antiz96
+        hideLanguagesCard: true
+        repos:
+          - Antiz96/arch-update
+          - Antiz96/malias
 
 # Vulnerability Feed section
 - name: Vulnerability Feed
@@ -126,6 +139,7 @@ sections:
 
     - type: cve-vulnerabilities
       options:
+        vendorId: 23
         limit: 15
         useProxy: true
 
