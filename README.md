@@ -1,6 +1,6 @@
 # Linux Configuration
 
-This is the list of installation (and configuration) procedures of my various personal equipments, such as computers, workstations, servers and services, VMs, etc...   
+This is the list of installation and configuration procedures of my various personal equipments, such as computers, workstations, servers and services, VMs, etc...   
 This repo also contains my various configuration files (Dotfiles) and some "fix" procedures for known issues I've encountered.  
 
 * [Arch Linux - Installation and configuration procedures for Arch-Linux (according to my preferences)](https://github.com/Antiz96/Linux-Configuration/tree/main/Arch-Linux)

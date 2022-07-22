@@ -1,6 +1,6 @@
 # Arch-Linux
 
-This is the list of installation (and configuration) procedures of Arch-Linux according to my preferences  
+This is the list of installation and configuration procedures of Arch-Linux according to my preferences  
 
 * [Base installation - Installation and configuration procedure of Arch-Linux accordiing to my preferences](https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Base_installation.md)
 * [Base installation with disk encryption - Installation and configuration procedure of Arch-Linux with disk encryption according to my preferences](https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Base_installation_with_disk_encryption.md)

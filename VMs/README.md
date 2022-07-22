@@ -1,6 +1,6 @@
 # VMs
 
-This is the list of installation (and configuration) procedures of my various VMs and templates.   
+This is the list of installation and configuration procedures of my various VMs and templates.   
 This repo also contains some tips about both Virtual Box and Proxmox.   
 
 * [Arch Linux Server Template - Installation and configuration procedures for my Arch-Linux Server Template (according to my preferences)](https://github.com/Antiz96/Linux-Configuration/blob/main/VMs/Arch-Linux_Server_Template.md)

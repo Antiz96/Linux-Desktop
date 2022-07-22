@@ -1,6 +1,6 @@
 # Server
 
-This is the list of installation (and configuration) procedures of services that I have (or had) running on my Servers.
+This is the list of installation and configuration procedures of services that I have (or had) running on my Servers.
 
 ## OS
 

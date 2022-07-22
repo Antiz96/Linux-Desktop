@@ -1,6 +1,6 @@
 # WSL
 
-This is the list of installation (and configuration) procedures of my WSL instance(s) for my workstation  
+This is the list of installation and configuration procedures of my WSL instance(s) for my workstation  
 
 * [Arch Linux (WSL) - OS](https://github.com/Antiz96/Linux-Configuration/blob/main/WSL/Arch-Linux-WSL.md)
 * [Debian (WSL) - OS](https://github.com/Antiz96/Linux-Configuration/blob/main/WSL/Debian-WSL.md)
