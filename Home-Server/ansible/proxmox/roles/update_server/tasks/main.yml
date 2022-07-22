@@ -22,12 +22,8 @@
     upgrade: full
     autoremove: yes
 
-# Reboot to apply changes and check if the machine rebooted correctly 
+# Reboot to apply changes 
 - name: Reboot
   reboot:
-    test_command: echo "$(hostname) OK"
-  register: echo_out
+    test_command: whoami
 
-- name: Final check
-  debug:
-    msg: "{{echo_out.stdout_lines}}"
