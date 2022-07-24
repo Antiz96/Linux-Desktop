@@ -45,12 +45,12 @@ sudo pacman -Syu
 *(... previously created during the installation)*
 
 ```
-sudo mkswap /dev/mmcblk0p3
-sudo swapon /dev/mmcblk0p3
+sudo mkswap /dev/mmcblk1p3
+sudo swapon /dev/mmcblk1p3
 sudo vi /etc/fstab
 ```
 > [...]  
-> /dev/mmcblk0p3  none    swap    defaults        0       0
+> /dev/mmcblk1p3  none    swap    defaults        0       0
 
 ### Rename the default "alarm" user
 
