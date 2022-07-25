@@ -29,7 +29,7 @@ sudo vim /etc/fstab
 > UUID=107b1979-e8ed-466d-bb10-15e72f7dd2ae       /run/media/rcandau/data         ext4          defaults 0 2  
 
 ## Application
-- arch-update (AUR) --> https://github.com/Antiz96/arch-update
+- arch-update (AUR) --> https://github.com/Antiz96/arch-update `systemctl --user enable --now arch-update.timer`
 - bluemail (AUR)
 - ddgr (AUR)
 - discord

@@ -34,7 +34,7 @@ sudo vim /etc/fstab
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 ```
 
-- arch-update (AUR) --> https://github.com/Antiz96/arch-update
+- arch-update (AUR) --> https://github.com/Antiz96/arch-update `systemctl --user enable --now arch-update.timer`
 - bluemail (AUR)
 - ddgr
 - discord

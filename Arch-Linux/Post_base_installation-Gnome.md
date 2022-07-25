@@ -30,7 +30,7 @@ sudo vim /etc/fstab
 
 ## Packages to install
 
-- arch-update (AUR) --> https://github.com/Antiz96/arch-update  
+- arch-update (AUR) --> https://github.com/Antiz96/arch-update `systemctl --user enable --now arch-update.timer` 
 - bluemail (AUR)  
 - chrome-gnome-shell (AUR) 
 - ddgr (AUR) 
