@@ -22,7 +22,7 @@ sudo apt install nginx
 ## Configuration
 
 ```
-sudo mkdir -p /etc/nginx/{conf.d,ssl} #Create directories for URL configuration files and ssl related files
+sudo mkdir -p /etc/nginx/conf.d && sudo mkdir /opt/ssl #Create directories for URL configuration files and ssl related files
 sudo vim /etc/nginx/nginx.conf
 ```
 
@@ -49,7 +49,7 @@ sudo systemctl enable --now nginx
 ## Creation of a self signed wildcard SSL certificate (on one server and then copy them on the second node)
 
 ```
-cd /etc/nginx/ssl/
+cd /opt/ssl/
 sudo openssl genrsa -out xxx.key 4096
 sudo openssl req -key xxx.key -new -sha256 -out xxx.csr -addext "subjectAltName = DNS:CN_OF_CERTIFICATE"
 sudo openssl x509 -signkey xxx.key -in xxx.csr -req -days 365 -out xxx.crt
@@ -73,8 +73,8 @@ sudo vim "URL".conf
 > > ssl_protocols TLSv1.2 TLSv1.3;  
 > > #Protocols needed for Portainer  
 > > #proxy_ssl_protocols TLSv1.2 TLSv1.3;  
-> > ssl_certificate /etc/nginx/ssl/”Filename”.crt;  
-> > ssl_certificate_key /etc/nginx/ssl/”Filename”.key;  
+> > ssl_certificate /opt/ssl/”Filename”.crt;  
+> > ssl_certificate_key /opt/ssl/”Filename”.key;  
 > >    
 > > location / {  
 > > > proxy_pass “URL_to_redirect_to”;
@@ -124,8 +124,6 @@ sudo nginx -s reload
 ```
 
 ## Specific extra configurations for the Proxmox Spice Proxy 
-
-Only for the nginx node **not** running directly on the Proxmox machine
 
 ```
 sudo vim /etc/nginx/nginx.conf
