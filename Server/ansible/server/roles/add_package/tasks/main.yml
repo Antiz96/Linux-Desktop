@@ -20,5 +20,5 @@
   pacman:
     update_cache: yes
     name: "{{package_arch}}"
-    state: present
+    state: latest
   when: ansible_facts['distribution'] == "Archlinux" and package_arch
