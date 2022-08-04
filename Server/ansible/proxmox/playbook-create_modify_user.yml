@@ -1,5 +1,0 @@
----
-- name: "Create or modify a user"
-  hosts: all
-  roles:
-    - role: "create_modify_user"

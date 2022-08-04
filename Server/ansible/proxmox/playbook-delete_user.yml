@@ -1,5 +1,0 @@
----
-- name: "Delete a user"
-  hosts: all
-  roles:
-    - role: "delete_user"
