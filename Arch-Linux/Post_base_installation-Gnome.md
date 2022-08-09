@@ -61,6 +61,7 @@ sudo vim /etc/fstab
 - htop
 - neofetch
 - wireguard-tools **Only for Laptop in order to connect to my VPN**
+- zaman (AUR) --> https://github.com/Antiz96/zaman
 
 ## Theme
 
