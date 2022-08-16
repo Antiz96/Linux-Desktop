@@ -81,7 +81,7 @@ mkdir -p ~/.config/i3 && curl https://raw.githubusercontent.com/Antiz96/Linux-Cu
 ```
 **Remember to uncomment the correct "Display resolution" line in the "~/.config/i3/config" file depending on the machine (First Line = Desktop | Second Line = Laptop)**  
 
-### Polybar configuration
+### Tint2 configuration
 
 ```
 mkdir -p ~/.config/tint2 && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/i3/tint2rc -o ~/.config/tint2/
