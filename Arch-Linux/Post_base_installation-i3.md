@@ -77,14 +77,14 @@ sudo vim /etc/fstab
 ### i3 configuration
 
 ```
-mkdir -p ~/.config/i3 && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/i3/config -o ~/.i3/config/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/i3/lock.png -o ~/.i3/config/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/i3/wallpaper.jpg -o ~/.i3/config/
+mkdir -p ~/.config/i3 && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/i3/i3-config -o ~/.config/i3/config && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/i3/lock.png -o ~/.config/i3/lock.png && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/i3/wallpaper.jpg -o ~/.config/i3/wallpaper.jpg
 ```
 **Remember to uncomment the correct "Display resolution" line in the "~/.config/i3/config" file depending on the machine (First Line = Desktop | Second Line = Laptop)**  
 
 ### Tint2 configuration
 
 ```
-mkdir -p ~/.config/tint2 && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/i3/tint2rc -o ~/.config/tint2/
+mkdir -p ~/.config/tint2 && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/i3/tint2rc -o ~/.config/tint2/tint2rc
 ```
 
 ## Add touchpad click and navigation (Only for laptop)
@@ -110,7 +110,7 @@ curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles
 curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/tmux.conf -o ~/.tmux.conf
 mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/zathurarc -o ~/.config/zathura/zathurarc && xdg-mime default org.pwmt.zathura.desktop application/pdf
 mkdir -p ~/.config/xfce4/terminal && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/i3/terminalrc -o ~/.config/xfce4/terminal/terminalrc
-mkdir -p ~/.config/gsimplecal/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/i3/config -o ~/.config/gsimplecal/config
+mkdir -p ~/.config/gsimplecal/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/i3/cal-config -o ~/.config/gsimplecal/config
 sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles/i3/picom.conf -o /etc/xdg/picom.conf
 source ~/.bashrc
 ```
