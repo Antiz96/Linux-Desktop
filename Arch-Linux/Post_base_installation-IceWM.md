@@ -68,7 +68,7 @@ sudo vim /etc/fstab
 ## Theme
 
 - Shell : Orchis-dark-compact - https://www.gnome-look.org/p/1357889/
-- Icon : Tela-Circle-dark - https://www.gnome-look.org/p/1359276/
+- Icon : Tela-Circle-Blue - https://www.gnome-look.org/p/1359276/
 - Cursor : McMojave cursors - https://www.opendesktop.org/s/Gnome/p/1355701/
 
 ## Configuration
@@ -94,7 +94,7 @@ mkdir -p ~/.icewm && curl https://raw.githubusercontent.com/Antiz96/Linux-Custom
 ## Add touchpad click and navigation (Only for laptop)
 
 ```
-sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/IceWM/90-touchpad.conf -o /etc/X11/xorg.conf.d/90-touchpad.conf
+sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/90-touchpad.conf -o /etc/X11/xorg.conf.d/90-touchpad.conf
 ```
 
 ## Dock (plank)
