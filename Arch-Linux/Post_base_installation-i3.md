@@ -1,4 +1,4 @@
-# IceWM
+# i3
 
 ## Install an AUR Helper and a graphical package installer
 
@@ -35,6 +35,7 @@ sudo vim /etc/fstab
 ```
 
 - arch-update (AUR) --> https://github.com/Antiz96/arch-update `systemctl --user enable --now arch-update.timer`
+- autotiling (AUR)
 - bluemail (AUR)
 - ddgr
 - discord
@@ -73,22 +74,17 @@ sudo vim /etc/fstab
 
 ## Configuration
 
-**Warning : "/home/rcandau" is hard-coded in the "~/.icewm/keys" file (Lock Screen Shortcut)**  
-**Change it accordingly to your username**  
-
-### IceWM configuration
-
-- For regular computers :  
+### i3 configuration
 
 ```
-mkdir -p ~/.icewm && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/IceWM/icewm.zip -O && unzip icewm.zip -d ~/.icewm/ && chmod +x ~/.icewm/startup && rm -f icewm.zip
+mkdir -p ~/.config/i3 && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/i3/i3-config -o ~/.config/i3/config && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/i3/lock.png -o ~/.config/i3/lock.png && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/i3/wallpaper.jpg -o ~/.config/i3/wallpaper.jpg
 ```
-**Remember to uncomment the correct "Display resolution" line in the "~/.icewm/startup" script depending on the machine (First Line = Desktop | Second Line = Laptop)**  
+**Remember to uncomment the correct "Display resolution" line in the "~/.config/i3/config" file depending on the machine (First Line = Desktop | Second Line = Laptop)**  
 
-- For Raspberry Pi :  
+### Tint2 configuration
 
 ```
-mkdir -p ~/.icewm && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/IceWM/icewm-rpi.zip -O && unzip icewm-rpi.zip -d ~/.icewm/ && chmod +x ~/.icewm/startup && rm -f icewm-rpi.zip
+mkdir -p ~/.config/tint2 && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/i3/tint2rc -o ~/.config/tint2/tint2rc
 ```
 
 ## Add touchpad click and navigation (Only for laptop)
@@ -96,30 +92,6 @@ mkdir -p ~/.icewm && curl https://raw.githubusercontent.com/Antiz96/Linux-Custom
 ```
 sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/90-touchpad.conf -o /etc/X11/xorg.conf.d/90-touchpad.conf
 ```
-
-## Dock (plank)
-
-```
-sudo sed -i "s/Icon=org.xfce.screenshooter/Icon=applets-screenshooter/g" /usr/share/applications/xfce4-screenshooter.desktop
-sudo sed -i "s/Icon=system-software-install/Icon=pamac/g" /usr/share/applications/org.manjaro.pamac.manager.desktop
-```
-
-- firefox
-- terminal
-- spotify
-- bluemail
-- thunar
-- mousepad 
-- onlyoffice 
-- keepassxc
-- steam
-- discord
-- hexchat
-- virtualbox
-- screenshot
-- pamac
-- Arch Update
-- Power
 
 ## Autoconnect to bluetooth headphones
 
@@ -137,29 +109,32 @@ sudo vi /etc/pulse/default.pa
 curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles/General/bashrc_Arch.txt -o ~/.bashrc
 curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/tmux.conf -o ~/.tmux.conf
 mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/zathurarc -o ~/.config/zathura/zathurarc && xdg-mime default org.pwmt.zathura.desktop application/pdf
-mkdir -p ~/.local/share/applications && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/IceWM/power.desktop -o ~/.local/share/applications/power.desktop
-mkdir -p ~/.config/xfce4/terminal && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/IceWM/terminalrc -o ~/.config/xfce4/terminal/terminalrc
-mkdir -p ~/.config/gsimplecal/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/IceWM/config -o ~/.config/gsimplecal/config
-sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles/IceWM/picom.conf -o /etc/xdg/picom.conf
+mkdir -p ~/.config/xfce4/terminal && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/i3/terminalrc -o ~/.config/xfce4/terminal/terminalrc
+mkdir -p ~/.config/gsimplecal/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/i3/cal-config -o ~/.config/gsimplecal/config
+sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles/i3/picom.conf -o /etc/xdg/picom.conf
 source ~/.bashrc
 ```
 
 ## Keyboard Shortcuts
 
-- Super = Open Application Menu
 - Super + A = Open Dmenu App Finder/Launcher
-- Super + F = Switch size of windows (Maximize/Minimize)
+- Super + F = Switch between tabbed and split layout
 - Super + D = Close the window
 - Super + E = Thunar
 - Super + C = Calculator
-- Super + M = Display the desktop
 - Super + T = Terminal
+- Super + B = Firefox
 - Super + L = Lock the screen
-- Super + V = Tile opened windows vertically
-- Super + H = Iconifie active window
-- Super + Esc = Open the logout menu
+- Super + H = Split horizontally (default mode)
+- Super + V = Split vertically
+- Super + G = Switch tiling layout of opened windows (vertical/horizontal)
+- Super + S = Toggle sticky window
+- Super + Shift + Up = Move window to primary monitor
+- Super + Shift + Right = Move window to right monitor
+- Super + Shift + Left = Move window to left monitor
+- Super + Esc = Open the power menu
 - Super + F1 = Switch to workspace1
 - Super + F2 = Switch to workspace2
 - Super + F3 = Switch to workspace3
 - Super + F4 = Switch to workspace4
-- Super + TAB = Switch to next workspace
+- Super + Tab = Switch to next workspace

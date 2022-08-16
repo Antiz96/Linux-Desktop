@@ -185,8 +185,8 @@ sudo firewall-cmd --reload #Apply changes
 
 ## Install a Desktop Environment/Standalone Window Manager
 
-I've used GNOME and XFCE in the past (doing minimal installations) but I switched to IceWM since then.  
-Here's my installation routine for the three of them.  
+I've used GNOME and XFCE in the past (doing minimal installations) but I switched to IceWM and recently i3 (gaps) since then.  
+Here's my installation routine for the four of them.  
 
 ### GNOME (Minimal installation)
 
@@ -213,12 +213,12 @@ sudo systemctl enable lightdm
 ### IceWM
 
 IceWM with a few extra packages according to my personal preferences.  
-Still a very minimal installation though, the most minimal of the three.  
+Still a very minimal installation though.
 
 - For regular computers :  
 
 ```
-sudo pacman -S icewm xfce4-terminal polkit-gnome pulseaudio picom plank thunar thunar-archive-plugin file-roller gvfs xdg-user-dirs-gtk mousepad ristretto xfce4-screenshooter notification-daemon gnome-calculator network-manager-applet blueman redshift openssh xorg-xinit xorg-xrandr xautolock i3lock lxappearance numlockx xdotool playerctl gsimplecal
+sudo pacman -S icewm xfce4-terminal polkit-gnome pulseaudio picom plank thunar thunar-archive-plugin file-roller gvfs xdg-user-dirs-gtk mousepad ristretto flameshot notification-daemon gnome-calculator network-manager-applet blueman redshift openssh xorg-xinit xorg-xrandr xautolock i3lock lxappearance numlockx playerctl gsimplecal
 ```
 
 - For Raspberry Pi :  
@@ -252,6 +252,48 @@ vim ~/.bash_profile
 >  
 > fi  
 
+### i3 (gaps)
+
+i3-gaps with a few extra packages according to my personal preferences.  
+Still a very minimal installation though, the most minimal out of the four.
+
+- For regular computers :  
+
+```
+sudo pacman -S i3-gaps xfce4-terminal polkit-gnome pulseaudio picom thunar thunar-archive-plugin file-roller gvfs xdg-user-dirs mousepad ristretto flameshot notification-daemon gnome-calculator network-manager-applet blueman redshift openssh xorg-xinit xorg-xrandr xautolock i3lock lxappearance numlockx playerctl gsimplecal polybar feh
+```
+
+- For Raspberry Pi :  
+
+```
+sudo pacman -S i3-gaps xfce4-terminal polkit-gnome pulseaudio mousepad ristretto thunar thunar-archive-plugin file-roller gvfs notification-daemon xdg-user-dirs network-manager-applet xorg-xinit xorg-xrandr i3lock numlockx playerctl tint2 feh
+```
+
+#### Configuring startx for i3
+
+I'm not using any display manager with i3.  
+I'm using startx instead. I configure it this way :  
+
+```
+cp /etc/X11/xinit/xinitrc ~/.xinitrc
+vim ~/.xinitrc #Delete the 5 last lines and add the following ones instead
+```
+> [...]  
+> #Start i3  
+> export XDG_SESSION_TYPE=X11  
+> numlockx &  
+> exec i3   
+
+```
+vim ~/.bash_profile
+```
+> [...]  
+> #Autostart i3   
+> ``if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then``   
+> > exec startx  
+>  
+> fi
+
 ## Final various little configurations and reboot
 
 ```
@@ -265,3 +307,4 @@ reboot #Reboot my system (then select GNOME on XORG in GDM if I installed GNOME)
 - GNOME : https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Post_base_installation-Gnome.md
 - XFCE : https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Post_base_installation-XFCE.md
 - ICEWM : https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Post_base_installation-IceWM.md
+- i3 : https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Post_base_installation-i3.md
