@@ -260,7 +260,7 @@ Still a very minimal installation though, the most minimal out of the four.
 - For regular computers :  
 
 ```
-sudo pacman -S i3-gaps xfce4-terminal polkit-gnome pulseaudio picom thunar thunar-archive-plugin file-roller gvfs xdg-user-dirs mousepad ristretto flameshot notification-daemon gnome-calculator network-manager-applet blueman redshift openssh xorg-xinit xorg-xrandr xautolock i3lock lxappearance numlockx playerctl gsimplecal polybar feh
+sudo pacman -S i3-gaps xfce4-terminal polkit-gnome pulseaudio picom thunar thunar-archive-plugin file-roller gvfs xdg-user-dirs mousepad ristretto flameshot notification-daemon gnome-calculator network-manager-applet blueman redshift openssh xorg-xinit xorg-xrandr xautolock i3lock lxappearance numlockx playerctl gsimplecal tint2 feh
 ```
 
 - For Raspberry Pi :  
