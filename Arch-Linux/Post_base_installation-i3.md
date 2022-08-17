@@ -35,7 +35,6 @@ sudo vim /etc/fstab
 ```
 
 - arch-update (AUR) --> https://github.com/Antiz96/arch-update `systemctl --user enable --now arch-update.timer`
-- autotiling (AUR)
 - bluemail (AUR)
 - ddgr
 - discord
