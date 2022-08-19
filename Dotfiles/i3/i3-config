@@ -220,6 +220,14 @@ default_floating_border pixel 1
 #Use super key instead of alt for mod key
 set $mod Mod4
 
+#Place workspace 1-4 on the primary monitor and workspaces 5-6 on secondary monitor
+workspace "1" output primary
+workspace "2" output primary
+workspace "3" output primary
+workspace "4" output primary
+workspace "5" output HDMI-0
+workspace "6" output HDMI-0
+
 
 ##Gaps##
 
