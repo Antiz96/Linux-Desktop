@@ -291,6 +291,12 @@ bindsym $mod+F3 workspace number $ws3
 #Switch to workspace 4
 bindsym $mod+F4 workspace number $ws4
 
+#Switch to workspace 5
+bindsym $mod+F5 workspace number $ws5
+
+#Switch to workspace 6
+bindsym $mod+F6 workspace number $ws6
+
 #Switch to next workspace
 bindsym $mod+Tab workspace next
 
