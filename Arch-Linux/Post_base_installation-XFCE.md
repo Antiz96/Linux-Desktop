@@ -68,6 +68,20 @@ sudo vim /etc/fstab
 - Shell : Orchis-dark-compact - https://www.gnome-look.org/p/1357889/
 - Cursor : McMojave cursors - https://www.opendesktop.org/s/Gnome/p/1355701/
 
+## Bash Theme
+
+https://github.com/speedenator/agnoster-bash  
+  
+```
+cd /tmp
+git clone https://github.com/powerline/fonts.git fonts
+cd fonts
+sh install.sh
+cd $HOME
+mkdir -p .bash/themes/agnoster-bash
+git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster-bash
+```
+
 ## Dock (plank)
 
 - firefox

@@ -5,14 +5,17 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-##Prompt (RED when not running TMUX/White when running TMUX)##
+##Prompt (RED when not running TMUX/Agnoster theme when running TMUX)##
 
 TMUX_STATUS=$(env | grep tmux)
 
 if [ -z "$TMUX_STATUS" ]; then
         PS1="\[\e[0;31m[\u@\h \W]\$ \e[m\]"
 else
-        PS1="[\u@\h \W]\$ "
+        export THEME=$HOME/.bash/themes/agnoster-bash/agnoster.bash
+        if [ -f "$THEME" ]; then
+                source $THEME
+        fi
 fi
 
 ##Tmux Autostart##
