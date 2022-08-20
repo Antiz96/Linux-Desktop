@@ -136,4 +136,6 @@ source ~/.bashrc
 - Super + F2 = Switch to workspace2
 - Super + F3 = Switch to workspace3
 - Super + F4 = Switch to workspace4
+- Super + F5 = Switch to workspace5
+- Super + F6 = Switch to workspace6
 - Super + Tab = Switch to next workspace
