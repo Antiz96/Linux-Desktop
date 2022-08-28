@@ -267,6 +267,9 @@ bindsym $mod+d kill
 #Launch file manager (thunar)
 bindsym $mod+e exec thunar
 
+#Launch notepad (mousepad)
+bindsym $mod+m exec mousepad
+
 #Launch calculator (gnome-calculator)
 bindsym $mod+c exec gnome-calculator
 
