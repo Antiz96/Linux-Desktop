@@ -134,6 +134,7 @@ source ~/.bashrc
 - Super + F = Switch between tabbed and split layout
 - Super + D = Close the window
 - Super + E = Thunar
+- Super + M = Mousepad
 - Super + C = Calculator
 - Super + T = Terminal
 - Super + B = Firefox
