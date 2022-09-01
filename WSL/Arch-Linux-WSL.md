@@ -46,7 +46,7 @@ cd /tmp #Change directory to tmp to download and install AUR support
 git clone https://aur.archlinux.org/yay.git #Download "yay" install sources
 cd yay #Change directory to "yay" install sources directory
 makepkg -si #Install "yay"
-yay -S ddgr #Install "ddgr"
+yay -S ddgr certificate-ripper-bin #Install "ddgr" and "certificate-ripper"
 ```
   
 ### Download my config files
