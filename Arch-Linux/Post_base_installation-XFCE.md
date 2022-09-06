@@ -47,7 +47,7 @@ sudo vim /etc/fstab
 - virtualbox
 - virt-viewer
 - imagewriter (AUR)
-- timeshift (AUR)
+- timeshift (AUR) --> `sudo systemctl enable --now cronie`
 - mkinitcpio-numlock (AUR) **Then add the "numlock" hook in /etc/mkinitcpio.conf between "autodetect" and "modconf" and then** `sudo mkinitcpio -p linux`
 - lightdm-webkit2-theme-glorious (AUR) --> https://github.com/manilarome/lightdm-webkit2-theme-glorious & https://github.com/manilarome/lightdm-webkit2-theme-glorious/issues/33
 - mugshot (AUR)

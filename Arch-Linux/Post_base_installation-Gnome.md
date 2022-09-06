@@ -50,7 +50,7 @@ sudo vim /etc/fstab
 - virtualbox
 - virt-viewer
 - imagewriter (AUR)
-- timeshift (AUR)
+- timeshift (AUR) --> `sudo systemctl enable --now cronie`
 - mkinitcpio-numlock (AUR) **Then add the "numlock" hook in /etc/mkinitcpio.conf between "autodetect" and "modconf" and then** `sudo mkinitcpio -p linux`
 - touchegg (AUR) **Only for my Laptop to enable trackpad gestures. After install :** `sudo systemctl enable --now touchegg`
 - tmux
