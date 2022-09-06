@@ -52,7 +52,7 @@ sudo vim /etc/fstab
 - virtualbox
 - virt-viewer
 - imagewriter (AUR)
-- timeshift (AUR)
+- timeshift (AUR) --> `sudo systemctl enable --now cronie`
 - pa-applet-git (AUR)
 - mkinitcpio-numlock (AUR) **Then add the "numlock" hook in /etc/mkinitcpio.conf between "autodetect" and "modconf" and then** `sudo mkinitcpio -p linux`
 - tmux
