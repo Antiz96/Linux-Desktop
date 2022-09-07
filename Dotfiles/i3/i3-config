@@ -304,7 +304,7 @@ bindsym $mod+F6 workspace number $ws6
 bindsym $mod+Tab workspace next
 
 #Open the power menu
-set $power_menu (l) lock | (h) halt/suspend | (r) reboot | (s) shutdown
+set $power_menu [L]ock | [H]alt | [R]eboot | [S]hutdown
 mode "$power_menu" {
         bindsym l exec --no-startup-id i3lock -eti ~/.config/i3/lock.png, mode "default"
         bindsym h exec --no-startup-id i3lock -eti ~/.config/i3/lock.png && test -e /run/systemd/system && systemctl suspend, mode "default"
@@ -312,11 +312,11 @@ mode "$power_menu" {
         bindsym s exec --no-startup-id test -e /run/systemd/system && systemctl poweroff, mode "default"
 
         #Back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+        bindsym Return mode "default" ; exec kill $(pidof notification-daemon) && /usr/lib/notification-daemon-1.0/notification-daemon
+        bindsym Escape mode "default" ; exec kill $(pidof notification-daemon) && /usr/lib/notification-daemon-1.0/notification-daemon
 }
 
-bindsym $mod+Escape mode "$power_menu"
+bindsym $mod+Escape mode "$power_menu" ; exec notify-send -u critical -t 0 -i /usr/share/icons/Tela-circle-blue/scalable/apps/kshutdown.svg "Power menu" "[L]ock\n[H]alt\n[R]eboot\n[S]hutdown"
 
 #Multimedia go to previous
 bindsym F7 exec playerctl previous
