@@ -306,8 +306,8 @@ bindsym $mod+Tab workspace next
 #Open the power menu
 set $power_menu [L]ock | [H]alt | [R]eboot | [S]hutdown
 mode "$power_menu" {
-        bindsym l exec --no-startup-id i3lock -eti ~/.config/i3/lock.png, mode "default"
-        bindsym h exec --no-startup-id i3lock -eti ~/.config/i3/lock.png && test -e /run/systemd/system && systemctl suspend, mode "default"
+        bindsym l exec --no-startup-id i3lock -eti ~/.config/i3/lock.png && kill $(pidof notification-daemon) && /usr/lib/notification-daemon-1.0/notification-daemon, mode "default"
+        bindsym h exec --no-startup-id i3lock -eti ~/.config/i3/lock.png && test -e /run/systemd/system && systemctl suspend && kill $(pidof notification-daemon) && /usr/lib/notification-daemon-1.0/notification-daemon , mode "default"
         bindsym r exec --no-startup-id test -e /run/systemd/system && systemctl reboot, mode "default"
         bindsym s exec --no-startup-id test -e /run/systemd/system && systemctl poweroff, mode "default"
 
