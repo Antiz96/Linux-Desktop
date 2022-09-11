@@ -157,4 +157,14 @@ sudo vim /etc/ssh/sshd_config
 vi ~/.ssh/config
 ```
 > Host *  
-> >  HostKeyAlgorithms +ssh-rsa  
+> >  HostKeyAlgorithms +ssh-rsa 
+
+## Yay not showing diffs correctly
+
+Yay was showing diffs as if I was installing a package for the first time (showing my the entire PKGBUILD instead of diffs between the new and the local version).  
+Issue raised here : https://github.com/Jguer/yay/issues/1109  
+  
+Fix :
+```
+for dir in ~/.cache/yay/*; do git -C "$dir" update-ref AUR_SEEN HEAD ; done
+```
