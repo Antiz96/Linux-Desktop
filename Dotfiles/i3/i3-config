@@ -216,6 +216,7 @@ bindsym Mod4+r mode "resize"
 #Hide window title bar
 default_border pixel 1
 default_floating_border pixel 1
+for_window [class="^.*"] border pixel 1
 
 #Use super key instead of alt for mod key
 set $mod Mod4
