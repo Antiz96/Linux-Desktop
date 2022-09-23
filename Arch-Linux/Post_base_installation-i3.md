@@ -143,9 +143,14 @@ source ~/.bashrc
 - Super + V = Split vertically
 - Super + G = Switch tiling layout of opened windows (vertical/horizontal)
 - Super + S = Toggle sticky window
-- Super + Shift + Up = Move window to primary monitor
-- Super + Shift + Right = Move window to right monitor
-- Super + Shift + Left = Move window to left monitor
+- Super + Right = Switch focused window to the right one
+- Super + Left = Switch focused window to the left one
+- Super + Up = Switch focused window to the up one
+- Super + Down = Switch focused window to the down one
+- Super + Shift + Right = Move focused window to the right (when reaching the edge of the screen, makes the window move to the right screen if there's one)
+- Super + Shift + Left = Move focused window to the left (when reaching the edge of the screen, makes the window move to the left screen if there's one)
+- Super + Shift + Up = Move focused window up (when reaching the edge of the screen, makes the window move to the up screen if there's one)
+- Super + Shift + Down = Move focused window down (when reaching the edge of the screen, makes the window move to the down screen if there's one)
 - Super + Esc = Open the power menu
 - Super + F1 = Switch to workspace1
 - Super + F2 = Switch to workspace2
