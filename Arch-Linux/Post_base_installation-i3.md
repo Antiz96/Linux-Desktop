@@ -100,7 +100,20 @@ mkdir -p ~/.config/i3 && curl https://raw.githubusercontent.com/Antiz96/Linux-Cu
 mkdir -p ~/.config/tint2 && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/i3/tint2rc -o ~/.config/tint2/tint2rc
 ```
 
-## Add touchpad click and navigation (Only for laptop)
+### Dotfiles
+
+```
+curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles/General/bashrc_Arch.txt -o ~/.bashrc
+curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/tmux.conf -o ~/.tmux.conf
+mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/zathurarc -o ~/.config/zathura/zathurarc && xdg-mime default org.pwmt.zathura.desktop application/pdf
+curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles/General/vimrc -o ~/.vimrc && mkdir -p ~/.vim/colors && curl https://raw.githubusercontent.com/vv9k/vim-github-dark/master/colors/ghdark.vim -o ~/.vim/colors/ghdark.vim
+mkdir -p ~/.config/xfce4/terminal && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/i3/terminalrc -o ~/.config/xfce4/terminal/terminalrc
+mkdir -p ~/.config/gsimplecal/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/i3/cal-config -o ~/.config/gsimplecal/config
+sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles/i3/picom.conf -o /etc/xdg/picom.conf
+source ~/.bashrc
+```
+
+### Add touchpad click and navigation (Only for laptop)
 
 ```
 sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/90-touchpad.conf -o /etc/X11/xorg.conf.d/90-touchpad.conf
@@ -115,18 +128,6 @@ sudo vi /etc/pulse/default.pa
 > [...]  
 > #Automatically switch to newly-connected devices  
 > load-module module-switch-on-connect  
-
-### Dotfiles
-
-```
-curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles/General/bashrc_Arch.txt -o ~/.bashrc
-curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/tmux.conf -o ~/.tmux.conf
-mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/zathurarc -o ~/.config/zathura/zathurarc && xdg-mime default org.pwmt.zathura.desktop application/pdf
-mkdir -p ~/.config/xfce4/terminal && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/i3/terminalrc -o ~/.config/xfce4/terminal/terminalrc
-mkdir -p ~/.config/gsimplecal/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/i3/cal-config -o ~/.config/gsimplecal/config
-sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles/i3/picom.conf -o /etc/xdg/picom.conf
-source ~/.bashrc
-```
 
 ## Keyboard Shortcuts
 

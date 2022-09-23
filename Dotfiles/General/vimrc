@@ -1,0 +1,28 @@
+"Syntax highlighting
+syntax on
+
+"Colorscheme
+colorscheme ghdark
+hi Normal guibg=NONE ctermbg=NONE
+
+"Always show command
+set showcmd
+
+"Show matching special characters (parentheses, brackets, etc...)
+set showmatch
+
+"Enable the wildmenu (auto completion for vim command)
+set wildmenu
+
+"Highlight the line where cursor is
+set cursorline
+highlight CursorLine ctermbg=black
+
+"Show line numbers
+set nu
+
+"Enable incremental searching
+set is
+
+"Highlight searched patterns
+set hls

@@ -1,5 +1,3 @@
-#File = ~/.config/gsimplecal/config
-
 show_calendar = 1
 show_timezones = 0
 mark_today = 1
