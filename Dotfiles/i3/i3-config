@@ -76,16 +76,16 @@ bindsym Mod4+Up focus up
 bindsym Mod4+Right focus right
 
 # move focused window
-bindsym Mod4+Shift+$left move left
-bindsym Mod4+Shift+$down move down
-bindsym Mod4+Shift+$up move up
-bindsym Mod4+Shift+$right move right
+#bindsym Mod4+Shift+$left move left
+#bindsym Mod4+Shift+$down move down
+#bindsym Mod4+Shift+$up move up
+#bindsym Mod4+Shift+$right move right
 
 # alternatively, you can use the cursor keys:
-#bindsym Mod4+Shift+Left move left
-#bindsym Mod4+Shift+Down move down
-#bindsym Mod4+Shift+Up move up
-#bindsym Mod4+Shift+Right move right
+bindsym Mod4+Shift+Left move left
+bindsym Mod4+Shift+Down move down
+bindsym Mod4+Shift+Up move up
+bindsym Mod4+Shift+Right move right
 
 # split in horizontal orientation
 bindsym Mod4+h split h
@@ -252,15 +252,6 @@ bindsym $mod+space floating toggle
 
 #Toggle sticky window
 bindsym $mod+s sticky toggle
-
-#Move window to the primary monitor
-bindsym $mod+Shift+Up move container to output primary
-
-#Move window to the right monitor
-bindsym $mod+Shift+Right move container to output right
-
-#Move window to the left monitor
-bindsym $mod+Shift+Left move container to output left
 
 #Close active window
 bindsym $mod+d kill
