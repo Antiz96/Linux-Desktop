@@ -2,7 +2,7 @@
 syntax on
 
 "Colorscheme
-colorscheme astraios
+colorscheme ghdark
 hi Normal guibg=NONE ctermbg=NONE
 
 "Always show command
@@ -26,3 +26,12 @@ set is
 
 "Highlight searched patterns
 set hls
+
+"Enable mouse support
+set mouse=a
+
+"Get back to the last known cursor position in file
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+
+"Change 'conf' filetype to 'confini' for a better syntax highlighting
+autocmd FileType conf set ft=confini
