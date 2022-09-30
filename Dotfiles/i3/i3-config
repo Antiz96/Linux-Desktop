@@ -370,3 +370,6 @@ exec playerctl daemon
 
 #Screenshot applet
 exec flameshot
+
+#ProtonMail Bridge
+exec protonmail-bridge --no-window
