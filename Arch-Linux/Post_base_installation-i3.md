@@ -35,10 +35,10 @@ sudo vim /etc/fstab
 ```
 
 - arch-update (AUR) --> https://github.com/Antiz96/arch-update `systemctl --user enable --now arch-update.timer`
-- bluemail (AUR)
 - ddgr
 - discord
 - glow
+- gnome-keyring
 - hexchat
 - keepassxc
 - vlc
@@ -46,7 +46,9 @@ sudo vim /etc/fstab
 - onlyoffice-bin (AUR)
 - openresolv **Only for my Laptop in order to connect to my VPN**
 - firefox
+- mailspring (AUR)
 - pacman-contrib
+- protonmail-bridge (AUR)
 - spotify (AUR)
 - steam
 - virtualbox

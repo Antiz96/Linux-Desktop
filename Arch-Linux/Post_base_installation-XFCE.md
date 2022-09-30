@@ -30,10 +30,10 @@ sudo vim /etc/fstab
 
 ## Application
 - arch-update (AUR) --> https://github.com/Antiz96/arch-update `systemctl --user enable --now arch-update.timer`
-- bluemail (AUR)
 - ddgr (AUR)
 - discord
 - glow
+- gnome-keyring
 - gparted
 - hexchat
 - keepassxc
@@ -41,7 +41,9 @@ sudo vim /etc/fstab
 - onlyoffice-bin (AUR)
 - openresolv **Only for my Laptop in order to connect to my VPN**
 - firefox
+- mailspring (AUR)
 - pacman-contrib
+- protonmail-bridge (AUR)
 - spotify (AUR)
 - steam
 - virtualbox
@@ -87,7 +89,7 @@ git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster
 - firefox
 - terminal
 - spotify
-- bluemail
+- mailspring
 - thunar
 - mousepad 
 - onlyoffice
