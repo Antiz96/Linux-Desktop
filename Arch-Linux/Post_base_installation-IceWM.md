@@ -37,6 +37,8 @@ sudo vim /etc/fstab
 - arch-update (AUR) --> https://github.com/Antiz96/arch-update `systemctl --user enable --now arch-update.timer`
 - ddgr
 - discord
+- docker --> `sudo systemctl enable --now docker`
+- distrobox (AUR)
 - glow
 - gnome-keyring
 - hexchat

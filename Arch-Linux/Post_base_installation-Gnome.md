@@ -34,6 +34,8 @@ sudo vim /etc/fstab
 - chrome-gnome-shell (AUR) 
 - ddgr (AUR) 
 - discord  
+- docker --> `sudo systemctl enable --now docker`
+- distrobox (AUR)
 - glow
 - gnome-keyring
 - gnome-terminal-transparency (AUR)  
