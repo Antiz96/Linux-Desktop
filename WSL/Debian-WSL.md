@@ -17,10 +17,26 @@ Then follow the instruction to create a user.
 sudo apt update && sudo apt full-upgrade
 ```
 
+### Enable systemd support
+
+```
+sudo vi /etc/wsl.conf
+```
+
+> [boot]  
+> systemd=true
+
 ### Install my needed packages
 
 ```
 sudo apt install vim curl man bash-completion openssh-server inetutils-tools dnsutils traceroute rsync zip unzip diffutils git tmux mlocate htop neofetch ddgr
+curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sudo sh #Install distrobox
+sudo apt remove docker docker-engine docker.io #Install Docker
+sudo apt install apt-transport-https ca-certificates curl gnupg lsb-release
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt update && sudo apt install docker-ce docker-ce-cli containerd.io
+sudo systemctl enable --now docker
 ```
   
 ### Download my config files 

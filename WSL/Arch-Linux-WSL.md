@@ -26,6 +26,15 @@ cd Documents\Arch\ #Change directory to the directory that contains Arch Linux W
 Arch.exe config --default-user rcandau #Make Arch log into our regular user at launch instead of root
 ```
 
+### Enable systemd support
+
+```
+sudo vi /etc/wsl.conf
+```
+
+> [boot]  
+> systemd=true
+
 ### Configuring pacman
 
 ```
@@ -41,12 +50,13 @@ sudo vi /etc/pacman.conf
 
 ```
 sudo pacman -Syu #Update our system
-sudo pacman -S base-devel linux-headers man bash-completion openssh inetutils dnsutils traceroute rsync zip unzip cronie diffutils git tmux mlocate htop neofetch glow #Install my needed packages. DO NOT INSTALL "fakeroot" (https://github.com/yuk7/ArchWSL/issues/3)
+sudo pacman -S base-devel linux-headers man bash-completion openssh inetutils dnsutils traceroute rsync zip unzip cronie diffutils git tmux mlocate htop neofetch glow docker #Install my needed packages. DO NOT INSTALL "fakeroot" (https://github.com/yuk7/ArchWSL/issues/3)
 cd /tmp #Change directory to tmp to download and install AUR support
 git clone https://aur.archlinux.org/yay.git #Download "yay" install sources
 cd yay #Change directory to "yay" install sources directory
 makepkg -si #Install "yay"
-yay -S ddgr certificate-ripper-bin #Install "ddgr" and "certificate-ripper"
+yay -S ddgr certificate-ripper-bin distrobox #Install "ddgr", "certificate-ripper" and "distrobox"
+sudo systemctl enable --now cronie docker #Enable systemd services
 ```
   
 ### Download my config files
