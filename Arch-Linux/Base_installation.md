@@ -40,7 +40,7 @@ fdisk /dev/nvme0n1 #Partitioning the disk I want to install Arch on
 > Change the second partition type to Linux swap ---> **t** | partition 2 | type 19  
 > Change the third partition type to Linux filesystem ---> **t** | partition 3 | type 20 (this should already b done by default)   
 >    
-> Print the current partition table to review changes ---> **p** 
+> Print the current partition table to review changes ---> **p**   
 > Write the table to the disk ---> **w**  
 
 ### Create the filesystems
@@ -162,9 +162,6 @@ systemctl enable firewalld #Autostart firewalld at boot
 
 ```
 exit #Get out of the chroot
-```
-
-```
 umount -l /mnt #Umount the /mnt mounted point
 reboot #Reboot the computer to boot into the fresh Arch install
 ```

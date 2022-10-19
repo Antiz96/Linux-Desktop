@@ -45,7 +45,6 @@ Switch between profiles (**a2dp_sink = only sound | handsfree_head_unit = both s
 ```
 pacmd set-card-profile bluez_card.38_18_4C_E9_85_B4 a2dp_sink
 pacmd set-card-profile bluez_card.38_18_4C_E9_85_B4 handsfree_head_unit
-
 ```
 
 ### Enable microphone on my Logitech sound card
