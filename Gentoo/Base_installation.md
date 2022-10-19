@@ -357,6 +357,6 @@ sudo firewall-cmd --reload #Apply changes
 
 ## Base installation complete!
 
-Link to the installation and configure procedure for i3 on Gentoo according to my preferences below (if needed):  
+Link to the installation and configuration procedure for i3 on Gentoo according to my preferences below (if needed):  
   
 - [i3](https://github.com/Antiz96/Linux-Customisation/blob/main/Gentoo/i3.md)
