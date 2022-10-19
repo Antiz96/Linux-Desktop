@@ -1,7 +1,7 @@
 # Arch Linux base installation with disk encryption 
 
-> This is my personal routine to install Arch Linux with full disk encryption.  
-> Before encrypting your disk, be aware of the consequences : https://www.makeuseof.com/tag/4-reasons-encrypt-linux-partitions/  
+This is my personal routine to install Arch Linux with full disk encryption.  
+Before encrypting your disk, be aware of the consequences : https://www.makeuseof.com/tag/4-reasons-encrypt-linux-partitions/  
 
 ## Pre-configuration
 

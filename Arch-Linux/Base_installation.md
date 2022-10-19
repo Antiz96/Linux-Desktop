@@ -38,7 +38,7 @@ fdisk /dev/nvme0n1 #Partitioning the disk I want to install Arch on
 >   
 > Change the first partition type to EFI ---> **t** | partition 1 | type 1  
 > Change the second partition type to Linux swap ---> **t** | partition 2 | type 19  
-> Change the third partition type to Linux filesystem ---> **t** | partition 3 | type 20 (this should already be done by default)   
+> Change the third partition type to Linux filesystem ---> **t** | partition 3 | type 20 (this should already b done by default)   
 >    
 > Print the current partition table to review changes ---> **p** 
 > Write the table to the disk ---> **w**  
