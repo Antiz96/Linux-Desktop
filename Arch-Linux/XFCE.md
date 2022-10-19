@@ -1,5 +1,29 @@
 # XFCE
 
+## Install Xorg and Nvidia drivers (optional)
+
+```
+sudo pacman -S xorg-server nvidia
+sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
+```
+
+## Install XFCE (minimal installation) 
+
+Minimal installation according to my personal preferences.  
+Check https://archlinux.org/groups/x86_64/xfce4/ & https://archlinux.org/groups/x86_64/xfce4-goodies/ to see what you want to install or not.  
+If you want a complete XFCE installation, just install the "xfce4" and the "xfce4-goodies" packages (additionnaly you may need a display manager).  
+
+```
+sudo pacman -S xfce4 mousepad ristretto thunar-archive-plugin xfce4-notifyd xfce4-screenshooter xfce4-screensaver xfce4-pulseaudio-plugin xfce4-whiskermenu-plugin numlockx plank gvfs gnome-calculator network-manager-applet blueman redshift file-roller picom xdg-user-dirs-gtk pulseaudio openssh lightdm lightdm-gtk-greeter
+sudo systemctl enable lightdm
+```
+
+## Reboot and log into XFCE
+
+```
+sudo reboot
+```
+
 ## Install an AUR Helper and a graphical package installer
 
 ```
@@ -67,10 +91,10 @@ sudo vim /etc/fstab
 
 ## Theme
 
-- Applications : Kimi-Dark - https://www.gnome-look.org/p/1326889/
-- Icon : Tela-Circle-Blue - https://www.gnome-look.org/p/1359276/
-- Shell : Orchis-dark-compact - https://www.gnome-look.org/p/1357889/
-- Cursor : McMojave cursors - https://www.opendesktop.org/s/Gnome/p/1355701/
+- Applications: Kimi-Dark - https://www.gnome-look.org/p/1326889/
+- Icon: Tela-Circle-Blue - https://www.gnome-look.org/p/1359276/
+- Shell: Orchis-dark-compact - https://www.gnome-look.org/p/1357889/
+- Cursor: McMojave cursors - https://www.opendesktop.org/s/Gnome/p/1355701/
 
 ## Bash Theme
 
@@ -106,7 +130,7 @@ git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster
 
 ## Disable XFCE compositor 
 
-I use picom instead, for window animations and transparency support (see the "Autostart APP" section for the picom autolaunch") :   
+I use picom instead, for window animations and transparency support (see the "Autostart APP" section for the picom autolaunch"):   
   
 - XFCE Settings -> "Window Manager Tweaks" -> "Compositor" -> uncheck "Enable display compositing"
 
@@ -116,7 +140,7 @@ I use picom instead, for window animations and transparency support (see the "Au
 - Applet Blueman
 - Screensaver
 - Power Management
-- Picom compositor --> picom --xrender-sync-fence #(This xrender argument is needed for some people that has nvidia card : https://superuser.com/questions/1601366/picom-failed-to-trigger-fence) 
+- Picom compositor --> picom --xrender-sync-fence #(This xrender argument is needed for some people that has nvidia card: https://superuser.com/questions/1601366/picom-failed-to-trigger-fence) 
 - Plank Dock --> plank
 - Redshift Nightmode --> redshift-gtk -l 49.443232:1.099971
 - Network
@@ -140,10 +164,10 @@ sudo vi /etc/pulse/default.pa
 
 https://github.com/Antiz96/Linux-Customisation/blob/main/Dotfiles/XFCE/xfce4-panel.xml  
   
-Needs to be done manually :  
+Needs to be done manually:  
    
 - Launcher Lock Screen --> `dm-tool switch-to-greeter`
-- WhiskerMenu Configuration --> Apparance : Tree display mode | 80% opacity --> Dashboard Button : Icon + text and Arch Linux logo --> Behavior : All apps | Categories menu --> Commands : Modify App | Modify Profil
+- WhiskerMenu Configuration --> Apparance: Tree display mode | 80% opacity --> Dashboard Button: Icon + text and Arch Linux logo --> Behavior: All apps | Categories menu --> Commands: Modify App | Modify Profil
 - Notification Greffon --> Mask the confirmation for "Delete the journal"
 - Power Management Greffon --> Show the "presentation mode" indicator
 

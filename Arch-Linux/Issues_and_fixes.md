@@ -27,7 +27,7 @@ This means that I have to do it manually with the pulseaudio "pacmd" command.
 
 ### Enable microphone on my bluetooth headset
 
-List available sound cards to find my bluetooth sound card (this command also shows the active profile and the available other profiles for each sound card) :    
+List available sound cards to find my bluetooth sound card (this command also shows the active profile and the available other profiles for each sound card):    
 
 ```
 pacmd list-cards
@@ -40,7 +40,7 @@ pacmd list-cards
 > > properties:  
 > > > device.description = "WH-1000XM3"  
 
-Switch between profiles (**a2dp_sink = only sound | handsfree_head_unit = both sound and microphone**) :  
+Switch between profiles (**a2dp_sink = only sound | handsfree_head_unit = both sound and microphone**):  
 
 ```
 pacmd set-card-profile bluez_card.38_18_4C_E9_85_B4 a2dp_sink
@@ -50,7 +50,7 @@ pacmd set-card-profile bluez_card.38_18_4C_E9_85_B4 handsfree_head_unit
 
 ### Enable microphone on my Logitech sound card
 
-List available sound cards to find my Logitech sound card (this command also shows the active profile and the available other profiles for each sound card) :  
+List available sound cards to find my Logitech sound card (this command also shows the active profile and the available other profiles for each sound card):  
 
 ```
 pacmd list-cards
@@ -62,7 +62,7 @@ pacmd list-cards
 > > properties:  
 > > > alsa.card_name = "Logitech G430 Gaming Headset"  
 
-Switch between profiles (**output:iec958-ac3-surround-51 = only sound | output:iec958-ac3-surround-51+input:mono-fallback = both sound and microphone**) :  
+Switch between profiles (**output:iec958-ac3-surround-51 = only sound | output:iec958-ac3-surround-51+input:mono-fallback = both sound and microphone**):  
 
 ```
 pacmd set-card-profile alsa_card.usb-Logitech_Logitech_G430_Gaming_Headset-00 output:iec958-ac3-surround-51 
@@ -120,7 +120,7 @@ https://bbs.archlinux.org/viewtopic.php?id=265071
 ```
 sudo modprobe btusb
 sudo systemctl restart bluetooth
-install_bluetooth_driver #Reinstalling my bluetooth driver (this is a personal alias that calls a script I wrote to install/reinstall my bluetooth driver. Link to the script : https://github.com/Antiz96/Bash-Scripts/blob/main/install_bluetooth_driver.sh)
+install_bluetooth_driver #Reinstalling my bluetooth driver (this is a personal alias that calls a script I wrote to install/reinstall my bluetooth driver. Link to the script: https://github.com/Antiz96/Bash-Scripts/blob/main/install_bluetooth_driver.sh)
 ```
 
 ## Installing spotify via AUR gets a "GPG Key not found" error
@@ -134,16 +134,16 @@ curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import 
 ## Using old SSH key types
 
 Arch has the lastest version of OpenSSH which disable some "old" key types.  
-It makes using SSH on older machines that doesn't have that version yet impossible :  
+It makes using SSH on older machines that doesn't have that version yet impossible:  
 
 ```
 journalctl -xe
 ```
 > févr. 09 18:10:35 pihole sshd[1185]: Unable to negotiate with 192.168.1.100 port 59724: no matching host key type found. Their offer: ssh-rsa,ssh-dss [preauth]  
     
-In order to be able to connect to use those old SSH key types with Arch Linux, we need to autorize them :  
+In order to be able to connect to use those old SSH key types with Arch Linux, we need to autorize them:  
 
-- As a SSH server :  
+- As a SSH server:  
 
 ```
 sudo vim /etc/ssh/sshd_config
@@ -151,7 +151,7 @@ sudo vim /etc/ssh/sshd_config
 > [...]  
 > HostKeyAlgorithms +ssh-rsa,ssh-dss  
   
-- As a SSH client :
+- As a SSH client:
 
 ```
 vi ~/.ssh/config
@@ -162,9 +162,9 @@ vi ~/.ssh/config
 ## Yay not showing diffs correctly
 
 Yay was showing diffs as if I was installing a package for the first time (showing my the entire PKGBUILD instead of diffs between the new and the local version).  
-Issue raised here : https://github.com/Jguer/yay/issues/1109  
+Issue raised here: https://github.com/Jguer/yay/issues/1109  
   
-Fix :
+Fix:
 ```
 for dir in ~/.cache/yay/*; do git -C "$dir" update-ref AUR_SEEN HEAD ; done
 ```

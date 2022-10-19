@@ -10,14 +10,14 @@ I also create a third partition of 4G for Swap.
 
 ### Install sudo and give sudo privileges to the regular user
 
-As root (**only for this part**) :
+As root (**only for this part**):
 
 ```
 pacman -S sudo
 visudo
 ```
 
-Uncomment the following line :  
+Uncomment the following line:  
 > %wheel ALL=(ALL:ALL) ALL
 
 ### Update the machine
@@ -69,7 +69,7 @@ sudo systemctl restart sshd
 
 #### Rename the alarm user and set a new password
 
-Connect directly as **root** via ssh (only for this part) :  
+Connect directly as **root** via ssh (only for this part):  
 
 ```
 usermod -l rcandau alarm
@@ -89,14 +89,14 @@ sudo vi /etc/ssh/sshd_config
 
 ## Post Install preferences
 
-Then I Configure Arch Linux according to my preferences, without the things that has already been done during the Arch Linux ARM installation and the above steps (partitiong/filesystem, mount + pacstrap + genfstab, creating my user, grub bootloader, exit and umount /mnt, etc...) :  
+Then I configure Arch Linux according to my preferences, without the things that has already been done during the Arch Linux ARM installation and the above steps (partitiong/filesystem, mount + pacstrap + genfstab, creating my user, grub bootloader, exit and umount /mnt, etc...):  
 
 https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Base_installation.md
 
 ## Disable systemd-resolved
 
 Systemd-resolved is enabled by default on Arch-Linux ARM.  
-It causes interferences with NetworkManager :  
+It causes interferences with NetworkManager:  
 
 ```
 sudo vim /etc/systemd/resolved.conf
@@ -113,8 +113,9 @@ sudo touch /etc/resolv.conf
 sudo reboot
 ```
 
-## Post base installation procedure for IceWM
+## Window manager (optional)
 
-I use IceWM on my RPI as it is very light :  
+If I need a graphical interface, I either use IceWM or i3 on my RPI as they are very lightweight:  
   
-https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Post_base_installation-IceWM.md
+https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/IceWM.md
+https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/i3.md
