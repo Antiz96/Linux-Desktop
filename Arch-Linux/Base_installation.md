@@ -145,6 +145,21 @@ pacman -S networkmanager #Install "networkmanager" to manage my network connecti
 systemctl enable NetworkManager #Autostart NetworkManager at boot
 ```
 
+## Exit the system and reboot the computer
+
+```
+exit #Get out of the chroot
+umount -l /mnt #Umount the /mnt mounted point
+reboot #Reboot the computer to boot into the fresh Arch install
+```
+
+## Log in with the "regular" user previously created and install additional useful packages
+
+```
+sudo pacman -S base-devel linux-headers man bash-completion intel-ucode #Additional useful packages and drivers. Install "amd-ucode" instead of "intel-ucode" if you have an AMD CPU
+sudo grub-mkconfig -o /boot/grub/grub.cfg #Re-generate Grub configuration to include CPU microcode
+```
+
 ### Install a firewall (optional)
 
 Installing a firewall may be optionnal for a fresh and simple **desktop** install as Arch doesn't expose any service/ports by default.  
@@ -155,25 +170,8 @@ Check this link for more info/reasons to install a firewall: https://unix.stacke
   
 ```
 pacman -S firewalld #Install firewalld
-systemctl enable firewalld #Autostart firewalld at boot
+systemctl enable --now firewalld #Autostart firewalld at boot
 ```
-
-## Exit the system and reboot the computer
-
-```
-exit #Get out of the chroot
-umount -l /mnt #Umount the /mnt mounted point
-reboot #Reboot the computer to boot into the fresh Arch install
-```
-
-## Log in with the "regular" user previously created and install other useful packages
-
-```
-sudo pacman -S base-devel linux-headers man bash-completion intel-ucode #Additional useful packages and drivers. Install "amd-ucode" instead of "intel-ucode" if you have an AMD CPU
-sudo grub-mkconfig -o /boot/grub/grub.cfg #Re-generate Grub configuration to include CPU microcode
-```
-
-## Remove default authorised services in the firewall (optional)
 
 FirewallD authorises the "ssh" and "dhcpv6-client" services by default, to make sure you won't loose access to your machine if you need those.  
 But I usually prefer removing them and accept what needs to be accepted myself for a finner control.   
@@ -183,7 +181,6 @@ sudo firewall-cmd --remove-service="ssh" --permanent #Remove the default authori
 sudo firewall-cmd --remove-service="dhcpv6-client" --permanent #Remove the default authorised DHCPV6-client service
 sudo firewall-cmd --reload #Apply changes
 ```
-
 
 ## Base installation complete!
 
