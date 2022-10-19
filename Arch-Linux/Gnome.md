@@ -1,5 +1,31 @@
 # Gnome
 
+## Install Xorg and Nvidia drivers (optional)
+
+As I have a Nvidia GPU, I'm still using Xorg over Wayland.  
+  
+```
+sudo pacman -S xorg-server nvidia
+sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
+```
+
+## Install Gnome (minimal installation)
+
+Minimal installation according to my personal preferences.  
+Check https://archlinux.org/groups/x86_64/gnome/ & https://archlinux.org/groups/x86_64/gnome-extra/ to see what you want to install or not.  
+If you want a complete Gnome installation, just install the "gnome" package (and the "gnome-extra" package if you want to).  
+
+```
+sudo pacman -S gnome-shell gnome-control-center gnome-terminal gnome-calculator gnome-screenshot gnome-menus gnome-shell-extensions gnome-tweaks nautilus gedit file-roller eog xdg-user-dirs-gtk gdm 
+sudo systemctl enable gdm
+```
+
+## Reboot and log into Gnome
+
+```
+sudo reboot
+```
+
 ## Install an AUR Helper and a graphical package installer
 
 ```
@@ -56,7 +82,7 @@ sudo vim /etc/fstab
 - imagewriter (AUR)
 - timeshift (AUR) --> `sudo systemctl enable --now cronie`
 - mkinitcpio-numlock (AUR) **Then add the "numlock" hook in /etc/mkinitcpio.conf between "autodetect" and "modconf" and then** `sudo mkinitcpio -p linux`
-- touchegg (AUR) **Only for my Laptop to enable trackpad gestures. After install :** `sudo systemctl enable --now touchegg`
+- touchegg (AUR) **Only for my Laptop to enable trackpad gestures. After install:** `sudo systemctl enable --now touchegg`
 - tmux
 - dmenu
 - zathura
@@ -69,10 +95,10 @@ sudo vim /etc/fstab
 
 ## Theme
 
-- Applications : Kimi-Dark (V40) - https://www.gnome-look.org/p/1326889/
-- Icon : Tela-Circle-Blue - https://www.gnome-look.org/p/1359276/
-- Shell : Orchis-dark-compact - https://www.gnome-look.org/p/1357889/
-- Cursor : McMojave cursors - https://www.opendesktop.org/s/Gnome/p/1355701/
+- Applications: Kimi-Dark (V40) - https://www.gnome-look.org/p/1326889/
+- Icon: Tela-Circle-Blue - https://www.gnome-look.org/p/1359276/
+- Shell: Orchis-dark-compact - https://www.gnome-look.org/p/1357889/
+- Cursor: McMojave cursors - https://www.opendesktop.org/s/Gnome/p/1355701/
 
 ## Bash Theme
 

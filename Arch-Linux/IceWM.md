@@ -1,5 +1,71 @@
 # IceWM
 
+## Install Xorg and graphical drivers (optional)
+
+- For regular computers:  
+  
+```
+sudo pacman -S xorg-server nvidia
+sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
+```
+
+- For Raspberry Pi:  
+  
+```
+sudo pacman -S xorg-server xf86-video-fbdev
+sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
+```
+
+## Install IceWM
+
+IceWM with a few extra packages according to my personal preferences.  
+Still a very minimal installation though.
+
+- For regular computers:  
+
+```
+sudo pacman -S icewm xfce4-terminal polkit-gnome pulseaudio picom plank thunar thunar-archive-plugin file-roller gvfs xdg-user-dirs-gtk mousepad ristretto flameshot notification-daemon gnome-calculator network-manager-applet blueman redshift openssh xorg-xinit xorg-xrandr xautolock i3lock lxappearance numlockx playerctl gsimplecal
+```
+
+- For Raspberry Pi:  
+
+```
+sudo pacman -S icewm xfce4-terminal polkit-gnome pulseaudio mousepad ristretto thunar thunar-archive-plugin file-roller gvfs notification-daemon xdg-user-dirs-gtk network-manager-applet xorg-xinit xorg-xrandr i3lock numlockx xdotool playerctl
+```
+
+### Configuring startx for IceWM
+
+I'm not using any display manager with IceWM.  
+I'm using startx instead. I configure it this way:  
+
+```
+cp /etc/X11/xinit/xinitrc ~/.xinitrc
+vim ~/.xinitrc #Delete the 5 last lines and add the following ones instead
+```
+
+> [...]  
+> #Start IceWM  
+> export XDG_SESSION_TYPE=X11  
+> numlockx &  
+> exec icewm-session  
+
+```
+vim ~/.bash_profile
+```
+
+> [...]  
+> #Autostart IceWM  
+> ``if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then``   
+> > exec startx  
+>  
+> fi 
+
+## Reboot and log into IceWM
+
+```
+sudo reboot
+```
+
 ## Install an AUR Helper and a graphical package installer
 
 ```
@@ -71,9 +137,9 @@ sudo vim /etc/fstab
 
 ## Theme
 
-- Shell : Orchis-dark-compact - https://www.gnome-look.org/p/1357889/
-- Icon : Tela-Circle-Blue - https://www.gnome-look.org/p/1359276/
-- Cursor : McMojave cursors - https://www.opendesktop.org/s/Gnome/p/1355701/
+- Shell: Orchis-dark-compact - https://www.gnome-look.org/p/1357889/
+- Icon: Tela-Circle-Blue - https://www.gnome-look.org/p/1359276/
+- Cursor: McMojave cursors - https://www.opendesktop.org/s/Gnome/p/1355701/
 
 ## Bash Theme
 
@@ -91,19 +157,19 @@ git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster
 
 ## Configuration
 
-**Warning : "/home/rcandau" is hard-coded in the "~/.icewm/keys" file (Lock Screen Shortcut)**  
+**Warning: "/home/rcandau" is hard-coded in the "~/.icewm/keys" file (Lock Screen Shortcut)**  
 **Change it accordingly to your username**  
 
 ### IceWM configuration
 
-- For regular computers :  
+- For regular computers:  
 
 ```
 mkdir -p ~/.icewm && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/IceWM/icewm.zip -O && unzip icewm.zip -d ~/.icewm/ && chmod +x ~/.icewm/startup && rm -f icewm.zip
 ```
 **Remember to uncomment the correct "Display resolution" line in the "~/.icewm/startup" script depending on the machine (First Line = Desktop | Second Line = Laptop)**  
 
-- For Raspberry Pi :  
+- For Raspberry Pi:  
 
 ```
 mkdir -p ~/.icewm && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/IceWM/icewm-rpi.zip -O && unzip icewm-rpi.zip -d ~/.icewm/ && chmod +x ~/.icewm/startup && rm -f icewm-rpi.zip
