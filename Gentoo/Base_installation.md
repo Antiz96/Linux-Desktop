@@ -136,14 +136,14 @@ https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Base#Configuring_the_US
 ```
 emerge vim
 vim /etc/portage/make.conf
-
 ```
+
 > #USE Flags  
 > USE="bash-completion -a52 -cdda -cdr curl -dvd -dvdr ffmpeg -fortran imap man networkmanager pulseaudio -qt5 -wayland zip gtk3 gtk4 minizip postproc script dist-kernel"  
 
 ### Configuring the ACCEPT LICENSE variable
 
-[link](https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Base#Optional:_Configuring_the_ACCEPT_LICENSE_variable)
+https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Base#Optional:_Configuring_the_ACCEPT_LICENSE_variable
 
 ```
 vim /etc/portage/make.conf
