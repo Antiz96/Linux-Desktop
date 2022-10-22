@@ -35,6 +35,9 @@ export EDITOR=/usr/bin/vim
 #Export Lang for dmenu
 export LC_CTYPE="fr_FR.UTF-8"
 
+#Export Flatpak path
+export PATH="$PATH:/var/lib/flatpak/exports/bin"
+
 ##Aliases##
 
 #Listing Files
