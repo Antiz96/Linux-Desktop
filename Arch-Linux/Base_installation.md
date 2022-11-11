@@ -169,8 +169,8 @@ Check this link for more info/reasons to install a firewall: https://unix.stacke
 *For a server, you probably **should** install a firewall.*  
   
 ```
-pacman -S firewalld #Install firewalld
-systemctl enable --now firewalld #Autostart firewalld at boot
+sudo pacman -S firewalld #Install firewalld
+sudo systemctl enable --now firewalld #Autostart firewalld at boot
 ```
 
 FirewallD authorises the "ssh" and "dhcpv6-client" services by default, to make sure you won't loose access to your machine if you need those.  
