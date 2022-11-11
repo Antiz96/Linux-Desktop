@@ -117,5 +117,5 @@ sudo reboot
 
 If I need a graphical interface, I either use IceWM or i3 on my RPI as they are very lightweight:  
   
-https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/IceWM.md
+https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/IceWM.md  
 https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/i3.md
