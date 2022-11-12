@@ -4,7 +4,7 @@
 
 https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-4  
      
-I also create a third partition of 4G for Swap.
+I also create a third 4G partition for Swap.
 
 ## Configuration
 
@@ -27,6 +27,7 @@ Uncomment the following line:
 ```
 sudo vi /etc/pacman.conf
 ```
+
 > [...]  
 > Color  
 > [...]  
@@ -49,6 +50,7 @@ sudo mkswap /dev/mmcblk1p3
 sudo swapon /dev/mmcblk1p3
 sudo vi /etc/fstab
 ```
+
 > [...]  
 > /dev/mmcblk1p3  none    swap    defaults        0       0
 
@@ -96,11 +98,12 @@ https://github.com/Antiz96/Linux-Configuration/blob/main/Arch-Linux/Base_install
 ## Disable systemd-resolved
 
 Systemd-resolved is enabled by default on Arch-Linux ARM.  
-It causes interferences with NetworkManager:  
+It causes interferences with NetworkManager so I disable it:   
 
 ```
 sudo vim /etc/systemd/resolved.conf
 ```
+
 > [...]  
 > [Resolve]  
 > DNSStubListener=no  
@@ -110,12 +113,22 @@ sudo vim /etc/systemd/resolved.conf
 sudo systemctl disable --now systemd-resolved
 sudo rm /etc/resolv.conf
 sudo touch /etc/resolv.conf
+```
+
+## Switch to the Linux RPI Kernel
+
+By default, Arch Linux ARM **aarch64** comes with the mainline Linux kernel.  
+I personally advise switching to the Linux RPI kernel for a better hardware support:  
+  
+```
+sudo pacman -S linux-rpi linux-rpi-headers #Accept to replace conflicting packages
+sudo sed -i 's/mmcblk1/mmcblk0/' /etc/fstab
 sudo reboot
 ```
 
-## Window manager (optional)
-
-If I need a graphical interface, I either use IceWM or i3 on my RPI as they are very lightweight:  
+## Desktop environment/Window manager (optional)
   
+https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Gnome.md  
+https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/XFCE.md  
 https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/IceWM.md  
 https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/i3.md

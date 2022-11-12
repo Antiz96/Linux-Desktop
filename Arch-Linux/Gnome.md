@@ -1,13 +1,26 @@
 # Gnome
 
-## Install Xorg and Nvidia drivers (optional)
+## Install Xorg and graphical drivers (optional)
 
-As I have a Nvidia GPU, I'm still using Xorg over Wayland.  
+*As I have a Nvidia GPU, I'm still using Xorg over Wayland.*  
+  
+- For regular computers:  
   
 ```
 sudo pacman -S xorg-server nvidia
 sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
 ```
+
+- For Raspberry Pi:  
+  
+```
+sudo pacman -S xorg-server xf86-video-fbdev
+sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
+sudoedit /boot/config.txt
+```
+
+> [...]  
+> gpu_mem=256 #Increasing the reserved memory for the GPU
 
 ## Install Gnome (minimal installation)
 
@@ -116,15 +129,9 @@ git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster
 
 ## Gnome extensions
 
-- Arch Linux Updates Indicator
-- Arcmenu
 - Caffeine
-- Coverflow alt+tab
 - Dash to dock
-- Frippery move clock
 - Native window placement
-- Panel osd
-- Transparent Shell
 - Tray Icons: Reloaded
 - User themes
 - Workspace indicator
@@ -170,7 +177,6 @@ source ~/.bashrc
 
 ## Keyboard Shortcuts
 
-- Super = Open ArcMenu
 - Super + F = Switch size of windows (Maximize/Minimize)
 - Super + D = Close the window
 - Super + E = Nautilus
@@ -179,4 +185,3 @@ source ~/.bashrc
 - Super + A = Overview
 - Super + L = Lock the screen
 - Super + T = gnome-terminal
-- CTRL + ALT + DEL = htop
