@@ -1,13 +1,26 @@
 # Gnome
 
-## Install Xorg and Nvidia drivers (optional)
+## Install Xorg and graphical drivers (optional)
 
-As I have a Nvidia GPU, I'm still using Xorg over Wayland.  
+*As I have a Nvidia GPU, I'm still using Xorg over Wayland.*  
+  
+- For regular computers:  
   
 ```
 sudo pacman -S xorg-server nvidia
 sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
 ```
+
+- For Raspberry Pi:  
+  
+```
+sudo pacman -S xorg-server xf86-video-fbdev
+sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
+sudoedit /boot/config.txt
+```
+
+> [...]  
+> gpu_mem=256 #Increasing the reserved memory for the GPU
 
 ## Install Gnome (minimal installation)
 

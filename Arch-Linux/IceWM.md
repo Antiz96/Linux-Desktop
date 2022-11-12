@@ -14,7 +14,11 @@ sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
 ```
 sudo pacman -S xorg-server xf86-video-fbdev
 sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
+sudoedit /boot/config.txt
 ```
+
+> [...]  
+> gpu_mem=256 #Increasing the reserved memory for the GPU
 
 ## Install IceWM
 
