@@ -122,6 +122,7 @@ I personally advise switching to the Linux RPI kernel for a better hardware supp
   
 ```
 sudo pacman -S linux-rpi linux-rpi-headers #Accept to replace conflicting packages
+sudo sed -i 's/mmcblk1/mmcblk0/' /etc/fstab
 sudo reboot
 ```
 
