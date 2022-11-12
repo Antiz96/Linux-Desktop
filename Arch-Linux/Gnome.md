@@ -129,15 +129,9 @@ git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster
 
 ## Gnome extensions
 
-- Arch Linux Updates Indicator
-- Arcmenu
 - Caffeine
-- Coverflow alt+tab
 - Dash to dock
-- Frippery move clock
 - Native window placement
-- Panel osd
-- Transparent Shell
 - Tray Icons: Reloaded
 - User themes
 - Workspace indicator
@@ -183,7 +177,6 @@ source ~/.bashrc
 
 ## Keyboard Shortcuts
 
-- Super = Open ArcMenu
 - Super + F = Switch size of windows (Maximize/Minimize)
 - Super + D = Close the window
 - Super + E = Nautilus
@@ -192,4 +185,3 @@ source ~/.bashrc
 - Super + A = Overview
 - Super + L = Lock the screen
 - Super + T = gnome-terminal
-- CTRL + ALT + DEL = htop
