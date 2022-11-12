@@ -118,6 +118,7 @@ git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster
 
 - Arch Linux Updates Indicator
 - Arcmenu
+- Caffeine
 - Coverflow alt+tab
 - Dash to dock
 - Frippery move clock
