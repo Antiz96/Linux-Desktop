@@ -105,6 +105,7 @@ sudo vim /etc/fstab
 ```
 
 - arch-update (AUR) --> https://github.com/Antiz96/arch-update `systemctl --user enable --now arch-update.timer`
+- autorandr **Only for my laptop in order to autodetect and apply external monitors resolution/refresh rate**
 - ddgr
 - discord
 - docker --> `sudo systemctl enable --now docker`
