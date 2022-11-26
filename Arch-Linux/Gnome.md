@@ -71,7 +71,6 @@ sudo vim /etc/fstab
 
 - arch-update (AUR) --> https://github.com/Antiz96/arch-update `systemctl --user enable --now arch-update.timer` 
 - gnome-browser-connector (AUR) 
-- ddgr (AUR) 
 - discord  
 - docker --> `sudo systemctl enable --now docker`
 - distrobox (AUR)
