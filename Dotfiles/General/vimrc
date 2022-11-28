@@ -27,6 +27,15 @@ set is
 "Highlight searched patterns
 set hls
 
+"Press space to turn of highlights after a search
+:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
+"Auto indentation (cursor goes at the same level as the previous line)
+set autoindent
+
+"Smart indentation (automatic tab when writing code)
+set smartindent
+
 "Enable mouse support
 set mouse=a
 
