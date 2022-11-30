@@ -80,7 +80,8 @@ sudo vim /etc/fstab
 - gparted  
 - hexchat  
 - keepassxc 
-- mailspring (AUR) 
+- thunderbird
+- systray-x-git (AUR)
 - vlc  
 - onlyoffice-bin (AUR)  
 - openresolv **Only for my Laptop in order to connect to my VPN**  
