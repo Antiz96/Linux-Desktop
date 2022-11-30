@@ -79,7 +79,8 @@ sudo vim /etc/fstab
 - onlyoffice-bin (AUR)
 - openresolv **Only for my Laptop in order to connect to my VPN**
 - firefox
-- mailspring (AUR)
+- thunderbird
+- systray-x-git (AUR)
 - pacman-contrib
 - protonmail-bridge (AUR)
 - spotify (AUR)
