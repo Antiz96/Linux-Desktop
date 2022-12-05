@@ -30,7 +30,7 @@ set hls
 "Press space to turn of highlights after a search
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
-"Auto indentation (cursor goes at the same level as the previous line)
+"Auto indentation (cursor goes at the same level as the beginning of the previous line)
 set autoindent
 
 "Smart indentation (automatic tab when writing code)
@@ -44,3 +44,6 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`
 
 "Change 'conf' filetype to 'confini' for a better syntax highlighting
 autocmd FileType conf set ft=confini
+
+"Automatically set list for markdown files (useful to see double spaces at the end of a line to insert a new line)
+autocmd FileType markdown set list
