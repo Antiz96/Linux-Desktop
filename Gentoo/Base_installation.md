@@ -183,7 +183,7 @@ env-update && source /etc/profile && export PS1="(chroot) ${PS1}"
 
 ### Install Linux Firmware and intel microcode
 
-Install "amd-microcode" instead of "intel-ucode" for AMD CPU  
+Install "amd-microcode" instead of "intel-microcode" for AMD CPU  
   
 ```
 emerge --ask sys-kernel/linux-firmware sys-firmware/intel-microcode
