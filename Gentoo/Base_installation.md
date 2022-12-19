@@ -192,7 +192,7 @@ emerge --ask sys-kernel/linux-firmware sys-firmware/intel-microcode
 ## Installing a kernel
 
 I usually install the "default" Gentoo kernel *binary* for speed and convience, but you can actually configure/compile your owm kernel if you want to.  
-See https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Kernel for more information.
+See https://wiki.gentoo.org/wiki/Kernel and https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Kernel for more information.
 
 ### Install the Gentoo kernel
 
