@@ -141,7 +141,7 @@ vim /etc/portage/make.conf
 ```
 
 > #USE Flags  
-> USE="X minimal bash-completion -a52 -cdda -cdr curl -dvd -dvdr ffmpeg -fortran imap man networkmanager pulseaudio -qt5 -wayland zip gtk3 gtk4 minizip postproc script dist-kernel"  
+> USE="X bash-completion -a52 -cdda -cdr curl -dvd -dvdr ffmpeg -fortran imap man networkmanager pulseaudio -qt5 -wayland zip gtk3 gtk4 minizip postproc script dist-kernel"  
 
 ### Configuring the ACCEPT LICENSE variable
 
@@ -334,7 +334,7 @@ Check this link for more info/reasons to install a firewall: https://unix.stacke
 *For a server, you probably **should** install a firewall.*  
   
 ```
-sudo env USE="-pulseaudio" emerge --ask firewalld #The env USE variable allows you to add or remove CFlags directly in the emerge command. Those flags will not be remembered (unlike the ones set in /etc/portage/make.conf). It's useful to set some CFlags for a specific package that requires them, like FirewallD.
+sudo env USE="minimal -pulseaudio" emerge --ask firewalld #The env USE variable allows you to add or remove CFlags directly in the emerge command. Those flags will not be remembered (unlike the ones set in /etc/portage/make.conf). It's useful to set some CFlags for a specific package that requires them, like FirewallD.
 sudo systemctl enable --now firewalld #Autostart firewalld at boot
 ```
 
