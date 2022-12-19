@@ -58,8 +58,10 @@ wget https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/2022101
 tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 ```
 
-### Setup parallel compilations ("A good choice is the smaller of: the number of threads the CPU has, or the total system RAM divided by 2 GiB.")
+### Setup parallel compilations
 
+According to Gentoo documentation, a good choice is the smaller of the number of threads the CPU has, or the total system RAM divided by 2 GiB.
+  
 ```
 vi /mnt/gentoo/etc/portage/make.conf
 ```
@@ -120,7 +122,7 @@ eselect news purge #Remove read items
 
 ```
 eselect profile list #List available profiles. The one currently being used is taggued with "*"
-eselect profile set "number" #To select another profile (mine is : "/desktop/systemd (stable)")
+eselect profile set "number" #To select another profile (mine is: "/desktop/systemd (stable)")
 ```
 
 ### Update the @world set (updating the system)
