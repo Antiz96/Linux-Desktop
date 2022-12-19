@@ -316,13 +316,9 @@ emerge sudo
 export EDITOR=vim
 visudo
 ```
-
-## Reboot the system and log to the regular user
-
-```
-reboot
-```
-
+  
+Then login to the regular user.
+  
 ## Install additional useful packages
 
 ```
