@@ -58,8 +58,10 @@ wget https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/2022101
 tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 ```
 
-### Setup parallel compilations ("A good choice is the smaller of: the number of threads the CPU has, or the total system RAM divided by 2 GiB.")
+### Setup parallel compilations
 
+According to Gentoo documentation, a good choice is the smaller of the number of threads the CPU has, or the total system RAM divided by 2 GiB.
+  
 ```
 vi /mnt/gentoo/etc/portage/make.conf
 ```
@@ -120,7 +122,7 @@ eselect news purge #Remove read items
 
 ```
 eselect profile list #List available profiles. The one currently being used is taggued with "*"
-eselect profile set "number" #To select another profile (mine is : "/desktop/systemd (stable)")
+eselect profile set "number" #To select another profile (mine is: "/desktop/systemd (stable)")
 ```
 
 ### Update the @world set (updating the system)
@@ -139,7 +141,7 @@ vim /etc/portage/make.conf
 ```
 
 > #USE Flags  
-> USE="bash-completion -a52 -cdda -cdr curl -dvd -dvdr ffmpeg -fortran imap man networkmanager pulseaudio -qt5 -wayland zip gtk3 gtk4 minizip postproc script dist-kernel"  
+> USE="X minimal bash-completion -a52 -cdda -cdr curl -dvd -dvdr ffmpeg -fortran imap man networkmanager pulseaudio -qt5 -wayland zip gtk3 gtk4 minizip postproc script dist-kernel"  
 
 ### Configuring the ACCEPT LICENSE variable
 
@@ -181,7 +183,7 @@ env-update && source /etc/profile && export PS1="(chroot) ${PS1}"
 
 ### Install Linux Firmware and intel microcode
 
-Install "amd-microcode" instead of "intel-ucode" for AMD CPU  
+Install "amd-microcode" instead of "intel-microcode" for AMD CPU  
   
 ```
 emerge --ask sys-kernel/linux-firmware sys-firmware/intel-microcode
@@ -189,19 +191,13 @@ emerge --ask sys-kernel/linux-firmware sys-firmware/intel-microcode
 
 ## Installing a kernel
 
-I usually install the "default" Gentoo kernel for convience, but you can actually configure/compile your owm kernel if you want to.  
-See https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Kernel for more information.
-
-### Installing the "installkernel" package
-
-```
-emerge --ask sys-kernel/installkernel-gentoo
-```
+I usually install the "default" Gentoo kernel *binary* for speed and convience, but you can actually configure/compile your owm kernel if you want to.  
+See https://wiki.gentoo.org/wiki/Kernel and https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Kernel for more information.
 
 ### Install the Gentoo kernel
 
 ```
-emerge --ask sys-kernel/gentoo-kernel
+emerge --ask sys-kernel/gentoo-kernel-bin
 ```
 
 ### Delete potential old kernel versions
@@ -320,13 +316,9 @@ emerge sudo
 export EDITOR=vim
 visudo
 ```
-
-## Reboot the system and log to the regular user
-
-```
-reboot
-```
-
+  
+Then login to the regular user.
+  
 ## Install additional useful packages
 
 ```
@@ -342,7 +334,7 @@ Check this link for more info/reasons to install a firewall: https://unix.stacke
 *For a server, you probably **should** install a firewall.*  
   
 ```
-sudo env USE="minimal -pulseaudio" emerge --ask firewalld #The env USE variable allows you to add or remove CFlags directly in the emerge command. Those flags will not be remembered (unlike the ones set in /etc/portage/make.conf). It's useful to set some CFlags for a specific package that requires them, like FirewallD.
+sudo env USE="-pulseaudio" emerge --ask firewalld #The env USE variable allows you to add or remove CFlags directly in the emerge command. Those flags will not be remembered (unlike the ones set in /etc/portage/make.conf). It's useful to set some CFlags for a specific package that requires them, like FirewallD.
 sudo systemctl enable --now firewalld #Autostart firewalld at boot
 ```
 
