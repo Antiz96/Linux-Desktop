@@ -37,7 +37,7 @@ sudo systemctl enable lightdm
 sudo reboot
 ```
 
-## Install an AUR Helper and a graphical package installer
+## Install the yay AUR Helper
 
 ```
 sudo pacman -S git
@@ -45,14 +45,33 @@ cd /tmp
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
-yay -S pamac-aur
 ```
 
-## Installing bluetooth support
+## Enable multilib repo in pacman.conf
 
+```
+sudo vim /etc/pacman.conf
+```
+> [multilib]  
+> Include = /etc/pacman.d/mirrorlist  
+  
+```
+sudo pacman -Syy
+```
+
+## Install bluetooth support
+
+- With an integrated bluetooth card:
+```
+sudo pacman -S bluez bluez-utils pulseaudio-bluetooth
+sudo systemctl enable --now bluetooth
+```
+  
+- With a bluetooth USB dongle:  
+*(My bluetooth USB dongle needs some deprecated tools to work properly)*
 ```
 sudo pacman -S bluez pulseaudio-bluetooth
-yay -S bluez-utils-compat #That package contains deprecated tools that I need to make my USB-Dongle work. If you don't need them, just install **bluez-utils** via pacman
+yay -S bluez-utils-compat
 sudo systemctl enable --now bluetooth
 ```
 
@@ -65,42 +84,21 @@ sudo vim /etc/fstab
 > #Data  
 > UUID=107b1979-e8ed-466d-bb10-15e72f7dd2ae       /run/media/rcandau/data         ext4          defaults 0 2  
 
-## Application
-- arch-update (AUR) --> https://github.com/Antiz96/arch-update `systemctl --user enable --now arch-update.timer`
-- discord
-- docker --> `sudo systemctl enable --now docker`
-- distrobox (AUR)
-- glow
-- gnome-keyring
-- gparted
-- hexchat
-- keepassxc
-- vlc
-- onlyoffice-bin (AUR)
-- openresolv **Only for my Laptop in order to connect to my VPN**
-- firefox
-- thunderbird
-- systray-x-git (AUR)
-- pacman-contrib
-- protonmail-bridge (AUR)
-- spotify (AUR)
-- steam
-- virtualbox
-- virt-viewer
-- imagewriter (AUR)
-- timeshift (AUR) --> `sudo systemctl enable --now cronie`
-- mkinitcpio-numlock (AUR) **Then add the "numlock" hook in /etc/mkinitcpio.conf between "autodetect" and "modconf" and then** `sudo mkinitcpio -p linux`
-- lightdm-webkit2-theme-glorious (AUR) --> https://github.com/manilarome/lightdm-webkit2-theme-glorious & https://github.com/manilarome/lightdm-webkit2-theme-glorious/issues/33
-- mugshot (AUR)
-- tmux
-- dmenu
-- zathura
-- zathura-pdf-poppler
-- mlocate
-- htop
-- neofetch
-- wireguard-tools **Only for my Laptop in order to connect to my VPN**
-- zaman (AUR) --> https://github.com/Antiz96/zaman
+## Install packages
+
+- Main packages:
+```
+sudo pacman -S discord dmenu docker firefox glow hexchat htop keepassxc mlocate neofetch ntfs-3g pacman-contrib steam thunderbird tmux virt-viewer vlc zathura zathura-pdf-poppler #Main packages from Arch repos
+yay -S arch-update distrobox lightdm-webkit2-theme-glorious mugshot onlyoffice-bin pa-applet-git protonmail-bridge spotify systray-x-git timeshift ventoy-bin zaman #Main packages from the AUR
+sudo pacman -S --asdeps gnome-keyring gnu-free-fonts ttf-dejavu xclip xdg-utils #Optional dependencies that I need for the above packages
+systemctl --user enable --now arch-update.timer #Start and enable associated timers
+sudo systemctl enable --now docker cronie #Start and enable associated services
+```
+  
+- Laptop only packages:
+```
+sudo pacman -S openresolv wireguard-tools
+```
 
 ## Theme
 
@@ -163,19 +161,7 @@ I use picom instead, for window animations and transparency support (see the "Au
 - xapp-sn-watcher
 - Xfce Notification Daemon
 
-## Autoconnect to bluetooth headphones
-
-```
-bluetoothctl trust 38:18:4C:E9:85:B4
-sudo vi /etc/pulse/default.pa
-```
-> [...]  
-> #Automatically switch to newly-connected devices  
-> load-module module-switch-on-connect  
-
-## Top panel configuration (See Dotfiles part)
-
-https://github.com/Antiz96/Linux-Customisation/blob/main/Dotfiles/XFCE/xfce4-panel.xml  
+## Top panel configuration
   
 Needs to be done manually:  
    
@@ -183,6 +169,15 @@ Needs to be done manually:
 - WhiskerMenu Configuration --> Apparance: Tree display mode | 80% opacity --> Dashboard Button: Icon + text and Arch Linux logo --> Behavior: All apps | Categories menu --> Commands: Modify App | Modify Profil
 - Notification Greffon --> Mask the confirmation for "Delete the journal"
 - Power Management Greffon --> Show the "presentation mode" indicator
+
+## Make bluetooth autoconnect to trusted devices
+
+```
+sudo vi /etc/pulse/default.pa
+```
+> [...]  
+> #Automatically switch to newly-connected devices  
+> load-module module-switch-on-connect  
 
 ## Dotfiles
 
@@ -201,9 +196,7 @@ sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dot
 source ~/.bashrc
 ```
 
-## Keyboard Shortcuts (see Dotfiles part)
-
-https://github.com/Antiz96/Linux-Customisation/blob/main/Dotfiles/XFCE/xfce4-keyboard-shortcuts.xml  
+## Keyboard Shortcuts
   
 - Super + A = Open Whisker Menu --> xfce4-popup-whiskermenu
 - Super + F = Switch size of windows (Maximize/Minimize)
