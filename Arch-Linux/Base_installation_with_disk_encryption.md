@@ -12,7 +12,7 @@ timedatectl set-ntp true #Enable NTP
 timedatectl status #Check the NTP Status
 ```
 
-## Preparing the disk
+## Prepare the disk
 
 ```
 fdisk -l #Check the hard drives' name to select the one I want to install Arch Linux on
@@ -24,7 +24,7 @@ fdisk -l #Check the hard drives' name to select the one I want to install Arch L
 > Swap partition --> 4G - SWAP (https://itsfoss.com/swap-size)    
 > Root partition mounted on / --> Left free space - EXT4  
 
-### Partitioning the disk  
+### Partition the disk  
 
 ```
 fdisk /dev/nvme0n1 #Partitioning the disk I want to install Arch on
@@ -55,7 +55,7 @@ cryptsetup open /dev/nvme0n1p3 root #Open the encryption container on the Root p
 mkfs.ext4 /dev/mapper/root #Make the filesystem for the root partition
 ```
 
-## Mounting the partitions and install the system's base 
+### Mount the partitions and install the system's base 
 
 ```
 mount /dev/mapper/root /mnt #Mount the Root partition on /mnt to install the system's base on it
@@ -65,15 +65,15 @@ pacstrap /mnt base linux linux-firmware #Install the system's base on the Root p
 genfstab -U /mnt >> /mnt/etc/fstab #Generate the system's fstab
 ```
 
-## Configuring the system
+## Configure the system
 
-### Entering the system
+### Chroot into the system
 
 ```
 arch-chroot /mnt #Chroot in the new installed system's base on the root partition
 ```
 
-### Configuring pacman
+### Configure pacman
 
 ```
 pacman -S vim #Install my favorite editor
