@@ -70,7 +70,7 @@ vim ~/.bash_profile
 sudo reboot
 ```
 
-## Install an AUR Helper and a graphical package installer
+## Install the yay AUR Helper
 
 ```
 sudo pacman -S git
@@ -78,14 +78,33 @@ cd /tmp
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
-yay -S pamac-aur
 ```
 
-## Installing bluetooth support
+## Enable multilib repo in pacman.conf
 
+```
+sudo vim /etc/pacman.conf
+```
+> [multilib] 
+> Include = /etc/pacman.d/mirrorlist 
+
+```
+sudo pacman -Syy
+```
+
+## Install bluetooth support
+
+- With an integrated bluetooth card:
+```
+sudo pacman -S bluez bluez-utils pulseaudio-bluetooth
+sudo systemctl enable --now bluetooth
+```
+  
+- With a bluetooth USB dongle: 
+*(My bluetooth USB dongle needs some deprecated tools to work properly)*
 ```
 sudo pacman -S bluez pulseaudio-bluetooth
-yay -S bluez-utils-compat #That package contains deprecated tools that I need to make my USB-Dongle work. If you don't need them, just install **bluez-utils** via pacman
+yay -S bluez-utils-compat
 sudo systemctl enable --now bluetooth
 ```
 
@@ -95,50 +114,24 @@ sudo systemctl enable --now bluetooth
 sudo blkid #Show and copy the UUID of my secondary disk
 sudo vim /etc/fstab
 ```
-> #Data  
-> UUID=107b1979-e8ed-466d-bb10-15e72f7dd2ae       /run/media/rcandau/data         ext4          defaults 0 2  
+> #Data 
+> UUID=107b1979-e8ed-466d-bb10-15e72f7dd2ae       /run/media/rcandau/data         ext4          defaults 0 2 
 
-## Application 
+## Install packages
 
+- Main packages:
 ```
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+sudo pacman -S discord dmenu docker firefox glow hexchat htop keepassxc mlocate neofetch ntfs-3g pacman-contrib steam thunderbird tmux virt-viewer vlc zathura zathura-pdf-poppler #Main packages from Arch repos
+yay -S arch-update distrobox onlyoffice-bin pa-applet-git protonmail-bridge spotify systray-x-git timeshift ventoy-bin zaman #Main packages from the AUR
+sudo pacman -S --asdeps gnome-keyring gnu-free-fonts ttf-dejavu xclip xdg-utils #Optional dependencies that I need for the above packages
+systemctl --user enable --now arch-update.timer #Start and enable associated timers
+sudo systemctl enable --now docker cronie #Start and enable associated services
 ```
 
-- arch-update (AUR) --> https://github.com/Antiz96/arch-update `systemctl --user enable --now arch-update.timer`
-- autorandr **Only for my laptop in order to autodetect and apply external monitors resolution/refresh rate**
-- discord
-- docker --> `sudo systemctl enable --now docker`
-- distrobox (AUR)
-- glow
-- gnome-keyring
-- hexchat
-- keepassxc
-- vlc
-- gparted
-- onlyoffice-bin (AUR)
-- openresolv **Only for my Laptop in order to connect to my VPN**
-- firefox
-- thunderbird
-- systray-x-git (AUR)
-- pacman-contrib
-- protonmail-bridge (AUR)
-- spotify (AUR)
-- steam
-- virtualbox
-- virt-viewer
-- imagewriter (AUR)
-- timeshift (AUR) --> `sudo systemctl enable --now cronie`
-- pa-applet-git (AUR)
-- mkinitcpio-numlock (AUR) **Then add the "numlock" hook in /etc/mkinitcpio.conf between "autodetect" and "modconf" and then** `sudo mkinitcpio -p linux`
-- tmux
-- dmenu
-- zathura
-- zathura-pdf-poppler
-- mlocate
-- htop
-- neofetch
-- wireguard-tools **Only for my Laptop in order to connect to my VPN**
-- zaman (AUR) --> https://github.com/Antiz96/zaman
+- Laptop only packages:
+```
+sudo pacman -S autorandr openresolv wireguard-tools
+```
 
 ## Theme
 
@@ -210,10 +203,9 @@ sudo sed -i "s/Icon=system-software-install/Icon=pamac/g" /usr/share/application
 - Arch Update
 - Power
 
-## Autoconnect to bluetooth headphones
+## Make bluetooth autoconnect to trusted devices
 
 ```
-bluetoothctl trust 38:18:4C:E9:85:B4
 sudo vi /etc/pulse/default.pa
 ```
 > [...]  
