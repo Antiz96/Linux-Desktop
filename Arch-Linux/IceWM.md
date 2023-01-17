@@ -50,9 +50,15 @@ vim ~/.xinitrc #Delete the 5 last lines and add the following ones instead
 > [...]  
 > #Start IceWM  
 > export XDG_SESSION_TYPE=X11  
-> numlockx &  
+> xrandr --output DP-0 --primary --mode 1920x1080 --rate 165 --output HDMI-0 --mode 1920x1080 --rate 165 --left-of DP-0  
 > exec icewm-session  
-
+  
+Modify the `xrandr` command in the above snippet according to your monitor configuration.  
+  
+For me:  
+- Desktop: `xrandr --output DP-0 --primary --mode 1920x1080 --rate 165 --output HDMI-0 --mode 1920x1080 --rate 165 --left-of DP-0`
+- Laptop: `xrandr --output eDP-1 --primary --mode 1920x1080 --rate 60`
+  
 ```
 vim ~/.bash_profile
 ```
@@ -165,7 +171,6 @@ git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster
 ```
 mkdir -p ~/.icewm && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/IceWM/icewm.zip -O && unzip icewm.zip -d ~/.icewm/ && chmod +x ~/.icewm/startup && rm -f icewm.zip
 ```
-**Remember to uncomment the correct "Display resolution" line in the "~/.icewm/startup" script depending on the machine (First Line = Desktop | Second Line = Laptop)**  
 
 - For Raspberry Pi:  
 
