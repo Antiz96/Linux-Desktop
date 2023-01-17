@@ -331,9 +331,8 @@ bindsym F12 exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 
 ##Startup programs##
 
-#Display resolution
-#exec xrandr --output DP-0 --primary --mode 1920x1080 --rate 165 --output HDMI-0 --mode 1920x1080 --rate 165 --left-of DP-0
-#exec xrandr --output eDP-1 --primary --mode 1920x1080 --rate 60
+#Numlock
+exec numlockx
 
 #Wallpaper
 exec feh --bg-fill ~/.config/i3/wallpaper.jpg
