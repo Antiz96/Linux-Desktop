@@ -59,6 +59,7 @@ For me:
 - Desktop: `xrandr --output DP-0 --primary --mode 1920x1080 --rate 165 --output HDMI-0 --mode 1920x1080 --rate 165 --left-of DP-0`
 - Laptop: `xrandr --output eDP-1 --primary --mode 1920x1080 --rate 60`
   
+  
 ```
 vim ~/.bash_profile
 ```
