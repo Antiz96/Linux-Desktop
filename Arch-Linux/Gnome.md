@@ -99,7 +99,7 @@ sudo systemctl enable --now docker cronie #Start and enable associated services
 
 - Laptop only packages:
 ```
-sudo pacman -S openresolv wireguard-tools
+sudo pacman -S openresolv wireguard-tools power-profiles-daemon
 yay -S touchegg
 sudo systemctl enable --now touchegg
 ```

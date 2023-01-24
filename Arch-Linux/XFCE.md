@@ -97,7 +97,8 @@ sudo systemctl enable --now docker cronie #Start and enable associated services
   
 - Laptop only packages:
 ```
-sudo pacman -S openresolv wireguard-tools
+sudo pacman -S openresolv wireguard-tools tlp
+sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket && sudo systemctl enable --now tlp.service
 ```
 
 ## Theme
