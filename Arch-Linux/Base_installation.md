@@ -182,6 +182,16 @@ sudo firewall-cmd --remove-service="dhcpv6-client" --permanent #Remove the defau
 sudo firewall-cmd --reload #Apply changes
 ```
 
+## Enable fstrim (for SSDs only - optional)
+
+If you use SSDs, you can use `fstrim` to discard all unused blocks in the filesystem in order to improve performances.  
+You can launch it manually by running `sudo fstrim -av`, but keep in mind that it is not recommended to launch it too frequently. It is commonly approved that running it once a week is a sufficient frequency for most desktop and server systems.  
+  
+To launch `fstrim` automatically on a weekly basis, enable the associated systemd timer:  
+```
+sudo systemctl enable --now fstrim.timer
+```
+
 ## Base installation complete!
 
 Links to the installation and configuration procedure for Gnome, XFCE, IceWM and i3 on Arch according to my preferences below (if needed):  
