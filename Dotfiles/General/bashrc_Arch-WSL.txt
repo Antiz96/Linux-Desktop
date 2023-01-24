@@ -33,12 +33,6 @@ export Color="--color=auto"
 #Export Editor
 export EDITOR=/usr/bin/vim
 
-#Export term type (since tmux v3.3, the term type is "tmux-256color" which is not compatible with old machines so I force the old term type)
-export TERM=screen
-
-#Export Browser (for ddgr)
-export BROWSER=/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe
-
 ##Aliases##
 
 #Listing Files
@@ -66,9 +60,10 @@ alias upgrade="sudo pacman -Syu"
 alias fullupgrade="sudo pacman -Syu && yay -Syu"
 alias install="sudo pacman -S"
 alias remove="sudo pacman -Rns"
-alias search="pacman -Ss"
-alias package="pacman -Q"
-alias aurpackage="pacman -Qm"
+alias pkgsearch="pacman -Ss"
+alias binsearch="pacman -F"
+alias pkglist="pacman -Q"
+alias aurpkglist="pacman -Qm"
 alias cleancache="sudo pacman -Sc"
 alias cleanaurcache="yay -Sc"
 alias cleanorphans="pacman -Qtdq | sudo pacman -Rns -"
