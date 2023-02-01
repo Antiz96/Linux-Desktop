@@ -8,14 +8,12 @@
   
 ```
 sudo pacman -S xorg-server nvidia
-sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
 ```
 
 - For Raspberry Pi:  
   
 ```
 sudo pacman -S xorg-server xf86-video-fbdev
-sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
 sudoedit /boot/config.txt
 ```
 
@@ -31,6 +29,7 @@ If you want a complete Gnome installation, just install the "gnome" package (and
 ```
 sudo pacman -S gnome-shell gnome-control-center gnome-terminal gnome-calculator gnome-screenshot gnome-menus gnome-shell-extensions gnome-tweaks nautilus gedit file-roller eog xdg-user-dirs-gtk gdm 
 sudo systemctl enable gdm
+sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
 ```
 
 ## Reboot and log into Gnome

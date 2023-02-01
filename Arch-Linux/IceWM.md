@@ -6,14 +6,12 @@
   
 ```
 sudo pacman -S xorg-server nvidia
-sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
 ```
 
 - For Raspberry Pi:  
   
 ```
 sudo pacman -S xorg-server xf86-video-fbdev
-sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
 sudoedit /boot/config.txt
 ```
 
@@ -29,6 +27,7 @@ Still a very minimal installation though.
 
 ```
 sudo pacman -S icewm xfce4-terminal polkit-gnome pulseaudio picom plank thunar thunar-archive-plugin file-roller gvfs xdg-user-dirs-gtk mousepad ristretto flameshot notification-daemon gnome-calculator network-manager-applet blueman redshift openssh xorg-xinit xorg-xrandr xautolock i3lock lxappearance numlockx playerctl gsimplecal
+sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
 ```
 
 - For Raspberry Pi:  

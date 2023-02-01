@@ -6,14 +6,12 @@
   
 ```
 sudo pacman -S xorg-server nvidia
-sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
 ```
 
 - For Raspberry Pi:  
   
 ```
 sudo pacman -S xorg-server xf86-video-fbdev
-sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
 sudoedit /boot/config.txt
 ```
 
@@ -29,6 +27,7 @@ If you want a complete XFCE installation, just install the "xfce4" and the "xfce
 ```
 sudo pacman -S xfce4 mousepad ristretto thunar-archive-plugin xfce4-notifyd xfce4-screenshooter xfce4-screensaver xfce4-pulseaudio-plugin xfce4-whiskermenu-plugin numlockx plank gvfs gnome-calculator network-manager-applet blueman redshift file-roller picom xdg-user-dirs-gtk pulseaudio openssh lightdm lightdm-gtk-greeter
 sudo systemctl enable lightdm
+sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
 ```
 
 ## Reboot and log into XFCE
