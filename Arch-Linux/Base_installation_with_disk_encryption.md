@@ -142,11 +142,11 @@ pacman -S grub efibootmgr dosfstools mtools #Install the Grub bootloader and dep
 #### Configure the kernel and grub for encryption
 
 ```
-vim /etc/mkinitcpio.conf #Add the "keyboard", "keymap" and "encrypt" kernel hooks into the initkernel configuration for the encrytion.
+vim /etc/mkinitcpio.conf #Add the "encrypt" kernel hook into the mkinitcpio configuration for the encrytion.
 ```
 
 > [...]  
-> HOOKS=(base udev autodetect **keyboard** **keymap** modconf block **encrypt** filesystems fsck)  
+> HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block **encrypt** filesystems fsck)  
 > [...]  
 
 ```
