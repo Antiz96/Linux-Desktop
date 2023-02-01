@@ -34,6 +34,7 @@ sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
 
 ```
 sudo pacman -S icewm xfce4-terminal polkit-gnome pulseaudio mousepad ristretto thunar thunar-archive-plugin file-roller gvfs notification-daemon xdg-user-dirs-gtk network-manager-applet xorg-xinit xorg-xrandr i3lock numlockx xdotool playerctl
+sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
 ```
 
 ### Configuring startx for IceWM
