@@ -152,6 +152,8 @@ vim /etc/mkinitcpio.conf #Add the "encrypt" kernel hook into the mkinitcpio conf
 ```
 mkinitcpio -p linux #Apply the configuration to the linux kernel
 blkid #Show and copy the UUID of my encrypted root partition
+```
+```
 vim /etc/default/grub #Modify the grub default configuration to tell it which of my partition is encrypted (in the following format : cryptdevice=UUID=*UUID_of_the_encrypted_partition*:*Name_of_the_encrypted_partition* root=/dev/mapper/*Name_of_the_encrypted_partition*)
 ```
 > [...]  
