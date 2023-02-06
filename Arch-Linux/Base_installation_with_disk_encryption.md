@@ -183,7 +183,7 @@ reboot #Reboot the computer to boot into the fresh Arch install
 ## Log in with the "regular" user previously created and install additional useful packages
 
 ```
-sudo pacman -S base-devel linux-headers man bash-completion intel-ucode #Additional useful packages and drivers. Install "amd-ucode" instead of "intel-ucode" if you have an AMD CPU
+sudo pacman -S base-devel linux-headers man bash-completion intel-ucode pacman-contrib #Additional useful packages and drivers. Install "amd-ucode" instead of "intel-ucode" if you have an AMD CPU
 sudo grub-mkconfig -o /boot/grub/grub.cfg #Re-generate Grub configuration to include CPU microcode
 ```
 
@@ -207,6 +207,16 @@ But I usually prefer removing them and accept what needs to be accepted myself f
 sudo firewall-cmd --remove-service="ssh" --permanent #Remove the default authorised ssh service
 sudo firewall-cmd --remove-service="dhcpv6-client" --permanent #Remove the default authorised DHCPV6-client service
 sudo firewall-cmd --reload #Apply changes
+```
+
+## Enable paccache (automatic cleaning of pacman cache)
+
+The `pacman-contrib` package provides the `paccache` script which cleans the `pacman` cache by deleting all cached versions of installed and uninstalled packages, except for the most recent three.  
+You can launch it manually by running `paccache -r`.  
+  
+To launch `paccache` automatically on a weekly basis, enable the associated systemd timer:  
+```
+sudo systemctl enable --now paccache.timer
 ```
 
 ## Enable fstrim (for SSDs only - optional)
