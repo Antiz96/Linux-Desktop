@@ -55,7 +55,7 @@ alias install="sudo apt install"
 alias remove="sudo apt remove"
 alias purge="sudo apt purge"
 alias search="apt search"
-alias package="apt list --installed"
+alias pkglist="apt list --installed"
 alias cleancache="sudo apt clean"
 alias cleanorphans="sudo apt autoremove --purge"
 

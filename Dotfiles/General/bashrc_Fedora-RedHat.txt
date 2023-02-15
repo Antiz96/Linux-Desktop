@@ -60,7 +60,7 @@ alias fullupgrade="sudo dnf distro-sync --refresh && flatpak update"
 alias install="sudo dnf install"
 alias remove="sudo dnf remove"
 alias search="dnf search"
-alias package="dnf list installed"
+alias pkglist="dnf list installed"
 alias cleancache="sudo dnf clean all"
 alias cleanorphans="sudo dnf autoremove"
 
