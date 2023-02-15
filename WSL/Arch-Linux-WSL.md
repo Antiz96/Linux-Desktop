@@ -62,9 +62,9 @@ sudo systemctl enable --now cronie docker #Enable systemd services
 ### Download my config files
   
 ```
-curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles/General/bashrc_Arch-WSL.txt -o ~/.bashrc
-curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles/General/tmux.conf -o ~/.tmux.conf
-curl https://raw.githubusercontent.com/Antiz96/Linux-Configuration/main/Dotfiles/General/vimrc -o ~/.vimrc && mkdir -p ~/.vim/colors && curl https://raw.githubusercontent.com/vv9k/vim-github-dark/master/colors/ghdark.vim -o ~/.vim/colors/ghdark.vim
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/bashrc_Arch-WSL.txt -o ~/.bashrc
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/tmux.conf -o ~/.tmux.conf
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/vimrc -o ~/.vimrc && mkdir -p ~/.vim/colors && curl https://raw.githubusercontent.com/vv9k/vim-github-dark/master/colors/ghdark.vim -o ~/.vim/colors/ghdark.vim
 source ~/.bashrc
 ```
 
@@ -72,7 +72,7 @@ source ~/.bashrc
   
 ### Setup my DNS config for VPN
   
-https://github.com/Antiz96/Linux-Configuration/blob/main/WSL/Resolve_DNS_Using_VPN.md
+https://github.com/Antiz96/Linux-Desktop/blob/main/WSL/Resolve_DNS_Using_VPN.md
   
 ### Setup Openssh to accept rsa keys
 
