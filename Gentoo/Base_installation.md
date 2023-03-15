@@ -361,4 +361,4 @@ sudo systemctl enable --now fstrim.timer
 
 Link to the installation and configuration procedure for i3 on Gentoo according to my preferences below (if needed):  
   
-- [i3](https://github.com/Antiz96/Linux-Customisation/blob/main/Gentoo/i3.md)
+- [i3](https://github.com/Antiz96/Linux-Desktop/blob/main/Gentoo/i3.md)

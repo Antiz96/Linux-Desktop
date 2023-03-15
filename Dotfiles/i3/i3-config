@@ -308,7 +308,7 @@ mode "$power_menu" {
         bindsym Escape mode "default" ; exec kill $(pidof notification-daemon) && /usr/lib/notification-daemon-1.0/notification-daemon
 }
 
-bindsym $mod+Escape mode "$power_menu" ; exec notify-send -u critical -t 0 -i /usr/share/icons/Tela-circle-blue/scalable/apps/kshutdown.svg "Power menu" "[L]ock\n[H]alt\n[R]eboot\n[S]hutdown"
+bindsym $mod+Escape mode "$power_menu" ; exec notify-send -u critical -t 0 -i ~/.config/i3/shutdown.svg "Power menu" "[L]ock\n[H]alt\n[R]eboot\n[S]hutdown"
 
 #Multimedia go to previous
 bindsym F7 exec playerctl previous
@@ -341,7 +341,7 @@ exec feh --bg-fill ~/.config/i3/wallpaper.jpg
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 #Autolock && autosleep
-exec xautolock -detectsleep -time 15 -locker "i3lock -eti ~/.config/i3/lock.png" -killtime 15 -killer "systemctl suspend" -notify 60 -notifier 'notify-send -u critical -t 0 -i /usr/share/icons/Tela-circle-blue/scalable/apps/kshutdown.svg "Auto lock" "Based on current inactivity, the system will be locked automatically in 1 minute\n\nDismiss this notification to abort"'
+exec xautolock -detectsleep -time 15 -locker "i3lock -eti ~/.config/i3/lock.png" -killtime 15 -killer "systemctl suspend" -notify 60 -notifier 'notify-send -u critical -t 0 -i ~/.config/i3/shutdown.svg "Auto lock" "Based on current inactivity, the system will be locked automatically in 1 minute\n\nDismiss this notification to abort"'
 
 #Picom compositor
 exec picom --xrender-sync-fence

@@ -171,19 +171,19 @@ git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster
 - For regular computers:  
 
 ```
-mkdir -p ~/.icewm && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/IceWM/icewm.zip -O && unzip icewm.zip -d ~/.icewm/ && chmod +x ~/.icewm/startup && rm -f icewm.zip
+mkdir -p ~/.icewm && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/IceWM/icewm.zip -O && unzip icewm.zip -d ~/.icewm/ && chmod +x ~/.icewm/startup && rm -f icewm.zip
 ```
 
 - For Raspberry Pi:  
 
 ```
-mkdir -p ~/.icewm && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/IceWM/icewm-rpi.zip -O && unzip icewm-rpi.zip -d ~/.icewm/ && chmod +x ~/.icewm/startup && rm -f icewm-rpi.zip
+mkdir -p ~/.icewm && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/IceWM/icewm-rpi.zip -O && unzip icewm-rpi.zip -d ~/.icewm/ && chmod +x ~/.icewm/startup && rm -f icewm-rpi.zip
 ```
 
 ## Add touchpad click and navigation (Only for laptop)
 
 ```
-sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/90-touchpad.conf -o /etc/X11/xorg.conf.d/90-touchpad.conf
+sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/90-touchpad.conf -o /etc/X11/xorg.conf.d/90-touchpad.conf
 ```
 
 ## Dock (plank)
@@ -223,12 +223,12 @@ sudo vi /etc/pulse/default.pa
 
 ```
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/bashrc_Arch.txt -o ~/.bashrc
-curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/tmux.conf -o ~/.tmux.conf
-mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/zathurarc -o ~/.config/zathura/zathurarc && xdg-mime default org.pwmt.zathura.desktop application/pdf
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/tmux.conf -o ~/.tmux.conf
+mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/zathurarc -o ~/.config/zathura/zathurarc && xdg-mime default org.pwmt.zathura.desktop application/pdf
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/vimrc -o ~/.vimrc && mkdir -p ~/.vim/colors && curl https://raw.githubusercontent.com/vv9k/vim-github-dark/master/colors/ghdark.vim -o ~/.vim/colors/ghdark.vim
-mkdir -p ~/.local/share/applications && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/IceWM/power.desktop -o ~/.local/share/applications/power.desktop
-mkdir -p ~/.config/xfce4/terminal && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/IceWM/terminalrc -o ~/.config/xfce4/terminal/terminalrc
-mkdir -p ~/.config/gsimplecal/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/IceWM/config -o ~/.config/gsimplecal/config
+mkdir -p ~/.local/share/applications && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/IceWM/power.desktop -o ~/.local/share/applications/power.desktop
+mkdir -p ~/.config/xfce4/terminal && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/IceWM/terminalrc -o ~/.config/xfce4/terminal/terminalrc
+mkdir -p ~/.config/gsimplecal/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/IceWM/config -o ~/.config/gsimplecal/config
 sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/IceWM/picom.conf -o /etc/xdg/picom.conf
 source ~/.bashrc
 ```

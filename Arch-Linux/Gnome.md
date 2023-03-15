@@ -174,7 +174,7 @@ sudo vi /etc/pulse/default.pa
 ```
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/bashrc_Arch.txt -o ~/.bashrc
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/tmux.conf -o ~/.tmux.conf
-mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Customisation/main/Dotfiles/General/zathurarc -o ~/.config/zathura/zathurarc && xdg-mime default org.pwmt.zathura.desktop application/pdf
+mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/zathurarc -o ~/.config/zathura/zathurarc && xdg-mime default org.pwmt.zathura.desktop application/pdf
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/vimrc -o ~/.vimrc && mkdir -p ~/.vim/colors && curl https://raw.githubusercontent.com/vv9k/vim-github-dark/master/colors/ghdark.vim -o ~/.vim/colors/ghdark.vim
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Gnome/ArcMenu-Settings -o ~/Documents/ArcMenu-Settings
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Gnome/ArcMenu-Theme -o ~/Documents/ArcMenu-Theme
