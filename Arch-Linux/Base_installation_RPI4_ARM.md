@@ -128,7 +128,7 @@ sudo reboot
 
 ## Desktop environment/Window manager (optional)
   
-https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Gnome.md  
-https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/XFCE.md  
-https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/IceWM.md  
-https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/i3.md
+https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/Gnome.md  
+https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/XFCE.md  
+https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/IceWM.md  
+https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/i3.md

@@ -206,7 +206,7 @@ sudo systemctl enable --now fstrim.timer
 
 Links to the installation and configuration procedure for Gnome, XFCE, IceWM and i3 on Arch according to my preferences below (if needed):  
   
-- [Gnome](https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/Gnome.md)
-- [XFCE](https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/XFCE.md)
-- [IceWM](https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/IceWM.md)
-- [i3](https://github.com/Antiz96/Linux-Customisation/blob/main/Arch-Linux/i3.md)
+- [Gnome](https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/Gnome.md)
+- [XFCE](https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/XFCE.md)
+- [IceWM](https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/IceWM.md)
+- [i3](https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/i3.md)
