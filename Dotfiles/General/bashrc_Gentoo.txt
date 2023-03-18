@@ -60,7 +60,7 @@ alias fullupgrade="sudo emerge --sync && sudo emerge -avuDN --with-bdeps=y @worl
 alias install="sudo emerge -av"
 alias remove="sudo emerge -aC"
 alias search="emerge -s"
-alias pkglist="qlist -I"
+alias pkglist="qlist -Iv"
 alias cleanorphans="sudo emerge -ac"
 
 #Tmux
