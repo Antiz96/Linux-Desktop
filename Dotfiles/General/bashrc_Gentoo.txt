@@ -62,6 +62,7 @@ alias remove="sudo emerge -aC"
 alias search="emerge -s"
 alias pkglist="qlist -Iv"
 alias cleanorphans="sudo emerge -ac"
+alias cleancache="sudo eclean -d packages && sudo eclean -d distfiles"
 
 #Tmux
 alias tkill="tmux kill-session -t"
