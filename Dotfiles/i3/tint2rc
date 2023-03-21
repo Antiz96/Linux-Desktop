@@ -201,7 +201,7 @@ tooltip_font_color = #dddddd 100
 execp = new
 execp_command = echo ~/.config/tint2/Arch_Taskbar.png
 execp_has_icon = 1
-execp_lclick_command = dmenu_run -i -l 10 
+execp_lclick_command = rofi -show drun -show-icons
 
 execp = new
 execp_command = echo ~/.config/tint2/autolock.svg
