@@ -241,6 +241,9 @@ gaps inner 10
 #Open app finder
 bindsym $mod+a exec rofi -show drun -show-icons
 
+#Open window switcher
+bindsym Mod1+Tab exec rofi -show window -show-icons
+
 #Toggle fullscreen windows
 bindsym $mod+f layout toggle tabbed split
 
