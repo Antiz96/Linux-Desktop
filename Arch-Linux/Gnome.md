@@ -178,7 +178,7 @@ mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Li
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/vimrc -o ~/.vimrc && mkdir -p ~/.vim/colors && curl https://raw.githubusercontent.com/vv9k/vim-github-dark/master/colors/ghdark.vim -o ~/.vim/colors/ghdark.vim
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Gnome/ArcMenu-Settings -o ~/Documents/ArcMenu-Settings
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Gnome/ArcMenu-Theme -o ~/Documents/ArcMenu-Theme
-mkdir -p ~/.config/rofi/ && curl https://raw.githubusercontent.com/newmanls/rofi-themes-collection/master/themes/spotlight-dark.rasi -o ~/.config/rofi/spotlight-dark.rasi && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/rofi-config -o ~/.config/rofi/config.rasi
+mkdir -p ~/.config/rofi/ && curl https://raw.githubusercontent.com/newmanls/rofi-themes-collection/master/themes/spotlight-dark.rasi -o ~/.config/rofi/spotlight-dark.rasi && sed -i s/border-radius:\ \ 8/border-radius:\ \ 0/ ~/.config/rofi/spotlight-dark.rasi && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/rofi-config -o ~/.config/rofi/config.rasi
 source ~/.bashrc
 ```
 
