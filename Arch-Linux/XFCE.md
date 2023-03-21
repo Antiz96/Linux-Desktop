@@ -186,13 +186,13 @@ curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Gener
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/tmux.conf -o ~/.tmux.conf
 mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/zathurarc -o ~/.config/zathura/zathurarc && xdg-mime default org.pwmt.zathura.desktop application/pdf
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/vimrc -o ~/.vimrc && mkdir -p ~/.vim/colors && curl https://raw.githubusercontent.com/vv9k/vim-github-dark/master/colors/ghdark.vim -o ~/.vim/colors/ghdark.vim
-curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/XFCE/terminalrc -o ~/.config/xfce4/terminal/terminalrc
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/xfce4-terminalrc -o ~/.config/xfce4/terminal/terminalrc
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/XFCE/xfce4-panel.xml -o ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/XFCE/xfce4-keyboard-shortcuts.xml -o ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
 sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/XFCE/lightdm.conf -o /etc/lightdm/lightdm.conf
 sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/XFCE/lightdm-webkit2-greeter.conf -o /etc/lightdm/lightdm-webkit2-greeter.conf
 sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/XFCE/authenticate.js -o /usr/share/lightdm-webkit/themes/glorious/js/authenticate.js
-sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/XFCE/picom.conf -o /etc/xdg/picom.conf
+sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/picom.conf -o /etc/xdg/picom.conf
 source ~/.bashrc
 ```
 

@@ -227,9 +227,9 @@ curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Gener
 mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/zathurarc -o ~/.config/zathura/zathurarc && xdg-mime default org.pwmt.zathura.desktop application/pdf
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/vimrc -o ~/.vimrc && mkdir -p ~/.vim/colors && curl https://raw.githubusercontent.com/vv9k/vim-github-dark/master/colors/ghdark.vim -o ~/.vim/colors/ghdark.vim
 mkdir -p ~/.local/share/applications && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/IceWM/power.desktop -o ~/.local/share/applications/power.desktop
-mkdir -p ~/.config/xfce4/terminal && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/IceWM/terminalrc -o ~/.config/xfce4/terminal/terminalrc
-mkdir -p ~/.config/gsimplecal/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/IceWM/config -o ~/.config/gsimplecal/config
-sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/IceWM/picom.conf -o /etc/xdg/picom.conf
+mkdir -p ~/.config/xfce4/terminal && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/xfce4-terminalrc -o ~/.config/xfce4/terminal/terminalrc
+mkdir -p ~/.config/gsimplecal/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/gsimplecal-config -o ~/.config/gsimplecal/config
+sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/picom.conf -o /etc/xdg/picom.conf
 source ~/.bashrc
 ```
 
