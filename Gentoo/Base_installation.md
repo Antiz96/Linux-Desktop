@@ -141,7 +141,7 @@ vim /etc/portage/make.conf
 ```
 
 > #USE Flags  
-> USE="X bash-completion -a52 -cdda -cdr curl -dvd -dvdr ffmpeg -fortran imap man networkmanager pulseaudio -qt5 -wayland zip gtk3 gtk4 minizip postproc script dist-kernel"  
+> USE="X bash-completion -a52 -cdda -cdr curl -dvd -dvdr ffmpeg -fortran imap man networkmanager pulseaudio -qt5 -wayland zip gtk3 gtk4 minizip postproc script dist-kernel grub"  
 
 ### Configuring the ACCEPT LICENSE variable
 
@@ -322,7 +322,7 @@ Then login to the regular user.
 ## Install additional useful packages
 
 ```
-sudo emerge --ask bash-completion 
+sudo emerge --ask bash-completion gentoolkit
 ```
 
 ### Install a firewall (optional)
