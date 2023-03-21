@@ -238,8 +238,8 @@ gaps inner 10
 
 ##Keyboard Shortcuts##
 
-#Open dmenu app finder
-bindsym $mod+a exec dmenu_run -i -l 10
+#Open app finder
+bindsym $mod+a exec rofi -show drun -show-icons
 
 #Toggle fullscreen windows
 bindsym $mod+f layout toggle tabbed split

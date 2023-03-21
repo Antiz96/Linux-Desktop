@@ -128,7 +128,7 @@ sudo vim /etc/fstab
 
 - Main packages:
 ```
-sudo pacman -S discord distrobox dmenu docker firefox glow hexchat htop hugo keepassxc mlocate neofetch ntfs-3g steam thunderbird tmux virt-viewer vlc zathura zathura-pdf-poppler #Main packages from Arch repos
+sudo pacman -S discord distrobox docker firefox glow hexchat htop hugo keepassxc mlocate neofetch ntfs-3g rofi steam thunderbird tmux virt-viewer vlc zathura zathura-pdf-poppler #Main packages from Arch repos
 yay -S arch-update onlyoffice-bin pa-applet-git protonmail-bridge-bin spotify systray-x-git timeshift ventoy-bin zaman #Main packages from the AUR
 sudo pacman -S --asdeps gnome-keyring gnu-free-fonts ttf-dejavu xclip xdg-utils #Optional dependencies that I need for the above packages
 systemctl --user enable --now arch-update.timer #Start and enable associated timers
@@ -236,7 +236,7 @@ source ~/.bashrc
 ## Keyboard Shortcuts
 
 - Super = Open Application Menu
-- Super + A = Open Dmenu App Finder/Launcher
+- Super + A = Open App Finder/Launcher
 - Super + F = Switch size of windows (Maximize/Minimize)
 - Super + D = Close the window
 - Super + E = Thunar
