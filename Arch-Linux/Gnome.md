@@ -179,6 +179,7 @@ curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Gener
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Gnome/ArcMenu-Settings -o ~/Documents/ArcMenu-Settings
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Gnome/ArcMenu-Theme -o ~/Documents/ArcMenu-Theme
 mkdir -p ~/.config/rofi/ && curl https://raw.githubusercontent.com/newmanls/rofi-themes-collection/master/themes/spotlight-dark.rasi -o ~/.config/rofi/spotlight-dark.rasi && sed -i s/border-radius:\ \ 8/border-radius:\ \ 0/ ~/.config/rofi/spotlight-dark.rasi && sed -i "/\bplaceholder\b/d" ~/.config/rofi/spotlight-dark.rasi && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/rofi-config -o ~/.config/rofi/config.rasi
+sudo mkdir -p /usr/local/lib/systemd/system/ && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/mpris-proxy.service -o /usr/local/lib/systemd/system/mpris-proxy.service && sudo systemctl daemon-reload && sudo systemctl enable --now mpris-proxy.service
 source ~/.bashrc
 ```
 
