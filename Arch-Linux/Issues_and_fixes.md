@@ -21,8 +21,8 @@ Then install bluetooth USB Dongle Driver (and potentially reboot)
 
 ```
 sudo pacman -S bluez-utils
-sudo mkdir -p /usr/local/lib/systemd/system
-sudo -e /usr/local/lib/systemd/system/mpris-proxy.service
+sudo mkdir -p /usr/local/lib/systemd/user
+sudo -e /usr/local/lib/systemd/user/mpris-proxy.service
 ```
 
 > [Unit]  
@@ -36,8 +36,8 @@ sudo -e /usr/local/lib/systemd/system/mpris-proxy.service
 > WantedBy=default.target  
 
 ```
-sudo systemctl daemon-reload
-sudo systemctl enable --now mpris-proxy
+systemctl --user daemon-reload
+systemctl --user enable --now mpris-proxy
 ```
 
 ## Microphone not working/not detected on standalone window manager
