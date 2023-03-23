@@ -17,11 +17,34 @@ sudo vi /etc/modprobe.d/bluetooth-blacklist.conf
 
 Then install bluetooth USB Dongle Driver (and potentially reboot)
 
+## Touch gestures not working out of the box on bluetooth headset
+
+```
+sudo pacman -S bluez-utils
+sudo mkdir -p /usr/local/lib/systemd/system
+sudo -e /usr/local/lib/systemd/system/mpris-proxy.service
+```
+
+> [Unit]  
+> Description=Forward bluetooth media controls to MPRIS  
+>   
+> [Service]  
+> Type=simple  
+> ExecStart=/usr/bin/mpris-proxy  
+>   
+> [Install]  
+> WantedBy=default.target  
+
+```
+sudo systemctl daemon-reload
+sudo systemctl enable --now mpris-proxy
+```
+
 ## Microphone not working/not detected on standalone window manager
 
 https://bbs.archlinux.org/viewtopic.php?pid=1921917#p1921917/  
 
-As I'm using a standalone window manager (IceWM), I do not have a graphical setting panel to switch between my sound cards profiles (in order to make my microphone to work for instance).  
+As I'm using a standalone window manager, I do not have a graphical setting panel to switch between my sound cards profiles (in order to make my microphone to work for instance).  
 This means that I have to do it manually with the pulseaudio "pacmd" command.  
 *This is just a quick reminder for me.*
 
