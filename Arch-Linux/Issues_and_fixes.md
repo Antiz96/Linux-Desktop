@@ -11,7 +11,6 @@ sudo vi /etc/modprobe.d/bluetooth-blacklist.conf
 ```
 
 > blacklist btrtl  
-> blacklist btusb  
 > blacklist btintel  
 > blacklist btbcm  
 
@@ -40,7 +39,7 @@ systemctl --user daemon-reload
 systemctl --user enable --now mpris-proxy
 ```
 
-## Microphone not working/not detected on standalone window manager
+## Switch audio/microphone source on standalone window manager
 
 https://bbs.archlinux.org/viewtopic.php?pid=1921917#p1921917/  
 
@@ -133,24 +132,6 @@ Preferences ---> Profil ---> Colors ---> Uncheck "Use the system theme colors"
 ```
 sudo pacman -S wine
 sudo pacman -S lib32-lcms2
-```
-
-## Bluetooth not working anymore after Kernel update (happens only when using USB Bluetooth Dongle)
-
-https://bbs.archlinux.org/viewtopic.php?id=265071  
-
-```
-sudo modprobe btusb
-sudo systemctl restart bluetooth
-install_bluetooth_driver #Reinstalling my bluetooth driver (this is a personal alias that calls a script I wrote to install/reinstall my bluetooth driver. Link to the script: https://github.com/Antiz96/Bash-Scripts/blob/main/install_bluetooth_driver.sh)
-```
-
-## Installing spotify via AUR gets a "GPG Key not found" error
-
-**Permanently fixed, this error doesn't exist anymore.**
-
-```
-curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -
 ```
 
 ## Using old SSH key types
