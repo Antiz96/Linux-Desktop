@@ -62,17 +62,8 @@ sudo pacman -Syy
 
 ## Install bluetooth support
 
-- With an integrated bluetooth card:
 ```
 sudo pacman -S bluez bluez-utils pulseaudio-bluetooth
-sudo systemctl enable --now bluetooth
-```
-  
-- With a bluetooth USB dongle:  
-*(My bluetooth USB dongle needs some deprecated tools to work properly)*
-```
-sudo pacman -S bluez pulseaudio-bluetooth
-yay -S bluez-utils-compat
 sudo systemctl enable --now bluetooth
 ```
 
