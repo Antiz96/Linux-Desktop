@@ -13,6 +13,7 @@ I also create a third 4G partition for Swap.
 As root (**only for this part**):
 
 ```
+pacman -Syy
 pacman -S sudo
 visudo
 ```
