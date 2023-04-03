@@ -181,7 +181,6 @@ sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/
 
 ```
 sudo sed -i "s/Icon=org.xfce.screenshooter/Icon=applets-screenshooter/g" /usr/share/applications/xfce4-screenshooter.desktop
-sudo sed -i "s/Icon=system-software-install/Icon=pamac/g" /usr/share/applications/org.manjaro.pamac.manager.desktop
 ```
 
 - firefox
@@ -197,7 +196,6 @@ sudo sed -i "s/Icon=system-software-install/Icon=pamac/g" /usr/share/application
 - hexchat
 - virtualbox
 - screenshot
-- pamac
 - Arch Update
 - Power
 

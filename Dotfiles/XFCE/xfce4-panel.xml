@@ -71,7 +71,6 @@
         <value type="string" value="xfce4-power-manager"/>
         <value type="string" value="thunar"/>
         <value type="string" value="redshift-gtk"/>
-        <value type="string" value="pamac-tray"/>
         <value type="string" value="applet networkmanager"/>
       </property>
       <property name="known-items" type="array">
@@ -84,7 +83,6 @@
       </property>
       <property name="icon-size" type="int" value="20"/>
       <property name="hidden-legacy-items" type="array">
-        <value type="string" value="pamac-tray"/>
       </property>
       <property name="hidden-items" type="array">
       </property>

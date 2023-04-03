@@ -127,7 +127,6 @@ git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster
 - hexchat
 - virtualbox
 - screenshot
-- pamac
 - settings
 
 ## Disable XFCE compositor 
