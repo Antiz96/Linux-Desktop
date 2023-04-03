@@ -90,6 +90,10 @@ sudo vi /etc/ssh/sshd_config
 > PermitRootLogin no  
 > [...]  
 
+```
+sudo systemctl restart sshd
+```
+
 ## Post Install preferences
 
 Then I configure Arch Linux according to my preferences, without the things that has already been done during the Arch Linux ARM installation and the above steps (partitiong/filesystem, mount + pacstrap + genfstab, creating my user, grub bootloader, exit and umount /mnt, etc...):  
