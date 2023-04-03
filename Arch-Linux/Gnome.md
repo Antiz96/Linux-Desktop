@@ -118,7 +118,7 @@ git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster
 ## Gnome extensions
 
 - Caffeine
-- Dash to dock
+- Dash to panel
 - Native window placement
 - Tray Icons: Reloaded
 - User themes
@@ -130,7 +130,7 @@ git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster
 - firefox
 - terminal
 - spotify
-- mailspring
+- thunderbird
 - nautilus
 - gedit 
 - onlyoffice
