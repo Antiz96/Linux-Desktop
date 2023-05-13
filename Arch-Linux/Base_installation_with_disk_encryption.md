@@ -100,10 +100,10 @@ vim /etc/vconsole.conf #Set the Keymap in this file (for me: KEYMAP=fr)
 ### Host configuration
 
 ```
-vim /etc/hostname #Create the hostname file and put the hostname in it (for me: Arch-Linux)
+vim /etc/hostname #Create the hostname file and put the hostname in it
 ```
 
-> Arch-Linux  
+> Arch-Desktop  
 
 ```
 vim /etc/hosts #Edit the hosts file and add lines from the Arch Wiki ---> https://wiki.archlinux.org/index.php/Installation_guide#Network_configuration.
@@ -111,7 +111,7 @@ vim /etc/hosts #Edit the hosts file and add lines from the Arch Wiki ---> https:
 
 > 127.0.0.1	localhost  
 > ::1		localhost  
-> 127.0.1.1	Arch-Linux.localdomain Arch-Linux  
+> 127.0.1.1	Arch-Desktop.localdomain Arch-Desktop  
 
 ### User configuration
 
