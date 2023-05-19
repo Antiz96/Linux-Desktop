@@ -298,9 +298,9 @@ reboot
 ## Create a regular user
 
 ```
-useradd -m rcandau
-passwd rcandau
-usermod -aG wheel,audio,video rcandau
+useradd -m antiz
+passwd antiz
+usermod -aG wheel,audio,video antiz
 ```
 
 ## Remove the stage tarball

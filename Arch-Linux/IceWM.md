@@ -113,7 +113,7 @@ sudo blkid #Show and copy the UUID of my secondary disk
 sudo vim /etc/fstab
 ```
 > #Data 
-> UUID=107b1979-e8ed-466d-bb10-15e72f7dd2ae       /run/media/rcandau/data         ext4          defaults 0 2 
+> UUID=107b1979-e8ed-466d-bb10-15e72f7dd2ae       /run/media/antiz/data         ext4          defaults 0 2 
 
 ## Install packages
 
@@ -154,7 +154,7 @@ git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster
 
 ## Configuration
 
-**Warning: "/home/rcandau" is hard-coded in the "~/.icewm/keys" file (Lock Screen Shortcut)**  
+**Warning: "/home/antiz" is hard-coded in the "~/.icewm/keys" file (Lock Screen Shortcut)**  
 **Change it accordingly to your username**  
 
 ### IceWM configuration

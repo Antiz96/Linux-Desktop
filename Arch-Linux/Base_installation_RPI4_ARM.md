@@ -75,10 +75,10 @@ sudo systemctl restart sshd
 Connect directly as **root** via ssh (only for this part):  
 
 ```
-usermod -l rcandau alarm
-groupmod -n rcandau alarm
-usermod -d /home/rcandau -m rcandau
-passwd rcandau
+usermod -l antiz alarm
+groupmod -n antiz alarm
+usermod -d /home/antiz -m antiz
+passwd antiz
 ```
 
 ### Disable ssh connexion for the root account
