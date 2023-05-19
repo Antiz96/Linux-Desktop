@@ -117,9 +117,9 @@ vim /etc/hosts #Edit the hosts file and add lines from the Arch Wiki ---> https:
 
 ```
 passwd #Setup a password for the root account
-useradd -m rcandau #Create a "regular" user
-passwd rcandau #Setup a password for the user
-usermod -aG wheel,audio,video,optical,storage,games rcandau #Add the user to some useful groups
+useradd -m antiz #Create a "regular" user
+passwd antiz #Setup a password for the user
+usermod -aG wheel,audio,video,optical,storage,games antiz #Add the user to some useful groups
 ```
 
 ### Install and configure sudo
