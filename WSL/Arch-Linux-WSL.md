@@ -50,13 +50,13 @@ sudo vi /etc/pacman.conf
 
 ```
 sudo pacman -Syu #Update our system
-sudo pacman -S base-devel linux-headers man bash-completion openssh inetutils dnsutils traceroute rsync zip unzip cronie diffutils git tmux mlocate htop neofetch glow docker distrobox #Install my needed packages. DO NOT INSTALL "fakeroot" (https://github.com/yuk7/ArchWSL/issues/3)
+sudo pacman -S base-devel linux-headers man bash-completion openssh inetutils dnsutils traceroute rsync zip unzip diffutils git tmux mlocate htop neofetch glow docker distrobox pacman-contrib #Install my needed packages. DO NOT INSTALL "fakeroot" (https://github.com/yuk7/ArchWSL/issues/3)
 cd /tmp #Change directory to tmp to download and install AUR support
 git clone https://aur.archlinux.org/yay.git #Download "yay" install sources
 cd yay #Change directory to "yay" install sources directory
 makepkg -si #Install "yay"
-yay -S ddgr certificate-ripper-bin #Install "ddgr" and "certificate-ripper"
-sudo systemctl enable --now cronie docker #Enable systemd services
+yay -S certificate-ripper-bin #Install AUR packages
+sudo systemctl enable --now docker #Enable systemd services
 ```
   
 ### Download my config files
@@ -77,7 +77,7 @@ https://github.com/Antiz96/Linux-Desktop/blob/main/WSL/Resolve_DNS_Using_VPN.md
 ### Setup Openssh to accept rsa keys
 
 The newest version of openssh included in Arch Linux (from openssh 8.8p1-1) doesn't accept some type of ssh keys judged too old/insecured.  
-To correct that, you can either specify the type of key in your command like so : `ssh -oHostKeyAlgorithms=+ssh-rsa user@host` or create the following file :
+To correct that, you can either specify the type of key in your command like so : `ssh -oHostKeyAlgorithms=+ssh-rsa user@host` or add the following snippet in your ssh config file:
 
 ```
 vi ~/.ssh/config
