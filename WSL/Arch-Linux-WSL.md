@@ -59,6 +59,20 @@ yay -S certificate-ripper-bin #Install AUR packages
 sudo systemctl enable --now docker #Enable systemd services
 ```
   
+### Bash Theme
+
+https://github.com/speedenator/agnoster-bash  
+  
+```
+cd /tmp
+git clone https://github.com/powerline/fonts.git fonts
+cd fonts
+sh install.sh
+cd $HOME
+mkdir -p .bash/themes/agnoster-bash
+git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster-bash
+```
+
 ### Download my config files
   
 ```

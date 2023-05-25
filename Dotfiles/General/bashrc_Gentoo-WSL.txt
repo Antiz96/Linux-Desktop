@@ -10,9 +10,12 @@
 #Red if TMUX is not running
 if [ -z "${TMUX}" ]; then
         PS1="\[\e[0;31m[\u@\h \W]\$ \e[m\]"
-#White if TMUX is running
+#Agnoster bash theme if TMUX is running
 else
-        PS1="[\u@\h \W]\$ "
+        export THEME="${HOME}/.bash/themes/agnoster-bash/agnoster.bash"
+        if [ -f "${THEME}" ]; then
+                source "${THEME}"
+        fi
 fi
 
 ##Tmux autostart##
