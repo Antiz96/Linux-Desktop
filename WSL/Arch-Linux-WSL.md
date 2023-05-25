@@ -55,7 +55,7 @@ cd /tmp #Change directory to tmp to download and install AUR support
 git clone https://aur.archlinux.org/yay.git #Download "yay" install sources
 cd yay #Change directory to "yay" install sources directory
 makepkg -si #Install "yay"
-yay -S certificate-ripper-bin #Install AUR packages
+yay -S certificate-ripper-bin arch-update #Install AUR packages
 sudo systemctl enable --now docker #Enable systemd services
 ```
   
