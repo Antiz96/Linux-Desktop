@@ -44,3 +44,7 @@ Reboot your WSL machine to apply changes
   
 After that, all your DNS resolutions will only take about 1 to 2 seconds (not better then "instantly" but still, better then 5 to 10 sec) !  
 I'll update this file if I ever find a real fix to that issue, but that only happened to me with WSL Ubuntu and I'm not using it anymore.
+
+## wsl-vpnkit
+  
+[wsl-vpnkit](https://github.com/sakai135/wsl-vpnkit) is an alternative automatic method to solve DNS related issue.
