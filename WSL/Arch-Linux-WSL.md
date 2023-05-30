@@ -56,7 +56,7 @@ git clone https://aur.archlinux.org/yay.git #Download "yay" install sources
 cd yay #Change directory to "yay" install sources directory
 makepkg -si #Install "yay"
 yay -S certificate-ripper-bin arch-update #Install AUR packages
-sudo systemctl enable --now docker #Enable systemd services
+sudo systemctl enable --now docker paccache.timer #Enable systemd services
 ```
   
 ### Bash Theme
