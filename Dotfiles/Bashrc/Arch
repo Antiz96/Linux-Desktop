@@ -7,9 +7,9 @@
 
 ##Prompt##
 
-#Red if TMUX is not running
+#White if TMUX is not running
 if [ -z "${TMUX}" ]; then
-        PS1="\[\e[0;31m[\u@\h \W]\$ \e[m\]"
+        PS1="[\u@\h \W]\$ "
 #Agnoster bash theme if TMUX is running
 else
 	export THEME="${HOME}/.bash/themes/agnoster-bash/agnoster.bash"
@@ -38,8 +38,6 @@ alias l="ls -ltrA"
 
 #Grep
 alias grep="grep --color=auto"
-alias egrep="egrep --color=auto"
-alias fgrep="fgrep --color=auto"
 
 #Manipulating files
 alias mv="mv -i"

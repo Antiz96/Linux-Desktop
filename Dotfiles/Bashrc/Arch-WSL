@@ -7,9 +7,9 @@
 
 ##Prompt##
 
-#Red if TMUX is not running
+#White if TMUX is not running
 if [ -z "${TMUX}" ]; then
-        PS1="\[\e[0;31m[\u@\h \W]\$ \e[m\]"
+        PS1="[\u@\h \W]\$ "
 #Agnoster bash theme if TMUX is running
 else
         export THEME="${HOME}/.bash/themes/agnoster-bash/agnoster.bash"
@@ -38,8 +38,6 @@ alias l="ls -ltrA"
 
 #Grep
 alias grep="grep --color=auto"
-alias egrep="egrep --color=auto"
-alias fgrep="fgrep --color=auto"
 
 #Manipulating files
 alias mv="mv -i"
@@ -51,15 +49,20 @@ alias rm="rm -i"
 alias vi="vim"
 
 #Package manager
-alias update="sudo emerge --sync"
-alias upgrade="sudo emerge -avuDN --with-bdeps=y @world"
-alias fullupgrade="sudo emerge --sync && sudo emerge -avuDN --with-bdeps=y @world"
-alias install="sudo emerge -av"
-alias remove="sudo emerge -aC"
-alias search="emerge -s"
-alias pkglist="qlist -Iv"
-alias cleanorphans="sudo emerge -ac"
-alias cleancache="sudo eclean -d packages && sudo eclean -d distfiles"
+alias update="sudo pacman -Syy"
+alias upgrade="sudo pacman -Syu"
+alias fullupgrade="sudo pacman -Syu && yay -Syu"
+alias install="sudo pacman -S"
+alias remove="sudo pacman -Rns"
+alias pkglist="pacman -Q"
+alias pkgaurlist="pacman -Qm"
+alias pkginfo="pacman -Qi"
+alias pkgfile="pacman -Ql"
+alias pkgsearch="pacman -Ss"
+alias pkgfilesearch="pacman -F"
+alias cleancache="sudo pacman -Sc"
+alias cleanaurcache="yay -Sc"
+alias cleanorphans="pacman -Qtdq | sudo pacman -Rns -"
 
 #Tmux
 alias tkill="tmux kill-session -t"
