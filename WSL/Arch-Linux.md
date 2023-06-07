@@ -77,12 +77,12 @@ git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster
   
 ```
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Bashrc/Arch-WSL -o ~/.bashrc
-curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/tmux.conf -o ~/.tmux.conf
+mkdir -p ~/.config/tmux/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/tmux.conf -o ~/.config/tmux/tmux.conf
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/vimrc -o ~/.vimrc && mkdir -p ~/.vim/colors && curl https://raw.githubusercontent.com/vv9k/vim-github-dark/master/colors/ghdark.vim -o ~/.vim/colors/ghdark.vim
 source ~/.bashrc
 ```
 
-**Uncomment the copy/paste option for WSL and comment the one for Linux in ~/.tmux.conf**
+**Uncomment the copy/paste option for WSL and comment the one for Linux in ~/.config/tmux/tmux.conf**
   
 ### Setup my DNS config for VPN
   
