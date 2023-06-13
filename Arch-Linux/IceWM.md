@@ -119,7 +119,7 @@ sudo vim /etc/fstab
 
 - Main packages:
 ```
-sudo pacman -S discord distrobox docker firefox glow hexchat htop hugo keepassxc mlocate neofetch ntfs-3g rofi steam systray-x thunderbird tmux virt-viewer vlc xclip zathura zathura-pdf-poppler #Main packages from Arch repos
+sudo pacman -S discord distrobox docker firefox glow hexchat htop hugo keepassxc mlocate neofetch noto-fonts-emoji ntfs-3g rofi steam systray-x thunderbird tmux virt-viewer vlc xclip zathura zathura-pdf-poppler #Main packages from Arch repos
 yay -S arch-update onlyoffice-bin pa-applet-git protonmail-bridge-bin spotify timeshift ventoy-bin zaman #Main packages from the AUR
 sudo pacman -S --asdeps gnome-keyring gnu-free-fonts ttf-dejavu xdg-utils #Optional dependencies that I need for the above packages
 systemctl --user enable --now arch-update.timer #Start and enable associated timers
