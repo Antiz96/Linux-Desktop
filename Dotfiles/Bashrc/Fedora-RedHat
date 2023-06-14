@@ -7,10 +7,10 @@
 
 ##Prompt##
 
-#White if TMUX is not running
+# White if TMUX is not running
 if [ -z "${TMUX}" ]; then
         PS1="[\u@\h \W]\$ "
-#Agnoster bash theme if TMUX is running
+# Agnoster bash theme if TMUX is running
 else
 	export THEME="${HOME}/.bash/themes/agnoster-bash/agnoster.bash"
 	if [ -f "${THEME}" ]; then
@@ -24,34 +24,42 @@ if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ]; then
         [ -z "${TMUX}" ] && (tmux attach || tmux) >/dev/null 2>&1
 fi
 
+##Bind##
+
+bind "TAB:menu-complete"
+bind '"\e[Z": menu-complete-backward'
+bind "set show-all-if-ambiguous on"
+bind "set menu-complete-display-prefix on"
+bind "set colored-stats on"
+
 ##Env var##
 
-#Editor
+# Editor
 export EDITOR="/usr/bin/vim"
 
-#Flatpak path
+# Flatpak path
 export PATH="${PATH}:/var/lib/flatpak/exports/bin"
 
 ##Alias##
 
-#Ls
+# Ls
 alias ls="ls --color=auto"
 alias ll="ls -ltr"
 alias l="ls -ltrA"
 
-#Grep
+# Grep
 alias grep="grep --color=auto"
 
-#Manipulating files
+# Manipulating files
 alias mv="mv -i"
 alias cp="cp -i"
 alias ln="ln -i"
 alias rm="rm -i"
 
-#Editor
+# Editor
 alias vi="vim"
 
-#Package manager
+# Package manager
 alias update="dnf check-update"
 alias upgrade="sudo dnf upgrade --refresh"
 alias fullupgrade="sudo dnf distro-sync --refresh && flatpak update"
@@ -62,9 +70,9 @@ alias pkglist="dnf list installed"
 alias cleancache="sudo dnf clean all"
 alias cleanorphans="sudo dnf autoremove"
 
-#Tmux
+# Tmux
 alias tkill="tmux kill-session -t"
 alias tswitch="tmux a -t"
 
-#Sudo
+# Sudo
 alias sudo="sudo "
