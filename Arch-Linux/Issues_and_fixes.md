@@ -136,7 +136,7 @@ sudo pacman -S lib32-lcms2
 
 ## Using old SSH key types
 
-Arch has the lastest version of OpenSSH which disable some "old" key types.  
+Arch has the latest version of OpenSSH which disable some "old" key types.  
 It makes using SSH on older machines that doesn't have that version yet impossible:  
 
 ```

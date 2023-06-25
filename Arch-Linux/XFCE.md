@@ -22,7 +22,7 @@ sudoedit /boot/config.txt
 
 Minimal installation according to my personal preferences.  
 Check https://archlinux.org/groups/x86_64/xfce4/ & https://archlinux.org/groups/x86_64/xfce4-goodies/ to see what you want to install or not.  
-If you want a complete XFCE installation, just install the "xfce4" and the "xfce4-goodies" packages (additionnaly you may need a display manager).  
+If you want a complete XFCE installation, just install the "xfce4" and the "xfce4-goodies" packages (additionally you may need a display manager).  
 
 ```
 sudo pacman -S xfce4 mousepad ristretto thunar-archive-plugin xfce4-notifyd xfce4-screenshooter xfce4-screensaver xfce4-pulseaudio-plugin xfce4-whiskermenu-plugin numlockx plank gvfs gnome-calculator network-manager-applet blueman redshift file-roller picom xdg-user-dirs-gtk pulseaudio openssh lightdm lightdm-gtk-greeter
@@ -78,7 +78,7 @@ sudo vim /etc/fstab
 
 - Main packages:
 ```
-sudo pacman -S discord distrobox docker firefox glow hexchat htop hugo keepassxc mlocate neofetch noto-fonts-emoji ntfs-3g steam systray-x thunderbird tmux virt-viewer vlc xclip zathura zathura-pdf-poppler #Main packages from Arch repos
+sudo pacman -S codespell discord distrobox docker firefox glow hexchat htop hugo keepassxc mlocate neofetch noto-fonts-emoji ntfs-3g steam systray-x thunderbird tmux virt-viewer vlc xclip zathura zathura-pdf-poppler #Main packages from Arch repos
 yay -S arch-update lightdm-webkit2-theme-glorious mugshot onlyoffice-bin pa-applet-git protonmail-bridge-bin spotify timeshift ventoy-bin zaman #Main packages from the AUR
 sudo pacman -S --asdeps gnome-keyring gnu-free-fonts rofi ttf-dejavu xdg-utils #Optional dependencies that I need for the above packages
 systemctl --user enable --now arch-update.timer #Start and enable associated timers

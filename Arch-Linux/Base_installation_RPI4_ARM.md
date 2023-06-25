@@ -57,7 +57,7 @@ sudo vi /etc/fstab
 
 ### Rename the default "alarm" user
 
-#### Temporarely enable ssh connexion for the root user
+#### Temporarily enable ssh connection for the root user
 
 ```
 sudo vi /etc/ssh/sshd_config
@@ -81,7 +81,7 @@ usermod -d /home/antiz -m antiz
 passwd antiz
 ```
 
-### Disable ssh connexion for the root account
+### Disable ssh connection for the root account
 
 ```
 sudo vi /etc/ssh/sshd_config
