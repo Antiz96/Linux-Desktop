@@ -59,7 +59,7 @@ mkfs.ext4 /dev/mapper/root #Make the filesystem for the root partition
 
 ```
 mount /dev/mapper/root /mnt #Mount the Root partition on /mnt to install the system's base on it
-mkdir /mnt/boot #Create the /boot directory in /mnt (the EFI partition has to be mounted specifically in /boot when doing LUKS encryption and not /boot/EFI, otherwise it will also be encrypted and you'll need extra steps to make Grub being able to decrypt it. Futhermore, Grub only has a partial Luks2 support, so even tho it is possible I do not recommend it. If you want to do it anyway, check https://wiki.archlinux.org/title/GRUB#Encrypted_/boot)
+mkdir /mnt/boot #Create the /boot directory in /mnt (the EFI partition has to be mounted specifically in /boot when doing LUKS encryption and not /boot/EFI, otherwise it will also be encrypted and you'll need extra steps to make Grub being able to decrypt it. Furthermore, Grub only has a partial Luks2 support, so even tho it is possible I do not recommend it. If you want to do it anyway, check https://wiki.archlinux.org/title/GRUB#Encrypted_/boot)
 mount /dev/nvme0n1p1 /mnt/boot #Mount my EFI partition on it
 pacstrap /mnt base linux linux-firmware #Install the system's base on the Root partition
 genfstab -U /mnt >> /mnt/etc/fstab #Generate the system's fstab
@@ -142,7 +142,7 @@ pacman -S grub efibootmgr dosfstools mtools #Install the Grub bootloader and dep
 #### Configure the kernel and grub for encryption
 
 ```
-vim /etc/mkinitcpio.conf #Add the "encrypt" kernel hook into the mkinitcpio configuration for the encrytion.
+vim /etc/mkinitcpio.conf #Add the "encrypt" kernel hook into the mkinitcpio configuration for the encryption.
 ```
 
 > [...]  
@@ -189,7 +189,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg #Re-generate Grub configuration to inc
 
 ### Install a firewall (optional)
 
-Installing a firewall may be optionnal for a fresh and simple **desktop** install as Arch doesn't expose any service/ports by default.  
+Installing a firewall may be optional for a fresh and simple **desktop** install as Arch doesn't expose any service/ports by default.  
 However, it is a supplementary security layer you might consider (even tho there's a little chance you ever need it).  
 Check this link for more info/reasons to install a firewall: https://unix.stackexchange.com/questions/30583/why-do-we-need-a-firewall-if-no-programs-are-running-on-your-ports  
   

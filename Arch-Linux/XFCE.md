@@ -22,7 +22,7 @@ sudoedit /boot/config.txt
 
 Minimal installation according to my personal preferences.  
 Check https://archlinux.org/groups/x86_64/xfce4/ & https://archlinux.org/groups/x86_64/xfce4-goodies/ to see what you want to install or not.  
-If you want a complete XFCE installation, just install the "xfce4" and the "xfce4-goodies" packages (additionnaly you may need a display manager).  
+If you want a complete XFCE installation, just install the "xfce4" and the "xfce4-goodies" packages (additionally you may need a display manager).  
 
 ```
 sudo pacman -S xfce4 mousepad ristretto thunar-archive-plugin xfce4-notifyd xfce4-screenshooter xfce4-screensaver xfce4-pulseaudio-plugin xfce4-whiskermenu-plugin numlockx plank gvfs gnome-calculator network-manager-applet blueman redshift file-roller picom xdg-user-dirs-gtk pulseaudio openssh lightdm lightdm-gtk-greeter

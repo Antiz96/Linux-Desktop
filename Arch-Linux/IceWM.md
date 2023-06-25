@@ -236,7 +236,7 @@ source ~/.bashrc
 - Super + T = Terminal
 - Super + L = Lock the screen
 - Super + V = Tile opened windows vertically
-- Super + H = Iconifie active window
+- Super + H = Iconify active window
 - Super + Esc = Open the logout menu
 - Super + F1 = Switch to workspace1
 - Super + F2 = Switch to workspace2

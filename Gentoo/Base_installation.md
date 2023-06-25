@@ -191,7 +191,7 @@ emerge --ask sys-kernel/linux-firmware sys-firmware/intel-microcode
 
 ## Installing a kernel
 
-I usually install the "default" Gentoo kernel *binary* for speed and convience, but you can actually configure/compile your owm kernel if you want to.  
+I usually install the "default" Gentoo kernel *binary* for speed and convenience, but you can actually configure/compile your owm kernel if you want to.  
 See https://wiki.gentoo.org/wiki/Kernel and https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Kernel for more information.
 
 ### Install the Gentoo kernel
@@ -327,7 +327,7 @@ sudo emerge --ask bash-completion gentoolkit
 
 ### Install a firewall (optional)
 
-Installing a firewall may be optionnal for a fresh and simple **desktop** install as Arch doesn't expose any service/ports by default.  
+Installing a firewall may be optional for a fresh and simple **desktop** install as Arch doesn't expose any service/ports by default.  
 However, it is a supplementary security layer you might consider (even tho there's a little chance you ever need it).  
 Check this link for more info/reasons to install a firewall: https://unix.stackexchange.com/questions/30583/why-do-we-need-a-firewall-if-no-programs-are-running-on-your-ports  
   

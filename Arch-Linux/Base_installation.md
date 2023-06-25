@@ -162,7 +162,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg #Re-generate Grub configuration to inc
 
 ### Install a firewall (optional)
 
-Installing a firewall may be optionnal for a fresh and simple **desktop** install as Arch doesn't expose any service/ports by default.  
+Installing a firewall may be optional for a fresh and simple **desktop** install as Arch doesn't expose any service/ports by default.  
 However, it is a supplementary security layer you might consider (even tho there's a little chance you ever need it).  
 Check this link for more info/reasons to install a firewall: https://unix.stackexchange.com/questions/30583/why-do-we-need-a-firewall-if-no-programs-are-running-on-your-ports  
   
