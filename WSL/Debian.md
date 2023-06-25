@@ -29,7 +29,7 @@ sudo vi /etc/wsl.conf
 ### Install my needed packages
 
 ```
-sudo apt install vim curl man bash-completion openssh-server inetutils-tools dnsutils traceroute rsync zip unzip diffutils git tmux mlocate htop neofetch ddgr
+sudo apt install vim curl man bash-completion openssh-server inetutils-tools dnsutils traceroute rsync zip unzip diffutils git tmux mlocate htop neofetch codespell
 curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sudo sh #Install distrobox
 sudo apt remove docker docker-engine docker.io #Install Docker
 sudo apt install apt-transport-https ca-certificates curl gnupg lsb-release
