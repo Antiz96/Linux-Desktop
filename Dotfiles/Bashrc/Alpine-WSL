@@ -1,0 +1,78 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+##Prompt##
+
+# White if TMUX is not running
+if [ -z "${TMUX}" ]; then
+        PS1="[\u@\h \W]\$ "
+# Agnoster bash theme if TMUX is running
+else
+        export THEME="${HOME}/.bash/themes/agnoster-bash/agnoster.bash"
+        if [ -f "${THEME}" ]; then
+                source "${THEME}"
+        fi
+fi
+
+##Tmux autostart##
+
+[ -x "$(command -v tmux)" ] \
+  && [ -z "${TMUX}" ] \
+  && (tmux attach || tmux) >/dev/null 2>&1
+
+##Bind##
+
+bind "TAB:menu-complete"
+bind '"\e[Z": menu-complete-backward'
+bind "set show-all-if-ambiguous on"
+bind "set menu-complete-display-prefix on"
+bind "set colored-stats on"
+
+##Env var##
+
+# Editor
+export EDITOR="/usr/bin/vim"
+
+##Alias##
+
+# Ls
+alias ls="ls --color=auto"
+alias ll="ls -ltr"
+alias l="ls -ltrA"
+
+# Grep
+alias grep="grep --color=auto"
+
+# Manipulating files
+alias mv="mv -i"
+alias cp="cp -i"
+alias ln="ln -i"
+alias rm="rm -i"
+
+# Editor
+alias vi="vim"
+
+# Package manager
+alias update="sudo apk update"
+alias upgrade="sudo apk upgrade"
+alias fullupgrade="sudo apk update && sudo apk upgrade"
+alias install="sudo apk add"
+alias remove="sudo apk del"
+alias pkglist="apk info"
+alias pkginfo="apk info -a"
+alias pkgsearch="apk search -v"
+alias cleancache="sudo apk -v cache clean"
+
+# Tmux
+alias tkill="tmux kill-session -t"
+alias tswitch="tmux a -t"
+
+# Fix for Distrobox/Docker in WSL <-- https://github.com/kubernetes/kubernetes/issues/61058#issuecomment-372764783
+alias distrobox-repair="sudo mount --make-rshared /"
+
+# Sudo
+alias sudo="sudo "
