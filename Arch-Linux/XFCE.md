@@ -2,15 +2,15 @@
 
 ## Install Xorg and graphical drivers (optional)
 
-- For regular computers:  
-  
-```
+- For regular computers:
+
+```bash
 sudo pacman -S xorg-server nvidia
 ```
 
-- For Raspberry Pi:  
-  
-```
+- For Raspberry Pi:
+
+```bash
 sudo pacman -S xorg-server xf86-video-fbdev
 sudoedit /boot/config.txt
 ```
@@ -18,13 +18,13 @@ sudoedit /boot/config.txt
 > [...]  
 > gpu_mem=256 #Increasing the reserved memory for the GPU
 
-## Install XFCE (minimal installation) 
+## Install XFCE (minimal installation)
 
 Minimal installation according to my personal preferences.  
-Check https://archlinux.org/groups/x86_64/xfce4/ & https://archlinux.org/groups/x86_64/xfce4-goodies/ to see what you want to install or not.  
-If you want a complete XFCE installation, just install the "xfce4" and the "xfce4-goodies" packages (additionally you may need a display manager).  
+Check <https://archlinux.org/groups/x86_64/xfce4/> & <https://archlinux.org/groups/x86_64/xfce4-goodies/> to see what you want to install or not.  
+If you want a complete XFCE installation, just install the "xfce4" and the "xfce4-goodies" packages (additionally you may need a display manager).
 
-```
+```bash
 sudo pacman -S xfce4 mousepad ristretto thunar-archive-plugin xfce4-notifyd xfce4-screenshooter xfce4-screensaver xfce4-pulseaudio-plugin xfce4-whiskermenu-plugin numlockx plank gvfs gnome-calculator network-manager-applet blueman redshift file-roller picom xdg-user-dirs-gtk pulseaudio openssh lightdm lightdm-gtk-greeter
 sudo systemctl enable lightdm
 sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
@@ -32,13 +32,13 @@ sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
 
 ## Reboot and log into XFCE
 
-```
+```bash
 sudo reboot
 ```
 
 ## Install the yay AUR Helper
 
-```
+```bash
 sudo pacman -S git
 cd /tmp
 git clone https://aur.archlinux.org/yay.git
@@ -48,61 +48,65 @@ makepkg -si
 
 ## Enable multilib repo in pacman.conf
 
-```
+```bash
 sudo vim /etc/pacman.conf
 ```
+
 > [multilib]  
-> Include = /etc/pacman.d/mirrorlist  
-  
-```
+> Include = /etc/pacman.d/mirrorlist
+
+```bash
 sudo pacman -Syy
 ```
 
 ## Install bluetooth support
 
-```
+```bash
 sudo pacman -S bluez bluez-utils pulseaudio-bluetooth
 sudo systemctl enable --now bluetooth
 ```
 
 ## Mount secondary disk in fstab
 
-```
+```bash
 sudo blkid #Show and copy the UUID of my secondary disk
 sudo vim /etc/fstab
 ```
+
 > #Data  
-> UUID=107b1979-e8ed-466d-bb10-15e72f7dd2ae       /run/media/antiz/data         ext4          defaults 0 2  
+> UUID=107b1979-e8ed-466d-bb10-15e72f7dd2ae       /run/media/antiz/data         ext4          defaults 0 2
 
 ## Install packages
 
 - Main packages:
-```
+
+```bash
 sudo pacman -S discord distrobox docker firefox glow hexchat htop keepassxc mlocate neofetch noto-fonts-emoji ntfs-3g steam systray-x thunderbird tmux virt-viewer vlc xclip zathura zathura-pdf-poppler #Main packages from Arch repos
 yay -S arch-update lightdm-webkit2-theme-glorious mugshot onlyoffice-bin pa-applet-git protonmail-bridge-bin spotify timeshift ventoy-bin zaman #Main packages from the AUR
 sudo pacman -S --asdeps gnome-keyring gnu-free-fonts rofi ttf-dejavu xdg-utils #Optional dependencies that I need for the above packages
 systemctl --user enable --now arch-update.timer #Start and enable associated timers
 sudo systemctl enable --now docker cronie #Start and enable associated services
 ```
-  
+
 - Laptop only packages:
-```
+
+```bash
 sudo pacman -S openresolv wireguard-tools tlp
 sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket && sudo systemctl enable --now tlp.service
 ```
 
 ## Theme
 
-- Applications: Kimi-Dark - https://www.gnome-look.org/p/1326889/
-- Icon: Tela-Circle-Blue - https://www.gnome-look.org/p/1359276/
-- Shell: Orchis-dark-compact - https://www.gnome-look.org/p/1357889/
-- Cursor: McMojave cursors - https://www.opendesktop.org/s/Gnome/p/1355701/
+- Applications: Kimi-Dark - <https://www.gnome-look.org/p/1326889/>
+- Icon: Tela-Circle-Blue - <https://www.gnome-look.org/p/1359276/>
+- Shell: Orchis-dark-compact - <https://www.gnome-look.org/p/1357889/>
+- Cursor: McMojave cursors - <https://www.opendesktop.org/s/Gnome/p/1355701/>
 
 ## Bash Theme
 
-https://github.com/speedenator/agnoster-bash  
-  
-```
+<https://github.com/speedenator/agnoster-bash>
+
+```bash
 cd /tmp
 git clone https://github.com/powerline/fonts.git fonts
 cd fonts
@@ -119,7 +123,7 @@ git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster
 - spotify
 - mailspring
 - thunar
-- mousepad 
+- mousepad
 - onlyoffice
 - keepass
 - steam
@@ -129,10 +133,10 @@ git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster
 - screenshot
 - settings
 
-## Disable XFCE compositor 
+## Disable XFCE compositor
 
-I use picom instead, for window animations and transparency support (see the "Autostart APP" section for the picom autolaunch"):   
-  
+I use picom instead, for window animations and transparency support (see the "Autostart APP" section for the picom autolaunch"):
+
 - XFCE Settings -> "Window Manager Tweaks" -> "Compositor" -> uncheck "Enable display compositing"
 
 ## Autostart APP
@@ -141,7 +145,7 @@ I use picom instead, for window animations and transparency support (see the "Au
 - Applet Blueman
 - Screensaver
 - Power Management
-- Picom compositor --> picom --xrender-sync-fence #(This xrender argument is needed for some people that has nvidia card: https://superuser.com/questions/1601366/picom-failed-to-trigger-fence) 
+- Picom compositor --> picom --xrender-sync-fence #(This xrender argument is needed for some people that has nvidia card: <https://superuser.com/questions/1601366/picom-failed-to-trigger-fence>)
 - Plank Dock --> plank
 - Redshift Nightmode --> redshift-gtk -l 49.443232:1.099971
 - Network
@@ -152,9 +156,9 @@ I use picom instead, for window animations and transparency support (see the "Au
 - Xfce Notification Daemon
 
 ## Top panel configuration
-  
-Needs to be done manually:  
-   
+
+Needs to be done manually:
+
 - Launcher Lock Screen --> `dm-tool switch-to-greeter`
 - WhiskerMenu Configuration --> Apparance: Tree display mode | 80% opacity --> Dashboard Button: Icon + text and Arch Linux logo --> Behavior: All apps | Categories menu --> Commands: Modify App | Modify Profil
 - Notification Greffon --> Mask the confirmation for "Delete the journal"
@@ -162,16 +166,17 @@ Needs to be done manually:
 
 ## Make bluetooth autoconnect to trusted devices
 
-```
+```bash
 sudo vi /etc/pulse/default.pa
 ```
+
 > [...]  
 > #Automatically switch to newly-connected devices  
-> load-module module-switch-on-connect  
+> load-module module-switch-on-connect
 
 ## Dotfiles
 
-```
+```bash
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Bashrc/Arch -o ~/.bashrc
 mkdir -p ~/.config/tmux/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/tmux.conf -o ~/.config/tmux/tmux.conf
 mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/zathurarc -o ~/.config/zathura/zathurarc && xdg-mime default org.pwmt.zathura.desktop application/pdf
@@ -189,7 +194,7 @@ source ~/.bashrc
 ```
 
 ## Keyboard Shortcuts
-  
+
 - Super + A = Open Whisker Menu --> xfce4-popup-whiskermenu
 - Super + F = Switch size of windows (Maximize/Minimize)
 - Super + D = Close the window
@@ -197,4 +202,4 @@ source ~/.bashrc
 - Super + C = calculator --> gnome-calculator
 - Super + M = Display the desktop
 - Super + T = Terminal
-- Super + L = Lock the screen --> dm-tool switch-to-greeter 
+- Super + L = Lock the screen --> dm-tool switch-to-greeter
