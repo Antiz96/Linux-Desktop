@@ -2,7 +2,7 @@
 
 ## Download
 
-https://docs.microsoft.com/en-us/windows/wsl/install-manual#downloading-distributions
+<https://docs.microsoft.com/en-us/windows/wsl/install-manual#downloading-distributions>
 
 ## Installation
 
@@ -13,13 +13,13 @@ Then follow the instruction to create a user.
 
 ### Update the machine
 
-```
+```bash
 sudo apt update && sudo apt full-upgrade
 ```
 
 ### Enable systemd support
 
-```
+```bash
 sudo vi /etc/wsl.conf
 ```
 
@@ -28,7 +28,7 @@ sudo vi /etc/wsl.conf
 
 ### Install my needed packages
 
-```
+```bash
 sudo apt install vim curl man bash-completion openssh-server inetutils-tools dnsutils traceroute rsync zip unzip diffutils git tmux mlocate htop neofetch codespell
 curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sudo sh #Install distrobox
 sudo apt remove docker docker-engine docker.io #Install Docker
@@ -38,18 +38,18 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] 
 sudo apt update && sudo apt install docker-ce docker-ce-cli containerd.io
 sudo systemctl enable --now docker
 ```
-  
-### Download my config files 
-  
-```
+
+### Download my config files
+
+```bash
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Bashrc/Debian-Ubuntu-WSL -o ~/.bashrc
 mkdir -p ~/.config/tmux/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/tmux.conf -o ~/.config/tmux/tmux.conf
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/vimrc -o ~/.vimrc && mkdir -p ~/.vim/colors && curl https://raw.githubusercontent.com/vv9k/vim-github-dark/master/colors/ghdark.vim -o ~/.vim/colors/ghdark.vim
 source ~/.bashrc
 ```
 
-**Uncomment the copy/paste option for WSL and comment the one for Linux in ~/.config/tmux/tmux.conf**  
+Uncomment the copy/paste option for WSL and comment the one for Linux in ~/.config/tmux/tmux.conf
 
-### Setup my DNS config for VPN :
-  
-https://github.com/Antiz96/Linux-Desktop/blob/main/WSL/Resolve_DNS_Using_VPN.md
+### Setup my DNS config for VPN
+
+<https://github.com/Antiz96/Linux-Desktop/blob/main/WSL/Resolve_DNS_Using_VPN.md>
