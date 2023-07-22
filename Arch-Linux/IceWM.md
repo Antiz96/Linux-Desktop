@@ -68,6 +68,7 @@ vim ~/.bash_profile
 > #Autostart IceWM  
 > ``if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then``  
 > > exec startx  
+>
 > fi
 
 ## Reboot and log into IceWM
