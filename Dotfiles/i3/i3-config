@@ -365,7 +365,7 @@ exec blueman-applet
 exec redshift-gtk -l 49.443232:1.099971
 
 #Volume applet
-exec pa-applet
+exec pasystray
 
 #Multimedia control daemon
 exec playerctl daemon
