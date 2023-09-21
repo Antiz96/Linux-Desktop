@@ -122,7 +122,7 @@ sudo vim /etc/fstab
 - Main packages:
 
 ```bash
-sudo pacman -S discord distrobox docker firefox glow hexchat htop keepassxc mlocate neofetch noto-fonts-emoji ntfs-3g rofi steam systray-x thunderbird tmux ttf-font-awesome virt-viewer vlc xclip xorg-xhost zathura zathura-pdf-poppler #Main packages from Arch repos
+sudo pacman -S discord distrobox docker firefox glow hexchat htop keepassxc mlocate neofetch noto-fonts-emoji ntfs-3g powerline-fonts rofi steam systray-x thunderbird tmux ttf-font-awesome virt-viewer vlc xclip xorg-xhost zathura zathura-pdf-poppler #Main packages from Arch repos
 yay -S arch-update onlyoffice-bin pa-applet-git protonmail-bridge-bin spotify timeshift ventoy-bin zaman #Main packages from the AUR
 sudo pacman -S --asdeps gnome-keyring gnu-free-fonts ttf-dejavu xdg-utils #Optional dependencies that I need for the above packages
 systemctl --user enable --now arch-update.timer #Start and enable associated timers
@@ -147,10 +147,6 @@ sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket && sudo systemc
 <https://github.com/speedenator/agnoster-bash>
 
 ```bash
-cd /tmp
-git clone https://github.com/powerline/fonts.git fonts
-cd fonts
-sh install.sh
 cd $HOME
 mkdir -p .bash/themes/agnoster-bash
 git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster-bash
