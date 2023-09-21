@@ -241,6 +241,9 @@ gaps inner 10
 #Open app finder
 bindsym $mod+a exec rofi -show drun -show-icons
 
+#Open power menu
+bindsym $mod+Escape exec ~/.config/i3/power-menu.sh
+
 #Open window switcher
 bindsym Mod1+Tab exec rofi -show window -show-icons
 
@@ -297,21 +300,6 @@ bindsym $mod+F6 workspace number $ws6
 
 #Switch to next workspace
 bindsym $mod+Tab workspace next
-
-#Open the power menu
-set $power_menu [L]ock | [H]alt | [R]eboot | [S]hutdown
-mode "$power_menu" {
-        bindsym l exec --no-startup-id i3lock -eti ~/.config/i3/lock.png && kill $(pidof notification-daemon) && /usr/lib/notification-daemon-1.0/notification-daemon, mode "default"
-        bindsym h exec --no-startup-id i3lock -eti ~/.config/i3/lock.png && test -e /run/systemd/system && systemctl suspend && kill $(pidof notification-daemon) && /usr/lib/notification-daemon-1.0/notification-daemon, mode "default"
-        bindsym r exec --no-startup-id test -e /run/systemd/system && systemctl reboot, mode "default"
-        bindsym s exec --no-startup-id test -e /run/systemd/system && systemctl poweroff, mode "default"
-
-        #Back to normal: Enter or Escape
-        bindsym Return mode "default" ; exec kill $(pidof notification-daemon) && /usr/lib/notification-daemon-1.0/notification-daemon
-        bindsym Escape mode "default" ; exec kill $(pidof notification-daemon) && /usr/lib/notification-daemon-1.0/notification-daemon
-}
-
-bindsym $mod+Escape mode "$power_menu" ; exec notify-send -u critical -t 0 -i ~/.config/i3/shutdown.svg "Power menu" "[L]ock\n[H]alt\n[R]eboot\n[S]hutdown"
 
 #Multimedia go to previous
 bindsym F7 exec playerctl previous
