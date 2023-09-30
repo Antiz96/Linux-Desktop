@@ -41,8 +41,8 @@ export EDITOR="/usr/bin/vim"
 
 # Ls
 alias ls="ls --color=auto"
-alias ll="ls ltrh"
-alias l="ls ltrhA"
+alias ll="ls -ltrh"
+alias l="ls -ltrhA"
 
 # Grep
 alias grep="grep --color=auto"
