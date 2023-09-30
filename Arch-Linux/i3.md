@@ -125,8 +125,8 @@ sudo vim /etc/fstab
 sudo pacman -S discord distrobox docker firefox glow hexchat htop keepassxc mlocate neofetch noto-fonts-emoji ntfs-3g powerline-fonts rofi steam systray-x thunderbird tmux ttf-font-awesome virt-viewer vlc xclip xorg-xhost zathura zathura-pdf-poppler #Main packages from Arch repos
 yay -S arch-update onlyoffice-bin pa-applet-git protonmail-bridge-bin spotify timeshift ventoy-bin zaman #Main packages from the AUR
 sudo pacman -S --asdeps gnome-keyring gnu-free-fonts ttf-dejavu xdg-utils #Optional dependencies that I need for the above packages
-systemctl --user enable --now arch-update.timer #Start and enable associated timers
-sudo systemctl enable --now docker cronie #Start and enable associated services
+systemctl --user enable --now arch-update.timer ssh-agent.service #Start and enable timers
+sudo systemctl enable --now docker cronie #Start and enable services
 ```
 
 - Laptop only packages:

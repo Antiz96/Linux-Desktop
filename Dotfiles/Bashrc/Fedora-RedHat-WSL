@@ -37,6 +37,9 @@ bind "set colored-stats on"
 # Editor
 export EDITOR="/usr/bin/vim"
 
+# SSH Agent
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+
 ##Alias##
 
 # Ls
