@@ -44,8 +44,8 @@ export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
 # Ls
 alias ls="ls --color=auto"
-alias ll="ls -ltr"
-alias l="ls -ltrA"
+alias ll="ls ltrh"
+alias l="ls ltrhA"
 
 # Grep
 alias grep="grep --color=auto"
