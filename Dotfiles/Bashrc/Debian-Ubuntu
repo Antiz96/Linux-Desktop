@@ -37,6 +37,9 @@ bind "set colored-stats on"
 # Editor
 export EDITOR="/usr/bin/vim"
 
+# SSH Agent
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+
 # Flatpak path
 export PATH="${PATH}:/var/lib/flatpak/exports/bin"
 
@@ -44,8 +47,8 @@ export PATH="${PATH}:/var/lib/flatpak/exports/bin"
 
 # Ls
 alias ls="ls --color=auto"
-alias ll="ls -ltr"
-alias l="ls -ltrA"
+alias ll="ls -ltrh"
+alias l="ls -ltrhA"
 
 # Grep
 alias grep="grep --color=auto"
