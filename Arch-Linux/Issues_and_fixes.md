@@ -64,7 +64,7 @@ pacmd list-cards
 > > > device.description = "WH-1000XM3"
 ```
 
-Switch between profiles (**a2dp_sink = only sound | handsfree_head_unit = both sound and microphone**):
+Switch between profiles (**a2dp_sink = only sound and handsfree_head_unit = both sound and microphone**):
 
 ```bash
 pacmd set-card-profile bluez_card.38_18_4C_E9_85_B4 a2dp_sink
@@ -88,7 +88,7 @@ pacmd list-cards
 > > > alsa.card_name = "Logitech G430 Gaming Headset"
 ```
 
-Switch between profiles (**output:iec958-ac3-surround-51 = only sound | output:iec958-ac3-surround-51+input:mono-fallback = both sound and microphone**):
+Switch between profiles (**output:iec958-ac3-surround-51 = only sound and output:iec958-ac3-surround-51+input:mono-fallback = both sound and microphone**):
 
 ```bash
 pacmd set-card-profile alsa_card.usb-Logitech_Logitech_G430_Gaming_Headset-00 output:iec958-ac3-surround-51
