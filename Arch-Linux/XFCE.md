@@ -156,7 +156,7 @@ I use picom instead, for window animations and transparency support (see the "Au
 Needs to be done manually:
 
 - Launcher Lock Screen --> `dm-tool switch-to-greeter`
-- WhiskerMenu Configuration --> Apparance: Tree display mode --> 80% opacity --> Dashboard Button: Icon + text and Arch Linux logo --> Behavior: All apps --> Categories menu --> Commands: Modify App --> Modify Profil
+- WhiskerMenu Configuration --> Appearance: Tree display mode --> 80% opacity --> Dashboard Button: Icon + text and Arch Linux logo --> Behavior: All apps --> Categories menu --> Commands: Modify App --> Modify Profil
 - Notification Greffon --> Mask the confirmation for "Delete the journal"
 - Power Management Greffon --> Show the "presentation mode" indicator
 
