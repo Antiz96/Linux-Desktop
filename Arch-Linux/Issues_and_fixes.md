@@ -150,7 +150,7 @@ journalctl -xe
 
 > févr. 09 18:10:35 pihole sshd[1185]: Unable to negotiate with 192.168.1.100 port 59724: no matching host key type found. Their offer: ssh-rsa,ssh-dss [preauth]  
 
-In order to be able to connect to use those old SSH key types with Arch Linux, we need to autorize them:
+In order to be able to connect to use those old SSH key types with Arch Linux, we need to authorize them:
 
 - As a SSH server:
 
