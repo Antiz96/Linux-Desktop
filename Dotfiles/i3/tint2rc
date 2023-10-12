@@ -202,6 +202,7 @@ execp = new
 execp_command = echo ~/.config/tint2/Arch_Taskbar.png
 execp_has_icon = 1
 execp_lclick_command = rofi -show drun -show-icons
+execp_rclick_command = ~/.config/i3/power-menu.sh
 
 execp = new
 execp_command = echo ~/.config/tint2/autolock.svg
