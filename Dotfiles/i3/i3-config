@@ -262,14 +262,14 @@ bindsym $mod+s sticky toggle
 #Close active window
 bindsym $mod+d kill
 
-#Launch file manager (thunar)
+#Launch file manager
 bindsym $mod+e exec thunar
 
-#Launch notepad (mousepad)
+#Launch notepad
 bindsym $mod+m exec mousepad
 
-#Launch calculator (gnome-calculator)
-bindsym $mod+c exec gnome-calculator
+#Launch calculator
+bindsym $mod+c exec speedcrunch
 
 #Open terminal
 bindsym $mod+t exec xfce4-terminal
