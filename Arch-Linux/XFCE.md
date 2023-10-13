@@ -25,7 +25,7 @@ Check <https://archlinux.org/groups/x86_64/xfce4/> & <https://archlinux.org/grou
 If you want a complete XFCE installation, just install the "xfce4" and the "xfce4-goodies" packages (additionally you may need a display manager).
 
 ```bash
-sudo pacman -S xfce4 mousepad ristretto thunar-archive-plugin xfce4-notifyd xfce4-screenshooter xfce4-screensaver xfce4-pulseaudio-plugin xfce4-whiskermenu-plugin numlockx plank gvfs gnome-calculator network-manager-applet blueman redshift file-roller picom xdg-user-dirs-gtk pulseaudio openssh lightdm lightdm-gtk-greeter
+sudo pacman -S xfce4 mousepad ristretto thunar-archive-plugin xfce4-notifyd xfce4-screenshooter xfce4-screensaver xfce4-pulseaudio-plugin xfce4-whiskermenu-plugin numlockx plank gvfs speedcrunch network-manager-applet blueman redshift file-roller picom xdg-user-dirs-gtk pulseaudio openssh lightdm lightdm-gtk-greeter
 sudo systemctl enable lightdm
 sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
 ```
@@ -195,7 +195,7 @@ source ~/.bashrc
 - Super + F = Switch size of windows (Maximize/Minimize)
 - Super + D = Close the window
 - Super + E = thunar
-- Super + C = calculator --> gnome-calculator
+- Super + C = calculator --> speedcrunch
 - Super + M = Display the desktop
 - Super + T = Terminal
 - Super + L = Lock the screen --> dm-tool switch-to-greeter
