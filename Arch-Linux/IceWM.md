@@ -26,14 +26,14 @@ Still a very minimal installation though.
 - For regular computers:
 
 ```bash
-sudo pacman -S icewm xfce4-terminal polkit-gnome pulseaudio picom plank thunar thunar-archive-plugin file-roller gvfs xdg-user-dirs-gtk mousepad ristretto flameshot notification-daemon speedcrunch network-manager-applet blueman redshift openssh xorg-xinit xorg-xrandr xautolock i3lock lxappearance numlockx playerctl gsimplecal
+sudo pacman -S icewm xfce4-terminal polkit-gnome pulseaudio picom plank thunar thunar-archive-plugin engrampa gvfs xdg-user-dirs-gtk mousepad ristretto flameshot notification-daemon speedcrunch network-manager-applet blueman redshift openssh xorg-xinit xorg-xrandr xautolock i3lock lxappearance numlockx playerctl gsimplecal
 sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
 ```
 
 - For Raspberry Pi:
 
 ```bash
-sudo pacman -S icewm xfce4-terminal polkit-gnome pulseaudio mousepad ristretto thunar thunar-archive-plugin file-roller gvfs notification-daemon xdg-user-dirs-gtk network-manager-applet xorg-xinit xorg-xrandr i3lock numlockx xdotool playerctl
+sudo pacman -S icewm xfce4-terminal polkit-gnome pulseaudio mousepad ristretto thunar thunar-archive-plugin engrampa gvfs notification-daemon xdg-user-dirs-gtk network-manager-applet xorg-xinit xorg-xrandr i3lock numlockx xdotool playerctl
 sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
 ```
 
