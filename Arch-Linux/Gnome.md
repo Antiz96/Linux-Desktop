@@ -83,11 +83,11 @@ sudo vim /etc/fstab
 - Main packages:
 
 ```bash
-sudo pacman -S discord distrobox docker firefox glow hexchat htop keepassxc mlocate neofetch noto-fonts-emoji ntfs-3g powerline-fonts steam systray-x thunderbird timeshift tmux ttf-font-awesome virt-viewer vlc xclip xorg-xhost zathura zathura-pdf-poppler #Main packages from Arch repos
-yay -S arch-update gnome-browser-connector gnome-terminal-transparency onlyoffice-bin pa-applet-git protonmail-bridge-bin ventoy-bin zaman #Main packages from the AUR
+sudo pacman -S ccid discord distrobox docker firefox glow hexchat htop keepassxc mlocate neofetch noto-fonts-emoji ntfs-3g powerline-fonts steam systray-x thunderbird timeshift tmux ttf-font-awesome virt-viewer vlc xclip xorg-xhost zathura zathura-pdf-poppler #Main packages from Arch repos
+yay -S arch-update gnome-browser-connector gnome-terminal-transparency onlyoffice-bin pa-applet-git protonmail-bridge-bin ventoy-bin yubico-piv-tool ykcs11-p11-kit-module zaman #Main packages from the AUR
 sudo pacman -S --asdeps gnome-keyring gnu-free-fonts rofi ttf-dejavu xdg-utils #Optional dependencies that I need for the above packages
 systemctl --user enable --now arch-update.timer ssh-agent.service #Start and enable user timers and services
-sudo systemctl enable --now docker cronie #Start and enable services
+sudo systemctl enable --now docker cronie pcscd #Start and enable services
 ```
 
 - Laptop only packages:
