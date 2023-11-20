@@ -100,6 +100,9 @@ mount --make-slave /mnt/gentoo/run
 
 ```bash
 chroot /mnt/gentoo /bin/bash
+```
+
+```bash
 source /etc/profile
 export PS1="(chroot) ${PS1}"
 ```
