@@ -170,7 +170,10 @@ vim /etc/locale.gen
 
 ```bash
 locale-gen
+vim /etc/vconsole.conf
 ```
+
+> KEYMAP=fr
 
 ### Configure locale for the system
 
