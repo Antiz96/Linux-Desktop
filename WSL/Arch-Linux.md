@@ -53,10 +53,10 @@ sudo vi /etc/pacman.conf
 sudo pacman -Syu #Update our system
 sudo pacman -S base-devel linux-headers man bash-completion openssh inetutils dnsutils traceroute rsync zip unzip diffutils git tmux mlocate htop fastfetch glow docker distrobox pacman-contrib codespell #Install my needed packages. DO NOT INSTALL "fakeroot" (https://github.com/yuk7/ArchWSL/issues/3)
 cd /tmp #Change directory to tmp to download and install AUR support
-git clone https://aur.archlinux.org/yay.git #Download "yay" install sources
-cd yay #Change directory to "yay" install sources directory
-makepkg -si #Install "yay"
-yay -S certificate-ripper-bin arch-update #Install AUR packages
+git clone https://aur.archlinux.org/paru.git #Download "paru" install sources
+cd paru #Change directory to "paru" install sources directory
+makepkg -si #Install "paru"
+paru -S certificate-ripper-bin arch-update #Install AUR packages
 sudo systemctl enable --now docker paccache.timer #Enable systemd services
 ```
 

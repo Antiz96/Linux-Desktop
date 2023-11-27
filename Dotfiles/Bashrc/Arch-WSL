@@ -62,7 +62,7 @@ alias vi="vim"
 # Package manager
 alias update="sudo pacman -Syy"
 alias upgrade="sudo pacman -Syu"
-alias fullupgrade="sudo pacman -Syu && yay -Syu"
+alias fullupgrade="sudo pacman -Syu && paru -Syu"
 alias install="sudo pacman -S"
 alias remove="sudo pacman -Rns"
 alias pkglist="pacman -Q"
@@ -72,7 +72,7 @@ alias pkgfile="pacman -Ql"
 alias pkgsearch="pacman -Ss"
 alias pkgfilesearch="pacman -F"
 alias cleancache="sudo pacman -Sc"
-alias cleanaurcache="yay -Sc"
+alias cleanaurcache="paru -Sc"
 alias cleanorphans="pacman -Qtdq | sudo pacman -Rns -"
 
 # Tmux

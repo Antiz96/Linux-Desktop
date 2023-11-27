@@ -38,13 +38,13 @@ sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
 sudo reboot
 ```
 
-## Install the yay AUR Helper
+## Install the paru AUR Helper
 
 ```bash
 sudo pacman -S git
 cd /tmp
-git clone https://aur.archlinux.org/yay.git
-cd yay
+git clone https://aur.archlinux.org/paru.git
+cd paru
 makepkg -si
 ```
 
@@ -84,7 +84,7 @@ sudo vim /etc/fstab
 
 ```bash
 sudo pacman -S ccid discord distrobox docker fastfetch firefox glow hexchat htop keepassxc mlocate noto-fonts-emoji ntfs-3g powerline-fonts steam systray-x thunderbird timeshift tmux ttf-font-awesome virt-viewer vlc xclip xorg-xhost zathura zathura-pdf-poppler #Main packages from Arch repos
-yay -S arch-update gnome-browser-connector gnome-terminal-transparency onlyoffice-bin pa-applet-git protonmail-bridge-bin ventoy-bin yubico-piv-tool ykcs11-p11-kit-module zaman #Main packages from the AUR
+paru -S arch-update gnome-browser-connector gnome-terminal-transparency onlyoffice-bin pa-applet-git protonmail-bridge-bin ventoy-bin yubico-piv-tool ykcs11-p11-kit-module zaman #Main packages from the AUR
 sudo pacman -S --asdeps gnome-keyring gnu-free-fonts rofi ttf-dejavu xdg-utils #Optional dependencies that I need for the above packages
 systemctl --user enable --now arch-update.timer ssh-agent.service #Start and enable user timers and services
 sudo systemctl enable --now docker cronie pcscd #Start and enable services
@@ -94,7 +94,7 @@ sudo systemctl enable --now docker cronie pcscd #Start and enable services
 
 ```bash
 sudo pacman -S openresolv wireguard-tools power-profiles-daemon
-yay -S touchegg
+paru -S touchegg
 sudo systemctl enable --now touchegg
 ```
 
