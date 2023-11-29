@@ -126,7 +126,7 @@ By default, Arch Linux ARM **aarch64** comes with the mainline Linux kernel.
 I personally advise switching to the Linux RPI kernel for a better hardware support:
 
 ```bash
-sudo pacman -S linux-rpi linux-rpi-headers #Accept to replace conflicting packages
+sudo pacman -S linux-rpi #Accept to replace conflicting packages
 sudo sed -i 's/mmcblk1/mmcblk0/' /etc/fstab
 sudo reboot
 ```
