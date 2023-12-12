@@ -17,7 +17,7 @@ jobs:
         run: apk update && apk upgrade
 
       - name: Install packages
-        run: apk add pipx ruby && pipx ensurepath && pipx install codespell && gem install mdl
+        run: apk add pipx ruby && pipx install codespell && gem install mdl
 
       - name: Run codespell
         run: codespell --enable-colors
