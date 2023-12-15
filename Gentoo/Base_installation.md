@@ -166,7 +166,7 @@ ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
 vim /etc/locale.gen
 ```
 
-> fr_FR.UTF-8 UTF-8
+> en_US.UTF-8 UTF-8
 
 ```bash
 locale-gen
