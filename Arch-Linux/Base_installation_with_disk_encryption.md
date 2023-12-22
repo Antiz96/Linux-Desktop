@@ -8,8 +8,8 @@ Before encrypting your disk, be aware of the consequences: <https://www.makeuseo
 ```bash
 loadkeys fr #Change Keyboard Layout
 ping -c 4 archlinux.org #Check if I have access to the internet
-timedatectl set-ntp true #Enable NTP
-timedatectl status #Check the NTP Status
+timedatectl set-ntp true #Enable NTP to synchronize time within the live environment
+timedatectl status #Check time status
 ```
 
 ## Prepare the disk
@@ -231,6 +231,12 @@ To launch `fstrim` automatically on a weekly basis, enable the associated system
 
 ```bash
 sudo systemctl enable --now fstrim.timer
+```
+
+## Enable NTP for automatic time sync
+
+```bash
+sudo timedatectl set-ntp true
 ```
 
 ## Base installation complete
