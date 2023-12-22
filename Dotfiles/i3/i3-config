@@ -241,6 +241,9 @@ gaps inner 10
 #Open app finder
 bindsym $mod+a exec rofi -show drun -show-icons
 
+#Open zaman
+bindsym $mod+z exec zaman
+
 #Open power menu
 bindsym $mod+Escape exec ~/.config/i3/power-menu.sh
 
