@@ -78,6 +78,8 @@ vim /etc/pacman.conf #Enable the "color" and "parallel downloads" options in pac
 ```
 
 > [...]  
+> HookDir     = /etc/pacman.d/hooks/  
+> [...]  
 > Color  
 > [...]  
 > ParallelDownloads = 10  
@@ -136,6 +138,7 @@ visudo #Uncomment the line that allows the wheel group members to use sudo on an
 pacman -S grub efibootmgr dosfstools mtools #Install the Grub bootloader and dependencies for EFI. Also install "os-prober" if you wish to do a dual boot with another distro/OS.
 grub-install --target=x86_64-efi --bootloader-id=arch-linux --recheck #Install Grub on the EFI partition
 grub-mkconfig -o /boot/grub/grub.cfg #Generating the Grub configuration file
+mkdir -p /etc/pacman.d/hooks && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/grub-update.hook -o /etc/pacman.d/hooks/grub-update.hook #Download custom pacman hook to run grub-install [...] & grub-mkconfig [...] on grub update
 ```
 
 ### Install and enable Network Manager
