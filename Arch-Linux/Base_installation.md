@@ -78,8 +78,6 @@ vim /etc/pacman.conf #Enable the "color" and "parallel downloads" options in pac
 ```
 
 > [...]  
-> HookDir     = /etc/pacman.d/hooks/  
-> [...]  
 > Color  
 > [...]  
 > ParallelDownloads = 10  
