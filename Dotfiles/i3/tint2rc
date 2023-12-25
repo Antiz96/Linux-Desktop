@@ -199,17 +199,17 @@ tooltip_font_color = #dddddd 100
 #-------------------------------------
 # Executor
 execp = new
-execp_command = echo ~/.config/tint2/Arch_Taskbar.png
+execp_command = echo ~/Pictures/tint2/Arch_Taskbar.png
 execp_has_icon = 1
 execp_lclick_command = rofi -show drun -show-icons
-execp_rclick_command = ~/.config/i3/power-menu.sh
+execp_rclick_command = ~/Documents/Scripts/power-menu.sh
 
 execp = new
-execp_command = echo ~/.config/tint2/autolock.svg
+execp_command = echo ~/Pictures/tint2/autolock.svg
 execp_has_icon = 1
 execp_cache_icon = 0
-execp_lclick_command = xautolock -enable && cp -f ~/.config/tint2/caffeine-cup-empty.svg ~/.config/tint2/autolock.svg
-execp_rclick_command = xautolock -disable && cp -f ~/.config/tint2/caffeine-cup-full.svg ~/.config/tint2/autolock.svg
+execp_lclick_command = xautolock -enable && cp -f ~/Pictures/tint2/caffeine-cup-empty.svg ~/Pictures/tint2/autolock.svg
+execp_rclick_command = xautolock -disable && cp -f ~/Pictures/tint2/caffeine-cup-full.svg ~/Pictures/tint2/autolock.svg
 execp_icon_w = 24
 execp_icon_h = 24
 

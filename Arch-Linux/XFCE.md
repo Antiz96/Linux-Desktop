@@ -159,7 +159,7 @@ Needs to be done manually:
 - Notification Greffon --> Mask the confirmation for "Delete the journal"
 - Power Management Greffon --> Show the "presentation mode" indicator
 
-## Make bluetooth autoconnect to trusted devices
+## Make bluetooth autoswitch sound source to connected device
 
 ```bash
 sudo vi /etc/pulse/default.pa

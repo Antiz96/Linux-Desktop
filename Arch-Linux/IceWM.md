@@ -198,7 +198,7 @@ sudo sed -i "s/Icon=org.xfce.screenshooter/Icon=applets-screenshooter/g" /usr/sh
 - Arch Update
 - Power
 
-## Make bluetooth autoconnect to trusted devices
+## Make bluetooth autoswitch sound source to connected device
 
 ```bash
 sudo vi /etc/pulse/default.pa

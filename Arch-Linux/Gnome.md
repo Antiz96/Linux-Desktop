@@ -149,7 +149,7 @@ git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster
 - Profile --> Colors --> Gnome Dark --> Solarized
 - Transparent Background --> Cursor between the two color squares above
 
-## Make bluetooth autoconnect to trusted devices
+## Make bluetooth autoswitch sound source to connected device
 
 ```bash
 sudo vi /etc/pulse/default.pa
