@@ -165,7 +165,7 @@ vim /etc/default/grub #Modify the grub default configuration to tell it which of
 ```bash
 grub-install --target=x86_64-efi --bootloader-id=arch-linux --efi-directory=/boot --recheck #Install grub on the EFI partition
 grub-mkconfig -o /boot/grub/grub.cfg #Generating the Grub configuration file
-mkdir -p /etc/pacman.d/hooks && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/grub-update-disk-encryption.hook -o /etc/pacman.d/hooks/grub-update-disk-encryption.hook #Download custom pacman hook to run grub-install [...] & grub-mkconfig [...] on grub update
+mkdir -p /etc/pacman.d/hooks && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/grub-update-disk-encryption.hook -o /etc/pacman.d/hooks/grub-update.hook #Download custom pacman hook to run grub-install [...] & grub-mkconfig [...] on grub update
 ```
 
 ### Install and enable Network Manager
