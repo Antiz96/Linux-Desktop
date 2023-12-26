@@ -245,7 +245,7 @@ bindsym $mod+a exec rofi -show drun -show-icons
 bindsym $mod+z exec zaman
 
 #Open power menu
-bindsym $mod+Escape exec ~/.config/i3/power-menu.sh
+bindsym $mod+Escape exec ~/Documents/Scripts/power-menu.sh
 
 #Open window switcher
 bindsym Mod1+Tab exec rofi -show window -show-icons
@@ -281,7 +281,7 @@ bindsym $mod+t exec xfce4-terminal
 bindsym $mod+b exec firefox
 
 #Lock screen
-bindsym $mod+l exec i3lock -eti ~/.config/i3/lock.png
+bindsym $mod+l exec i3lock -eti ~/Pictures/i3/lock.png
 
 #Switch to workspace 1
 bindsym $mod+F1 workspace number $ws1
@@ -329,13 +329,13 @@ bindsym F12 exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 exec numlockx
 
 #Wallpaper
-exec feh --bg-fill ~/.config/i3/wallpaper.jpg
+exec feh --bg-fill ~/Pictures/i3/wallpaper.jpg
 
 #Polkit authentication
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 #Autolock && autosleep
-exec xautolock -detectsleep -time 15 -locker "i3lock -eti ~/.config/i3/lock.png" -killtime 15 -killer "systemctl suspend" -notify 60 -notifier 'notify-send -u critical -t 60000 -i ~/.config/i3/shutdown.svg "Auto lock" "Based on current inactivity, the system will be locked automatically in 1 minute\n\nDismiss this notification to abort"'
+exec xautolock -detectsleep -time 15 -locker "i3lock -eti ~/Pictures/i3/lock.png" -killtime 15 -killer "systemctl suspend" -notify 60 -notifier 'notify-send -u critical -t 60000 -i ~/Pictures/i3/shutdown.svg "Auto lock" "Based on current inactivity, the system will be locked automatically in 1 minute\n\nDismiss this notification to abort"'
 
 #Picom compositor
 exec picom --xrender-sync-fence

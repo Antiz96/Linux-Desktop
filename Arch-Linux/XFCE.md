@@ -81,7 +81,7 @@ sudo vim /etc/fstab
 - Main packages:
 
 ```bash
-sudo pacman -S ccid discord distrobox docker fastfetch firefox glow hexchat htop keepassxc mlocate mpv noto-fonts-emoji ntfs-3g powerline-fonts steam systray-x thunderbird timeshift tmux ttf-font-awesome virt-viewer xclip xorg-xhost zathura zathura-pdf-poppler #Main packages from Arch repos
+sudo pacman -S ccid discord distrobox docker fastfetch firefox firejail glow hexchat htop keepassxc mlocate mpv noto-fonts-emoji ntfs-3g powerline-fonts steam systray-x thunderbird timeshift tmux ttf-font-awesome virt-viewer xclip xorg-xhost zathura zathura-pdf-poppler #Main packages from Arch repos
 paru -S arch-update lightdm-webkit2-theme-glorious mugshot onlyoffice-bin pa-applet-git protonmail-bridge-bin ventoy-bin yubico-piv-tool ykcs11-p11-kit-module zaman #Main packages from the AUR
 sudo pacman -S --asdeps gnome-keyring gnu-free-fonts rofi ttf-dejavu xdg-utils #Optional dependencies that I need for the above packages
 systemctl --user enable --now arch-update.timer ssh-agent.service #Start and enable timers and services
@@ -159,7 +159,7 @@ Needs to be done manually:
 - Notification Greffon --> Mask the confirmation for "Delete the journal"
 - Power Management Greffon --> Show the "presentation mode" indicator
 
-## Make bluetooth autoconnect to trusted devices
+## Make bluetooth autoswitch sound source to connected device
 
 ```bash
 sudo vi /etc/pulse/default.pa
@@ -186,6 +186,7 @@ sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/
 sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/XFCE/authenticate.js -o /usr/share/lightdm-webkit/themes/glorious/js/authenticate.js
 mkdir -p ~/.config/rofi/ && curl https://raw.githubusercontent.com/newmanls/rofi-themes-collection/master/themes/spotlight-dark.rasi -o ~/.config/rofi/spotlight-dark.rasi && sed -i s/border-radius:\ \ 8/border-radius:\ \ 0/ ~/.config/rofi/spotlight-dark.rasi && sed -i "/\bplaceholder\b/d" ~/.config/rofi/spotlight-dark.rasi && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/rofi-config -o ~/.config/rofi/config.rasi
 sudo mkdir -p /usr/local/lib/systemd/user/ && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/mpris-proxy.service -o /usr/local/lib/systemd/user/mpris-proxy.service && systemctl --user daemon-reload && systemctl --user enable --now mpris-proxy.service
+sudo mkdir -p /etc/pacman.d/hooks && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/firejail.hook -o /etc/pacman.d/hooks/firejail.hook && mkdir -p ~/.config/firejail && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/man.local -o ~/.config/firejail/man.local && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/mpv.local -o ~/.config/firejail/mpv.local && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ristretto.local -o ~/.config/firejail/ristretto.local && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ssh.profile -o ~/.config/firejail/ssh.profile
 source ~/.bashrc
 ```
 
