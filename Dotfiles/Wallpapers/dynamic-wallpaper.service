@@ -1,0 +1,7 @@
+[Unit]
+Description=Run the dynamic wallpaper script
+After=graphical.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/Documents/Scripts/dynamic-wallpaper.sh

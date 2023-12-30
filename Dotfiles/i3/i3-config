@@ -329,7 +329,7 @@ bindsym F12 exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 exec numlockx
 
 #Wallpaper
-exec feh --bg-fill ~/Pictures/i3/wallpaper.jpg
+exec ~/Documents/Scripts/dynamic-wallpaper.sh
 
 #Polkit authentication
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
