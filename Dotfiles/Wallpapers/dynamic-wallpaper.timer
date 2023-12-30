@@ -1,0 +1,8 @@
+[Unit]
+Description=Run the dynamic wallpaper script each hour
+
+[Timer]
+OnCalendar=hourly
+
+[Install]
+WantedBy=timers.target
