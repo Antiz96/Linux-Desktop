@@ -131,9 +131,6 @@ sudo sed -i 's/mmcblk1/mmcblk0/' /etc/fstab
 sudo reboot
 ```
 
-## Desktop environment/Window manager (optional)
+## Window manager (optional)
 
-- [Gnome](https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/Gnome.md)
-- [XFCE](https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/XFCE.md)
-- [IceWM](https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/IceWM.md)
 - [i3](https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/i3.md)
