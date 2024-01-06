@@ -48,7 +48,7 @@ include disable-interpreters.inc
 include disable-programs.inc
 include disable-shell.inc
 
-#read-only ${DESKTOP}
+read-only ${DESKTOP}
 #mkdir ${HOME}/.config/mpv
 #mkfile ${HOME}/.netrc
 #whitelist ${HOME}/.config/mpv
