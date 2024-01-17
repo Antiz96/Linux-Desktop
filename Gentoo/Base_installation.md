@@ -20,7 +20,7 @@ rc-service sshd start #And then connect from another computer via ssh
 fdisk /dev/sda
 ```
 
-> 550M --> EFI  
+> 1G --> EFI  
 > 4G --> SWAP  
 > Left --> ROOT
 
