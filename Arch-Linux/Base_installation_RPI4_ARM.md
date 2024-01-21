@@ -13,7 +13,7 @@ I also create a third 4G partition for Swap.
 As root (**only for this part**):
 
 ```bash
-pacman -Syy
+pacman -Syyu
 pacman -S sudo
 visudo
 ```
@@ -38,7 +38,7 @@ sudo vi /etc/pacman.conf
 #### Update
 
 ```bash
-sudo pacman -Syy
+sudo pacman -Syyu
 sudo pacman -Syu
 ```
 
