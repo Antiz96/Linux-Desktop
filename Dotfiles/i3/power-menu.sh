@@ -5,10 +5,10 @@ rofi_menu_options=$(for option in "${options[@]}"; do echo "${option}"; done | r
 
 case "${rofi_menu_options}" in
 	*Lock)
-		i3lock -eti ~/.config/i3/lock.png
+		i3lock -eti ~/Pictures/i3/lock.png
 	;;
 	*Suspend)
-		i3lock -eti ~/.config/i3/lock.png && systemctl suspend 
+		i3lock -eti ~/Pictures/i3/lock.png && systemctl suspend
 	;;
 	*Soft\ Reboot)
 		systemctl soft-reboot
