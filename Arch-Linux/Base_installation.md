@@ -80,6 +80,7 @@ vim /etc/pacman.conf #Enable the "color" and "parallel downloads" options in pac
 > [...]  
 > Color  
 > [...]  
+> VerbosePkgLists  
 > ParallelDownloads = 10  
 > [...]
 

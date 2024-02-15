@@ -32,6 +32,7 @@ sudo vi /etc/pacman.conf
 > [...]  
 > Color  
 > [...]  
+> VerbosePkgLists  
 > ParallelDownloads = 10  
 > [...]
 
