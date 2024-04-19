@@ -21,7 +21,7 @@ fdisk /dev/sda
 ```
 
 > 1G --> EFI  
-> 4G --> SWAP  
+> 8G --> SWAP  
 > Left --> ROOT
 
 ```bash
