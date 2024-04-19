@@ -187,7 +187,7 @@ reboot #Reboot the computer to boot into the fresh Arch install
 ## Log in with the "regular" user previously created and install additional useful packages
 
 ```bash
-sudo pacman -S devtools man bash-completion intel-ucode pacman-contrib #Additional useful packages and drivers. Install "amd-ucode" instead of "intel-ucode" if you have an AMD CPU
+sudo pacman -S devtools man bash-completion amd-ucode pacman-contrib #Additional useful packages and drivers. Install "intel-ucode" instead of "amd-ucode" if you have an Intel CPU
 sudo grub-mkconfig -o /boot/grub/grub.cfg #Re-generate Grub configuration to include CPU microcode
 ```
 
