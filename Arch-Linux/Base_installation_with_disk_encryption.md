@@ -21,7 +21,7 @@ fdisk -l #Check the hard drives' name to select the one I want to install Arch L
 ### Partition scheme
 
 > EFI partition mounted on /boot --> 1G - FAT32  
-> Swap partition --> 4G - SWAP (<https://itsfoss.com/swap-size>)  
+> Swap partition --> 8G - SWAP  
 > Root partition mounted on / --> Left free space - EXT4
 
 ### Partition the disk
@@ -34,7 +34,7 @@ fdisk /dev/nvme0n1 #Partitioning the disk I want to install Arch on
 > Create a GPT partition table (cause I use EFI) ---> **g**  
 >
 > Create a 1G EFI partition ---> **n** ---> **+1G** as last sector  
-> Create a 4G Swap partition ---> **n** ---> **+4G** as last sector  
+> Create a 8G Swap partition ---> **n** ---> **+8G** as last sector  
 > Create a Root partition with the left space ---> **n**  
 >
 > Change the first partition type to EFI ---> **t** ---> partition 1 ---> type 1  
