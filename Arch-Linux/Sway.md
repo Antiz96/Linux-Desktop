@@ -160,16 +160,6 @@ sudo mkdir -p /usr/local/bin && sudo curl https://raw.githubusercontent.com/Anti
 source ~/.bashrc
 ```
 
-## Make bluetooth autoswitch sound source to connected device
-
-```bash
-sudo vi /etc/pulse/default.pa
-```
-
-> [...]  
-> #Automatically switch to newly-connected devices  
-> load-module module-switch-on-connect
-
 ## Keyboard Shortcuts
 
 - Super + A = Open app finder/launcher
