@@ -134,13 +134,7 @@ visudo #Uncomment the line that allows the wheel group members to use sudo on an
 > %wheel ALL=(ALL) ALL  
 > [...]
 
-### Install grub
-
-```bash
-pacman -S grub efibootmgr dosfstools mtools #Install the Grub bootloader and dependencies for EFI. Also install "os-prober" if you wish to do a dual boot with another distro/OS.
-```
-
-#### Configure the kernel and grub for encryption
+### Configure the encrypt hook in mkinitcpio
 
 ```bash
 vim /etc/mkinitcpio.conf #Add the "encrypt" kernel hook into the mkinitcpio configuration for the encryption
@@ -151,22 +145,57 @@ vim /etc/mkinitcpio.conf #Add the "encrypt" kernel hook into the mkinitcpio conf
 > [...]
 
 ```bash
-mkinitcpio -p linux #Apply the configuration to the linux kernel
-blkid #Show and copy the UUID of my encrypted root partition **(the partition itself, not the mapper! So /dev/nvme0n1p3 in my case)**
+mkinitcpio -P
 ```
 
+### Use a more secure umask for the boot partition
+
+This is to avoid warning with `bootctl install` in the next step.
+
 ```bash
-vim /etc/default/grub #Modify the grub default configuration to tell it which of my partition is encrypted (in the following format: cryptdevice=UUID=*UUID_of_the_encrypted_partition*:*Name_of_the_encrypted_partition* root=/dev/mapper/*Name_of_the_encrypted_partition*). The UUID refers to the partition itself, not the mapper (so /dev/nvme0n1p3 in my case).
+vim /etc/fstab
 ```
 
-> [...]  
-> GRUB_CMDLINE_LINUX="cryptdevice=UUID=a8d3a797-ed29-4c3e-8c1e-aaaaa6b1c989:root root=/dev/mapper/root"  
-> [...]
+> [...],fmask=**0077**,dmask=**0077**[...]
 
 ```bash
-grub-install --target=x86_64-efi --bootloader-id=arch-linux --efi-directory=/boot --recheck #Install grub on the EFI partition
-grub-mkconfig -o /boot/grub/grub.cfg #Generating the Grub configuration file
-mkdir -p /etc/pacman.d/hooks && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/grub-update-disk-encryption.hook -o /etc/pacman.d/hooks/grub-update.hook #Download custom pacman hook to run grub-install [...] & grub-mkconfig [...] on grub update
+umount /boot
+mount /boot
+```
+
+### Install and configure systemd-boot
+
+```bash
+pacman -S efibootmgr dosfstools mtools #Install the Grub bootloader and dependencies for EFI. Also install "os-prober" if you wish to do a dual boot with another distro/OS.
+bootctl install
+vim /boot/loader/loader.conf
+```
+
+> default arch.conf  
+> timeout 0  
+> console-mode max  
+> editor no
+
+```bash
+vim /boot/loader/entries/arch.conf
+```
+
+> title Arch Linux  
+> linux /vmlinuz-linux  
+> initrd /initramfs-linux.img  
+> options cryptdevice=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:root root=/dev/mapper/root rw # Run 'blkid' to get the UID of your root partition
+
+```bash
+vim /boot/loader/entries/arch-fallback.conf
+```
+
+> title Arch Linux (fallback)  
+> linux /vmlinuz-linux  
+> initrd /initramfs-linux-fallback.img  
+> options cryptdevice=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:root root=/dev/mapper/root rw # Run 'blkid' to get the UID of your root partition
+
+```bash
+systemctl enable systemd-boot-update.service
 ```
 
 ### Install and enable Network Manager
@@ -188,7 +217,6 @@ reboot #Reboot the computer to boot into the fresh Arch install
 
 ```bash
 sudo pacman -S devtools man bash-completion amd-ucode pacman-contrib #Additional useful packages and drivers. Install "intel-ucode" instead of "amd-ucode" if you have an Intel CPU
-sudo grub-mkconfig -o /boot/grub/grub.cfg #Re-generate Grub configuration to include CPU microcode
 ```
 
 ### Install a firewall (optional)
