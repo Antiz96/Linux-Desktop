@@ -32,6 +32,22 @@ vim ~/.bash_profile
 >
 > fi
 
+### Set default keymap and terminal
+
+```bash
+sudo vim /etc/sway/config
+```
+
+```text
+[...]
+set $term xfce4-terminal
+[...]
+input * {
+	xkb_layout "fr"
+	xkb_variant "azerty"
+}
+```
+
 ## Reboot and log into Sway
 
 ```bash
