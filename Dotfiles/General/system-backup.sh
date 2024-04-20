@@ -49,7 +49,7 @@ case "${option}" in
 			source_dir="${argument##*/}/*"
 			dest_dir="/"
 
-			cd "${backup_dir}" && rsync_cmd && echo -e "\nThe restoration is done\nPlease, reboot the system" || { echo -e >&2 "\nAn error occured during the restoration process"; exit 3; }
+			cd "${backup_dir}" && rsync_cmd && echo -e "\nThe restoration is done\nPlease, reboot the system" || { echo -e >&2 "\nAn error occurred during the restoration process"; exit 3; }
 		else
 			echo -e >&2 "Missing argument\nUsage: --restore '<path to snapshot>'"
 			exit 4
