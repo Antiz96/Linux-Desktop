@@ -4,8 +4,16 @@ option="${1}"
 argument="${2}"
 backup_dir="/run/media/antiz/data/Backup/System_Backup"
 
+if [ "${EUID}" -ne 0 ]; then
+	echo "Please run as root"
+	exit 1
+fi
+
+mkdir -p "${backup_dir}"
+
 rsync_cmd() {
 	rsync -aAXHv --delete \
+	--exclude "${backup_dir}"'/*' \
 	--exclude='/dev/*' \
 	--exclude='/proc/*' \
 	--exclude='/sys/*' \
@@ -22,12 +30,6 @@ rsync_cmd() {
 	--exclude='/home/*' \
 	"${source_dir}" "${dest_dir}"
 }
-
-if [ "${EUID}" -ne 0 ]; then
-	echo "Please run as root"
-  	exit 1
-fi
-
 
 case "${option}" in
 	-C|--create)
