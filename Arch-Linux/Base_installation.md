@@ -19,7 +19,7 @@ fdisk -l #Check the hard drives' name to select the one I want to install Arch L
 
 ### Partition scheme
 
-> EFI partition mounted on /boot/EFI --> 1G - FAT32  
+> EFI partition mounted on /boot/efi --> 1G - FAT32  
 > Swap partition --> 8G - SWAP  
 > Root partition mounted on / --> Left free space - EXT4
 
@@ -56,8 +56,8 @@ mkfs.ext4 /dev/nvme0n1p3 #Create the filesystem for the Root partition
 
 ```bash
 mount /dev/nvme0n1p3 /mnt #Mount the Root partition on /mnt to install the system's base on it
-mkdir -p /mnt/boot/EFI #Create the /boot/EFI directories in /mnt
-mount /dev/nvme0n1p1 /mnt/boot/EFI #Mount the EFI partition on /boot/EFI
+mkdir -p /mnt/boot/efi #Create the /boot/efi directories in /mnt
+mount /dev/nvme0n1p1 /mnt/boot/efi #Mount the EFI partition on /boot/efi
 pacstrap /mnt base linux linux-firmware #Install the system's base on the Root partition
 genfstab -U /mnt >> /mnt/etc/fstab #Generate the system's fstab
 ```
