@@ -1,0 +1,9 @@
+[Unit]
+Description=Perform a system backup
+
+[Service]
+Type=oneshot
+ExecStart=system-backup --create --scheduled
+
+[Install]
+WantedBy=default.target
