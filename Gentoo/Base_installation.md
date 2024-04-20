@@ -30,8 +30,8 @@ mkswap /dev/sda2 && swapon /dev/sda2
 mkfs.ext4 /dev/sda3
 mkdir -p /mnt/gentoo
 mount /dev/sda3 /mnt/gentoo
-mkdir -p /mnt/gentoo/boot/EFI
-mount /dev/sda1 /mnt/gentoo/boot/EFI
+mkdir -p /mnt/gentoo/boot
+mount /dev/sda1 /mnt/gentoo/boot
 ```
 
 ### Set the date and time
@@ -289,7 +289,7 @@ vim /etc/portage/make.conf
 
 ```bash
 emerge --ask --verbose sys-boot/grub
-grub-install --target=x86_64-efi --efi-directory=/boot/EFI
+grub-install --target=x86_64-efi --efi-directory=/boot
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
