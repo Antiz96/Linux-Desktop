@@ -135,3 +135,4 @@ sudo reboot
 ## Window manager (optional)
 
 - [i3](https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/i3.md)
+- [Sway](https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/Sway.md)
