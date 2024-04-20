@@ -19,7 +19,7 @@ fdisk -l #Check the hard drives' name to select the one I want to install Arch L
 
 ### Partition scheme
 
-> EFI partition mounted on /boot/EFI --> 1G - FAT32  
+> EFI partition mounted on /boot --> 1G - FAT32  
 > Swap partition --> 8G - SWAP  
 > Root partition mounted on / --> Left free space - EXT4
 
@@ -56,8 +56,8 @@ mkfs.ext4 /dev/nvme0n1p3 #Create the filesystem for the Root partition
 
 ```bash
 mount /dev/nvme0n1p3 /mnt #Mount the Root partition on /mnt to install the system's base on it
-mkdir -p /mnt/boot/EFI #Create the /boot/EFI directories in /mnt
-mount /dev/nvme0n1p1 /mnt/boot/EFI #Mount the EFI partition on /boot/EFI
+mkdir -p /mnt/boot #Create the /boot directory in /mnt
+mount /dev/nvme0n1p1 /mnt/boot #Mount the EFI partition on /boot
 pacstrap /mnt base linux linux-firmware #Install the system's base on the Root partition
 genfstab -U /mnt >> /mnt/etc/fstab #Generate the system's fstab
 ```
@@ -131,13 +131,54 @@ visudo #Uncomment the line that allows the wheel group members to use sudo on an
 > %wheel ALL=(ALL) ALL  
 > [...]
 
-### Install and configure grub
+### Use a more secure umask for the boot partition
+
+This is to avoid warning with `bootctl install` in the next step.
 
 ```bash
-pacman -S grub efibootmgr dosfstools mtools #Install the Grub bootloader and dependencies for EFI. Also install "os-prober" if you wish to do a dual boot with another distro/OS.
-grub-install --target=x86_64-efi --bootloader-id=arch-linux --recheck #Install Grub on the EFI partition
-grub-mkconfig -o /boot/grub/grub.cfg #Generating the Grub configuration file
-mkdir -p /etc/pacman.d/hooks && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/grub-update.hook -o /etc/pacman.d/hooks/grub-update.hook #Download custom pacman hook to run grub-install [...] & grub-mkconfig [...] on grub update
+vim /etc/fstab
+```
+
+> [...],fmask=**0077**,dmask=**0077**[...]
+
+```bash
+umount /boot
+mount /boot
+```
+
+### Install and configure systemd-boot
+
+```bash
+pacman -S efibootmgr dosfstools mtools #Install the Grub bootloader and dependencies for EFI. Also install "os-prober" if you wish to do a dual boot with another distro/OS.
+bootctl install
+vim /boot/loader/loader.conf
+```
+
+> default arch.conf  
+> timeout 0  
+> console-mode max  
+> editor no
+
+```bash
+vim /boot/loader/entries/arch.conf
+```
+
+> title Arch Linux  
+> linux /vmlinuz-linux  
+> initrd /initramfs-linux.img  
+> options root=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx rw # Run 'blkid' to get the UID of your root partition
+
+```bash
+vim /boot/loader/entries/arch-fallback.conf
+```
+
+> title Arch Linux (fallback)  
+> linux /vmlinuz-linux  
+> initrd /initramfs-linux-fallback.img  
+> options root=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx rw # Run 'blkid' to get the UID of your root partition
+
+```bash
+systemctl enable systemd-boot-update.service
 ```
 
 ### Install and enable Network Manager
@@ -159,7 +200,6 @@ reboot #Reboot the computer to boot into the fresh Arch install
 
 ```bash
 sudo pacman -S devtools man bash-completion amd-ucode pacman-contrib #Additional useful packages and drivers. Install "intel-ucode" instead of "amd-ucode" if you have an Intel CPU
-sudo grub-mkconfig -o /boot/grub/grub.cfg #Re-generate Grub configuration to include CPU microcode
 ```
 
 ### Install a firewall (optional)
