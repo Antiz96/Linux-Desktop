@@ -5,7 +5,7 @@ argument="${2}"
 backup_dir="/run/media/antiz/data/Backup/System_Backup"
 
 if [ "${EUID}" -ne 0 ]; then
-	echo "Please run as root"
+	echo "Please, run as root"
 	exit 1
 fi
 
@@ -44,8 +44,8 @@ case "${option}" in
 			exit 4
 		fi
 
-		 # shellcheck disable=SC2015
-		cd "${backup_dir}" && rsync_cmd || { echo -e >&2 "\nSystem Backup failed" && sudo -u antiz DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send -u critical -t 300000 "System Backup" "System Backup failed" && rm -rf "${dest_dir}" ; exit 2; }
+		# shellcheck disable=SC2015
+		cd "${backup_dir}" && rsync_cmd && echo -e "\nSystem Backup complete" || { echo -e >&2 "\nSystem Backup failed" && sudo -u antiz DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send -u critical -t 300000 "System Backup" "System Backup failed" && rm -rf "${dest_dir}" ; exit 2; }
 		find "${backup_dir}" -mindepth 1 -maxdepth 1 -type d -ctime +6 -exec rm -rf {} \;
 	;;
 	-R|--restore)
