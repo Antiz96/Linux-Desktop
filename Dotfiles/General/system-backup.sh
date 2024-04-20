@@ -4,8 +4,16 @@ option="${1}"
 argument="${2}"
 backup_dir="/run/media/antiz/data/Backup/System_Backup"
 
+if [ "${EUID}" -ne 0 ]; then
+	echo "Please run as root"
+	exit 1
+fi
+
+mkdir -p "${backup_dir}"
+
 rsync_cmd() {
-	rsync -aAXHv \
+	rsync -aAXHv --delete \
+	--exclude "${backup_dir}"'/*' \
 	--exclude='/dev/*' \
 	--exclude='/proc/*' \
 	--exclude='/sys/*' \
@@ -23,12 +31,6 @@ rsync_cmd() {
 	"${source_dir}" "${dest_dir}"
 }
 
-if [ "${EUID}" -ne 0 ]; then
-	echo "Please run as root"
-  	exit 1
-fi
-
-
 case "${option}" in
 	-C|--create)
 		source_dir="/"
@@ -43,15 +45,17 @@ case "${option}" in
 		fi
 
 		 # shellcheck disable=SC2015
-		cd "${backup_dir}" && rsync_cmd && find "${backup_dir}" -mindepth 1 -maxdepth 1 -type d -ctime +6 -exec rm -rf {} \; || { echo -e >&2 "\nSystem Backup failed" && sudo -u antiz DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send -u critical -t 300000 "System Backup" "System Backup failed"; exit 2; }
+		cd "${backup_dir}" && rsync_cmd || { echo -e >&2 "\nSystem Backup failed" && sudo -u antiz DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send -u critical -t 300000 "System Backup" "System Backup failed" && rm -rf "${dest_dir}" ; exit 2; }
+		find "${backup_dir}" -mindepth 1 -maxdepth 1 -type d -ctime +6 -exec rm -rf {} \;
 	;;
 	-R|--restore)
 		if [ -n "${argument}" ]; then
-			source_dir="${argument##*/}/*"
+			snapshot_dir="${argument}"
+			source_dir="."
 			dest_dir="/"
 			
 		 	# shellcheck disable=SC2015
-			cd "${backup_dir}" && rsync_cmd && echo -e "\nThe restoration is done\nPlease, reboot the system" || { echo -e >&2 "\nAn error occurred during the restoration process"; exit 3; }
+			cd "${snapshot_dir}" && rsync_cmd && echo -e "\nThe restoration is done\nPlease, reboot the system" || { echo -e >&2 "\nAn error occurred during the restoration process"; exit 3; }
 		else
 			echo -e >&2 "Missing argument\nUsage: --restore '<path to snapshot>'"
 			exit 4
