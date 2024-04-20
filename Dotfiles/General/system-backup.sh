@@ -5,7 +5,7 @@ argument="${2}"
 backup_dir="/run/media/antiz/data/Backup/System_Backup"
 
 rsync_cmd() {
-	rsync -aAXHv \
+	rsync -aAXHv --delete \
 	--exclude='/dev/*' \
 	--exclude='/proc/*' \
 	--exclude='/sys/*' \
@@ -47,11 +47,12 @@ case "${option}" in
 	;;
 	-R|--restore)
 		if [ -n "${argument}" ]; then
-			source_dir="${argument##*/}/*"
+			snapshot_dir="${argument}"
+			source_dir="."
 			dest_dir="/"
 			
 		 	# shellcheck disable=SC2015
-			cd "${backup_dir}" && rsync_cmd && echo -e "\nThe restoration is done\nPlease, reboot the system" || { echo -e >&2 "\nAn error occurred during the restoration process"; exit 3; }
+			cd "${snapshot_dir}" && rsync_cmd && echo -e "\nThe restoration is done\nPlease, reboot the system" || { echo -e >&2 "\nAn error occurred during the restoration process"; exit 3; }
 		else
 			echo -e >&2 "Missing argument\nUsage: --restore '<path to snapshot>'"
 			exit 4
