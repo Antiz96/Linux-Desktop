@@ -16,7 +16,7 @@ Still a very minimal installation though.
 - For regular computers:
 
 ```bash
-sudo pacman -S sway xfce4-terminal polkit-gnome pipewire thunar thunar-archive-plugin engrampa gvfs xdg-user-dirs mousepad ristretto flameshot notification-daemon speedcrunch network-manager-applet blueman gammastep openssh swayidle swaylock lxappearance playerctl gsimplecal waybar xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk
+sudo pacman -S sway xfce4-terminal polkit-gnome pipewire thunar thunar-archive-plugin engrampa gvfs xdg-user-dirs mousepad ristretto flameshot swaync nwg-look speedcrunch network-manager-applet blueman gammastep openssh swayidle swaylock playerctl gsimplecal waybar xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk grim
 ```
 
 ### Auto start Sway
