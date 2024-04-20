@@ -16,7 +16,7 @@ Still a very minimal installation though.
 - For regular computers:
 
 ```bash
-sudo pacman -S sway xfce4-terminal polkit-gnome pipewire thunar thunar-archive-plugin engrampa gvfs xdg-user-dirs mousepad ristretto flameshot notification-daemon speedcrunch network-manager-applet blueman gammastep openssh swayidle swaylock lxappearance playerctl gsimplecal waybar
+sudo pacman -S sway xfce4-terminal polkit-gnome pipewire thunar thunar-archive-plugin engrampa gvfs xdg-user-dirs mousepad ristretto flameshot notification-daemon speedcrunch network-manager-applet blueman gammastep openssh swayidle swaylock lxappearance playerctl gsimplecal waybar xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk
 ```
 
 ### Auto start Sway
@@ -28,6 +28,12 @@ vim ~/.bash_profile
 > [...]  
 > #Autostart Sway
 > ``if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then``  
+> > export XDG_SESSION_DESKTOP=sway  
+> > export XDG_CURRENT_DESKTOP=sway  
+> > export XDG_CURRENT_DESKTOP=sway  
+> > export QT_QPA_PLATFORM=wayland  
+> > export SDL_VIDEODRIVER=wayland  
+> > export MOZ_ENABLE_WAYLAND=1  
 > > exec sway  
 >
 > fi
