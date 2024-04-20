@@ -59,7 +59,7 @@ mkfs.ext4 /dev/mapper/root #Make the filesystem for the root partition
 
 ```bash
 mount /dev/mapper/root /mnt #Mount the Root partition on /mnt to install the system's base on it
-mkdir /mnt/boot #Create the /boot directory in /mnt (the EFI partition has to be mounted specifically in /boot when doing LUKS encryption and not /boot/EFI, otherwise it will also be encrypted and you'll need extra steps to make Grub being able to decrypt it. Furthermore, Grub only has a partial Luks2 support, so even tho it is possible I do not recommend it. If you want to do it anyway, check https://wiki.archlinux.org/title/GRUB#Encrypted_/boot)
+mkdir /mnt/boot #Create the /boot directory in /mnt (the EFI partition has to be mounted specifically in /boot when doing LUKS encryption and not /boot/efi, otherwise it will also be encrypted and you'll need extra steps to make Grub being able to decrypt it. Furthermore, Grub only has a partial Luks2 support, so even tho it is possible I do not recommend it. If you want to do it anyway, check https://wiki.archlinux.org/title/GRUB#Encrypted_/boot)
 mount /dev/nvme0n1p1 /mnt/boot #Mount my EFI partition on it
 pacstrap /mnt base linux linux-firmware #Install the system's base on the Root partition
 genfstab -U /mnt >> /mnt/etc/fstab #Generate the system's fstab
