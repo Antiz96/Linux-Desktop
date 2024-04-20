@@ -26,7 +26,7 @@ vim ~/.bash_profile
 ```
 
 > [...]  
-> #Autostart Sway
+> #Autostart Sway  
 > ``if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then``  
 > > export XDG_SESSION_DESKTOP=sway  
 > > export XDG_CURRENT_DESKTOP=sway  
