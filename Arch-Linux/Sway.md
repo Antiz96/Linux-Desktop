@@ -67,7 +67,7 @@ sudo pacman -S git
 cd /tmp
 git clone https://aur.archlinux.org/paru.git
 cd paru
-pkgctl build --repo extra
+pkgctl build
 sudo pacman -U paru-!(*debug*).pkg.tar.zst
 ```
 
