@@ -61,13 +61,6 @@ exec swayidle -w \
 	timeout 1800 'systemctl suspend' \
 	before-sleep 'swaylock -feti ~/Pictures/Sway/lock.png'
 
-### Status Bar
-
-bar {
-	swaybar_command waybar
-	position top
-}
-
 ### Workspaces
 
 set $ws1 "1"
@@ -216,6 +209,9 @@ bindsym F11 exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym F12 exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 
 ### Startup programs
+
+# Status bar
+exec nwg-panel
 
 # Wallpaper
 exec ~/Documents/Scripts/dynamic-wallpaper.sh
