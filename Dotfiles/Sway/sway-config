@@ -28,13 +28,13 @@ bindsym Mod4+Shift+r restart
 # Screen
 
 #Desktop
-output HDMI-0 res 1920x1080@165Hz pos 0 0 
+output HDMI-0 res 1920x1080@165Hz pos 0 0
 output DP-0 res 1920x1080@165Hz pos 1920 0
 set $primary "DP-0"
 set $secondary "HDMI-0"
 
 #Laptop
-#output eDP-1 res 2560x1600@165Hz pos 0 0 
+#output eDP-1 res 2560x1600@165Hz pos 0 0
 #set $primary "eDP-1"
 
 # Keyboard
