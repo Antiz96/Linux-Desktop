@@ -199,7 +199,7 @@ tooltip_font_color = #dddddd 100
 #-------------------------------------
 # Executor
 execp = new
-execp_command = echo ~/Pictures/tint2/Arch_Taskbar.png
+execp_command = echo ~/Pictures/tint2/Arch_Panel.svg
 execp_has_icon = 1
 execp_lclick_command = rofi -show drun -show-icons
 execp_rclick_command = ~/Documents/Scripts/power-menu.sh
