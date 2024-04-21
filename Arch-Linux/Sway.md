@@ -16,7 +16,7 @@ Still a very minimal installation though.
 - For regular computers:
 
 ```bash
-sudo pacman -S sway xfce4-terminal polkit-gnome pipewire thunar thunar-archive-plugin engrampa gvfs xdg-user-dirs mousepad ristretto flameshot swaync nwg-look speedcrunch network-manager-applet nwg-panel blueman gammastep openssh swaybg swayidle swaylock playerctl gsimplecal xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk grim
+sudo pacman -S sway xfce4-terminal polkit-gnome pipewire thunar thunar-archive-plugin engrampa gvfs xdg-user-dirs mousepad ristretto flameshot swaync nwg-look speedcrunch network-manager-applet nwg-panel blueman gammastep openssh swaybg swayidle swaylock playerctl xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk grim
 ```
 
 ### Auto start Sway
@@ -150,7 +150,6 @@ mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Li
 mkdir -p ~/.gnupg/ && chmod 700 ~/.gnupg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/scdaemon.conf -o ~/.gnupg/scdaemon.conf
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/vimrc -o ~/.vimrc && mkdir -p ~/.vim/colors && curl https://raw.githubusercontent.com/vv9k/vim-github-dark/master/colors/ghdark.vim -o ~/.vim/colors/ghdark.vim
 mkdir -p ~/.config/xfce4/xfconf/xfce-perchannel-xml && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/xfce4-terminal.xml -o ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-terminal.xml
-mkdir -p ~/.config/gsimplecal/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/gsimplecal-config -o ~/.config/gsimplecal/config
 mkdir -p ~/.config/rofi/ && curl https://raw.githubusercontent.com/newmanls/rofi-themes-collection/master/themes/spotlight-dark.rasi -o ~/.config/rofi/spotlight-dark.rasi && sed -i s/border-radius:\ \ 8/border-radius:\ \ 0/ ~/.config/rofi/spotlight-dark.rasi && sed -i "/\bplaceholder\b/d" ~/.config/rofi/spotlight-dark.rasi && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/rofi-config -o ~/.config/rofi/config.rasi
 sudo mkdir -p /usr/local/lib/systemd/user/ && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/mpris-proxy.service -o /usr/local/lib/systemd/user/mpris-proxy.service && systemctl --user daemon-reload && systemctl --user enable --now mpris-proxy.service
 sudo mkdir -p /etc/pacman.d/hooks && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/firejail.hook -o /etc/pacman.d/hooks/firejail.hook && mkdir -p ~/.config/firejail && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/man.local -o ~/.config/firejail/man.local && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/mpv.profile -o ~/.config/firejail/mpv.profile && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ristretto.local -o ~/.config/firejail/ristretto.local && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ssh.profile -o ~/.config/firejail/ssh.profile
