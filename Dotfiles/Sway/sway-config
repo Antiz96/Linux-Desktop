@@ -223,9 +223,6 @@ exec nm-applet
 # Blueman applet
 exec blueman-applet
 
-# Volume applet
-exec pa-applet
-
 # Gammastep
 exec gammastep-indicator -l 49.443232:1.099971
 
