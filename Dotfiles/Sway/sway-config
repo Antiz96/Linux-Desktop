@@ -162,7 +162,7 @@ bindsym Mod4+r mode "resize"
 bindsym Mod4+t exec xfce4-terminal
 
 # App finder
-bindsym Mod4+a exec wofi --show drun -show-icons
+bindsym Mod4+a exec rofi -show drun -show-icons
 
 # Zaman
 bindsym Mod4+z exec zaman
@@ -171,7 +171,7 @@ bindsym Mod4+z exec zaman
 bindsym Mod4+Escape exec ~/Documents/Scripts/power-menu.sh
 
 # Window switcher
-bindsym Mod1+Tab exec wofi --show window -show-icons
+bindsym Mod1+Tab exec rofi -show window -show-icons
 
 # File manager
 bindsym Mod4+e exec thunar
