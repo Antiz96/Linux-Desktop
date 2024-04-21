@@ -1,0 +1,239 @@
+### Variables
+
+# Include drop in configuration files
+include /etc/sway/config.d/*
+
+# Use Super Key for Key bindings (instead of Alt/Mod1)
+set $mod Mod4
+
+# Use Mouse + Super Key to drag floating windows
+floating_modifier Mod4
+
+# Default Terminal
+set $term xfce4-terminal
+
+# Hide window's title bar
+default_border pixel 1
+default_floating_border pixel 1
+for_window [class="^.*"] border pixel 1
+
+# Reload config
+bindsym Mod4+Shift+c reload
+
+# Restart Sway
+bindsym Mod4+Shift+r restart
+
+### Input configuration
+
+# Screen
+output Virtual-1 mode 1920x1080 pos 1920 0
+
+# Keyboard
+
+input * {
+	xkb_layout "fr"
+	xkb_variant "azerty"
+}
+
+input type:keyboard xkb_numlock enabled
+
+# Touchpad
+input type:touchpad {
+	tap enabled
+	natural_scroll enabled
+}
+
+### Idle configuration
+
+exec swayidle -w \
+	timeout 840 'notify-send -u critical -t 60000 -i ~/Pictures/Sway/shutdown.svg "Auto lock" "Based on current inactivity, the system will be locked automatically in 1 minute\n\nDismiss this notification to abort"' \
+	timeout 900 'swaylock -f -e -t -i ~/Pictures/Sway/lock.png' \
+	timeout 905 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+	timeout 1800 'systemctl suspend' \
+	before-sleep 'swaylock -f -e -t -i ~/Pictures/Sway/lock.png'
+
+### Status Bar
+
+bar {
+	swaybar_command waybar
+	position top
+}
+
+### Workspaces
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+workspace "1" output primary
+workspace "2" output primary
+workspace "3" output primary
+workspace "4" output primary
+workspace "5" output HDMI-0
+workspace "6" output HDMI-0
+
+### Gaps
+
+gaps inner 10
+
+### Interact with windows
+
+# Change focus
+bindsym Mod4+Left focus left
+bindsym Mod4+Right focus right
+bindsym Mod4+Up focus up
+bindsym Mod4+Down focus down
+
+# Move focused window
+bindsym Mod4+Shift+Left move left
+bindsym Mod4+Shift+Right move right
+bindsym Mod4+Shift+Up move up
+bindsym Mod4+Shift+Down move down
+
+# Split in horizontal mode
+bindsym Mod4+h split h
+bindsym Mod4+v split v
+
+# Toggle tiling/floating
+bindsym Mod4+space floating toggle
+
+# Switch to workspace
+bindsym Mod4+F1 workspace number $ws1
+bindsym Mod4+F2 workspace number $ws2
+bindsym Mod4+F3 workspace number $ws3
+bindsym Mod4+F4 workspace number $ws4
+bindsym Mod4+F5 workspace number $ws5
+bindsym Mod4+F6 workspace number $ws6
+bindsym Mod4+F7 workspace number $ws7
+bindsym Mod4+F8 workspace number $ws8
+bindsym Mod4+F9 workspace number $ws9
+bindsym Mod4+F10 workspace number $ws10
+
+# Switch to next workspace
+bindsym Mod4+Tab workspace next
+
+# Move focused window to workspace
+bindsym Mod4+Shift+F1 move container to workspace number $ws1
+bindsym Mod4+Shift+F2 move container to workspace number $ws2
+bindsym Mod4+Shift+F3 move container to workspace number $ws3
+bindsym Mod4+Shift+F4 move container to workspace number $ws4
+bindsym Mod4+Shift+F5 move container to workspace number $ws5
+bindsym Mod4+Shift+F6 move container to workspace number $ws6
+bindsym Mod4+Shift+F7 move container to workspace number $ws7
+bindsym Mod4+Shift+F8 move container to workspace number $ws8
+bindsym Mod4+Shift+F9 move container to workspace number $ws9
+bindsym Mod4+Shift+F10 move container to workspace number $ws10
+
+# Toggle tabbed mode
+bindsym Mod4+f layout toggle tabbed split
+
+# Toggle split layout
+bindsym Mod4+g layout toggle split
+
+# Toggle sticky window
+bindsym Mod4+s sticky toggle
+
+# Close focused window
+bindsym Mod4+d kill
+
+# Resize a window
+mode "resize" {
+	bindsym Left resize shrink width 10 px or 10 ppt
+	bindsym Right resize grow width 10 px or 10 ppt
+	bindsym Up resize shrink height 10 px or 10 ppt
+	bindsym Down resize grow height 10 px or 10 ppt
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+bindsym Mod4+r mode "resize"
+
+### Key bindings
+
+# Terminal
+bindsym Mod4+t exec xfce4-terminal
+
+# App finder
+bindsym Mod4+a exec wofi --show drun -show-icons
+
+# Zaman
+bindsym Mod4+z exec zaman
+
+# Power menu
+bindsym Mod4+Escape exec ~/Documents/Scripts/power-menu.sh
+
+# Window switcher
+bindsym Mod1+Tab exec wofi --show window -show-icons
+
+# File manager
+bindsym Mod4+e exec thunar
+
+# Notepad
+bindsym Mod4+m exec mousepad
+
+# Calculator
+bindsym Mod4+c exec speedcrunch
+
+# Web browser
+bindsym Mod4+b exec firefox
+
+# Lock Screen
+bindsym Mod4+l exec swaylock -f -e -t -i ~/Pictures/Sway/lock.png
+
+# Media previous
+bindsym F7 exec playerctl previous
+
+# Media play/pause
+bindsym F8 exec playerctl play-pause
+
+# Media next
+bindsym F9 exec playerctl next
+
+# Media mute sound
+bindsym F10 exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Media volume down
+bindsym F11 exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+# Media volume up
+bindsym F12 exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+### Startup programs
+
+# Wallpaper
+exec ~/Documents/Scripts/dynamic-wallpaper.sh
+
+# Polkit agent
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# Notification daemon
+exec swaync
+
+# Network manager applet
+exec nm-applet
+
+# Blueman applet
+exec blueman-applet
+
+# Volume applet
+exec pa-applet
+
+# Gammastep
+exec gammastep-indicator -l 49.443232:1.099971
+
+# Playerctl daemon
+exec playerctl daemon
+
+# Screenshot applet
+exec flameshot
+
+# ProtonMail Bridge
+exec protonmail-bridge --no-window
