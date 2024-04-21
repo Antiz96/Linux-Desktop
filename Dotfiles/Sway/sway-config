@@ -26,7 +26,16 @@ bindsym Mod4+Shift+r restart
 ### Input configuration
 
 # Screen
-output Virtual-1 mode 1920x1080 pos 1920 0
+
+#Desktop
+output HDMI-0 res 1920x1080@165Hz pos 0 0 
+output DP-0 res 1920x1080@165Hz pos 1920 0
+set $primary "DP-0"
+set $secondary "HDMI-0"
+
+#Laptop
+#output eDP-1 res 2560x1600@165Hz pos 0 0 
+#set $primary "eDP-1"
 
 # Keyboard
 
@@ -72,12 +81,12 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-workspace "1" output primary
-workspace "2" output primary
-workspace "3" output primary
-workspace "4" output primary
-workspace "5" output HDMI-0
-workspace "6" output HDMI-0
+workspace "1" output $primary
+workspace "2" output $primary
+workspace "3" output $primary
+workspace "4" output $primary
+workspace "5" output $secondary
+workspace "6" output $secondary
 
 ### Gaps
 
