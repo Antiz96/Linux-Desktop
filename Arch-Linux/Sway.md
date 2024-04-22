@@ -16,7 +16,7 @@ Still a very minimal installation though.
 - For regular computers:
 
 ```bash
-sudo pacman -S sway xfce4-terminal polkit-gnome pipewire thunar thunar-archive-plugin engrampa gvfs xdg-user-dirs mousepad ristretto flameshot swaync nwg-look speedcrunch network-manager-applet nwg-panel blueman gammastep openssh swaybg swayidle swaylock playerctl xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk grim
+sudo pacman -S sway xfce4-terminal polkit-gnome pipewire thunar thunar-archive-plugin engrampa gvfs xdg-user-dirs mousepad ristretto rofi-wayland flameshot swaync nwg-look speedcrunch network-manager-applet nwg-panel blueman gammastep openssh swaybg swayidle swaylock playerctl xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk grim
 ```
 
 ### Auto start Sway
@@ -108,7 +108,7 @@ sudo vim /etc/fstab
 
 ```bash
 sudo pacman -S ccid discord distrobox docker fastfetch firefox firejail htop keepassxc mlocate mpv noto-fonts-emoji ntfs-3g powerline-fonts rsync steam systray-x thunderbird tmux ttf-font-awesome virt-viewer wl-clipboard xorg-xwayland yubico-piv-tool zathura zathura-pdf-poppler #Main packages from Arch repos
-paru -S arch-update firefox-pwa onlyoffice-bin protonmail-bridge-bin rofi-lbonn-wayland ventoy-bin zaman #Main packages from the AUR
+paru -S arch-update firefox-pwa onlyoffice-bin protonmail-bridge-bin ventoy-bin zaman #Main packages from the AUR
 sudo pacman -S --asdeps gnome-keyring gnu-free-fonts ttf-dejavu xdg-utils wofi #Optional dependencies that I need for the above packages
 systemctl --user enable --now arch-update.timer ssh-agent.service #Start and enable timers and services
 sudo systemctl enable --now docker pcscd #Start and enable services
