@@ -107,9 +107,9 @@ sudo vim /etc/fstab
 - Main packages:
 
 ```bash
-sudo pacman -S ccid discord distrobox docker fastfetch firefox firejail htop keepassxc mlocate mpv noto-fonts-emoji ntfs-3g powerline-fonts rsync steam systray-x thunderbird tmux ttf-font-awesome virt-viewer wl-clipboard wofi xorg-xwayland yubico-piv-tool zathura zathura-pdf-poppler #Main packages from Arch repos
+sudo pacman -S ccid discord distrobox docker fastfetch firefox firejail htop keepassxc mlocate mpv noto-fonts-emoji ntfs-3g powerline-fonts rsync steam systray-x thunderbird tmux ttf-font-awesome virt-viewer wl-clipboard xorg-xwayland yubico-piv-tool zathura zathura-pdf-poppler #Main packages from Arch repos
 paru -S arch-update firefox-pwa onlyoffice-bin protonmail-bridge-bin rofi-lbonn-wayland ventoy-bin zaman #Main packages from the AUR
-sudo pacman -S --asdeps gnome-keyring gnu-free-fonts ttf-dejavu xdg-utils #Optional dependencies that I need for the above packages
+sudo pacman -S --asdeps gnome-keyring gnu-free-fonts ttf-dejavu xdg-utils wofi #Optional dependencies that I need for the above packages
 systemctl --user enable --now arch-update.timer ssh-agent.service #Start and enable timers and services
 sudo systemctl enable --now docker pcscd #Start and enable services
 ```
