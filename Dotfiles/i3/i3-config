@@ -359,7 +359,7 @@ exec redshift-gtk -l 49.443232:1.099971
 exec pa-applet
 
 #Multimedia control daemon
-exec playerctl daemon
+exec playerctld daemon
 
 #Screenshot applet
 exec flameshot
