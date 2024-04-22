@@ -34,7 +34,7 @@ set $primary "DP-0"
 set $secondary "HDMI-0"
 
 #Laptop
-#output eDP-1 res 2560x1600@165Hz pos 0 0
+#output eDP-1 res 2560x1600@165Hz pos 0 0 scale 1.25
 #set $primary "eDP-1"
 
 # Keyboard
