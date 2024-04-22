@@ -3,6 +3,7 @@ Description=Run the dynamic wallpaper script each hour
 
 [Timer]
 OnCalendar=hourly
+Persistent=true
 
 [Install]
 WantedBy=timers.target

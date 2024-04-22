@@ -257,3 +257,4 @@ sudo timedatectl set-ntp true
 Link to the installation and configuration procedure for i3 on Arch according to my preferences below (if needed):
 
 - [i3](https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/i3.md)
+- [Sway](https://github.com/Antiz96/Linux-Desktop/blob/main/Arch-Linux/Sway.md)

@@ -1,79 +1,60 @@
-# i3
+# Sway
 
-## Install Xorg and graphical drivers (optional)
-
-- For regular computers:
+## Graphical drivers (optional)
 
 Also install `nvidia` if you have an Nvidia GPU.
 
 ```bash
-sudo pacman -S xorg-server
+sudo pacman -S mesa
 ```
 
-- For Raspberry Pi:
+## Install sway
 
-```bash
-sudo pacman -S xorg-server xf86-video-fbdev
-sudoedit /boot/config.txt
-```
-
-> [...]  
-> gpu_mem=256 #Increasing the reserved memory for the GPU
-
-## Install i3
-
-i3 with a few extra packages according to my personal preferences.  
+Sway with a few extra packages according to my personal preferences.  
 Still a very minimal installation though.
 
 - For regular computers:
 
 ```bash
-sudo pacman -S i3-wm xfce4-terminal polkit-gnome pulseaudio picom thunar thunar-archive-plugin engrampa gvfs xdg-user-dirs mousepad ristretto flameshot notification-daemon speedcrunch network-manager-applet blueman redshift openssh xorg-xinit xorg-xrandr xautolock i3lock lxappearance numlockx playerctl gsimplecal tint2 feh
-sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
+sudo pacman -S sway xfce4-terminal polkit-gnome pipewire thunar thunar-archive-plugin engrampa gvfs xdg-user-dirs mousepad ristretto rofi-wayland flameshot swaync nwg-look speedcrunch network-manager-applet nwg-panel blueman gammastep openssh swaybg swayidle swaylock playerctl xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk grim
 ```
 
-- For Raspberry Pi:
-
-```bash
-sudo pacman -S i3-wm xfce4-terminal polkit-gnome pulseaudio mousepad ristretto thunar thunar-archive-plugin engrampa gvfs notification-daemon xdg-user-dirs network-manager-applet xorg-xinit xorg-xrandr i3lock numlockx playerctl tint2 feh
-sudo localectl --no-convert set-x11-keymap fr #Configure Keyboard layout for x11
-```
-
-### Configure startx for i3
-
-I'm not using any display manager with i3.  
-I'm using startx instead. I configure it this way:
-
-```bash
-cp /etc/X11/xinit/xinitrc ~/.xinitrc
-vim ~/.xinitrc #Delete the 5 last lines and add the following ones instead
-```
-
-> [...]  
-> #Start i3  
-> export XDG_SESSION_TYPE=X11  
-> xrandr --output DP-0 --primary --mode 1920x1080 --rate 165 --output HDMI-0 --mode 1920x1080 --rate 165 --left-of DP-0  
-> exec i3
-
-Modify the `xrandr` command in the above snippet according to your monitor configuration.
-
-For me:
-
-- Desktop: `xrandr --output DP-0 --primary --mode 1920x1080 --rate 165 --output HDMI-0 --mode 1920x1080 --rate 165 --left-of DP-0`
-- Laptop: `xrandr --output eDP-1 --primary --mode 1920x1080 --rate 60`
+### Auto start Sway
 
 ```bash
 vim ~/.bash_profile
 ```
 
 > [...]  
-> #Autostart i3  
-> ``if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then``  
-> > exec startx  
+> #Autostart Sway  
+> ``if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then``  
+> > export XDG_SESSION_DESKTOP=sway  
+> > export XDG_CURRENT_DESKTOP=sway  
+> > export XDG_SESSION_TYPE=wayland  
+> > export QT_QPA_PLATFORM=wayland  
+> > export SDL_VIDEODRIVER=wayland  
+> > export MOZ_ENABLE_WAYLAND=1  
+> > exec sway  
 >
 > fi
 
-## Reboot and log into i3
+### Set default keymap and terminal
+
+```bash
+sudo vim /etc/sway/config
+```
+
+```text
+[...]
+set $term xfce4-terminal
+[...]
+input * {
+        xkb_layout "fr"
+        xkb_variant "azerty"
+}
+```
+
+## Reboot and log into Sway
 
 ```bash
 sudo reboot
@@ -107,7 +88,7 @@ sudo pacman -Syyu
 ## Install bluetooth support
 
 ```bash
-sudo pacman -S bluez bluez-utils pulseaudio-bluetooth
+sudo pacman -S bluez bluez-utils
 sudo systemctl enable --now bluetooth
 ```
 
@@ -126,9 +107,9 @@ sudo vim /etc/fstab
 - Main packages:
 
 ```bash
-sudo pacman -S ccid discord distrobox docker fastfetch firefox firejail htop keepassxc mlocate mpv noto-fonts-emoji ntfs-3g powerline-fonts rofi rsync steam systray-x thunderbird tmux ttf-font-awesome virt-viewer xclip xorg-xhost yubico-piv-tool zathura zathura-pdf-poppler #Main packages from Arch repos
-paru -S arch-update firefox-pwa onlyoffice-bin pa-applet-git protonmail-bridge-bin ventoy-bin zaman #Main packages from the AUR
-sudo pacman -S --asdeps gnome-keyring gnu-free-fonts ttf-dejavu xdg-utils #Optional dependencies that I need for the above packages
+sudo pacman -S ccid discord distrobox docker fastfetch firefox firejail htop keepassxc mlocate mpv noto-fonts-emoji ntfs-3g powerline-fonts rsync steam systray-x thunderbird tmux ttf-font-awesome virt-viewer wl-clipboard xorg-xwayland yubico-piv-tool zathura zathura-pdf-poppler #Main packages from Arch repos
+paru -S arch-update firefox-pwa onlyoffice-bin protonmail-bridge-bin ventoy-bin zaman #Main packages from the AUR
+sudo pacman -S --asdeps gnome-keyring gnu-free-fonts ttf-dejavu xdg-utils wofi #Optional dependencies that I need for the above packages
 systemctl --user enable --now arch-update.timer ssh-agent.service #Start and enable timers and services
 sudo systemctl enable --now docker pcscd #Start and enable services
 ```
@@ -136,7 +117,7 @@ sudo systemctl enable --now docker pcscd #Start and enable services
 - Laptop only packages:
 
 ```bash
-sudo pacman -S autorandr openresolv wireguard-tools tlp
+sudo pacman -S kanshi openresolv wireguard-tools tlp
 sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket && sudo systemctl enable --now tlp.service
 ```
 
@@ -159,35 +140,22 @@ git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster
 ## Dotfiles
 
 ```bash
-mkdir -p ~/.config/i3 && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/i3/i3-config -o ~/.config/i3/config && mkdir -p ~/Pictures/i3 && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/lock.png -o ~/Pictures/i3/lock.png && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/shutdown.svg -o ~/Pictures/i3/shutdown.svg && mkdir -p ~/Documents/Scripts && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/power-menu.sh -o ~/Documents/Scripts/power-menu.sh && chmod +x ~/Documents/Scripts/power-menu.sh
+mkdir -p ~/.config/sway && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Sway/sway-config -o ~/.config/sway/config && mkdir -p ~/Pictures/Sway && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/lock.png -o ~/Pictures/Sway/lock.png && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/shutdown.svg -o ~/Pictures/Sway/shutdown.svg && mkdir -p ~/Documents/Scripts && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/power-menu.sh -o ~/Documents/Scripts/power-menu.sh && chmod +x ~/Documents/Scripts/power-menu.sh
 mkdir -p ~/Pictures/wallpapers && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/island-morning.jpg -o ~/Pictures/wallpapers/island-morning.jpg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/island-day.jpg -o ~/Pictures/wallpapers/island-day.jpg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/island-evening.jpg -o ~/Pictures/wallpapers/island-evening.jpg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/island-night.jpg -o ~/Pictures/wallpapers/island-night.jpg && mkdir -p ~/Documents/Scripts && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/dynamic-wallpaper.sh -o ~/Documents/Scripts/dynamic-wallpaper.sh && chmod +x ~/Documents/Scripts/dynamic-wallpaper.sh && mkdir -p ~/.config/systemd/user && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/dynamic-wallpaper.service -o ~/.config/systemd/user/dynamic-wallpaper.service && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/dynamic-wallpaper.timer -o ~/.config/systemd/user/dynamic-wallpaper.timer && systemctl --user enable --now dynamic-wallpaper.timer
-mkdir -p ~/.config/tint2 && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/i3/tint2rc -o ~/.config/tint2/tint2rc && mkdir -p ~/Pictures/tint2 && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/Arch_Taskbar.png -o ~/Pictures/tint2/Arch_Taskbar.png && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/caffeine-cup-empty.svg -o ~/Pictures/tint2/caffeine-cup-empty.svg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/caffeine-cup-full.svg -o ~/Pictures/tint2/caffeine-cup-full.svg && cp -f ~/Pictures/tint2/caffeine-cup-empty.svg ~/Pictures/tint2/autolock.svg
+mkdir -p ~/.config/nwg-panel && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Sway/nwg-panel-config -o ~/.config/nwg-panel/config && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Sway/nwg-panel-style.css -o ~/.config/nwg-panel/style.css && mkdir -p ~/Pictures/nwg-panel && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/Arch_Panel.svg -o ~/Pictures/nwg-panel/Arch_Panel.svg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/caffeine-cup-empty.svg -o ~/Pictures/nwg-panel/caffeine-cup-empty.svg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/caffeine-cup-full.svg -o ~/Pictures/nwg-panel/caffeine-cup-full.svg && cp -f ~/Pictures/nwg-panel/caffeine-cup-empty.svg ~/Pictures/nwg-panel/autolock.svg
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Bashrc/Arch -o ~/.bashrc
 mkdir -p ~/.config/tmux/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/tmux.conf -o ~/.config/tmux/tmux.conf
 mkdir -p ~/.config/mpv/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/mpv.conf -o ~/.config/mpv/mpv.conf
 mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/zathurarc -o ~/.config/zathura/zathurarc && xdg-mime default org.pwmt.zathura.desktop application/pdf
 mkdir -p ~/.gnupg/ && chmod 700 ~/.gnupg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/scdaemon.conf -o ~/.gnupg/scdaemon.conf
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/vimrc -o ~/.vimrc && mkdir -p ~/.vim/colors && curl https://raw.githubusercontent.com/vv9k/vim-github-dark/master/colors/ghdark.vim -o ~/.vim/colors/ghdark.vim
-sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/i3/picom.conf -o /etc/xdg/picom.conf
 mkdir -p ~/.config/xfce4/xfconf/xfce-perchannel-xml && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/xfce4-terminal.xml -o ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-terminal.xml
-mkdir -p ~/.config/gsimplecal/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/gsimplecal-config -o ~/.config/gsimplecal/config
-sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/90-touchpad.conf -o /etc/X11/xorg.conf.d/90-touchpad.conf
 mkdir -p ~/.config/rofi/ && curl https://raw.githubusercontent.com/newmanls/rofi-themes-collection/master/themes/spotlight-dark.rasi -o ~/.config/rofi/spotlight-dark.rasi && sed -i s/border-radius:\ \ 8/border-radius:\ \ 0/ ~/.config/rofi/spotlight-dark.rasi && sed -i "/\bplaceholder\b/d" ~/.config/rofi/spotlight-dark.rasi && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/rofi-config -o ~/.config/rofi/config.rasi
 sudo mkdir -p /usr/local/lib/systemd/user/ && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/mpris-proxy.service -o /usr/local/lib/systemd/user/mpris-proxy.service && systemctl --user daemon-reload && systemctl --user enable --now mpris-proxy.service
 sudo mkdir -p /etc/pacman.d/hooks && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/firejail.hook -o /etc/pacman.d/hooks/firejail.hook && mkdir -p ~/.config/firejail && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/man.local -o ~/.config/firejail/man.local && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/mpv.profile -o ~/.config/firejail/mpv.profile && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ristretto.local -o ~/.config/firejail/ristretto.local && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ssh.profile -o ~/.config/firejail/ssh.profile
 sudo mkdir -p /usr/local/bin && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/system-backup.sh -o /usr/local/bin/system-backup && sudo chmod +x /usr/local/bin/system-backup && sudo mkdir -p /usr/local/lib/systemd/system && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/system-backup.service -o /usr/local/lib/systemd/system/system-backup.service && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/system-backup.timer -o /usr/local/lib/systemd/system/system-backup.timer && sudo systemctl enable --now system-backup.timer
 source ~/.bashrc
 ```
-
-## Make bluetooth autoswitch sound source to connected device
-
-```bash
-sudo vi /etc/pulse/default.pa
-```
-
-> [...]  
-> #Automatically switch to newly-connected devices  
-> load-module module-switch-on-connect
 
 ## Keyboard Shortcuts
 
