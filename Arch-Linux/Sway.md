@@ -49,8 +49,8 @@ sudo vim /etc/sway/config
 set $term xfce4-terminal
 [...]
 input * {
-	xkb_layout "fr"
-	xkb_variant "azerty"
+        xkb_layout "fr"
+        xkb_variant "azerty"
 }
 ```
 
