@@ -8,14 +8,14 @@ case "${rofi_menu_options}" in
 		if command -v i3lock > /dev/null; then
 			i3lock -eti ~/Pictures/i3/lock.png
 		elif command -v swaylock > /dev/null; then
-			swaylock -feti ~/Pictures/Sway/lock.png
+			swaylock -feti ~/Pictures/Sway/lock.png -s fill
 		fi
 	;;
 	*Suspend)
 		if command -v i3lock > /dev/null; then
 			i3lock -eti ~/Pictures/i3/lock.png && systemctl suspend
 		elif command -v swaylock > /dev/null; then
-			swaylock -feti ~/Pictures/Sway/lock.png && systemctl suspend
+			swaylock -feti ~/Pictures/Sway/lock.png -s fill && systemctl suspend
 		fi
 	;;
 	*Soft\ Reboot)
