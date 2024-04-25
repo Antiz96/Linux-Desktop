@@ -88,7 +88,7 @@ sudo pacman -Syyu
 ## Install bluetooth support
 
 ```bash
-sudo pacman -S bluez bluez-utils
+sudo pacman -S --asexplicit bluez bluez-utils
 sudo systemctl enable --now bluetooth
 ```
 
