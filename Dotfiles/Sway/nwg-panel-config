@@ -26,6 +26,7 @@
     "modules-right": [
       "executor-autolock",
       "executor-arch-update",
+      "executor-restart-panel",
       "tray"
     ],
     "controls-settings": {
@@ -206,7 +207,7 @@
       "root-css-name": "",
       "css-name": "",
       "icon-placement": "left",
-      "icon-size": 16,
+      "icon-size": 22,
       "interval": 1,
       "angle": 0.0,
       "sigrt": 34,
@@ -224,6 +225,23 @@
       "css-name": "",
       "icon-placement": "left",
       "icon-size": 16,
+      "interval": 1,
+      "angle": 0.0,
+      "sigrt": 34,
+      "use-sigrt": false
+    },
+    "executor-restart-panel": {
+      "script": "echo /home/antiz/Pictures/nwg-panel/restart-panel.svg",
+      "tooltip-text": "",
+      "on-left-click": "nwg-panel -sigdwl 1",
+      "on-middle-click": "",
+      "on-right-click": "",
+      "on-scroll-up": "",
+      "on-scroll-down": "",
+      "root-css-name": "",
+      "css-name": "",
+      "icon-placement": "left",
+      "icon-size": 22,
       "interval": 1,
       "angle": 0.0,
       "sigrt": 34,
