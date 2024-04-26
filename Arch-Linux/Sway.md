@@ -2,7 +2,6 @@
 
 ## Graphical drivers (optional)
 
-
 ```bash
 sudo pacman -S mesa # install nvidia instead of mesa if you have an Nvidia GPU.
 ```
