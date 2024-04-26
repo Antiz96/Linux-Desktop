@@ -2,10 +2,9 @@
 
 ## Graphical drivers (optional)
 
-Also install `nvidia` if you have an Nvidia GPU.
 
 ```bash
-sudo pacman -S mesa
+sudo pacman -S mesa # install nvidia instead of mesa if you have an Nvidia GPU.
 ```
 
 ## Install sway
