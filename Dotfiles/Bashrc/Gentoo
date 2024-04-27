@@ -40,6 +40,9 @@ export EDITOR="/usr/bin/vim"
 # SSH Agent
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
+# GPG TTY
+export GPG_TTY="$(tty)"
+
 # Flatpak path
 export PATH="${PATH}:/var/lib/flatpak/exports/bin"
 
