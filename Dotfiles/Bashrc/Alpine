@@ -40,6 +40,9 @@ export EDITOR="/usr/bin/vim"
 # Flatpak path
 export PATH="${PATH}:/var/lib/flatpak/exports/bin"
 
+# GPG TTY
+export GPG_TTY="$(tty)"
+
 ##Alias##
 
 # Ls
