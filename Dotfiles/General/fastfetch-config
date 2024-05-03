@@ -24,11 +24,11 @@
     "terminal",
     {
       "type": "cpu",
-      "hideType": "integrated",
       "temp": true
     },
     {
       "type": "gpu",
+      "hideType": "integrated",
       "temp": true
     },
     "memory",
