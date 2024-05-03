@@ -24,6 +24,7 @@
     "terminal",
     {
       "type": "cpu",
+      "hideType": "integrated",
       "temp": true
     },
     {
