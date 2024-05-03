@@ -26,8 +26,8 @@ vim ~/.bash_profile
 > [...]  
 > #Autostart Sway  
 > ``if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then``  
-> > export XDG_SESSION_DESKTOP=sway  
 > > export XDG_CURRENT_DESKTOP=sway  
+> > export XDG_SESSION_DESKTOP=sway  
 > > export XDG_SESSION_TYPE=wayland  
 > > export QT_QPA_PLATFORM=wayland  
 > > export SDL_VIDEODRIVER=wayland  
