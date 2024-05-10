@@ -55,7 +55,7 @@ case "${option}" in
 			dest_dir="/"
 			
 		 	# shellcheck disable=SC2015
-			cd "${snapshot_dir}" && rsync_cmd && && mkinitcpio -P && echo -e "\nThe restoration is done\nPlease, reboot the system" || { echo -e >&2 "\nAn error occurred during the restoration process"; exit 3; }
+			cd "${snapshot_dir}" && rsync_cmd && mkinitcpio -P && echo -e "\nThe restoration is done\nPlease, reboot the system" || { echo -e >&2 "\nAn error occurred during the restoration process"; exit 3; }
 		else
 			echo -e >&2 "Missing argument\nUsage: --restore '<path to snapshot>'"
 			exit 4
