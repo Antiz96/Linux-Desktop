@@ -212,12 +212,3 @@ execp_lclick_command = xautolock -enable && cp -f ~/Pictures/tint2/caffeine-cup-
 execp_rclick_command = xautolock -disable && cp -f ~/Pictures/tint2/caffeine-cup-full.svg ~/Pictures/tint2/autolock.svg
 execp_icon_w = 24
 execp_icon_h = 24
-
-execp = new
-execp_command = echo /usr/share/icons/arch-update/arch-update.svg
-execp_interval = 1
-execp_has_icon = 1
-execp_cache_icon = 0
-execp_lclick_command = xfce4-terminal -e arch-update
-execp_icon_w = 18
-execp_icon_h = 18
