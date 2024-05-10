@@ -222,6 +222,9 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Notification daemon
 exec swaync
 
+# Arch-Update applet
+exec sleep 3 && arch-update --tray
+
 # Network manager applet
 exec nm-applet
 

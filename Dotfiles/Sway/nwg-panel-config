@@ -25,7 +25,6 @@
     ],
     "modules-right": [
       "executor-autolock",
-      "executor-arch-update",
       "executor-restart-panel",
       "tray"
     ],
@@ -208,23 +207,6 @@
       "css-name": "",
       "icon-placement": "left",
       "icon-size": 22,
-      "interval": 1,
-      "angle": 0.0,
-      "sigrt": 34,
-      "use-sigrt": false
-    },
-    "executor-arch-update": {
-      "script": "echo /usr/share/icons/arch-update/arch-update.svg",
-      "tooltip-text": "",
-      "on-left-click": "xfce4-terminal -e arch-update",
-      "on-middle-click": "",
-      "on-right-click": "",
-      "on-scroll-up": "",
-      "on-scroll-down": "",
-      "root-css-name": "",
-      "css-name": "",
-      "icon-placement": "left",
-      "icon-size": 16,
       "interval": 1,
       "angle": 0.0,
       "sigrt": 34,

@@ -346,6 +346,9 @@ exec tint2
 #Desktop notifications
 exec /usr/lib/notification-daemon-1.0/notification-daemon
 
+#Arch-Update applet
+exec sleep 3 && arch-update --tray
+
 #Network manager applet
 exec nm-applet
 
