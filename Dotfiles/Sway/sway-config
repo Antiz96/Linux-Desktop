@@ -55,7 +55,7 @@ input type:touchpad {
 ### Idle configuration
 
 exec swayidle -w \
-	timeout 840 'notify-send -u critical -t 60000 -i ~/Pictures/Sway/shutdown.svg "Auto lock" "Based on current inactivity, the system will be locked automatically in 1 minute\n\nDismiss this notification to abort"' \
+	timeout 840 'notify-send -t 60000 -i ~/Pictures/Sway/shutdown.svg "Auto lock" "Based on current inactivity, the system will be locked automatically in 1 minute\n\nDismiss this notification to abort"' \
 	timeout 900 'swaylock -feti ~/Pictures/Sway/lock.png -s fill' \
 	timeout 905 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
 	timeout 1800 'systemctl suspend' \
