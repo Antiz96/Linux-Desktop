@@ -45,7 +45,7 @@ case "${option}" in
 		fi
 
 		# shellcheck disable=SC2015
-		cd "${backup_dir}" && rsync_cmd && echo -e "\nSystem Backup complete" || { echo -e >&2 "\nSystem Backup failed" && sudo -u antiz DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send -u critical -t 300000 "System Backup" "System Backup failed" && rm -rf "${dest_dir}" ; exit 2; }
+		cd "${backup_dir}" && rsync_cmd && echo -e "\nSystem Backup complete" || { echo -e >&2 "\nSystem Backup failed" && sudo -u antiz DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send -u critical "System Backup" "System Backup failed" && rm -rf "${dest_dir}" ; exit 2; }
 		find "${backup_dir}" -mindepth 1 -maxdepth 1 -type d -ctime +8 -exec rm -rf {} \;
 	;;
 	-R|--restore)
