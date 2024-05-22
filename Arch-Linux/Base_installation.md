@@ -237,7 +237,7 @@ sudo systemctl enable --now paccache.timer
 
 I personally modify the associated `paccache` systemd service to also delete uninstalled packages from cache:
 
-```
+```bash
 sudo systemctl edit paccache.service
 ```
 
