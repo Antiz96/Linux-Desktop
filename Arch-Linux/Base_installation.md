@@ -235,6 +235,16 @@ To launch `paccache` automatically on a weekly basis, enable the associated syst
 sudo systemctl enable --now paccache.timer
 ```
 
+I personally modify the associated `paccache` systemd service to also delete uninstalled packages from cache:
+
+```bash
+sudo systemctl edit paccache.service
+```
+
+> [Service]  
+> ExecStart=  
+> ExecStart=/bin/bash -c 'paccache -ruk0 && paccache -r'
+
 ## Enable fstrim (for SSDs only - optional)
 
 If you use SSDs, you can use `fstrim` to discard all unused blocks in the filesystem in order to improve performances.  
