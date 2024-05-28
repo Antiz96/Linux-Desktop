@@ -237,8 +237,9 @@ exec gammastep-indicator -l 49.443232:1.099971
 # Playerctl daemon
 exec playerctld daemon
 
-# Screenshot applet
+# Screenshot applet (+ fix issue with flameshot only showing on left monitor)
 exec flameshot
+for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
 
 # ProtonMail Bridge
 exec protonmail-bridge --no-window
