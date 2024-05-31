@@ -36,11 +36,11 @@ case "${option}" in
 		source_dir="/"
 		
 		if [ "${argument}" == "--scheduled" ]; then
-			dest_dir="$(date +%d-%m-%Y_%H-%M)-daily"
+			dest_dir="$(date +%d-%m-%Y_%H-%M)-scheduled"
 		elif [ "${argument}" == "--on-demand" ]; then
 			dest_dir="$(date +%d-%m-%Y_%H-%M)-on-demand"
 		else
-			echo -e >&2 "Invalid or missing argument\nUsage: --create --scheduled|--on-demand"
+			echo -e >&2 "Invalid or missing argument\nUsage: --create --scheduled | --create --on-demand"
 			exit 4
 		fi
 
