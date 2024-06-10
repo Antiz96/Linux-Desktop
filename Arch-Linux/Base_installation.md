@@ -262,6 +262,39 @@ sudo systemctl enable --now fstrim.timer
 sudo timedatectl set-ntp true
 ```
 
+## Set up Secure Boot (optional)
+
+Secure Boot adds an additional layer of security by maintaining a cryptographically signed list of binaries authorized or forbidden to run at boot. It basically helps in improving the confidence that the machine core boot components such as boot manager, kernel and initramfs have not been tampered with (more info in the related [Arch Wiki page](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#)).
+
+### Putting firmware in "Setup Mode"
+
+Secure Boot is in Setup Mode when the Platform Key is removed. To do so, use the option to delete/clear certificate from the UEFI/Firmware setup menu.  
+If you want to backup the current keys and variables before deleting/clearing them, see <https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#Backing_up_current_variables>.
+
+### Install and configure sbctl
+
+```bash
+sudo pacman -S sbctl # Install the sbctl package
+sbctl status # Verify that Setup Mode is enabled
+sudo sbctl create-keys # Generate our own signing keys
+sudo sbctl enroll-keys -m # Enroll our keys to the UEFI, including Microsoft's keys (`-m`). See the warning in the following URL for more details: https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#Creating_and_enrolling_keys
+sudo sbctl sign -s /boot/vmlinuz-linux # Sign the kernel
+sudo sbctl sign -s /boot/EFI/BOOT/BOOTX64.EFI # Sign the boot loader
+sudo sbctl sign -s -o /usr/lib/systemd/boot/efi/systemd-bootx64.efi.signed /usr/lib/systemd/boot/efi/systemd-bootx64.efi # Sign systemd-boot boot loader
+sudo sbctl verify # Verify that the above files have been correctly sign
+sudo sbctl status # Verify that sbctl is correcly installed and that Setup Mode is disabled
+```
+
+### Enable Secure Boot
+
+You can now reboot your system and enable Secure Boot from the UEFI/Firmware setup menu.
+
+You can check that Secure Boot is correctly set up and enabled by running:
+
+```bash
+sbctl status
+```
+
 ## Base installation complete
 
 Link to the installation and configuration procedure for i3 on Arch according to my preferences below (if needed):
