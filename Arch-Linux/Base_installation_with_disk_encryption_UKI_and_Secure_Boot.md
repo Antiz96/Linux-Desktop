@@ -299,7 +299,7 @@ sudo sbctl sign -s /boot/arch-linux-fallback.efi # Sign the fallback UKI
 sudo sbctl sign -s /boot/EFI/BOOT/BOOTX64.EFI # Sign the boot loader
 sudo sbctl sign -s -o /usr/lib/systemd/boot/efi/systemd-bootx64.efi.signed /usr/lib/systemd/boot/efi/systemd-bootx64.efi # Sign systemd-boot boot loader
 sudo sbctl verify # Verify that the above files have been correctly sign
-sudo sbctl status # Verify that sbctl is correcly installed and that Setup Mode is disabled
+sudo sbctl status # Verify that sbctl is correctly installed and that Setup Mode is disabled
 ```
 
 ### Enable Secure Boot
