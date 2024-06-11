@@ -131,6 +131,19 @@ visudo #Uncomment the line that allows the wheel group members to use sudo on an
 > %wheel ALL=(ALL) ALL  
 > [...]
 
+### Enable Splash Screen in Mkinitcpio (optional)
+
+This allows to show an Arch Linux logo during the loading of the initramfs by the kernel.  
+This is purely aesthetic, but it also helps identifying when you're booting/loading the "regular" initramfs or the fallback one (as we'll only enable the splash screen for the "regular" initramfs).
+
+```bash
+vim /etc/mkinitcpio.d/linux.preset
+```
+
+> [...]  
+> default_options="--splash /usr/share/systemd/bootctl/splash-arch.bmp" # Uncomment that line  
+> [...]
+
 ### Use a more secure umask for the boot partition
 
 This is to avoid warning with `bootctl install` in the next step.
