@@ -1,7 +1,6 @@
-# Arch Linux base installation with disk encryption
+# Arch Linux base installation with Disk Encryption, Unified Kernel Image (UKI) and Secure Boot
 
-This is my personal routine to install Arch Linux with full disk encryption.  
-Before encrypting your disk, be aware of the consequences: <https://www.makeuseof.com/tag/4-reasons-encrypt-linux-partitions/>
+This is my personal routine to install Arch Linux with Disk Encryption, Unified Kernel Image (UKI) and Secure Boot.
 
 ## Pre-configuration
 
@@ -279,7 +278,7 @@ sudo systemctl enable --now fstrim.timer
 sudo timedatectl set-ntp true
 ```
 
-## Set up Secure Boot (optional)
+## Set up Secure Boot
 
 Secure Boot adds an additional layer of security by maintaining a cryptographically signed list of binaries authorized or forbidden to run at boot. It basically helps in improving the confidence that the machine core boot components such as boot manager, kernel and initramfs have not been tampered with (more info in the related [Arch Wiki page](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#)).
 
@@ -295,7 +294,8 @@ sudo pacman -S sbctl # Install the sbctl package
 sbctl status # Verify that Setup Mode is enabled
 sudo sbctl create-keys # Generate our own signing keys
 sudo sbctl enroll-keys -m # Enroll our keys to the UEFI, including Microsoft's keys (`-m`). See the warning in the following URL for more details: https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#Creating_and_enrolling_keys
-sudo sbctl sign -s /boot/vmlinuz-linux # Sign the kernel
+sudo sbctl sign -s /boot/arch-linux.efi # Sign the UKI
+sudo sbctl sign -s /boot/arch-linux-fallback.efi # Sign the fallback UKI
 sudo sbctl sign -s /boot/EFI/BOOT/BOOTX64.EFI # Sign the boot loader
 sudo sbctl sign -s -o /usr/lib/systemd/boot/efi/systemd-bootx64.efi.signed /usr/lib/systemd/boot/efi/systemd-bootx64.efi # Sign systemd-boot boot loader
 sudo sbctl verify # Verify that the above files have been correctly sign
