@@ -148,6 +148,8 @@ vim /etc/mkinitcpio.d/linux.preset
 
 ### Configure the encrypt hook in mkinitcpio
 
+Required to detect the encrypted root partition at boot.
+
 ```bash
 vim /etc/mkinitcpio.conf #Add the "encrypt" kernel hook into the mkinitcpio configuration for the encryption
 ```
@@ -157,6 +159,11 @@ vim /etc/mkinitcpio.conf #Add the "encrypt" kernel hook into the mkinitcpio conf
 > [...]
 
 ### Setup Unified Kernel Image (UKI)
+
+Secure Boot only acts on UEFI executables and initramfs is an additional file loaded as part of the kernel cmdline. UEFI is not aware of the initramfs file during boot, so using Secure Boot/`sbctl` as is would leave our initramfs unsigned/unverified (and thus exploitable).
+
+To avoid that, we need to use a [Unified Kernel Image (or UKI)](https://wiki.archlinux.org/title/Unified_kernel_image) which includes both the kernel and the initramfs in a single file and sign that file with `sbctl` instead.  
+Additionally it allows to have simpler `/boot` partition (and a simpler boot chain overall), as systemd-boot [automatically look for those UKI image at boot](https://wiki.archlinux.org/title/Unified_kernel_image#systemd-boot) (meaning you don't need additional systemd-boot config/entries).
 
 ```bash
 vim /etc/kernel/cmdline # Add our encrypted root partition to the kernel cmdline
