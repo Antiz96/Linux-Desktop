@@ -133,7 +133,6 @@ visudo #Uncomment the line that allows the wheel group members to use sudo on an
 > %wheel ALL=(ALL) ALL  
 > [...]
 
-
 ### Enable Splash Screen in mkinitcpio (optional)
 
 This allows to show an Arch Linux logo during the loading of the initramfs by the kernel.  
