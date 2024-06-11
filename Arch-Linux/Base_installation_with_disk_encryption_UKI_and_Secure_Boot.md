@@ -1,7 +1,6 @@
-# Arch Linux base installation with disk encryption
+# Arch Linux base installation with Disk Encryption, Unified Kernel Image (UKI) and Secure Boot
 
-This is my personal routine to install Arch Linux with full disk encryption.  
-Before encrypting your disk, be aware of the consequences: <https://www.makeuseof.com/tag/4-reasons-encrypt-linux-partitions/>
+This is my personal routine to install Arch Linux with Disk Encryption, Unified Kernel Image (UKI) and Secure Boot.
 
 ## Pre-configuration
 
@@ -144,8 +143,41 @@ vim /etc/mkinitcpio.conf #Add the "encrypt" kernel hook into the mkinitcpio conf
 > HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block **encrypt** filesystems fsck)  
 > [...]
 
+### Setup Unified Kernel Image (UKI)
+
 ```bash
-mkinitcpio -P
+vim /etc/kernel/cmdline # Add our encrypted root partition to the kernel cmdline
+```
+
+> cryptdevice=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:root root=/dev/mapper/root rw # Run 'blkid' to get the UID of your root partition
+
+```bash
+vim /etc/mkinitcpio.d/linux.preset # Enable UKI options in mkinitcpio preset for your kernel
+```
+
+```text
+# mkinitcpio preset file for the 'linux' package
+
+#ALL_config="/etc/mkinitcpio.conf"
+ALL_kver="/boot/vmlinuz-linux"
+
+PRESETS=('default' 'fallback')
+
+#default_config="/etc/mkinitcpio.conf"
+#default_image="/boot/initramfs-linux.img" # Comment the "regular" image line for initramfs
+default_uki="/boot/EFI/Linux/arch-linux.efi" # Uncomment the "uki" line for the initramfs and change the path from /efi to /boot (as we mounted our boot partition to /boot)
+#default_options="--splash /usr/share/systemd/bootctl/splash-arch.bmp"
+
+#fallback_config="/etc/mkinitcpio.conf"
+#fallback_image="/boot/initramfs-linux-fallback.img" # Comment the "regular" image line for fallback initramfs
+fallback_uki="/boot/EFI/Linux/arch-linux-fallback.efi" # Uncomment the "uki" line for the fallback initramfs and change the path from /efi to /boot (as we mounted our boot partition to /boot)
+fallback_options="-S autodetect"
+```
+
+```bash
+mkdir -p /boot/EFI/Linux # Make sure the directory for the UKIs exists
+mkinitcpio -P # Build the UKIs
+rm /boot/initramfs-*.img # Remove initramfs leftover image
 ```
 
 ### Use a more secure umask for the boot partition
@@ -171,28 +203,10 @@ bootctl install
 vim /boot/loader/loader.conf
 ```
 
-> default arch.conf  
+> default arch-linux.efi
 > timeout 0  
 > console-mode max  
 > editor no
-
-```bash
-vim /boot/loader/entries/arch.conf
-```
-
-> title Arch Linux  
-> linux /vmlinuz-linux  
-> initrd /initramfs-linux.img  
-> options cryptdevice=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:root root=/dev/mapper/root rw # Run 'blkid' to get the UID of your root partition
-
-```bash
-vim /boot/loader/entries/arch-fallback.conf
-```
-
-> title Arch Linux (fallback)  
-> linux /vmlinuz-linux  
-> initrd /initramfs-linux-fallback.img  
-> options cryptdevice=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:root root=/dev/mapper/root rw # Run 'blkid' to get the UID of your root partition
 
 ```bash
 systemctl enable systemd-boot-update.service
@@ -277,6 +291,42 @@ sudo systemctl enable --now fstrim.timer
 
 ```bash
 sudo timedatectl set-ntp true
+```
+
+## Set up Secure Boot
+
+Secure Boot adds an additional layer of security by maintaining a cryptographically signed list of binaries authorized or forbidden to run at boot. It basically helps in improving the confidence that the machine core boot components such as boot manager, kernel and initramfs have not been tampered with (more info in the related [Arch Wiki page](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#)).
+
+### Putting firmware in "Setup Mode" and set an Admin password for the UEFI/Firmware menu
+
+Secure Boot is in Setup Mode when the Platform Key is removed. To do so, use the option to delete/clear certificate from the UEFI/Firmware setup menu.  
+If you want to backup the current keys and variables before deleting/clearing them, see <https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#Backing_up_current_variables>.
+
+It is also advised to set an Admin password for the UEFI/Firmware menu access (via the Security tab) to prevent anyone from being able to disable Secure Boot from there.
+
+### Install and configure sbctl
+
+```bash
+sudo pacman -S sbctl # Install the sbctl package
+sbctl status # Verify that Setup Mode is enabled
+sudo sbctl create-keys # Generate our own signing keys
+sudo sbctl enroll-keys -m # Enroll our keys to the UEFI, including Microsoft's keys (`-m`). See the warning in the following URL for more details: https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#Creating_and_enrolling_keys
+sudo sbctl sign -s /boot/EFI/Linux/arch-linux.efi # Sign the UKI
+sudo sbctl sign -s /boot/EFI/Linux/arch-linux-fallback.efi # Sign the fallback UKI
+sudo sbctl sign -s /boot/EFI/BOOT/BOOTX64.EFI # Sign the boot loader
+sudo sbctl sign -s -o /usr/lib/systemd/boot/efi/systemd-bootx64.efi.signed /usr/lib/systemd/boot/efi/systemd-bootx64.efi # Sign systemd-boot boot loader
+sudo sbctl verify # Verify that the above files have been correctly sign
+sbctl status # Verify that sbctl is correctly installed and that Setup Mode is now disabled
+```
+
+### Enable Secure Boot
+
+You can now reboot your system and enable Secure Boot from the UEFI/Firmware setup menu.
+
+You can check that Secure Boot is correctly set up and enabled by running:
+
+```bash
+sbctl status
 ```
 
 ## Base installation complete
