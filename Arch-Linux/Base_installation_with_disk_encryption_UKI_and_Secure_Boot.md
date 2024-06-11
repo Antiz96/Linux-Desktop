@@ -297,7 +297,7 @@ sudo timedatectl set-ntp true
 
 Secure Boot adds an additional layer of security by maintaining a cryptographically signed list of binaries authorized or forbidden to run at boot. It basically helps in improving the confidence that the machine core boot components such as boot manager, kernel and initramfs have not been tampered with (more info in the related [Arch Wiki page](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#)).
 
-### Putting firmware in "Setup Mode" and add an Admin password for the UEFI/Firmware menu
+### Putting firmware in "Setup Mode" and set an Admin password for the UEFI/Firmware menu
 
 Secure Boot is in Setup Mode when the Platform Key is removed. To do so, use the option to delete/clear certificate from the UEFI/Firmware setup menu.  
 If you want to backup the current keys and variables before deleting/clearing them, see <https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#Backing_up_current_variables>.
