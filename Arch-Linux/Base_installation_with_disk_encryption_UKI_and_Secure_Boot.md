@@ -143,8 +143,41 @@ vim /etc/mkinitcpio.conf #Add the "encrypt" kernel hook into the mkinitcpio conf
 > HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block **encrypt** filesystems fsck)  
 > [...]
 
+### Setup Unified Kernel Image (UKI)
+
 ```bash
-mkinitcpio -P
+vim /etc/kernel/cmdline # Add our encrypted root partition to the kernel cmdline
+```
+
+> cryptdevice=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:root root=/dev/mapper/root rw # Run 'blkid' to get the UID of your root partition
+
+```bash
+vim /etc/mkinitcpio.d/linux.preset # Enable UKI options in mkinitcpio preset for your kernel
+```
+
+```text
+# mkinitcpio preset file for the 'linux' package
+
+#ALL_config="/etc/mkinitcpio.conf"
+ALL_kver="/boot/vmlinuz-linux"
+
+PRESETS=('default' 'fallback')
+
+#default_config="/etc/mkinitcpio.conf"
+#default_image="/boot/initramfs-linux.img" # Comment the "regular" image line for initramfs
+default_uki="/boot/EFI/Linux/arch-linux.efi" # Uncomment the "uki" line for the initramfs and change the path from /efi to /boot (as we mounted our boot partition to /boot)
+#default_options="--splash /usr/share/systemd/bootctl/splash-arch.bmp"
+
+#fallback_config="/etc/mkinitcpio.conf"
+#fallback_image="/boot/initramfs-linux-fallback.img" # Comment the "regular" image line for fallback initramfs
+fallback_uki="/boot/EFI/Linux/arch-linux-fallback.efi" # Uncomment the "uki" line for the fallback initramfs and change the path from /efi to /boot (as we mounted our boot partition to /boot)
+fallback_options="-S autodetect"
+```
+
+```bash
+mkdir -p /boot/EFI/Linux # Make sure the directory for the UKIs exists
+mkinitcpio -P # Build the UKIs
+rm /boot/initramfs-*.img # Remove initramfs leftover image
 ```
 
 ### Use a more secure umask for the boot partition
@@ -170,28 +203,10 @@ bootctl install
 vim /boot/loader/loader.conf
 ```
 
-> default arch.conf  
+> default arch-linux.efi
 > timeout 0  
 > console-mode max  
 > editor no
-
-```bash
-vim /boot/loader/entries/arch.conf
-```
-
-> title Arch Linux  
-> linux /vmlinuz-linux  
-> initrd /initramfs-linux.img  
-> options cryptdevice=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:root root=/dev/mapper/root rw # Run 'blkid' to get the UID of your root partition
-
-```bash
-vim /boot/loader/entries/arch-fallback.conf
-```
-
-> title Arch Linux (fallback)  
-> linux /vmlinuz-linux  
-> initrd /initramfs-linux-fallback.img  
-> options cryptdevice=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:root root=/dev/mapper/root rw # Run 'blkid' to get the UID of your root partition
 
 ```bash
 systemctl enable systemd-boot-update.service
