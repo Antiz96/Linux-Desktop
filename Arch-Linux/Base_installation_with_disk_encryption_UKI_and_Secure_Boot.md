@@ -179,7 +179,7 @@ PRESETS=('default' 'fallback')
 #default_config="/etc/mkinitcpio.conf"
 #default_image="/boot/initramfs-linux.img" # Comment the "regular" image line for initramfs
 default_uki="/boot/EFI/Linux/arch-linux.efi" # Uncomment the "uki" line for the initramfs and change the path from /efi to /boot (as we mounted our boot partition to /boot)
-#default_options="--splash /usr/share/systemd/bootctl/splash-arch.bmp"
+default_options="--splash /usr/share/systemd/bootctl/splash-arch.bmp"
 
 #fallback_config="/etc/mkinitcpio.conf"
 #fallback_image="/boot/initramfs-linux-fallback.img" # Comment the "regular" image line for fallback initramfs
