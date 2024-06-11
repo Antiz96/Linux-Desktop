@@ -311,8 +311,8 @@ sudo pacman -S sbctl # Install the sbctl package
 sbctl status # Verify that Setup Mode is enabled
 sudo sbctl create-keys # Generate our own signing keys
 sudo sbctl enroll-keys -m # Enroll our keys to the UEFI, including Microsoft's keys (`-m`). See the warning in the following URL for more details: https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#Creating_and_enrolling_keys
-sudo sbctl sign -s /boot/arch-linux.efi # Sign the UKI
-sudo sbctl sign -s /boot/arch-linux-fallback.efi # Sign the fallback UKI
+sudo sbctl sign -s /boot/EFI/Linux/arch-linux.efi # Sign the UKI
+sudo sbctl sign -s /boot/EFI/Linux/arch-linux-fallback.efi # Sign the fallback UKI
 sudo sbctl sign -s /boot/EFI/BOOT/BOOTX64.EFI # Sign the boot loader
 sudo sbctl sign -s -o /usr/lib/systemd/boot/efi/systemd-bootx64.efi.signed /usr/lib/systemd/boot/efi/systemd-bootx64.efi # Sign systemd-boot boot loader
 sudo sbctl verify # Verify that the above files have been correctly sign
