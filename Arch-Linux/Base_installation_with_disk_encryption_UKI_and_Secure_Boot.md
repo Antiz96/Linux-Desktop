@@ -197,7 +197,7 @@ fallback_options="-S autodetect"
 ```bash
 mkdir -p /boot/EFI/Linux # Make sure the directory for the UKIs exists
 mkinitcpio -P # Build the UKIs
-rm /boot/initramfs-*.img # Remove initramfs leftover image
+rm /boot/initramfs-*.img # Remove initramfs leftover images
 ```
 
 ### Use a more secure umask for the boot partition
@@ -223,7 +223,7 @@ bootctl install
 vim /boot/loader/loader.conf
 ```
 
-> default arch-linux.efi
+> default arch-linux.efi  
 > timeout 0  
 > console-mode max  
 > editor no
