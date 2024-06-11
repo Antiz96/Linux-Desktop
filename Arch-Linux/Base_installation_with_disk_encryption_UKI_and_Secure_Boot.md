@@ -146,7 +146,7 @@ vim /etc/mkinitcpio.d/linux.preset
 > default_options="--splash /usr/share/systemd/bootctl/splash-arch.bmp" # Uncomment that line  
 > [...]
 
-### Configure the encrypt hook in mkinitcpio
+### Add the encrypt hook in mkinitcpio
 
 Required to detect the encrypted root partition at boot.
 
