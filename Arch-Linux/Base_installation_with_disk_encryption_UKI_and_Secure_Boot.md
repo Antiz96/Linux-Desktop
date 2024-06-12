@@ -334,7 +334,7 @@ sudo sbctl enroll-keys -m # Enroll our keys to the UEFI, including Microsoft's k
 sudo sbctl sign -s /boot/EFI/Linux/arch-linux.efi # Sign the UKI
 sudo sbctl sign -s /boot/EFI/Linux/arch-linux-fallback.efi # Sign the fallback UKI
 sudo sbctl sign -s /boot/EFI/systemd/systemd-bootx64.efi # Sign systemd-boot boot loader
-sudo sbctl sign -s -o /usr/lib/systemd/boot/efi/systemd-bootx64.efi.signed /usr/lib/systemd/boot/efi/systemd-bootx64.efi # Sign systemd-boot boot loader under /usr/lib (required when using the `systemd-boot-update.service`. See the "Tip" at https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#Automatic_signing_with_the_pacman_hook
+sudo sbctl sign -s -o /usr/lib/systemd/boot/efi/systemd-bootx64.efi.signed /usr/lib/systemd/boot/efi/systemd-bootx64.efi # Sign systemd-boot boot loader under /usr/lib (required when using the `systemd-boot-update.service`. See the "Tip" at https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#Automatic_signing_with_the_pacman_hook)
 sudo sbctl sign -s /boot/EFI/BOOT/BOOTX64.EFI # Sign the fallback boot loader
 sudo sbctl sign -s /boot/vmlinuz-linux # Sign the kernel file. This is not necessary as we boot the UKI instead, but it also doesn't hurt.
 sudo sbctl verify # Verify that the above files have been correctly signed
