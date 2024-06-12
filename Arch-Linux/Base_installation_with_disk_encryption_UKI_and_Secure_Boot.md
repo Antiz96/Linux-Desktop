@@ -339,6 +339,7 @@ sudo sbctl sign -s /boot/EFI/BOOT/BOOTX64.EFI # Sign the fallback boot loader
 sudo sbctl sign -s /boot/vmlinuz-linux # Sign the kernel file. This is not necessary as we boot the UKI instead, but it also doesn't hurt.
 sudo sbctl verify # Verify that the above files have been correctly signed
 sbctl status # Verify that sbctl is correctly installed and that Setup Mode is now disabled
+sudo bootctl update # Force the update of the boot loader, just in case
 ```
 
 ### Enable Secure Boot
