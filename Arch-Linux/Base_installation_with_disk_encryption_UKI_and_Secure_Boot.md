@@ -5,16 +5,16 @@ This is my personal routine to install Arch Linux with Disk Encryption, Unified 
 ## Pre-configuration
 
 ```bash
-loadkeys fr #Change Keyboard Layout
-ping -c 4 archlinux.org #Check if I have access to the internet
-timedatectl set-ntp true #Enable NTP to synchronize time within the live environment
-timedatectl status #Check time status
+loadkeys fr # Change Keyboard Layout
+ping -c 4 archlinux.org # Check if I have access to the internet
+timedatectl set-ntp true # Enable NTP to synchronize time within the live environment
+timedatectl status # Check time status
 ```
 
 ## Prepare the disk
 
 ```bash
-fdisk -l #Check the hard drives' name to select the one I want to install Arch Linux on
+fdisk -l # Check the hard drives' name to select the one I want to install Arch Linux on
 ```
 
 ### Partition scheme
@@ -26,7 +26,7 @@ fdisk -l #Check the hard drives' name to select the one I want to install Arch L
 ### Partition the disk
 
 ```bash
-fdisk /dev/nvme0n1 #Partitioning the disk I want to install Arch on
+fdisk /dev/nvme0n1 # Partitioning the disk I want to install Arch on
 ```
 
 > Delete current partitions ---> **o** (This deletes every partitions, use the "d" option instead if you only want to delete specific partitions)  
@@ -46,22 +46,22 @@ fdisk /dev/nvme0n1 #Partitioning the disk I want to install Arch on
 ### Create the filesystems
 
 ```bash
-mkfs.fat -F32 /dev/nvme0n1p1 #Create the filesystem for the EFI partition
-mkswap /dev/nvme0n1p2 #Create the filesystem for the Swap partition
-swapon /dev/nvme0n1p2 #Enable the Swap partition on the system
-cryptsetup -y -v luksFormat /dev/nvme0n1p3 #Setup the encryption for the Root partition and choose the passphrase
-cryptsetup open /dev/nvme0n1p3 root #Open the encryption container on the Root partition and give it a name that will be used by the mapper. In my case, the name is "root"
-mkfs.ext4 /dev/mapper/root #Make the filesystem for the root partition
+mkfs.fat -F32 /dev/nvme0n1p1 # Create the filesystem for the EFI partition
+mkswap /dev/nvme0n1p2 # Create the filesystem for the Swap partition
+swapon /dev/nvme0n1p2 # Enable the Swap partition on the system
+cryptsetup -y -v luksFormat /dev/nvme0n1p3 # Setup the encryption for the Root partition and choose the passphrase
+cryptsetup open /dev/nvme0n1p3 root # Open the encryption container on the Root partition and give it a name that will be used by the mapper. In my case, the name is "root"
+mkfs.ext4 /dev/mapper/root # Make the filesystem for the root partition
 ```
 
 ### Mount the partitions and install the system's base
 
 ```bash
-mount /dev/mapper/root /mnt #Mount the Root partition on /mnt to install the system's base on it
-mkdir /mnt/boot #Create the /boot directory in /mnt
-mount /dev/nvme0n1p1 /mnt/boot #Mount my EFI partition on it
-pacstrap /mnt base linux linux-firmware #Install the system's base on the Root partition
-genfstab -U /mnt >> /mnt/etc/fstab #Generate the system's fstab
+mount /dev/mapper/root /mnt # Mount the Root partition on /mnt to install the system's base on it
+mkdir /mnt/boot # Create the /boot directory in /mnt
+mount /dev/nvme0n1p1 /mnt/boot # Mount my EFI partition on it
+pacstrap /mnt base linux linux-firmware # Install the system's base on the Root partition
+genfstab -U /mnt >> /mnt/etc/fstab # Generate the system's fstab
 ```
 
 ## Configure the system
@@ -69,14 +69,14 @@ genfstab -U /mnt >> /mnt/etc/fstab #Generate the system's fstab
 ### Chroot into the system
 
 ```bash
-arch-chroot /mnt #Chroot in the new installed system's base on the root partition
+arch-chroot /mnt # Chroot in the new installed system's base on the root partition
 ```
 
 ### Configure pacman
 
 ```bash
-pacman -S vim #Install my favorite editor
-vim /etc/pacman.conf #Enable the "color" and "parallel downloads" options in pacman
+pacman -S vim # Install my favorite editor
+vim /etc/pacman.conf # Enable the "color" and "parallel downloads" options in pacman
 ```
 
 > [...]  
@@ -89,24 +89,24 @@ vim /etc/pacman.conf #Enable the "color" and "parallel downloads" options in pac
 ### Language/Region configuration
 
 ```bash
-ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime #Set up the Region/TimeZone
-hwclock --systohc #Synchronize the Hardware Clock
-vim /etc/locale.gen #Uncomment the local in that file (for me: en_US.UTF-8 UTF-8)
-locale-gen #Apply the configuration
-vim /etc/locale.conf #Set the LANG variable accordingly in this file (for me: LANG=en_US.UTF-8)
-vim /etc/vconsole.conf #Set the Keymap in this file (for me: KEYMAP=fr)
+ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime # Set up the Region/TimeZone
+hwclock --systohc # Synchronize the Hardware Clock
+vim /etc/locale.gen # Uncomment the local in that file (for me: en_US.UTF-8 UTF-8)
+locale-gen # Apply the configuration
+vim /etc/locale.conf # Set the LANG variable accordingly in this file (for me: LANG=en_US.UTF-8)
+vim /etc/vconsole.conf # Set the Keymap in this file (for me: KEYMAP=fr)
 ```
 
 ### Host configuration
 
 ```bash
-vim /etc/hostname #Create the hostname file and put the hostname in it
+vim /etc/hostname # Create the hostname file and put the hostname in it
 ```
 
 > Arch-Desktop
 
 ```bash
-vim /etc/hosts #Edit the hosts file and add lines from the Arch Wiki ---> https://wiki.archlinux.org/index.php/Installation_guide#Network_configuration.
+vim /etc/hosts # Edit the hosts file and add lines from the Arch Wiki ---> https://wiki.archlinux.org/index.php/Installation_guide#Network_configuration.
 ```
 
 > 127.0.0.1        localhost  
@@ -116,17 +116,17 @@ vim /etc/hosts #Edit the hosts file and add lines from the Arch Wiki ---> https:
 ### User configuration
 
 ```bash
-passwd #Setup a password for the root account
-useradd -m antiz #Create a "regular" user
-passwd antiz #Setup a password for the user
-usermod -aG wheel,audio,video,optical,storage,games antiz #Add the user to some useful groups
+passwd # Setup a password for the root account
+useradd -m antiz # Create a "regular" user
+passwd antiz # Setup a password for the user
+usermod -aG wheel antiz # Add the user to the wheel group (for sudo usage)
 ```
 
 ### Install and configure sudo
 
 ```bash
-pacman -S sudo #Install sudo
-visudo #Uncomment the line that allows the wheel group members to use sudo on any command
+pacman -S sudo # Install sudo
+visudo # Uncomment the line that allows the wheel group members to use sudo on any command
 ```
 
 > [...]  
@@ -151,7 +151,7 @@ vim /etc/mkinitcpio.d/linux.preset
 Required to detect the encrypted root partition at boot.
 
 ```bash
-vim /etc/mkinitcpio.conf #Add the "encrypt" kernel hook into the mkinitcpio configuration for the encryption
+vim /etc/mkinitcpio.conf # Add the "encrypt" kernel hook into the mkinitcpio configuration for the disk encryption
 ```
 
 > [...]  
@@ -218,7 +218,7 @@ mount /boot
 ### Install and configure systemd-boot
 
 ```bash
-pacman -S efibootmgr dosfstools mtools #Install the Grub bootloader and dependencies for EFI. Also install "os-prober" if you wish to do a dual boot with another distro/OS.
+pacman -S efibootmgr dosfstools mtools # Install the Grub bootloader and dependencies for EFI. Also install "os-prober" if you wish to do a dual boot with another distro/OS.
 bootctl install
 vim /boot/loader/loader.conf
 ```
@@ -235,22 +235,22 @@ systemctl enable systemd-boot-update.service
 ### Install and enable Network Manager
 
 ```bash
-pacman -S networkmanager #Install "networkmanager" to manage my network connection
-systemctl enable NetworkManager #Autostart NetworkManager at boot
+pacman -S networkmanager # Install "networkmanager" to manage my network connection
+systemctl enable NetworkManager # Autostart NetworkManager at boot
 ```
 
 ## Exit the system and reboot the computer
 
 ```bash
-exit #Get out of the chroot
-umount -l /mnt #Umount the /mnt mounted point
-reboot #Reboot the computer to boot into the fresh Arch install
+exit # Get out of the chroot
+umount -l /mnt # Umount the /mnt mounted point
+reboot # Reboot the computer to boot into the fresh Arch install
 ```
 
 ## Log in with the "regular" user previously created and install additional useful packages
 
 ```bash
-sudo pacman -S devtools man bash-completion amd-ucode pacman-contrib #Additional useful packages and drivers. Install "intel-ucode" instead of "amd-ucode" if you have an Intel CPU
+sudo pacman -S devtools man bash-completion amd-ucode pacman-contrib # Additional useful packages and drivers. Install "intel-ucode" instead of "amd-ucode" if you have an Intel CPU
 ```
 
 ### Install a firewall (optional)
@@ -262,17 +262,17 @@ Check this link for more info/reasons to install a firewall: <https://unix.stack
 *For a server, you probably **should** install a firewall.*
 
 ```bash
-sudo pacman -S firewalld #Install firewalld
-sudo systemctl enable --now firewalld #Autostart firewalld at boot
+sudo pacman -S firewalld # Install firewalld
+sudo systemctl enable --now firewalld # Autostart firewalld at boot
 ```
 
 FirewallD authorises the "ssh" and "dhcpv6-client" services by default, to make sure you won't loose access to your machine if you need those.  
 But I usually prefer removing them and accept what needs to be accepted myself for a finner control.
 
 ```bash
-sudo firewall-cmd --remove-service="ssh" --permanent #Remove the default authorised ssh service
-sudo firewall-cmd --remove-service="dhcpv6-client" --permanent #Remove the default authorised DHCPV6-client service
-sudo firewall-cmd --reload #Apply changes
+sudo firewall-cmd --remove-service="ssh" --permanent # Remove the default authorised ssh service
+sudo firewall-cmd --remove-service="dhcpv6-client" --permanent # Remove the default authorised DHCPV6-client service
+sudo firewall-cmd --reload # Apply changes
 ```
 
 ## Enable paccache (automatic cleaning of pacman cache)
@@ -315,7 +315,7 @@ sudo timedatectl set-ntp true
 
 ## Set up Secure Boot
 
-Secure Boot adds an additional layer of security by maintaining a cryptographically signed list of binaries authorized or forbidden to run at boot. It basically helps in improving the confidence that the machine core boot components such as boot manager, kernel and initramfs have not been tampered with (more info in the related [Arch Wiki page](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#)).
+Secure Boot adds an additional layer of security by maintaining a cryptographically signed list of binaries authorized or forbidden to run at boot. It basically helps in improving the confidence that the machine core boot components such as boot manager, kernel and initramfs have not been tampered with (more info in the related [Arch Wiki page](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot)).
 
 ### Putting firmware in "Setup Mode" and set an Admin password for the UEFI/Firmware menu
 
