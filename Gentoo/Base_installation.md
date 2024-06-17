@@ -308,7 +308,7 @@ reboot
 ```bash
 useradd -m antiz
 passwd antiz
-usermod -aG wheel,audio,video antiz
+usermod -aG wheel antiz
 ```
 
 ## Remove the stage tarball
