@@ -1,6 +1,6 @@
 # Sway
 
-## Graphical drivers (optional)
+## Graphical drivers
 
 ```bash
 sudo pacman -S mesa # install nvidia instead of mesa if you have an Nvidia GPU.
@@ -118,6 +118,30 @@ sudo systemctl enable --now docker pcscd #Start and enable services
 sudo pacman -S kanshi openresolv wireguard-tools tlp
 sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket && sudo systemctl enable --now tlp.service
 ```
+
+## Disable PipeWire HSP/HFP profile (optional)
+
+Since wireplumber 0.5, some applications are triggering an audio profile switch for bluetooth headsets from A2DP profile to HSP/HFP profile, which results in a bad audio quality.  
+Most of the time, the audio profile is switched back to A2DP automatically after a few seconds but that's not always the case.
+
+As I don't intend to ever use the built-in microphone of my headset (since I have a separate one), I just disable the HSP/HFP profile altogether as a workaround (be aware that the HSP profile is required to make headsets' built-in microphones working):
+
+```bash
+mkdir -p ~/.config/wireplumber/wireplumber.conf.d/
+vim ~/.config/wireplumber/wireplumber.conf.d/51-disable-hsp-hfp-profile.conf
+```
+
+```text
+wireplumber.settings = {
+  bluetooth.autoswitch-to-headset-profile = false
+}
+
+monitor.bluez.properties = {
+  bluez5.roles = [ a2dp_sink a2dp_source ]
+}
+```
+
+See <https://gitlab.freedesktop.org/pipewire/wireplumber/-/issues/634> & <https://wiki.archlinux.org/title/Bluetooth_headset#Disable_PipeWire_HSP/HFP_profile> for more details.
 
 ## Theme
 
