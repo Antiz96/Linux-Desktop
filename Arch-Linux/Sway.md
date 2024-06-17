@@ -119,6 +119,20 @@ sudo pacman -S kanshi openresolv wireguard-tools tlp
 sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket && sudo systemctl enable --now tlp.service
 ```
 
+## Make bluetooth autoswitch sound source to connected device
+
+```bash
+mkdir -p ~/.config/pipewire/pipewire-pulse.conf.d/
+vim ~/.config/pipewire/pipewire-pulse.conf.d/switch-on-connect.conf
+```
+
+```text
+pulse.cmd = [
+    { cmd = "load-module" args = "module-always-sink" flags = [ ] }
+    { cmd = "load-module" args = "module-switch-on-connect" }
+]
+```
+
 ## Disable PipeWire HSP/HFP profile (optional)
 
 Since wireplumber 0.5, some applications are triggering an audio profile switch for bluetooth headsets from A2DP profile to HSP/HFP profile, which results in a bad audio quality.  
@@ -128,7 +142,7 @@ As I don't intend to ever use the built-in microphone of my headset (since I hav
 
 ```bash
 mkdir -p ~/.config/wireplumber/wireplumber.conf.d/
-vim ~/.config/wireplumber/wireplumber.conf.d/51-disable-hsp-hfp-profile.conf
+vim ~/.config/wireplumber/wireplumber.conf.d/disable-hsp-hfp-profile.conf
 ```
 
 ```text
