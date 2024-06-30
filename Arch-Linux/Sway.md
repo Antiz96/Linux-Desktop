@@ -46,9 +46,10 @@ sudo vim /etc/sway/config
 [...]
 set $term xfce4-terminal
 [...]
-input * {
+input type:keyboard {
         xkb_layout "fr"
         xkb_variant "azerty"
+        xkb_numlock "enabled"
 }
 ```
 

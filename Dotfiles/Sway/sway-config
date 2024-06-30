@@ -37,7 +37,7 @@ set $secondary "HDMI-A-2"
 #set $primary "eDP-1"
 
 # Keyboard
-input * {
+input type:keyboard {
 	xkb_layout "fr"
 	xkb_variant "azerty"
 	xkb_numlock "enabled"
