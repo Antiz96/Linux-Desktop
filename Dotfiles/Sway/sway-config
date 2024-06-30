@@ -26,7 +26,6 @@ bindsym Mod4+Shift+r restart
 ### Input configuration
 
 # Screen
-
 #Desktop
 output HDMI-A-2 res 1920x1080@165Hz pos 0 0
 output DP-2 res 1920x1080@165Hz pos 1920 0
@@ -38,13 +37,11 @@ set $secondary "HDMI-A-2"
 #set $primary "eDP-1"
 
 # Keyboard
-
 input * {
 	xkb_layout "fr"
 	xkb_variant "azerty"
+	xkb_numlock "enabled"
 }
-
-input type:keyboard xkb_numlock enabled
 
 # Touchpad
 input type:touchpad {
