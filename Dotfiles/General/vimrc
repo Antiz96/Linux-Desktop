@@ -27,7 +27,7 @@ set is
 "Highlight searched patterns
 set hls
 
-"Press space to turn of highlights after a search
+"Press space to turn off highlighting after a search
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 "Auto indentation (cursor goes at the same level as the beginning of the previous line)
@@ -38,6 +38,12 @@ set smartindent
 
 "Enable mouse support
 set mouse=a
+
+"Toggle English spell checking with F5
+:map <F5> :setlocal spell! spelllang=en_us<CR>
+
+"Toggle French spell checking with F6
+:map <F6> :setlocal spell! spelllang=fr<CR>
 
 "Get back to the last known cursor position in file
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
