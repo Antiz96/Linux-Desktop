@@ -62,7 +62,7 @@ sudo reboot
 ## Install the paru AUR Helper
 
 ```bash
-sudo pacman -S git
+sudo pacman -S --asexplicit git
 cd /tmp
 git clone https://aur.archlinux.org/paru.git
 cd paru
