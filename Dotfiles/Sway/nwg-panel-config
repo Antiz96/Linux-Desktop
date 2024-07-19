@@ -25,8 +25,8 @@
     ],
     "modules-right": [
       "executor-autolock",
-      "executor-restart-panel",
-      "tray"
+      "tray",
+      "executor-restart-panel"
     ],
     "controls-settings": {
       "components": [
