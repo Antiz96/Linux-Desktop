@@ -27,10 +27,10 @@ bindsym Mod4+Shift+r restart
 
 # Screen
 #Desktop
-output HDMI-A-2 res 1920x1080@165Hz pos 0 0
-output DP-2 res 1920x1080@165Hz pos 1920 0
-set $primary "DP-2"
-set $secondary "HDMI-A-2"
+output HDMI-A-1 res 1920x1080@165Hz pos 0 0
+output DP-1 res 1920x1080@165Hz pos 1920 0
+set $primary "DP-1"
+set $secondary "HDMI-A-1"
 
 #Laptop
 #output eDP-1 res 2560x1600@165Hz pos 0 0 scale 1.25
