@@ -27,10 +27,13 @@ bindsym Mod4+Shift+r restart
 
 # Screen
 #Desktop
-output HDMI-A-1 res 1920x1080@165Hz pos 0 0
 output DP-1 res 1920x1080@165Hz pos 1920 0
+output HDMI-A-1 res 1920x1080@165Hz pos 0 0
+output DP-2 res 1920x1080@165Hz pos 3840 0
+output DP-2 transform 270
 set $primary "DP-1"
 set $secondary "HDMI-A-1"
+set $vertical "DP-2"
 
 #Laptop
 #output eDP-1 res 2560x1600@165Hz pos 0 0 scale 1.25
@@ -75,8 +78,12 @@ workspace "1" output $primary
 workspace "2" output $primary
 workspace "3" output $primary
 workspace "4" output $primary
-workspace "5" output $secondary
-workspace "6" output $secondary
+workspace "5" output $primary
+workspace "6" output $primary
+workspace "7" output $secondary
+workspace "8" output $secondary
+workspace "9" output $vertical
+workspace "10" output $vertical
 
 ### Gaps
 
