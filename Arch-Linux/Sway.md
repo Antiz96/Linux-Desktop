@@ -8,13 +8,10 @@ sudo pacman -S mesa # install nvidia instead of mesa if you have an Nvidia GPU.
 
 ## Install sway
 
-Sway with a few extra packages according to my personal preferences.  
-Still a very minimal installation though.
-
-- For regular computers:
+Sway with a few extra packages for a base system according to my personal preferences.
 
 ```bash
-sudo pacman -S sway xfce4-terminal polkit-gnome pipewire pipewire-audio pipewire-pulse thunar thunar-archive-plugin engrampa gvfs xdg-user-dirs mousepad ristretto rofi-wayland flameshot swaync nwg-look speedcrunch network-manager-applet nwg-panel blueman gammastep openssh swaybg swayidle swaylock playerctl xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk grim
+sudo pacman -S sway xfce4-terminal polkit-gnome pipewire pipewire-audio pipewire-pulse thunar thunar-archive-plugin engrampa gvfs xdg-user-dirs mousepad ristretto rofi-wayland flameshot swaync nwg-look network-manager-applet nwg-panel blueman gammastep openssh swaybg swayidle swaylock playerctl wl-clipboard xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk grim
 ```
 
 ### Auto start Sway
@@ -101,12 +98,12 @@ sudo vim /etc/fstab
 > #Data  
 > UUID=107b1979-e8ed-466d-bb10-15e72f7dd2ae       /run/media/antiz/data         ext4          defaults 0 2
 
-## Install packages
+## Install extra packages
 
 - Main packages:
 
 ```bash
-sudo pacman -S ccid discord distrobox docker fastfetch firefox firejail htop keepassxc mlocate mpv noto-fonts-emoji powerline-fonts protonmail-bridge rsync steam systray-x thunderbird tmux ttf-font-awesome virt-viewer wl-clipboard xorg-xwayland yubico-piv-tool zathura zathura-pdf-poppler #Main packages from Arch repos
+sudo pacman -S ccid discord distrobox docker fastfetch firefox firejail htop keepassxc mlocate mpv noto-fonts-emoji powerline-fonts protonmail-bridge rsync speedcrunch steam systray-x thunderbird tmux ttf-font-awesome virt-viewer wl-clip-persist xorg-xwayland yubico-piv-tool zathura zathura-pdf-poppler #Main packages from Arch repos
 paru -S arch-update firefox-pwa onlyoffice-bin ventoy-bin zaman #Main packages from the AUR
 sudo pacman -S --asdeps gnome-keyring gnu-free-fonts qt6-wayland ttf-dejavu xdg-utils wofi #Optional dependencies that I need for the above packages
 systemctl --user enable --now arch-update.timer ssh-agent.service #Start and enable timers and services
