@@ -113,7 +113,7 @@ sudo systemctl enable --now docker pcscd #Start and enable services
 - Laptop only packages:
 
 ```bash
-sudo pacman -S kanshi openresolv wireguard-tools tlp
+sudo pacman -S nwg-displays openresolv wireguard-tools tlp
 sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket && sudo systemctl enable --now tlp.service
 ```
 
