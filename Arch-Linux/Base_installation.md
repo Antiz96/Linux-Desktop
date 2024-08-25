@@ -162,7 +162,7 @@ mount /boot
 ### Install and configure systemd-boot
 
 ```bash
-pacman -S efibootmgr dosfstools mtools # Install the Grub bootloader and dependencies for EFI. Also install "os-prober" if you wish to do a dual boot with another distro/OS
+pacman -S efibootmgr dosfstools mtools # Install packages for EFI boot. Also install "os-prober" if you wish to do a dual boot with another distro/OS
 bootctl install
 vim /boot/loader/loader.conf
 ```
