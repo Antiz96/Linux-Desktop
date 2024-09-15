@@ -28,7 +28,6 @@ vim ~/.bash_profile
 > > export XDG_SESSION_TYPE=wayland  
 > > export QT_QPA_PLATFORM=wayland  
 > > export SDL_VIDEODRIVER=wayland  
-> > export MOZ_ENABLE_WAYLAND=1  
 > > exec sway  
 >
 > fi
