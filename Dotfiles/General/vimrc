@@ -39,6 +39,9 @@ set smartindent
 "Enable mouse support
 set mouse=a
 
+"Increase the default number of lines saved in the buffer
+set viminfo='100,<10000,s10,h
+
 "Toggle English spell checking with F5
 :map <F5> :setlocal spell! spelllang=en_us<CR>
 
