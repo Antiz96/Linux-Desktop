@@ -58,8 +58,8 @@ alias vi="vim"
 
 # Package manager
 alias update="sudo apk update"
-alias upgrade="sudo apk upgrade"
-alias fullupgrade="sudo apk update && sudo apk upgrade"
+alias upgrade="sudo apk update && sudo apk upgrade"
+alias fullupgrade="sudo apk update && sudo apk upgrade -a"
 alias install="sudo apk add"
 alias remove="sudo apk del"
 alias pkglist="apk info"
