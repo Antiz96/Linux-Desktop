@@ -67,7 +67,7 @@ alias vi="vim"
 
 # Package manager
 alias update="sudo emerge --sync"
-alias upgrade="sudo emerge -avuDN --with-bdeps=y @world"
+alias upgrade="sudo emerge --sync && sudo emerge -avuDN --with-bdeps=y @world"
 alias fullupgrade="sudo emerge --sync && sudo emerge -avuDN --with-bdeps=y @world && flatpak update"
 alias install="sudo emerge -av"
 alias remove="sudo emerge -aC"
