@@ -8,8 +8,8 @@
 # Retrieved:  2024-10-10 06:37:33 UTC
 # Last Check: 2024-10-10 06:17:23 UTC
 
-Server = https://fr.mirrors.cicku.me/archlinux/$repo/os/$arch
-Server = https://de.mirrors.cicku.me/archlinux/$repo/os/$arch
-Server = https://archlinux.mailtunnel.eu/$repo/os/$arch
+Server = https://mirror.cyberbits.eu/archlinux/$repo/os/$arch
 Server = https://mirror.sunred.org/archlinux/$repo/os/$arch
 Server = https://mirror.23m.com/archlinux/$repo/os/$arch
+Server = https://mirror.moson.org/arch/$repo/os/$arch
+Server = https://archlinux.mailtunnel.eu/$repo/os/$arch
