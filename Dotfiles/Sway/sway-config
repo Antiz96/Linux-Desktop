@@ -137,6 +137,9 @@ bindsym Mod4+Shift+F8 move container to workspace number $ws8
 bindsym Mod4+Shift+F9 move container to workspace number $ws9
 bindsym Mod4+Shift+F10 move container to workspace number $ws10
 
+# Toggle fullscreen mode
+bindsym Mod4+F11 fullscreen
+
 # Toggle tabbed mode
 bindsym Mod4+f layout toggle tabbed split
 
