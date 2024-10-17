@@ -102,11 +102,11 @@ sudo vim /etc/fstab
 - Main packages:
 
 ```bash
-sudo pacman -S ccid discord distrobox docker fastfetch firefox firejail htop keepassxc mpv noto-fonts-emoji plocate powerline-fonts protonmail-bridge rsync speedcrunch steam systray-x thunderbird tmux ttf-font-awesome virt-viewer wl-clip-persist xorg-xwayland yubico-piv-tool zathura zathura-pdf-poppler #Main packages from Arch repos
-paru -S arch-update firefox-pwa onlyoffice-bin ventoy-bin zaman #Main packages from the AUR
-sudo pacman -S --asdeps gnome-keyring gnu-free-fonts qt6-wayland ttf-dejavu xdg-utils wofi #Optional dependencies that I need for the above packages
-systemctl --user enable --now arch-update.timer ssh-agent.service #Start and enable timers and services
-sudo systemctl enable --now docker pcscd #Start and enable services
+sudo pacman -S ccid discord distrobox docker fastfetch firefox firejail htop keepassxc mpv noto-fonts-emoji plocate powerline-fonts protonmail-bridge rsync speedcrunch steam systray-x thunderbird tmux ttf-font-awesome virt-viewer wl-clip-persist xorg-xwayland yubico-piv-tool zathura zathura-pdf-poppler # Main packages from Arch repos
+paru -S arch-update firefox-pwa onlyoffice-bin ventoy-bin zaman # Main packages from the AUR
+sudo pacman -S --asdeps gnome-keyring gnu-free-fonts qt6-wayland ttf-dejavu xdg-utils wofi # Optional dependencies that I need for the above packages
+systemctl --user enable --now arch-update.timer ssh-agent.service # Start and enable user timers and services
+sudo systemctl enable --now apparmor docker pcscd # Start and enable system services
 ```
 
 - Laptop only packages:
@@ -114,6 +114,47 @@ sudo systemctl enable --now docker pcscd #Start and enable services
 ```bash
 sudo pacman -S nwg-displays openresolv wireguard-tools tlp
 sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket && sudo systemctl enable --now tlp.service
+```
+
+## Setup AppArmor and Firejail profile
+
+## Add the required kernel parameters to enable AppArmor as default security model on every boot
+
+- Without disk encryption / UKI / Secure Boot:
+
+```bash
+sudo vim /boot/loader/entries/arch.conf
+```
+
+> [...]  
+> options root=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx rw **lsm=landlock,lockdown,yama,integrity,apparmor,bpf**
+
+```bash
+sudo vim /boot/loader/entries/arch-fallback.conf
+```
+
+> [...]  
+> options root=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx rw **lsm=landlock,lockdown,yama,integrity,apparmor,bpf**
+
+- With disk encryption / UKI / Secure Boot:
+
+```bash
+sudo vim /etc/kernel/cmdline
+```
+
+> cryptdevice=UUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:root root=/dev/mapper/root rw **lsm=landlock,lockdown,yama,integrity,apparmor,bpf**
+
+### Regenerate initramfs and reboot to apply
+
+```bash
+sudo mkinitcpio -P
+reboot
+```
+
+### Load Firejail's AppArmor profile into the kernel
+
+```bash
+sudo apparmor_parser -r /etc/apparmor.d/firejail-default
 ```
 
 ## Make bluetooth autoswitch sound source to connected device
@@ -188,7 +229,7 @@ mkdir -p ~/.config/xfce4/xfconf/xfce-perchannel-xml && curl https://raw.githubus
 mkdir -p ~/.config/rofi/ && curl https://raw.githubusercontent.com/newmanls/rofi-themes-collection/master/themes/spotlight-dark.rasi -o ~/.config/rofi/spotlight-dark.rasi && sed -i s/border-radius:\ \ 8/border-radius:\ \ 0/ ~/.config/rofi/spotlight-dark.rasi && sed -i "/\bplaceholder\b/d" ~/.config/rofi/spotlight-dark.rasi && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/rofi-config -o ~/.config/rofi/config.rasi
 sudo mkdir -p /usr/local/lib/systemd/user/ && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/mpris-proxy.service -o /usr/local/lib/systemd/user/mpris-proxy.service && systemctl --user daemon-reload && systemctl --user enable --now mpris-proxy.service
 sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/pacman-mirrorlist -o /etc/pacman.d/mirrorlist
-sudo mkdir -p /etc/pacman.d/hooks && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/firejail.hook -o /etc/pacman.d/hooks/firejail.hook && mkdir -p ~/.config/firejail && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/man.local -o ~/.config/firejail/man.local && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/mpv.profile -o ~/.config/firejail/mpv.profile && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ristretto.local -o ~/.config/firejail/ristretto.local && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ssh.profile -o ~/.config/firejail/ssh.profile && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/flameshot.local -o ~/.config/firejail/flameshot.local
+sudo mkdir -p /etc/pacman.d/hooks && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/firejail.hook -o /etc/pacman.d/hooks/firejail.hook && mkdir -p ~/.config/firejail && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/man.local -o ~/.config/firejail/man.local && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/mpv.profile -o ~/.config/firejail/mpv.profile && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ristretto.local -o ~/.config/firejail/ristretto.local && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ssh.profile -o ~/.config/firejail/ssh.profile && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/flameshot.local -o ~/.config/firejail/flameshot.local && sudo sed -i "s/#\ browser-allow-drm\ no/browser-allow-drm\ yes/g" /etc/firejail/firejail.config
 sudo mkdir -p /usr/local/bin && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/system-backup.sh -o /usr/local/bin/system-backup && sudo chmod +x /usr/local/bin/system-backup && sudo mkdir -p /usr/local/lib/systemd/system && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/system-backup.service -o /usr/local/lib/systemd/system/system-backup.service && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/system-backup.timer -o /usr/local/lib/systemd/system/system-backup.timer && sudo systemctl enable --now system-backup.timer
 source ~/.bashrc
 ```
