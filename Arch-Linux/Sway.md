@@ -112,7 +112,8 @@ sudo systemctl enable --now apparmor docker pcscd # Start and enable system serv
 - Laptop only packages:
 
 ```bash
-sudo pacman -S nwg-displays openresolv wireguard-tools tlp
+sudo pacman -S nwg-displays wireguard-tools tlp
+sudo pacman -S --asdeps openresolv
 sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket && sudo systemctl enable --now tlp.service
 ```
 
