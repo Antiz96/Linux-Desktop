@@ -1,20 +1,20 @@
 # Sway
 
-## Graphical drivers
+## Install graphical drivers
 
 ```bash
 sudo pacman -S mesa # install nvidia instead of mesa if you have an Nvidia GPU.
 ```
 
-## Install sway
+## Install Sway
 
-Sway with a few extra packages for a base system according to my personal preferences.
+Sway with a few additional packages for a base system according to my personal preferences.
 
 ```bash
 sudo pacman -S sway xfce4-terminal polkit-gnome pipewire pipewire-audio pipewire-pulse thunar thunar-archive-plugin engrampa gvfs xdg-user-dirs mousepad ristretto rofi-wayland flameshot swaync nwg-look network-manager-applet nwg-panel blueman gammastep openssh swaybg swayidle swaylock playerctl wl-clipboard xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk grim
 ```
 
-### Auto start Sway
+### Auto start Sway when logging on TTY1
 
 ```bash
 vim ~/.bash_profile
@@ -32,7 +32,7 @@ vim ~/.bash_profile
 >
 > fi
 
-### Set default keymap and terminal
+### Set default keymap and terminal in Sway config
 
 ```bash
 sudo vim /etc/sway/config
@@ -49,7 +49,7 @@ input type:keyboard {
 }
 ```
 
-## Reboot and log into Sway
+## Reboot (should start Sway automatically after logging)
 
 ```bash
 sudo reboot
@@ -67,7 +67,7 @@ sudo pacman -U paru-!(*debug*).pkg.tar.zst
 mkdir -p ~/.config/paru/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/paru.conf -o ~/.config/paru/paru.conf
 ```
 
-## Enable multilib repo in pacman.conf
+## Enable multilib repo in pacman.conf (needed for Steam)
 
 ```bash
 sudo vim /etc/pacman.conf
@@ -80,40 +80,79 @@ sudo vim /etc/pacman.conf
 sudo pacman -Syyu
 ```
 
-## Install bluetooth support
+## Install and setup Bluetooth support
 
 ```bash
 sudo pacman -S --asexplicit bluez bluez-utils
 sudo systemctl enable --now bluetooth
+systemctl --user enable --now mpris-proxy.service
 ```
+
+### Auto-switch sound source to connected Bluetooth device
+
+```bash
+mkdir -p ~/.config/pipewire/pipewire-pulse.conf.d/
+vim ~/.config/pipewire/pipewire-pulse.conf.d/switch-on-connect.conf
+```
+
+```text
+pulse.cmd = [
+    { cmd = "load-module" args = "module-always-sink" flags = [ ] }
+    { cmd = "load-module" args = "module-switch-on-connect" }
+]
+```
+
+### Disable PipeWire HSP/HFP profile (optional)
+
+Since wireplumber 0.5, some applications are triggering an audio profile switch for bluetooth headsets from A2DP profile to HSP/HFP profile, which results in a bad audio quality.  
+Most of the time, the audio profile is switched back to A2DP automatically after a few seconds but that's not always the case.
+
+As I don't intend to ever use the built-in microphone of my headset (since I have a separate one), I just disable the HSP/HFP profile altogether as a workaround (be aware that the HSP profile is required to make headsets' built-in microphones working):
+
+```bash
+mkdir -p ~/.config/wireplumber/wireplumber.conf.d/
+vim ~/.config/wireplumber/wireplumber.conf.d/disable-hsp-hfp-profile.conf
+```
+
+```text
+wireplumber.settings = {
+  bluetooth.autoswitch-to-headset-profile = false
+}
+
+monitor.bluez.properties = {
+  bluez5.roles = [ a2dp_sink a2dp_source ]
+}
+```
+
+See <https://gitlab.freedesktop.org/pipewire/wireplumber/-/issues/634> & <https://wiki.archlinux.org/title/Bluetooth_headset#Disable_PipeWire_HSP/HFP_profile> for more details.
 
 ## Mount secondary disk in fstab
 
 ```bash
-sudo blkid #Show and copy the UUID of my secondary disk
+sudo blkid # Check the UUID of my secondary disk
 sudo vim /etc/fstab
 ```
 
 > #Data  
 > UUID=107b1979-e8ed-466d-bb10-15e72f7dd2ae       /run/media/antiz/data         ext4          defaults 0 2
 
-## Install extra packages
+## Install additional packages
 
 - Main packages:
 
 ```bash
-sudo pacman -S ccid discord distrobox docker fastfetch firefox firejail htop keepassxc mpv noto-fonts-emoji plocate powerline-fonts protonmail-bridge rsync speedcrunch steam systray-x thunderbird tmux ttf-font-awesome virt-viewer wl-clip-persist xorg-xwayland yubico-piv-tool zathura zathura-pdf-poppler # Main packages from Arch repos
-paru -S arch-update firefox-pwa onlyoffice-bin ventoy-bin zaman # Main packages from the AUR
-sudo pacman -S --asdeps gnome-keyring gnu-free-fonts qt6-wayland ttf-dejavu xdg-utils wofi # Optional dependencies that I need for the above packages
-systemctl --user enable --now arch-update.timer ssh-agent.service # Start and enable user timers and services
-sudo systemctl enable --now apparmor docker pcscd # Start and enable system services
+sudo pacman -S ccid discord distrobox docker fastfetch firefox firejail htop keepassxc mpv noto-fonts-emoji plocate powerline-fonts protonmail-bridge rsync speedcrunch steam systray-x thunderbird tmux ttf-font-awesome virt-viewer wl-clip-persist xorg-xwayland yubico-piv-tool zathura zathura-pdf-poppler
+paru -S arch-update firefox-pwa onlyoffice-bin ventoy-bin zaman
+sudo pacman -S --asdeps gnome-keyring gnu-free-fonts qt6-wayland ttf-dejavu xdg-utils wofi # Optional dependencies I need for the above packages
+systemctl --user enable --now arch-update.timer ssh-agent.service
+sudo systemctl enable --now apparmor docker pcscd
 ```
 
 - Laptop only packages:
 
 ```bash
 sudo pacman -S nwg-displays wireguard-tools tlp
-sudo pacman -S --asdeps openresolv
+sudo pacman -S --asdeps openresolv # Needed for DNS resolution with Wireguard VPN
 sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket && sudo systemctl enable --now tlp.service
 ```
 
@@ -158,51 +197,13 @@ reboot
 sudo apparmor_parser -r /etc/apparmor.d/firejail-default
 ```
 
-## Make bluetooth autoswitch sound source to connected device
-
-```bash
-mkdir -p ~/.config/pipewire/pipewire-pulse.conf.d/
-vim ~/.config/pipewire/pipewire-pulse.conf.d/switch-on-connect.conf
-```
-
-```text
-pulse.cmd = [
-    { cmd = "load-module" args = "module-always-sink" flags = [ ] }
-    { cmd = "load-module" args = "module-switch-on-connect" }
-]
-```
-
-## Disable PipeWire HSP/HFP profile (optional)
-
-Since wireplumber 0.5, some applications are triggering an audio profile switch for bluetooth headsets from A2DP profile to HSP/HFP profile, which results in a bad audio quality.  
-Most of the time, the audio profile is switched back to A2DP automatically after a few seconds but that's not always the case.
-
-As I don't intend to ever use the built-in microphone of my headset (since I have a separate one), I just disable the HSP/HFP profile altogether as a workaround (be aware that the HSP profile is required to make headsets' built-in microphones working):
-
-```bash
-mkdir -p ~/.config/wireplumber/wireplumber.conf.d/
-vim ~/.config/wireplumber/wireplumber.conf.d/disable-hsp-hfp-profile.conf
-```
-
-```text
-wireplumber.settings = {
-  bluetooth.autoswitch-to-headset-profile = false
-}
-
-monitor.bluez.properties = {
-  bluez5.roles = [ a2dp_sink a2dp_source ]
-}
-```
-
-See <https://gitlab.freedesktop.org/pipewire/wireplumber/-/issues/634> & <https://wiki.archlinux.org/title/Bluetooth_headset#Disable_PipeWire_HSP/HFP_profile> for more details.
-
 ## Theme
 
 - Shell: Orchis-dark-compact - <https://www.gnome-look.org/p/1357889/>
 - Icon: Tela-Circle-Blue - <https://www.gnome-look.org/p/1359276/>
 - Cursor: McMojave cursors - <https://www.opendesktop.org/s/Gnome/p/1355701/>
 
-## Bash Theme
+### Bash Theme
 
 <https://github.com/speedenator/agnoster-bash>
 
@@ -228,7 +229,6 @@ curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Gener
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/gitconfig -o ~/.gitconfig
 mkdir -p ~/.config/xfce4/xfconf/xfce-perchannel-xml && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/xfce4-terminal.xml -o ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-terminal.xml
 mkdir -p ~/.config/rofi/ && curl https://raw.githubusercontent.com/newmanls/rofi-themes-collection/master/themes/spotlight-dark.rasi -o ~/.config/rofi/spotlight-dark.rasi && sed -i s/border-radius:\ \ 8/border-radius:\ \ 0/ ~/.config/rofi/spotlight-dark.rasi && sed -i "/\bplaceholder\b/d" ~/.config/rofi/spotlight-dark.rasi && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/rofi-config -o ~/.config/rofi/config.rasi
-sudo mkdir -p /usr/local/lib/systemd/user/ && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/mpris-proxy.service -o /usr/local/lib/systemd/user/mpris-proxy.service && systemctl --user daemon-reload && systemctl --user enable --now mpris-proxy.service
 sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/pacman-mirrorlist -o /etc/pacman.d/mirrorlist
 sudo mkdir -p /etc/pacman.d/hooks && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/firejail.hook -o /etc/pacman.d/hooks/firejail.hook && mkdir -p ~/.config/firejail && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/man.local -o ~/.config/firejail/man.local && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/mpv.profile -o ~/.config/firejail/mpv.profile && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ristretto.local -o ~/.config/firejail/ristretto.local && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ssh.profile -o ~/.config/firejail/ssh.profile && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/flameshot.local -o ~/.config/firejail/flameshot.local && sudo sed -i "s/#\ browser-allow-drm\ no/browser-allow-drm\ yes/g" /etc/firejail/firejail.config
 sudo mkdir -p /usr/local/bin && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/system-backup.sh -o /usr/local/bin/system-backup && sudo chmod +x /usr/local/bin/system-backup && sudo mkdir -p /usr/local/lib/systemd/system && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/system-backup.service -o /usr/local/lib/systemd/system/system-backup.service && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/system-backup.timer -o /usr/local/lib/systemd/system/system-backup.timer && sudo systemctl enable --now system-backup.timer
@@ -240,17 +240,18 @@ source ~/.bashrc
 - Super + A = Open app finder/launcher
 - Super + F = Toggle tabbed layout
 - Super + D = Close focused window
-- Super + E = Thunar
-- Super + M = Mousepad
+- Super + E = File Manager
+- Super + M = Notepad
 - Super + C = Calculator
 - Super + T = Terminal
-- Super + B = Firefox
+- Super + B = Web Browser
 - Super + L = Lockscreen
 - Super + H = Split horizontally (default mode)
 - Super + V = Split vertically
-- Super + G = Switch tiling layout of opened windows (vertical/horizontal)
+- Super + G = Switch tiling layout of opened windows (vertical / horizontal)
 - Super + S = Toggle sticky window
 - Super + R = Resize window
+- Super + F11 = Switch Window to fullscreen mode
 - Super + Space = Toggle floating window
 - Super + Right = Switch focused window to the right one
 - Super + Left = Switch focused window to the left one
@@ -260,18 +261,26 @@ source ~/.bashrc
 - Super + Shift + Left = Move focused window to the left (when reaching the edge of the screen, makes the window move to the left screen if there's one)
 - Super + Shift + Up = Move focused window up (when reaching the edge of the screen, makes the window move to the up screen if there's one)
 - Super + Shift + Down = Move focused window down (when reaching the edge of the screen, makes the window move to the down screen if there's one)
+- Super + F1 = Switch to workspace 1
+- Super + F2 = Switch to workspace 2
+- Super + F3 = Switch to workspace 3
+- Super + F4 = Switch to workspace 4
+- Super + F5 = Switch to workspace 5
+- Super + F6 = Switch to workspace 6
+- Super + F7 = Switch to workspace 7
+- Super + F8 = Switch to workspace 8
+- Super + F9 = Switch to workspace 9
+- Super + F10 = Switch to workspace 10
 - Super + Shift + F1 = Move window to workspace 1
 - Super + Shift + F2 = Move window to workspace 2
 - Super + Shift + F3 = Move window to workspace 3
 - Super + Shift + F4 = Move window to workspace 4
 - Super + Shift + F5 = Move window to workspace 5
 - Super + Shift + F6 = Move window to workspace 6
-- Super + F1 = Switch to workspace1
-- Super + F2 = Switch to workspace2
-- Super + F3 = Switch to workspace3
-- Super + F4 = Switch to workspace4
-- Super + F5 = Switch to workspace5
-- Super + F6 = Switch to workspace6
+- Super + Shift + F7 = Move window to workspace 7
+- Super + Shift + F8 = Move window to workspace 8
+- Super + Shift + F9 = Move window to workspace 9
+- Super + Shift + F10 = Move window to workspace 10
 - Super + Tab = Switch to next workspace
 - Alt + Tab = Open the window switcher
 - Super + Esc = Open the power menu
