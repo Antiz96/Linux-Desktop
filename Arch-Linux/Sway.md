@@ -141,7 +141,7 @@ sudo vim /etc/fstab
 - Main packages:
 
 ```bash
-sudo pacman -S ccid discord distrobox docker fastfetch firefox firejail htop keepassxc mpv noto-fonts-emoji plocate powerline-fonts protonmail-bridge rsync speedcrunch steam systray-x thunderbird tmux ttf-font-awesome virt-viewer wl-clip-persist xorg-xwayland yubico-piv-tool zathura zathura-pdf-poppler
+sudo pacman -S capitaine-cursors ccid discord distrobox docker fastfetch firefox firejail htop keepassxc mpv noto-fonts-emoji orchis-theme plocate powerline-fonts protonmail-bridge rsync speedcrunch steam systray-x tela-circle-icon-theme-blue thunderbird tmux ttf-font-awesome virt-viewer wl-clip-persist xorg-xwayland yubico-piv-tool zathura zathura-pdf-poppler
 paru -S arch-update firefox-pwa onlyoffice-bin ventoy-bin zaman
 sudo pacman -S --asdeps gnome-keyring gnu-free-fonts qt6-wayland ttf-dejavu xdg-utils wofi # Optional dependencies I need for the above packages
 systemctl --user enable --now arch-update.timer ssh-agent.service
@@ -197,13 +197,7 @@ reboot
 sudo apparmor_parser -r /etc/apparmor.d/firejail-default
 ```
 
-## Theme
-
-- Shell: Orchis-dark-compact - <https://www.gnome-look.org/p/1357889/>
-- Icon: Tela-Circle-Blue - <https://www.gnome-look.org/p/1359276/>
-- Cursor: McMojave cursors - <https://www.opendesktop.org/s/Gnome/p/1355701/>
-
-### Bash Theme
+## Bash Theme
 
 <https://github.com/speedenator/agnoster-bash>
 
