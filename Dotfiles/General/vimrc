@@ -63,7 +63,7 @@ autocmd FileType conf set ft=confini
 autocmd FileType markdown set list
 
 "Automatically open NERDTree
-autocmd VimEnter * NERDTree | wincmd p
+autocmd VimEnter * NERDTreeFind | wincmd p
 
 "Toggle NERDTree with CTRL + E
 :nnoremap <C-e> :NERDTreeToggle<CR>
