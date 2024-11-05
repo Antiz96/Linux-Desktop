@@ -19,7 +19,7 @@
   <property name="misc-mouse-autohide" type="bool" value="false"/>
   <property name="misc-mouse-wheel-zoom" type="bool" value="true"/>
   <property name="misc-toolbar-default" type="bool" value="false"/>
-  <property name="misc-confirm-close" type="bool" value="true"/>
+  <property name="misc-confirm-close" type="bool" value="false"/>
   <property name="misc-cycle-tabs" type="bool" value="true"/>
   <property name="misc-tab-close-buttons" type="bool" value="true"/>
   <property name="misc-tab-close-middle-click" type="bool" value="true"/>
@@ -36,4 +36,6 @@
   <property name="misc-right-click-action" type="string" value="TERMINAL_RIGHT_CLICK_ACTION_CONTEXT_MENU"/>
   <property name="scrolling-bar" type="string" value="TERMINAL_SCROLLBAR_NONE"/>
   <property name="title-mode" type="string" value="TERMINAL_TITLE_HIDE"/>
+  <property name="font-use-system" type="bool" value="false"/>
+  <property name="font-name" type="string" value="Monospace 12"/>
 </channel>
