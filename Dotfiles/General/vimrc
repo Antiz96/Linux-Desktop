@@ -41,6 +41,8 @@ set mouse=a
 
 "Enable code folding support
 set foldmethod=manual
+set foldcolumn=1
+highlight FoldColumn ctermbg=none
 
 "Increase the default number of lines saved in the buffer
 set viminfo='100,<10000,s10,h
