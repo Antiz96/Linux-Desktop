@@ -141,7 +141,7 @@ sudo vim /etc/fstab
 - Main packages:
 
 ```bash
-sudo pacman -S capitaine-cursors ccid discord distrobox docker fastfetch firefox firejail htop keepassxc mpv mumble noto-fonts-emoji orchis-theme plocate powerline-fonts protonmail-bridge rsync speedcrunch steam systray-x tela-circle-icon-theme-blue thunderbird tmux ttf-font-awesome vim-auto-pairs vim-devicons vim-nerdtree virt-viewer wl-clip-persist xorg-xwayland yubico-piv-tool zathura zathura-pdf-poppler
+sudo pacman -S capitaine-cursors ccid discord distrobox docker fastfetch firefox firejail htop keepassxc mpv mumble noto-fonts-emoji orchis-theme plocate powerline-fonts protonmail-bridge rsync speedcrunch steam systray-x tela-circle-icon-theme-blue thunderbird tmux ttf-font-awesome vim-devicons vim-nerdtree virt-viewer wl-clip-persist xorg-xwayland yubico-piv-tool zathura zathura-pdf-poppler
 paru -S arch-update firefox-pwa nerdtree-git-plugin-git onlyoffice-bin ventoy-bin zaman
 sudo pacman -S --asdeps gnome-keyring gnu-free-fonts qt6-wayland ttf-dejavu ttf-nerd-fonts-symbols xdg-utils wofi # Optional dependencies I need for the above packages
 systemctl --user enable --now arch-update.timer ssh-agent.service
