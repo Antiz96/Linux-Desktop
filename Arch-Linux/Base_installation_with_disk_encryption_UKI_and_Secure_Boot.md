@@ -196,6 +196,7 @@ fallback_options="-S autodetect"
 
 ```bash
 mkdir -p /boot/EFI/Linux # Make sure the directory for the UKIs exists
+pacman -S --asdeps systemd-ukify # Install systemd-ukify to build / assemble the UKI
 mkinitcpio -P # Build the UKIs
 rm /boot/initramfs-*.img # Remove initramfs leftover images
 ```
