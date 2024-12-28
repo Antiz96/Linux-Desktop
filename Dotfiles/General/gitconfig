@@ -1,6 +1,7 @@
 [user]
 	name = Robin Candau
 	email = robincandau@protonmail.com
+	signingkey = A67CCEEBF9613C17FDE96E4ED33FAA16B937F3B2
 [push]
 	autoSetupRemote = true
 [color "diff"]
@@ -8,5 +9,12 @@
 	new = blue
 [color "status"]
 	added = blue
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
 [alias]
 	upgrade = "!f(){ current_branch=$(git rev-parse --abbrev-ref HEAD) ; if [ -n \"$1\" ]; then main_branch=\"$1\"; else main_branch="main"; fi ; git switch \"$main_branch\" && git pull && git branch -d \"$current_branch\"; };f"
+
+[includeIf "gitdir:~/Documents/Arch-Linux/"]
+	path = ~/.gitconfig-arch
