@@ -281,8 +281,6 @@ sudo firewall-cmd --reload # Apply changes
 The `pacman-contrib` package provides the `paccache` script which cleans the `pacman` cache by deleting old cached packages versions.  
 To run `paccache` automatically on a weekly basis, enable the associated systemd timer:
 
-To launch `paccache` automatically on a weekly basis, enable the associated systemd timer:
-
 ```bash
 sudo systemctl enable --now paccache.timer
 ```
