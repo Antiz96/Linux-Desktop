@@ -285,18 +285,15 @@ To run `paccache` automatically on a weekly basis, enable the associated systemd
 sudo systemctl enable --now paccache.timer
 ```
 
-I personally add extra arguments to `paccache` to also delete every versions of uninstalled packages from the cache via the `/etc/conf.d/pacman-contrib` environment file for the systemd service:
+I personally modify the associated `paccache` systemd service to also delete uninstalled packages from cache:
 
 ```bash
-sudo vim /etc/conf.d/pacman-contrib
+sudo systemctl edit paccache.service
 ```
 
-> [...]  
-> PACCACHE_ARGS=-ruk0
-
-```bash
-sudo systemctl daemon-reload
-```
+> [Service]  
+> ExecStart=  
+> ExecStart=/bin/bash -c 'paccache -r && paccache -ruk0'
 
 ## Enable fstrim (for SSDs only - optional)
 
