@@ -278,25 +278,24 @@ sudo firewall-cmd --reload # Apply changes
 
 ## Enable paccache (automatic cleaning of pacman cache)
 
-The `pacman-contrib` package provides the `paccache` script which cleans the `pacman` cache by deleting old cached packages versions.  
-To run `paccache` automatically on a weekly basis, enable the associated systemd timer:
+The `pacman-contrib` package provides the `paccache` script which cleans the `pacman` cache by deleting all cached versions of installed and uninstalled packages, except for the most recent three.  
+You can launch it manually by running `paccache -r`.
+
+To launch `paccache` automatically on a weekly basis, enable the associated systemd timer:
 
 ```bash
 sudo systemctl enable --now paccache.timer
 ```
 
-I personally add extra arguments to `paccache` to also delete every versions of uninstalled packages from the cache via the `/etc/conf.d/pacman-contrib` environment file for the systemd service:
+I personally modify the associated `paccache` systemd service to also delete uninstalled packages from cache:
 
 ```bash
-sudo vim /etc/conf.d/pacman-contrib
+sudo systemctl edit paccache.service
 ```
 
-> [...]  
-> PACCACHE_ARGS=-ruk0
-
-```bash
-sudo systemctl daemon-reload
-```
+> [Service]  
+> ExecStart=  
+> ExecStart=/bin/bash -c 'paccache -ruk0 && paccache -r'
 
 ## Enable fstrim (for SSDs only - optional)
 
