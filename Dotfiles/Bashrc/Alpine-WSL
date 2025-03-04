@@ -38,6 +38,7 @@ bind "set colored-stats on"
 export EDITOR="/usr/bin/vim"
 
 ##Symlinks for WSLg##
+
 ln -sf /mnt/wslg/.X11-unix/* /tmp/.X11-unix/
 ln -sf /mnt/wslg/runtime-dir/wayland-0* /run/user/1000/
 
