@@ -48,12 +48,12 @@ sudo vim /etc/pacman.conf
 ### Install main packages
 
 ```bash
-sudo pacman -Syu base-devel man bash-completion openssh inetutils dnsutils traceroute rsync zip unzip diffutils git tmux plocate htop fastfetch docker distrobox pacman-contrib powerline-fonts # Install main packages from the repo
+sudo pacman -Syu base-devel man bash-completion openssh inetutils dnsutils traceroute rsync zip unzip diffutils git tmux plocate htop fastfetch docker distrobox pacman-contrib powerline-fonts ttf-nerd-fonts-symbols vim-devicons vim-nerdtree # Install main packages from the repo
 cd /tmp # Change directory to tmp to clone paru AUR sources
 git clone https://aur.archlinux.org/paru.git # Clone paru AUR sources
 cd paru # Change directory to the cloned sources
 makepkg -si # Build and install paru
-paru -S certificate-ripper-bin arch-update # Install AUR packages
+paru -S certificate-ripper-bin arch-update nerdtree-git-plugin-git # Install AUR packages
 sudo systemctl enable --now docker paccache.timer # Enable systemd services
 ```
 
