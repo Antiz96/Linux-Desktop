@@ -1,17 +1,16 @@
 # Debian WSL
 
-## Download
+<https://wiki.debian.org/InstallingDebianOn/Microsoft/Windows/SubsystemForLinux>
 
-<https://docs.microsoft.com/en-us/windows/wsl/install-manual#downloading-distributions>
+## Download and installation
 
-## Installation
-
-Launch the AppxBundle and click "Install".  
-Then follow the instruction to create a user.
+```PowerShell
+wsl --install Debian # From an admin PowerShell prompt
+```
 
 ## Configuration
 
-### Update the machine
+### Update the system
 
 ```bash
 sudo apt update && sudo apt full-upgrade
@@ -20,18 +19,21 @@ sudo apt update && sudo apt full-upgrade
 ### Enable systemd support
 
 ```bash
-sudo vi /etc/wsl.conf
+sudo vim /etc/wsl.conf
 ```
 
 > [boot]  
 > systemd=true
 
-### Install my needed packages
+```PowerShell
+wsl --terminate Debian # Terminate my current session to apply the default user switch (should be executed from a PowerShell prompt)
+```
+
+### Install main packages
 
 ```bash
-sudo apt install vim curl man bash-completion openssh-server inetutils-tools dnsutils traceroute rsync zip unzip diffutils git tmux plocate htop neofetch codespell
-curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sudo sh #Install distrobox
-sudo apt remove docker docker-engine docker.io #Install Docker
+sudo apt install vim curl man bash-completion openssh-server inetutils-tools dnsutils traceroute rsync zip unzip diffutils git tmux plocate htop fastfetch distrobox
+sudo apt remove docker docker-engine docker.io # Install Docker
 sudo apt install apt-transport-https ca-certificates curl gnupg lsb-release
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
@@ -39,7 +41,21 @@ sudo apt update && sudo apt install docker-ce docker-ce-cli containerd.io
 sudo systemctl enable --now docker
 ```
 
-### Download my config files
+### Bash Theme
+
+<https://github.com/speedenator/agnoster-bash>
+
+```bash
+cd /tmp
+git clone https://github.com/powerline/fonts.git fonts
+cd fonts
+sh install.sh
+cd $HOME
+mkdir -p .bash/themes/agnoster-bash
+git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster-bash
+```
+
+### Download dotfiles
 
 ```bash
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Bashrc/Debian-Ubuntu-WSL -o ~/.bashrc
@@ -50,6 +66,27 @@ source ~/.bashrc
 
 Uncomment the copy/paste option for WSL and comment the one for Linux in ~/.config/tmux/tmux.conf
 
+### Create symlinks for WSLg
+
+Required to run graphical applications (X11 and Wayland)
+
+```bash
+ln -svf /mnt/wslg/.X11-unix /tmp/
+ln -svf /mnt/wslg/runtime-dir/wayland-0* /run/user/1000/
+```
+
 ### Setup my DNS config for VPN
 
 <https://github.com/Antiz96/Linux-Desktop/blob/main/WSL/Resolve_DNS_Using_VPN.md>
+
+### Setup Openssh to accept rsa keys
+
+Starting from `8.8p1-1`, openssh doesn't accept some type of ssh keys judged too old & insecured.  
+To force it to accept such key types, you can either specify the type of key in your command like so : `ssh -oHostKeyAlgorithms=+ssh-rsa user@host` or add the following snippet in your ssh config file:
+
+```bash
+vim ~/.ssh/config
+```
+
+> Host *  
+> >  HostKeyAlgorithms +ssh-rsa
