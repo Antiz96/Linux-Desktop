@@ -1,6 +1,6 @@
 # Debian WSL
 
-https://wiki.debian.org/InstallingDebianOn/Microsoft/Windows/SubsystemForLinux
+<https://wiki.debian.org/InstallingDebianOn/Microsoft/Windows/SubsystemForLinux>
 
 ## Download and installation
 
