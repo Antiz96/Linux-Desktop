@@ -1,9 +1,13 @@
 # Arch Linux WSL
 
-## Download and installation procedure
-
 <https://gitlab.archlinux.org/archlinux/archlinux-wsl>  
 <https://wiki.archlinux.org/title/Install_Arch_Linux_on_WSL>
+
+## Download and installation
+
+```PowerShell
+wsl --install archlinux # From an admin PowerShell prompt
+```
 
 ## Configuration
 

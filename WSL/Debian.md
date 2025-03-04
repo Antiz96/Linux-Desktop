@@ -2,10 +2,10 @@
 
 https://wiki.debian.org/InstallingDebianOn/Microsoft/Windows/SubsystemForLinux
 
-## Download and Installation
+## Download and installation
 
 ```PowerShell
-wsl --install Debian # From admin PowerShell prompt
+wsl --install Debian # From an admin PowerShell prompt
 ```
 
 ## Configuration
