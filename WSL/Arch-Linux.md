@@ -1,63 +1,56 @@
 # Arch Linux WSL
 
-## Downloand and installation procedure
+## Download and installation procedure
 
-<https://github.com/yuk7/ArchWSL>
+<https://gitlab.archlinux.org/archlinux/archlinux-wsl>  
+<https://wiki.archlinux.org/title/Install_Arch_Linux_on_WSL>
 
 ## Configuration
 
 ### Creating and configuring my user
 
 ```bash
-passwd #Change Root password
-useradd -m rcandau #Create our user
-passwd rcandau #Change its password
-usermod -aG wheel rcandau #Put it in the wheel group so it can use sudo
-export EDITOR=/usr/bin/vim #Make vim our default editor to edit the sudo configuration file
-visudo #Uncomment line that allows wheel group members to use sudo on any command
+passwd # Change Root password
+useradd -m antiz # Create my user
+passwd antiz # Change its password
+usermod -aG wheel antiz # Put it in the wheel group
+pacman -Syu vim sudo # Update the system and install vim & sudo
+EDITOR=/usr/bin/vim visudo # Uncomment line that allows wheel group members to use sudo on any command
+vim /etc/wsl.conf # Set my user as the default one
 ```
 
-### Set the default user as my regular user (instead of the root user)
+> [...]  
+> [user]  
+> default=antiz
 
-The two following commands has to be launch in the windows cmd:
-
-```bash
-cd Documents\Arch\ #Change directory to the directory that contains Arch Linux WSL
-Arch.exe config --default-user rcandau #Make Arch log into our regular user at launch instead of root
+```PowerShell
+wsl --terminate archlinux # Terminate my current session to apply the default user switch (should be executed from a PowerShell prompt)
 ```
-
-### Enable systemd support
-
-```bash
-sudo vi /etc/wsl.conf
-```
-
-> [boot]  
-> systemd=true
 
 ### Configuring pacman
 
 ```bash
-sudo vi /etc/pacman.conf
+sudo vim /etc/pacman.conf
 ```
 
 > [...]  
 > Color  
-> [...]  
+> #NoProgressBar  
+> CheckSpace  
+> VerbosePkgLists  
 > ParallelDownloads = 10  
 > [...]
 
-### Install my needed packages
+### Install main packages
 
 ```bash
-sudo pacman -Syu #Update our system
-sudo pacman -S base-devel man bash-completion openssh inetutils dnsutils traceroute rsync zip unzip diffutils git tmux plocate htop fastfetch docker distrobox pacman-contrib codespell #Install my needed packages. DO NOT INSTALL "fakeroot" (https://github.com/yuk7/ArchWSL/issues/3)
-cd /tmp #Change directory to tmp to download and install AUR support
-git clone https://aur.archlinux.org/paru.git #Download "paru" install sources
-cd paru #Change directory to "paru" install sources directory
-makepkg -si #Install "paru"
-paru -S certificate-ripper-bin arch-update #Install AUR packages
-sudo systemctl enable --now docker paccache.timer #Enable systemd services
+sudo pacman -Syu base-devel man bash-completion openssh inetutils dnsutils traceroute rsync zip unzip diffutils git tmux plocate htop fastfetch docker distrobox pacman-contrib powerline-fonts # Install main packages from the repo
+cd /tmp # Change directory to tmp to clone paru AUR sources
+git clone https://aur.archlinux.org/paru.git # Clone paru AUR sources 
+cd paru # Change directory to the cloned sources
+makepkg -si # Build and install paru
+paru -S certificate-ripper-bin arch-update # Install AUR packages
+sudo systemctl enable --now docker paccache.timer # Enable systemd services
 ```
 
 ### Bash Theme
@@ -65,16 +58,12 @@ sudo systemctl enable --now docker paccache.timer #Enable systemd services
 <https://github.com/speedenator/agnoster-bash>
 
 ```bash
-cd /tmp
-git clone https://github.com/powerline/fonts.git fonts
-cd fonts
-sh install.sh
 cd $HOME
 mkdir -p .bash/themes/agnoster-bash
 git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster-bash
 ```
 
-### Download my config files
+### Download dotfiles
 
 ```bash
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Bashrc/Arch-WSL -o ~/.bashrc
@@ -83,7 +72,16 @@ curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Gener
 source ~/.bashrc
 ```
 
-Uncomment the copy/paste option for WSL and comment the one for Linux in ~/.config/tmux/tmux.conf
+Uncomment the "copy / paste" option for WSL and comment the one for Linux in `~/.config/tmux/tmux.conf`
+
+### Create symlinks for WSLg
+
+Required to run graphical applications (X11 and Wayland)
+
+```bash
+ln -svf /mnt/wslg/.X11-unix /tmp/
+ln -svf /mnt/wslg/runtime-dir/wayland-0* /run/user/1000/
+```
 
 ### Setup my DNS config for VPN
 
@@ -91,11 +89,11 @@ Uncomment the copy/paste option for WSL and comment the one for Linux in ~/.conf
 
 ### Setup Openssh to accept rsa keys
 
-The newest version of openssh included in Arch Linux (from openssh 8.8p1-1) doesn't accept some type of ssh keys judged too old/insecured.  
-To correct that, you can either specify the type of key in your command like so : `ssh -oHostKeyAlgorithms=+ssh-rsa user@host` or add the following snippet in your ssh config file:
+Starting from `8.8p1-1`, openssh doesn't accept some type of ssh keys judged too old & insecured.  
+To force it to accept such key types, you can either specify the type of key in your command like so : `ssh -oHostKeyAlgorithms=+ssh-rsa user@host` or add the following snippet in your ssh config file:
 
 ```bash
-vi ~/.ssh/config
+vim ~/.ssh/config
 ```
 
 > Host *  
