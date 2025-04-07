@@ -89,8 +89,8 @@ vim /etc/pacman.conf # Enable the "color" and "parallel downloads" options in pa
 ```bash
 ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime # Set up the Region/TimeZone
 hwclock --systohc # Synchronize the Hardware Clock
-vim /etc/locale.gen # Uncomment the local in that file (for me: en_US.UTF-8 UTF-8)
-locale-gen # Apply the configuration
+vim /etc/locale.gen # Uncomment the locale (for me: en_US.UTF-8 UTF-8)
+locale-gen # Generate the locale
 vim /etc/locale.conf # Set the LANG variable accordingly in this file (for me: LANG=en_US.UTF-8)
 vim /etc/vconsole.conf # Set the Keymap in this file (for me: KEYMAP=fr)
 ```

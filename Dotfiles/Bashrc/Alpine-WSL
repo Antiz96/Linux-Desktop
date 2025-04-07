@@ -39,7 +39,7 @@ export EDITOR="/usr/bin/vim"
 
 ##Symlinks for WSLg##
 
-[ ! -L /tmp/.X11-unix ] && ln -s /mnt/wslg/.X11-unix/* /tmp/.X11-unix
+[ ! -L /tmp/.X11-unix ] && ln -sf /mnt/wslg/.X11-unix/* /tmp/.X11-unix
 [ ! -L "${XDG_RUNTIME_DIR}/pulse" ] && ln -s "/mnt/wslg/runtime-dir/pulse" "${XDG_RUNTIME_DIR}/pulse"
 [ ! -L "${XDG_RUNTIME_DIR}/wayland-0" ] && ln -s "/mnt/wslg/runtime-dir/wayland-0" "${XDG_RUNTIME_DIR}/wayland-0"
 [ ! -L "${XDG_RUNTIME_DIR}/wayland-0.lock" ] && ln -s "/mnt/wslg/runtime-dir/wayland-0.lock" "${XDG_RUNTIME_DIR}/wayland-0.lock"
