@@ -55,6 +55,10 @@ mkdir -p .bash/themes/agnoster-bash
 git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster-bash
 ```
 
+### Install Nerd font on Windows
+
+[Downland](https://www.nerdfonts.com/font-downloads) and install the "Hack Nerd Font" (it's the only one that works well with `vim-devicons` on WSL from my experience). Then set it in the Windows terminal under "Settings" --> "Profiles" --> "Defaults" --> "Font face" (might need a reboot after installing the font for it to appear in there).
+
 ### Download dotfiles
 
 ```bash
@@ -65,15 +69,6 @@ source ~/.bashrc
 ```
 
 Uncomment the copy/paste option for WSL and comment the one for Linux in ~/.config/tmux/tmux.conf
-
-### Create symlinks for WSLg
-
-Required to run graphical applications (X11 and Wayland)
-
-```bash
-ln -svf /mnt/wslg/.X11-unix /tmp/
-ln -svf /mnt/wslg/runtime-dir/wayland-0* /run/user/1000/
-```
 
 ### Setup my DNS config for VPN
 

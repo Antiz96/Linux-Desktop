@@ -31,6 +31,14 @@ vim /etc/wsl.conf # Set my user as the default one
 wsl --terminate archlinux # Terminate my current session to apply the default user switch (should be executed from a PowerShell prompt)
 ```
 
+### Configuring system language
+
+```bash
+vim /etc/locale.gen # Uncomment the locale (for me: en_US.UTF-8 UTF-8)
+locale-gen # Generate the locale
+vim /etc/locale.conf # Set the LANG variable accordingly in this file (for me: LANG=en_US.UTF-8)
+```
+
 ### Configuring pacman
 
 ```bash
@@ -67,25 +75,21 @@ mkdir -p .bash/themes/agnoster-bash
 git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster-bash
 ```
 
+### Install Nerd font on Windows
+
+[Downland](https://www.nerdfonts.com/font-downloads) and install the "Hack Nerd Font" (it's the only one that works well with `vim-devicons` on WSL from my experience). Then set it in the Windows terminal under "Settings" --> "Profiles" --> "Defaults" --> "Font face" (might need a reboot after installing the font for it to appear in there).
+
 ### Download dotfiles
 
 ```bash
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Bashrc/Arch-WSL -o ~/.bashrc
+sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/pacman-mirrorlist -o /etc/pacman.d/mirrorlist
 mkdir -p ~/.config/tmux/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/tmux.conf -o ~/.config/tmux/tmux.conf
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/vimrc -o ~/.vimrc && mkdir -p ~/.vim/colors && curl https://raw.githubusercontent.com/vv9k/vim-github-dark/master/colors/ghdark.vim -o ~/.vim/colors/ghdark.vim
 source ~/.bashrc
 ```
 
 Uncomment the "copy / paste" option for WSL and comment the one for Linux in `~/.config/tmux/tmux.conf`
-
-### Create symlinks for WSLg
-
-Required to run graphical applications (X11 and Wayland)
-
-```bash
-ln -svf /mnt/wslg/.X11-unix /tmp/
-ln -svf /mnt/wslg/runtime-dir/wayland-0* /run/user/1000/
-```
 
 ### Setup my DNS config for VPN
 
