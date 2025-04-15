@@ -34,9 +34,9 @@ wsl --terminate archlinux # Terminate my current session to apply the default us
 ### Configuring system language
 
 ```bash
-vim /etc/locale.gen # Uncomment the locale (for me: en_US.UTF-8 UTF-8)
-locale-gen # Generate the locale
-vim /etc/locale.conf # Set the LANG variable accordingly in this file (for me: LANG=en_US.UTF-8)
+sudo vim /etc/locale.gen # Uncomment the locale (for me: en_US.UTF-8 UTF-8)
+sudo locale-gen # Generate the locale
+sudo vim /etc/locale.conf # Set the LANG variable accordingly in this file (for me: LANG=en_US.UTF-8)
 ```
 
 ### Configuring pacman
