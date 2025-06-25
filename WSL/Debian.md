@@ -32,7 +32,7 @@ wsl --terminate Debian # Terminate my current session to apply the default user 
 ### Install main packages
 
 ```bash
-sudo apt install vim curl man bash-completion openssh-server inetutils-tools dnsutils traceroute rsync zip unzip diffutils git tmux plocate htop fastfetch distrobox
+sudo apt install vim curl man bash-completion openssh-server inetutils-tools dnsutils traceroute rsync zip unzip diffutils git tmux plocate htop fastfetch distrobox wl-clipboard
 sudo apt remove docker docker-engine docker.io # Install Docker
 sudo apt install apt-transport-https ca-certificates curl gnupg lsb-release
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
