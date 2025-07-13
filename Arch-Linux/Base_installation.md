@@ -197,8 +197,9 @@ systemctl enable systemd-boot-update.service
 ### Install and enable Network Manager
 
 ```bash
-pacman -S networkmanager # Install "networkmanager" to manage my network connection
-systemctl enable NetworkManager # Autostart NetworkManager at boot
+pacman -S networkmanager # Install NetworkManager to manage my network connection
+systemctl enable NetworkManager systemd-resolved # Autostart NetworkManager and systemd-resolved at boot
+ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf # Symlink /etc/resolv.conf to systemd-resolved stub
 ```
 
 ## Exit the system and reboot the computer

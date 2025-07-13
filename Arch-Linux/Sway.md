@@ -152,7 +152,7 @@ sudo systemctl enable --now apparmor docker pcscd
 
 ```bash
 sudo pacman -S nwg-displays wireguard-tools tlp
-sudo pacman -S --asdeps openresolv # Needed for DNS resolution with Wireguard VPN
+sudo pacman -S --asdeps systemd-resolvconf # Needed for DNS resolution with Wireguard VPN
 sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket && sudo systemctl enable --now tlp.service
 ```
 
