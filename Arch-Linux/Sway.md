@@ -218,6 +218,7 @@ mkdir -p ~/.config/tmux/ && curl https://raw.githubusercontent.com/Antiz96/Linux
 mkdir -p ~/.config/fastfetch/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/fastfetch-config -o ~/.config/fastfetch/config.jsonc
 mkdir -p ~/.config/mpv/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/mpv.conf -o ~/.config/mpv/mpv.conf
 mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/zathurarc -o ~/.config/zathura/zathurarc && xdg-mime default org.pwmt.zathura.desktop application/pdf
+mkdir -p ~/.config/swaync/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Sway/swaync_style.css -o ~/.config/swaync/style.css
 mkdir -p ~/.gnupg/ && chmod 700 ~/.gnupg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/scdaemon.conf -o ~/.gnupg/scdaemon.conf
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/vimrc -o ~/.vimrc && mkdir -p ~/.vim/colors && curl https://raw.githubusercontent.com/vv9k/vim-github-dark/master/colors/ghdark.vim -o ~/.vim/colors/ghdark.vim
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/gitconfig -o ~/.gitconfig && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/gitconfig-arch -o ~/.gitconfig-arch
