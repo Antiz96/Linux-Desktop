@@ -255,7 +255,7 @@ reboot # Reboot the computer to boot into the fresh Arch install
 sudo pacman -S devtools man bash-completion amd-ucode pacman-contrib # Additional useful packages and drivers. Install "intel-ucode" instead of "amd-ucode" if you have an Intel CPU
 ```
 
-### Install a firewall (optional)
+## Install a firewall (optional)
 
 Installing a firewall may be optional for a fresh and simple **desktop** install as Arch doesn't expose any service/ports by default.  
 However, it is a supplementary security layer you might consider (even tho there's a little chance you ever need it).  
@@ -275,6 +275,15 @@ But I usually prefer removing them and accept what needs to be accepted myself f
 sudo firewall-cmd --remove-service="ssh" --permanent # Remove the default authorised ssh service
 sudo firewall-cmd --remove-service="dhcpv6-client" --permanent # Remove the default authorised DHCPV6-client service
 sudo firewall-cmd --reload # Apply changes
+```
+
+## Disable ipv6 (optional)
+
+I personally don't use ipv6 and my router is spreading an ipv6 DNS that sometimes messes with my regular ipv4 DNS. As such, I usually disable ipv6 altogether for my home connection via NetworkManager:
+
+```bash
+sudo nmcli connection modify Wired\ connection\ 1 ipv6.method "disabled" # Adapt the connection name if needed
+sudo nmcli connection up Wired\ connection\ 1 # Adapt the connection name if needed
 ```
 
 ## Enable paccache (automatic cleaning of pacman cache)
