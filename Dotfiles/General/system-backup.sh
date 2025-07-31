@@ -22,6 +22,7 @@ rsync_cmd() {
 	--exclude='/mnt/*' \
 	--exclude='/media/*' \
 	--exclude='/lost+found/' \
+	--exclude='/opt/distrobox/*' \
 	--exclude='/var/cache/pacman/pkg/*' \
 	--exclude='/var/lib/archbuild/*' \
 	--exclude='/var/lib/aurbuild/*' \
