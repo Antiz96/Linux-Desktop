@@ -25,6 +25,7 @@ rsync_cmd() {
 	--exclude='/var/cache/pacman/pkg/*' \
 	--exclude='/var/lib/archbuild/*' \
 	--exclude='/var/lib/aurbuild/*' \
+	--exclude='/var/lib/repro/*' \
 	--exclude='/var/lib/docker/*' \
 	--exclude='/root/*' \
 	--exclude='/home/*' \
