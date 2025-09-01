@@ -11,7 +11,7 @@ sudo pacman -S mesa # install nvidia instead of mesa if you have an Nvidia GPU.
 Sway with a few additional packages for a base system according to my personal preferences.
 
 ```bash
-sudo pacman -S sway xfce4-terminal polkit-gnome pipewire pipewire-audio pipewire-pulse thunar thunar-archive-plugin engrampa gvfs xdg-user-dirs mousepad ristretto rofi-wayland flameshot swaync nwg-look network-manager-applet nwg-panel blueman gammastep openssh swaybg swayidle swaylock playerctl wl-clipboard xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk grim
+sudo pacman -S sway xfce4-terminal polkit-gnome pipewire pipewire-audio pipewire-pulse thunar thunar-archive-plugin engrampa gvfs xdg-user-dirs mousepad ristretto rofi flameshot swaync nwg-look network-manager-applet nwg-panel blueman gammastep openssh swaybg swayidle swaylock playerctl wl-clipboard xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk grim
 ```
 
 ### Auto start Sway when logging on TTY1
