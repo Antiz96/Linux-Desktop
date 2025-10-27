@@ -1,0 +1,9 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = limine
+
+[Action]
+Description = Deploying Limine after upgrade...
+When = PostTransaction
+Exec = /bin/sh -c "/usr/bin/limine bios-install /dev/sda && /usr/bin/cp -f /usr/share/limine/limine-bios.sys /boot/"
