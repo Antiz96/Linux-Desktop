@@ -1,0 +1,12 @@
+# Temporary workaround for https://github.com/netblue30/firejail/issues/6906
+# See https://github.com/netblue30/firejail/issues/6906#issuecomment-3353881303
+whitelist /usr/share/glycin-loaders
+noblacklist /usr/bin/bwrap
+noblacklist /proc/sys/kernel/overflowuid
+noblacklist /proc/sys/kernel/overflowgid
+
+ignore seccomp !chroot
+seccomp !chroot,!mount,!pivot_root,!umount2
+
+ignore apparmor
+ignore apparmor-replace
