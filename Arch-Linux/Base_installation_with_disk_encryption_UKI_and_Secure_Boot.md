@@ -136,7 +136,7 @@ visudo # Uncomment the line that allows the wheel group members to use sudo on a
 ### Enable Splash Screen in mkinitcpio (optional)
 
 This allows to show an Arch Linux logo during the loading of the initramfs by the kernel.  
-This is purely aesthetic, but it also helps identifying when you're booting/loading the "regular" initramfs or the fallback one (as we'll only enable the splash screen for the "regular" initramfs).
+This is purely aesthetic.
 
 ```bash
 vim /etc/mkinitcpio.d/linux.preset
@@ -146,16 +146,16 @@ vim /etc/mkinitcpio.d/linux.preset
 > default_options="--splash /usr/share/systemd/bootctl/splash-arch.bmp" # Uncomment that line  
 > [...]
 
-### Add the encrypt hook in mkinitcpio
+### Add the sd-encrypt hook in mkinitcpio
 
 Required to detect the encrypted root partition at boot.
 
 ```bash
-vim /etc/mkinitcpio.conf # Add the "encrypt" kernel hook into the mkinitcpio configuration for the disk encryption
+vim /etc/mkinitcpio.conf # Add the "sd-encrypt" kernel hook into the mkinitcpio configuration for the disk encryption
 ```
 
 > [...]  
-> HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block **encrypt** filesystems fsck)  
+> HOOKS=(base systemd autodetect microcode modconf kms keyboard sd-vconsole **sd-encrypt** block filesystems fsck)  
 > [...]
 
 ### Setup Unified Kernel Image (UKI)
@@ -170,6 +170,7 @@ vim /etc/kernel/cmdline # Add our encrypted root partition to the kernel cmdline
 ```
 
 > cryptdevice=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:root root=/dev/mapper/root rw # Run 'blkid' to get the UID of your root partition
+> rd.luks.name=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx=root rd.luks.options=password-echo=no root=/dev/mapper/root rw # Run 'blkid' to get the UID of your root partition
 
 ```bash
 vim /etc/mkinitcpio.d/linux.preset # Enable UKI options in mkinitcpio preset for your kernel
@@ -181,7 +182,7 @@ vim /etc/mkinitcpio.d/linux.preset # Enable UKI options in mkinitcpio preset for
 #ALL_config="/etc/mkinitcpio.conf"
 ALL_kver="/boot/vmlinuz-linux"
 
-PRESETS=('default' 'fallback')
+PRESETS=('default')
 
 #default_config="/etc/mkinitcpio.conf"
 #default_image="/boot/initramfs-linux.img" # Comment the "regular" image line for initramfs
@@ -197,7 +198,7 @@ fallback_options="-S autodetect"
 ```bash
 mkdir -p /boot/EFI/Linux # Make sure the directory for the UKIs exists
 pacman -S --asdeps systemd-ukify # Install systemd-ukify to build / assemble the UKI
-mkinitcpio -P # Build the UKIs
+mkinitcpio -P # Build the UKI
 rm /boot/initramfs-*.img # Remove initramfs leftover images
 ```
 
@@ -341,7 +342,6 @@ sbctl status # Verify that Setup Mode is enabled
 sudo sbctl create-keys # Generate our own signing keys
 sudo sbctl enroll-keys -m # Enroll our keys to the UEFI, including Microsoft's keys (`-m`). See the warning in the following URL for more details: https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#Creating_and_enrolling_keys
 sudo sbctl sign -s /boot/EFI/Linux/arch-linux.efi # Sign the UKI
-sudo sbctl sign -s /boot/EFI/Linux/arch-linux-fallback.efi # Sign the fallback UKI
 sudo sbctl sign -s /boot/EFI/systemd/systemd-bootx64.efi # Sign systemd-boot boot loader
 sudo sbctl sign -s -o /usr/lib/systemd/boot/efi/systemd-bootx64.efi.signed /usr/lib/systemd/boot/efi/systemd-bootx64.efi # Sign systemd-boot boot loader under /usr/lib (required when using the `systemd-boot-update.service`. See the "Tip" at https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#Automatic_signing_with_the_pacman_hook)
 sudo sbctl sign -s /boot/EFI/BOOT/BOOTX64.EFI # Sign the fallback boot loader

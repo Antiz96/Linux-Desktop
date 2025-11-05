@@ -134,7 +134,7 @@ visudo # Uncomment the line that allows the wheel group members to use sudo on a
 ### Enable Splash Screen in mkinitcpio (optional)
 
 This allows to show an Arch Linux logo during the loading of the initramfs by the kernel.  
-This is purely aesthetic, but it also helps identifying when you're booting/loading the "regular" initramfs or the fallback one (as we'll only enable the splash screen for the "regular" initramfs).
+This is purely aesthetic.
 
 ```bash
 vim /etc/mkinitcpio.d/linux.preset
@@ -179,15 +179,6 @@ vim /boot/loader/entries/arch.conf
 > title Arch Linux  
 > linux /vmlinuz-linux  
 > initrd /initramfs-linux.img  
-> options root=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx rw # Run 'blkid' to get the UID of your root partition
-
-```bash
-vim /boot/loader/entries/arch-fallback.conf
-```
-
-> title Arch Linux (fallback)  
-> linux /vmlinuz-linux  
-> initrd /initramfs-linux-fallback.img  
 > options root=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx rw # Run 'blkid' to get the UID of your root partition
 
 ```bash
