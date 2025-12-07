@@ -1,7 +1,3 @@
-# Required to run properly
-# See https://github.com/netblue30/firejail/pull/6878#discussion_r2490670980 
-private-etc firejail/firejail.config
-
 # Temporary workaround for https://github.com/netblue30/firejail/issues/6906
 # See https://github.com/netblue30/firejail/issues/6906#issuecomment-3353881303
 whitelist /usr/share/glycin-loaders
