@@ -1,2 +1,2 @@
-# Allow zathura to display pdf files in /tmp (needed for `zaman`)
+# Allow zathura to display pdf files stored in /tmp
 ignore private-tmp
