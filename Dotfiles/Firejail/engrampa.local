@@ -1,4 +1,0 @@
-# Otherwise doesn't run
-noblacklist ${HOME}/.local/share/gvfs-metadata
-noblacklist ${PATH}/bwrap
-noblacklist /proc/sys/*/*
