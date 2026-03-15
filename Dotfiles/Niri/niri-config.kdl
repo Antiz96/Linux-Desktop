@@ -30,7 +30,7 @@ output "HDMI-A-1" {
 output "DP-2" {
     mode "1920x1080@165"
     position x=3840 y=0
-    transform "270"
+    transform "90"
 }
 
 // Laptop screen config
