@@ -18,24 +18,24 @@ input {
 
 // Desktop screen config 
 output "DP-1" {
-    mode "1920x1080@165"
+    mode "1920x1080@164.834"
     position x=1920 y=0
 }
 
 output "HDMI-A-1" {
-    mode "1920x1080@165"
+    mode "1920x1080@164.834"
     position x=0 y=0
 }
 
 output "DP-2" {
-    mode "1920x1080@165"
+    mode "1920x1080@164.955"
     position x=3840 y=0
     transform "90"
 }
 
 // Laptop screen config
 // output "eDP-1" {
-//     mode "2560x1600@165"
+//     mode "2560x1600@165.002"
 // }
 
 // Windows layout config
@@ -75,6 +75,22 @@ prefer-no-csd
 
 // Path for screenshots
 screenshot-path "~/Downloads/Screenshot_%Y-%m-%d_%H-%M-%S.png"
+
+// Open Terminal, Firefox and Thunderbird maximized
+window-rule {
+    match app-id="xfce4-terminal$"
+    open-maximized true
+}
+
+window-rule {
+    match app-id="firefox$"
+    open-maximized true
+}
+
+window-rule {
+    match app-id=r#"(org.mozilla.Thunderbird)"#
+    open-maximized true
+}
 
 // Open the Firefox picture-in-picture player as floating by default
 window-rule {
