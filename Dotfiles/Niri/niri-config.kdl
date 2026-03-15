@@ -36,8 +36,6 @@ output "DP-2" {
 // Laptop screen config
 // output "eDP-1" {
 //     mode "2560x1600@165"
-//     position x=0 y=0
-//     scale 1.25
 // }
 
 // Windows layout config
