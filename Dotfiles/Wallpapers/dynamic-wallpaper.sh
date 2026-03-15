@@ -12,8 +12,4 @@ else
 	time="night"
 fi
 
-if command -v feh > /dev/null; then
-	feh --bg-fill "${HOME}/Pictures/wallpapers/island-${time}.jpg"
-elif command -v swaymsg > /dev/null; then
-	swaymsg output "*" bg "${HOME}/Pictures/wallpapers/island-${time}.jpg" fill
-fi
+swaybg --output "*" --image "${HOME}/Pictures/wallpapers/island-${time}.jpg" --mode fill

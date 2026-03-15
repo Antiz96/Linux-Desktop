@@ -5,18 +5,10 @@ rofi_menu_options=$(for option in "${options[@]}"; do echo "${option}"; done | r
 
 case "${rofi_menu_options}" in
 	*Lock)
-		if command -v i3lock > /dev/null; then
-			i3lock -eti ~/Pictures/i3/lock.png
-		elif command -v swaylock > /dev/null; then
-			swaylock -feti ~/Pictures/Sway/lock.png -s fill
-		fi
+		swaylock -feti ~/Pictures/Niri/lock.png -s fill
 	;;
 	*Suspend)
-		if command -v i3lock > /dev/null; then
-			i3lock -eti ~/Pictures/i3/lock.png && systemctl suspend
-		elif command -v swaylock > /dev/null; then
-			swaylock -feti ~/Pictures/Sway/lock.png -s fill && systemctl suspend
-		fi
+		swaylock -feti ~/Pictures/Niri/lock.png -s fill && systemctl suspend
 	;;
 	*Soft\ Reboot)
 		systemctl soft-reboot
