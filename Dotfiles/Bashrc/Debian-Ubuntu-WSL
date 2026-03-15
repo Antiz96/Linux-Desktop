@@ -20,9 +20,9 @@ fi
 
 ##Tmux autostart##
 
-[ -x "$(command -v tmux)" ] \
-  && [ -z "${TMUX}" ] \
-  && (tmux attach || tmux) >/dev/null 2>&1
+if [ -x "$(command -v tmux)" ] && [ -z "${TMUX}" ]; then
+	exec tmux new-session -A -s ${USER} >/dev/null 2>&1
+fi
 
 ##Bind##
 

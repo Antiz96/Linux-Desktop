@@ -17,8 +17,7 @@
     "icons": "light",
     "css-name": "panel-top",
     "modules-left": [
-      "executor-start-menu",
-      "sway-workspaces"
+      "executor-start-menu"
     ],
     "modules-center": [
       "clock"
@@ -232,6 +231,14 @@
       "angle": 0.0,
       "sigrt": 34,
       "use-sigrt": false
-    }
+    },
+    "run-if-output-exist": [],
+    "run-if-output-absent": [],
+    "monitor": "",
+    "width-as-percentage": false,
+    "hyprland-submap": {},
+    "niri-taskbar": {},
+    "random-wallpaper": {},
+    "pinned": {}
   }
 ]

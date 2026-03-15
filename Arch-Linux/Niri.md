@@ -1,55 +1,44 @@
-# Sway
+# Niri
 
 ## Install graphical drivers
 
 ```bash
-sudo pacman -S mesa # install nvidia instead of mesa if you have an Nvidia GPU.
+sudo pacman -S mesa # install `nvidia` instead of `mesa` if you have an Nvidia GPU.
 ```
 
-## Install Sway
+## Install Niri
 
-Sway with a few additional packages for a base system according to my personal preferences.
+Niri with a few additional packages for a base system according to my personal preferences.
 
 ```bash
-sudo pacman -S sway xfce4-terminal polkit-gnome pipewire pipewire-audio pipewire-pulse thunar thunar-archive-plugin engrampa gvfs xdg-user-dirs mousepad ristretto rofi flameshot swaync nwg-look network-manager-applet nwg-panel blueman gammastep openssh swaybg swayidle swaylock playerctl wl-clipboard xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk grim
+sudo pacman -S niri xfce4-terminal polkit-gnome pipewire pipewire-audio pipewire-pulse thunar thunar-archive-plugin engrampa gvfs xdg-user-dirs mousepad ristretto rofi swaync nwg-look network-manager-applet nwg-panel blueman gammastep openssh swaybg swayidle swaylock playerctl wl-clipboard xdg-desktop-portal-gtk xdg-desktop-portal-wlr
 ```
 
-### Auto start Sway when logging on TTY1
+### Auto start Niri when logging on TTY1
 
 ```bash
 vim ~/.bash_profile
 ```
 
 > [...]  
-> #Autostart Sway  
+> #Autostart Niri  
 > ``if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then``  
-> > export XDG_CURRENT_DESKTOP=sway  
-> > export XDG_SESSION_DESKTOP=sway  
+> > export XDG_CURRENT_DESKTOP=niri  
+> > export XDG_SESSION_DESKTOP=niri  
 > > export XDG_SESSION_TYPE=wayland  
 > > export QT_QPA_PLATFORM=wayland  
 > > export SDL_VIDEODRIVER=wayland  
-> > exec sway  
+> > exec niri-session -l
 >
 > fi
 
-### Set default keymap and terminal in Sway config
+### Download Niri config
 
 ```bash
-sudo vim /etc/sway/config
+mkdir -p ~/.config/niri && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Niri/niri-config.kdl -o ~/.config/niri/config.kdl
 ```
 
-```text
-[...]
-set $term xfce4-terminal
-[...]
-input type:keyboard {
-        xkb_layout "fr"
-        xkb_variant "azerty"
-        xkb_numlock "enabled"
-}
-```
-
-## Reboot (should start Sway automatically after logging)
+## Reboot (should start Niri automatically after logging)
 
 ```bash
 sudo reboot
@@ -141,7 +130,7 @@ sudo vim /etc/fstab
 - Main packages:
 
 ```bash
-sudo pacman -S abuild atools-go capitaine-cursors ccid discord distrobox fastfetch firefox firefoxpwa firejail htop keepassxc mpv mumble noto-fonts-emoji orchis-theme plocate podman powerline-fonts protonmail-bridge rsync speedcrunch steam systray-x tela-circle-icon-theme-blue thunderbird tmux otf-font-awesome vim-devicons vim-nerdtree virt-viewer wireguard-tools wl-clip-persist xorg-xwayland yubico-piv-tool zathura zathura-pdf-poppler
+sudo pacman -S abuild atools-go capitaine-cursors ccid discord distrobox fastfetch firefox firefoxpwa firejail htop keepassxc mpv mumble noto-fonts-emoji orchis-theme plocate podman powerline-fonts protonmail-bridge rsync speedcrunch steam systray-x tela-circle-icon-theme-blue thunderbird tmux otf-font-awesome vim-devicons vim-nerdtree virt-viewer wireguard-tools wl-clip-persist xwayland-satellite yubico-piv-tool zathura zathura-pdf-poppler
 paru -S arch-update nerdtree-git-plugin-git onlyoffice-bin ventoy-bin zaman
 sudo pacman -S --asdeps gnome-keyring gnu-free-fonts qt5-wayland systemd-resolvconf ttf-dejavu ttf-nerd-fonts-symbols xdg-utils # Optional dependencies I need for the above packages
 systemctl --user enable --now arch-update.timer ssh-agent.service
@@ -202,16 +191,15 @@ git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster
 ## Dotfiles
 
 ```bash
-mkdir -p ~/.config/sway && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Sway/sway-config -o ~/.config/sway/config && mkdir -p ~/Pictures/Sway && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/lock.png -o ~/Pictures/Sway/lock.png && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/shutdown.svg -o ~/Pictures/Sway/shutdown.svg && mkdir -p ~/Documents/Scripts && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/power-menu.sh -o ~/Documents/Scripts/power-menu.sh && chmod +x ~/Documents/Scripts/power-menu.sh
+mkdir -p ~/Pictures/Niri && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/lock.png -o ~/Pictures/Niri/lock.png && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/shutdown.svg -o ~/Pictures/Niri/shutdown.svg && mkdir -p ~/Documents/Scripts && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/power-menu.sh -o ~/Documents/Scripts/power-menu.sh && chmod +x ~/Documents/Scripts/power-menu.sh && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Niri/swayidle.sh -o ~/Documents/Scripts/swayidle.sh && chmod +x ~/Documents/Scripts/swayidle.sh
 mkdir -p ~/Pictures/wallpapers && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/island-morning.jpg -o ~/Pictures/wallpapers/island-morning.jpg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/island-day.jpg -o ~/Pictures/wallpapers/island-day.jpg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/island-evening.jpg -o ~/Pictures/wallpapers/island-evening.jpg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/island-night.jpg -o ~/Pictures/wallpapers/island-night.jpg && mkdir -p ~/Documents/Scripts && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/dynamic-wallpaper.sh -o ~/Documents/Scripts/dynamic-wallpaper.sh && chmod +x ~/Documents/Scripts/dynamic-wallpaper.sh && mkdir -p ~/.config/systemd/user && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/dynamic-wallpaper.service -o ~/.config/systemd/user/dynamic-wallpaper.service && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/dynamic-wallpaper.timer -o ~/.config/systemd/user/dynamic-wallpaper.timer && systemctl --user enable --now dynamic-wallpaper.timer
-mkdir -p ~/.config/nwg-panel && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Sway/nwg-panel-config -o ~/.config/nwg-panel/config && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Sway/nwg-panel-style.css -o ~/.config/nwg-panel/style.css && mkdir -p ~/Pictures/nwg-panel && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/Arch_Panel.svg -o ~/Pictures/nwg-panel/Arch_Panel.svg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/restart-panel.svg -o ~/Pictures/nwg-panel/restart-panel.svg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/caffeine-cup-empty.svg -o ~/Pictures/nwg-panel/caffeine-cup-empty.svg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/caffeine-cup-full.svg -o ~/Pictures/nwg-panel/caffeine-cup-full.svg && cp -f ~/Pictures/nwg-panel/caffeine-cup-empty.svg ~/Pictures/nwg-panel/autolock.svg
-mkdir -p ~/.config/flameshot && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/flameshot.ini -o ~/.config/flameshot/flameshot.ini && mkdir -p ~/.local/share/icons/hicolor/scalable/apps/ && cp /usr/share/icons/Tela-circle-blue/24/panel/flameshot-tray.svg ~/.local/share/icons/hicolor/scalable/apps/flameshot-tray.svg
+mkdir -p ~/.config/nwg-panel && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Niri/nwg-panel-config -o ~/.config/nwg-panel/config && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Niri/nwg-panel-style.css -o ~/.config/nwg-panel/style.css && mkdir -p ~/Pictures/nwg-panel && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/Arch_Panel.svg -o ~/Pictures/nwg-panel/Arch_Panel.svg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/restart-panel.svg -o ~/Pictures/nwg-panel/restart-panel.svg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/caffeine-cup-empty.svg -o ~/Pictures/nwg-panel/caffeine-cup-empty.svg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/caffeine-cup-full.svg -o ~/Pictures/nwg-panel/caffeine-cup-full.svg && cp -f ~/Pictures/nwg-panel/caffeine-cup-empty.svg ~/Pictures/nwg-panel/autolock.svg
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Bashrc/Arch -o ~/.bashrc
 mkdir -p ~/.config/tmux/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/tmux.conf -o ~/.config/tmux/tmux.conf
 mkdir -p ~/.config/fastfetch/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/fastfetch-config -o ~/.config/fastfetch/config.jsonc
 mkdir -p ~/.config/mpv/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/mpv.conf -o ~/.config/mpv/mpv.conf
 mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/zathurarc -o ~/.config/zathura/zathurarc && xdg-mime default org.pwmt.zathura.desktop application/pdf
-mkdir -p ~/.config/swaync/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Sway/swaync_style.css -o ~/.config/swaync/style.css
+mkdir -p ~/.config/swaync/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Niri/swaync_style.css -o ~/.config/swaync/style.css
 mkdir -p ~/.gnupg/ && chmod 700 ~/.gnupg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/scdaemon.conf -o ~/.gnupg/scdaemon.conf
 sudo usermod -aG abuild "${USER}" && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/abuild.conf -o /etc/abuild.conf
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/vimrc -o ~/.vimrc && mkdir -p ~/.vim/colors && curl https://raw.githubusercontent.com/vv9k/vim-github-dark/master/colors/ghdark.vim -o ~/.vim/colors/ghdark.vim
@@ -219,7 +207,7 @@ curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Gener
 mkdir -p ~/.config/xfce4/xfconf/xfce-perchannel-xml && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/xfce4-terminal.xml -o ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-terminal.xml
 mkdir -p ~/.config/rofi/ && curl https://raw.githubusercontent.com/newmanls/rofi-themes-collection/master/themes/spotlight-dark.rasi -o ~/.config/rofi/spotlight-dark.rasi && sed -i s/border-radius:\ \ 8/border-radius:\ \ 0/ ~/.config/rofi/spotlight-dark.rasi && sed -i "/\bplaceholder\b/d" ~/.config/rofi/spotlight-dark.rasi && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/rofi-config -o ~/.config/rofi/config.rasi
 sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/pacman-mirrorlist -o /etc/pacman.d/mirrorlist
-sudo mkdir -p /etc/pacman.d/hooks && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/firejail.hook -o /etc/pacman.d/hooks/firejail.hook && mkdir -p ~/.config/firejail && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/mpv.profile -o ~/.config/firejail/mpv.profile && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ristretto.local -o ~/.config/firejail/ristretto.local && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ssh.profile -o ~/.config/firejail/ssh.profile && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/flameshot.local -o ~/.config/firejail/flameshot.local && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/zathura.local -o ~/.config/firejail/zathura.local && sudo sed -i "s/#\ browser-allow-drm\ no/browser-allow-drm\ yes/g" /etc/firejail/firejail.config && sudo sed -i "s/#\ arg-max-count\ 128/arg-max-count\ 512/g" /etc/firejail/firejail.config
+sudo mkdir -p /etc/pacman.d/hooks && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/firejail.hook -o /etc/pacman.d/hooks/firejail.hook && mkdir -p ~/.config/firejail && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/mpv.profile -o ~/.config/firejail/mpv.profile && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ristretto.local -o ~/.config/firejail/ristretto.local && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ssh.profile -o ~/.config/firejail/ssh.profile && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/zathura.local -o ~/.config/firejail/zathura.local && sudo sed -i "s/#\ browser-allow-drm\ no/browser-allow-drm\ yes/g" /etc/firejail/firejail.config && sudo sed -i "s/#\ arg-max-count\ 128/arg-max-count\ 512/g" /etc/firejail/firejail.config
 sudo mkdir -p /usr/local/bin && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/system-backup.sh -o /usr/local/bin/system-backup && sudo chmod +x /usr/local/bin/system-backup && sudo mkdir -p /usr/local/lib/systemd/system && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/system-backup.service -o /usr/local/lib/systemd/system/system-backup.service && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/system-backup.timer -o /usr/local/lib/systemd/system/system-backup.timer && sudo systemctl enable --now system-backup.timer
 source ~/.bashrc
 ```
