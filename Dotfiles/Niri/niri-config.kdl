@@ -70,6 +70,13 @@ hotkey-overlay {
     skip-at-startup
 }
 
+// Disable hot-corners
+gestures {
+    hot-corners {
+        off
+    }
+}
+
 // Disable client-side decorations
 prefer-no-csd
 
@@ -111,13 +118,11 @@ binds {
     Mod+M { spawn "mousepad"; }
     Mod+C { spawn "speedcrunch"; }
     Mod+B { spawn "firefox"; }
+    Mod+P { screenshot; }
     Mod+A { spawn-sh "rofi -show drun -show-icons"; }
     Mod+Z { spawn-sh "zaman"; }
     Mod+L { spawn-sh "swaylock -feti ~/Pictures/Niri/lock.png -s fill"; }
     Mod+Escape { spawn-sh "~/Documents/Scripts/power-menu.sh"; }
-    Mod+P { screenshot; }
-    Mod+Tab repeat=false { toggle-overview; }
-    Mod+D repeat=false { close-window; }
 
     F7 { spawn-sh "playerctl previous"; }
     F8 { spawn-sh "playerctl play-pause"; }
@@ -125,6 +130,17 @@ binds {
     F10 { spawn-sh "pactl set-sink-mute @DEFAULT_SINK@ toggle"; }
     F11 { spawn-sh "pactl set-sink-volume @DEFAULT_SINK@ -5%"; }
     F12 { spawn-sh "pactl set-sink-volume @DEFAULT_SINK@ +5%"; }
+
+    Mod+Tab repeat=false { toggle-overview; }
+    Mod+D repeat=false { close-window; }
+    Mod+G { center-column; }
+    Mod+F { maximize-column; }
+    Mod+Shift+F { expand-column-to-available-width; }
+    Mod+F11 { fullscreen-window; }
+    Mod+parenright { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+    Mod+V { consume-or-expel-window-left ; }
+    Mod+Space { toggle-window-floating; }
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
@@ -138,14 +154,6 @@ binds {
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
     Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
-    Mod+G { center-column; }
-    Mod+F { maximize-column; }
-    Mod+Shift+F { expand-column-to-available-width; }
-    Mod+F11 { fullscreen-window; }
-    Mod+parenright { set-column-width "-10%"; }
-    Mod+Equal { set-column-width "+10%"; }
-    Mod+V { consume-or-expel-window-left ; }
-    Mod+Space { toggle-window-floating; }
 
     Mod+F1 { focus-workspace 1; }
     Mod+F2 { focus-workspace 2; }
@@ -157,6 +165,16 @@ binds {
     Mod+F8 { focus-workspace 8; }
     Mod+F9 { focus-workspace 9; }
     Mod+F10 { focus-workspace 10; }
+    Mod+Shift+F1 { move-column-to-workspace 1; }
+    Mod+Shift+F2 { move-column-to-workspace 2; }
+    Mod+Shift+F3 { move-column-to-workspace 3; }
+    Mod+Shift+F4 { move-column-to-workspace 4; }
+    Mod+Shift+F5 { move-column-to-workspace 5; }
+    Mod+Shift+F6 { move-column-to-workspace 6; }
+    Mod+Shift+F7 { move-column-to-workspace 7; }
+    Mod+Shift+F8 { move-column-to-workspace 8; }
+    Mod+Shift+F9 { move-column-to-workspace 9; }
+    Mod+Shift+F10 { move-column-to-workspace 10; }
 
     Mod+N allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Ctrl+Alt+Delete { quit; }
