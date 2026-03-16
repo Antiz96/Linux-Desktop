@@ -23,12 +23,12 @@ vim ~/.bash_profile # Append the following
 ```text
 # Autostart Niri
 if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-	export XDG_CURRENT_DESKTOP=niri
-	export XDG_SESSION_DESKTOP=niri
-	export XDG_SESSION_TYPE=wayland
-	export QT_QPA_PLATFORM=wayland
-	export SDL_VIDEODRIVER=wayland
-	exec niri-session -l
+        export XDG_CURRENT_DESKTOP=niri
+        export XDG_SESSION_DESKTOP=niri
+        export XDG_SESSION_TYPE=wayland
+        export QT_QPA_PLATFORM=wayland
+        export SDL_VIDEODRIVER=wayland
+        exec niri-session -l
 fi
 ```
 
