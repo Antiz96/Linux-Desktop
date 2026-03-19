@@ -52,6 +52,7 @@ layout {
 }
 
 // Autostart config
+spawn-at-startup "oniri"
 spawn-at-startup "nwg-panel"
 spawn-at-startup "swaync"
 spawn-at-startup "nm-applet"
@@ -82,22 +83,6 @@ prefer-no-csd
 
 // Path for screenshots
 screenshot-path "~/Downloads/Screenshot_%Y-%m-%d_%H-%M-%S.png"
-
-// Open Terminal, Firefox and Thunderbird maximized
-window-rule {
-    match app-id="xfce4-terminal$"
-    open-maximized true
-}
-
-window-rule {
-    match app-id="firefox$"
-    open-maximized true
-}
-
-window-rule {
-    match app-id=r#"(org.mozilla.Thunderbird)"#
-    open-maximized true
-}
 
 // Open the Firefox picture-in-picture player as floating by default
 window-rule {
