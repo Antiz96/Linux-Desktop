@@ -17,7 +17,8 @@
     "icons": "light",
     "css-name": "panel-top",
     "modules-left": [
-      "executor-start-menu"
+      "executor-start-menu",
+      "niri-taskbar"
     ],
     "modules-center": [
       "clock"
@@ -237,7 +238,20 @@
     "monitor": "",
     "width-as-percentage": false,
     "hyprland-submap": {},
-    "niri-taskbar": {},
+    "niri-taskbar": {
+      "name-max-len": 24,
+      "icon-size": 16,
+      "workspaces-spacing": 0,
+      "client-padding": 0,
+      "workspace-label": "idx",
+      "show-app-icon": true,
+      "show-app-name": false,
+      "show-layout": true,
+      "all-outputs": false,
+      "angle": 0.0,
+      "image-size": 16,
+      "task-padding": 0
+    },
     "random-wallpaper": {},
     "pinned": {}
   }
