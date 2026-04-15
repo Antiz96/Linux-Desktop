@@ -164,7 +164,7 @@ vim /etc/mkinitcpio.d/linux.preset
 
 ### Setup Unified Kernel Image (UKI)
 
-A [UKI](https://wiki.archlinux.org/title/Unified_kernel_image) is the combination of the UEFI boot stub, the kernel & kernel cmdline, the initramfs and other ressources into a single executable file which can be booted from boot loaders. It allows for a simpler systemd-boot setup (as it [automatically looks for UKIs without requiring additional configuration](https://wiki.archlinux.org/title/Unified_kernel_image#systemd-boot)) and a simpler bootchain overall. I also allows to include the initramfs into the Secure Boot verification (which would otherwise be unverified as it the initramfs intervenes later in the boot process) by booting, signing and verify the UKI (which itself contains the initramfs).
+A [UKI](https://wiki.archlinux.org/title/Unified_kernel_image) is the combination of the UEFI boot stub, the kernel & kernel cmdline, the initramfs and other resources into a single executable file which can be booted from boot loaders. It allows for a simpler systemd-boot setup (as it [automatically looks for UKIs without requiring additional configuration](https://wiki.archlinux.org/title/Unified_kernel_image#systemd-boot)) and a simpler bootchain overall. I also allows to include the initramfs into the Secure Boot verification (which would otherwise be unverified as it the initramfs intervenes later in the boot process) by booting, signing and verify the UKI (which itself contains the initramfs).
 
 #### Set the kernel cmdline
 
