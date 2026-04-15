@@ -144,40 +144,6 @@ sudo pacman -S nwg-displays tlp
 sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket && sudo systemctl enable --now tlp.service
 ```
 
-## Setup AppArmor and Firejail profile
-
-### Add the required kernel parameters to enable AppArmor as default security model on every boot
-
-- Without disk encryption / UKI / Secure Boot:
-
-```bash
-sudo vim /boot/loader/entries/arch.conf
-```
-
-> [...]  
-> options root=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx rw **lsm=landlock,lockdown,yama,integrity,apparmor,bpf**
-
-- With disk encryption / UKI / Secure Boot:
-
-```bash
-sudo vim /etc/kernel/cmdline
-```
-
-> rd.luks.name=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX=root rd.luks.options=password-echo=no root=/dev/mapper/root rw **lsm=landlock,lockdown,yama,integrity,apparmor,bpf**
-
-### Regenerate initramfs / UKI and reboot to apply
-
-```bash
-sudo mkinitcpio -P
-reboot
-```
-
-### Load Firejail's AppArmor profile into the kernel
-
-```bash
-sudo apparmor_parser -r /etc/apparmor.d/firejail-default
-```
-
 ## Bash Theme
 
 <https://github.com/speedenator/agnoster-bash>
@@ -283,7 +249,7 @@ sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/
 - Firejail config and resources
 
 ```bash
-sudo mkdir -p /etc/pacman.d/hooks && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/firejail.hook -o /etc/pacman.d/hooks/firejail.hook && mkdir -p ~/.config/firejail && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/mpv.profile -o ~/.config/firejail/mpv.profile && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ristretto.local -o ~/.config/firejail/ristretto.local && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ssh.profile -o ~/.config/firejail/ssh.profile && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/zathura.local -o ~/.config/firejail/zathura.local && sudo sed -i "s/#\ browser-allow-drm\ no/browser-allow-drm\ yes/g" /etc/firejail/firejail.config && sudo sed -i "s/#\ arg-max-count\ 128/arg-max-count\ 512/g" /etc/firejail/firejail.config
+sudo mkdir -p /etc/pacman.d/hooks && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/firejail.hook -o /etc/pacman.d/hooks/firejail.hook && mkdir -p ~/.config/firejail && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/mpv.profile -o ~/.config/firejail/mpv.profile && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ristretto.local -o ~/.config/firejail/ristretto.local && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ssh.profile -o ~/.config/firejail/ssh.profile && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/zathura.local -o ~/.config/firejail/zathura.local && sudo sed -i "s/#\ browser-allow-drm\ no/browser-allow-drm\ yes/g" /etc/firejail/firejail.config && sudo sed -i "s/#\ arg-max-count\ 128/arg-max-count\ 512/g" /etc/firejail/firejail.config && sudo apparmor_parser -r /etc/apparmor.d/firejail-default
 ```
 
 - System-backup script and systemd units
