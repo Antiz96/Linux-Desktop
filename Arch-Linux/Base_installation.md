@@ -175,7 +175,6 @@ vim /etc/kernel/cmdline # Add our encrypted root partition to the kernel cmdline
 
 - With disk encryption:
 
-> cryptdevice=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:root root=/dev/mapper/root rw # Run 'blkid' to get the UID of your root partition
 > rd.luks.name=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx=root rd.luks.options=password-echo=no root=/dev/mapper/root rw # Run 'blkid' to get the UID of your root partition
 
 - Without disk encryption:
