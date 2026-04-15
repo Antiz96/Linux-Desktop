@@ -134,14 +134,13 @@ sudo pacman -S abuild atools-go capitaine-cursors ccid discord distrobox fastfet
 paru -S arch-update nerdtree-git-plugin-git onlyoffice-bin oniri ventoy-bin zaman
 sudo pacman -S --asdeps gnome-keyring gnu-free-fonts qt5-wayland systemd-resolvconf ttf-dejavu ttf-nerd-fonts-symbols xdg-utils # Optional dependencies I need for the above packages
 systemctl --user enable --now arch-update.timer ssh-agent.service
-sudo systemctl enable --now apparmor pcscd
+sudo systemctl enable --now pcscd
 ```
 
 - Laptop only packages:
 
 ```bash
-sudo pacman -S nwg-displays tlp
-sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket && sudo systemctl enable --now tlp.service
+sudo pacman -S nwg-displays
 ```
 
 ## Bash Theme
