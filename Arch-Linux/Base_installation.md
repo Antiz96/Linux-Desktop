@@ -54,6 +54,7 @@ mkfs.ext4 /dev/mapper/root # Create the filesystem for the root mapper
 mkfs.fat -F32 /dev/nvme0n1p1 # Create the filesystem for the ESP
 mkfs.ext4 /dev/nvme0n1p2 # Create the filesystem for the root partition
 ```
+
 ### Mount partitions and install the base system
 
 - With disk encryption:
