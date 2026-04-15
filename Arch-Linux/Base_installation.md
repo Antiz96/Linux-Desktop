@@ -188,22 +188,10 @@ vim /etc/mkinitcpio.d/linux.preset # Enable UKI options in mkinitcpio preset for
 ```
 
 ```text
-# mkinitcpio preset file for the 'linux' package
-
-#ALL_config="/etc/mkinitcpio.conf"
-ALL_kver="/boot/vmlinuz-linux"
-
-PRESETS=('default')
-
-#default_config="/etc/mkinitcpio.conf"
+[...]
 #default_image="/boot/initramfs-linux.img" # Comment the "regular" image line
 default_uki="/efi/EFI/Linux/arch-linux.efi" # Uncomment the "uki" line, make sure the root directory is pointing to /efi (should be the case by default) as this is where the ESP is mounted
-default_options="--splash /usr/share/systemd/bootctl/splash-arch.bmp"
-
-#fallback_config="/etc/mkinitcpio.conf"
-#fallback_image="/boot/initramfs-linux-fallback.img" # Comment the "regular" fallback image line
-fallback_uki="/boot/EFI/Linux/arch-linux-fallback.efi" # Uncomment the "uki" fallback line, make sure the root directory is pointing to /efi (should be the case by default) as this is where the ESP is mounted
-fallback_options="-S autodetect"
+[...]
 ```
 
 ```bash
