@@ -91,7 +91,7 @@ pulse.cmd = [
 ]
 ```
 
-### Disable PipeWire HSP/HFP profile (optional)
+### Disable PipeWire HSP/HFP profile
 
 Since wireplumber 0.5, some applications are triggering an audio profile switch for bluetooth headsets from A2DP profile to HSP/HFP profile, which results in a bad audio quality.  
 Most of the time, the audio profile is switched back to A2DP automatically after a few seconds but that's not always the case.
@@ -125,6 +125,14 @@ sudo vim /etc/fstab
 > #Data  
 > UUID=107b1979-e8ed-466d-bb10-15e72f7dd2ae       /run/media/antiz/data         ext4          defaults 0 2
 
+```bash
+sudo mkdir -p /run/media/antiz/data
+sudo chown antiz: /run/media/antiz/data
+sudo chmod 755 /run/media/antiz/data
+sudo mount -a
+sudo systemctl daemon-reload
+```
+
 ## Install additional packages
 
 - Main packages:
@@ -132,7 +140,7 @@ sudo vim /etc/fstab
 ```bash
 sudo pacman -S abuild atools-go capitaine-cursors ccid discord distrobox fastfetch firefox firefoxpwa firejail htop keepassxc mpv noto-fonts-emoji orchis-theme plocate podman powerline-fonts protonmail-bridge rsync speedcrunch steam systray-x tela-circle-icon-theme-blue thunderbird tmux otf-font-awesome vim-devicons vim-nerdtree virt-viewer wireguard-tools wl-clip-persist xwayland-satellite yubico-piv-tool zathura zathura-pdf-poppler
 paru -S arch-update nerdtree-git-plugin-git onlyoffice-bin oniri ventoy-bin zaman
-sudo pacman -S --asdeps gnome-keyring gnu-free-fonts qt5-wayland systemd-resolvconf ttf-dejavu ttf-nerd-fonts-symbols xdg-utils # Optional dependencies I need for the above packages
+sudo pacman -S --asdeps gnome-keyring gnu-free-fonts nvchecker python-packaging qt5-wayland systemd-resolvconf ttf-dejavu ttf-nerd-fonts-symbols xdg-utils # Optional dependencies I need for the above packages
 systemctl --user enable --now arch-update.timer ssh-agent.service
 sudo systemctl enable --now pcscd
 ```
@@ -141,6 +149,31 @@ sudo systemctl enable --now pcscd
 
 ```bash
 sudo pacman -S nwg-displays
+```
+
+## Setup keyd (if needed)
+
+`keyd` is a key remapping daemon I use on devices where the keyboard lacks keys I need or if they are not placed like I'm used to (which is usually the case on laptops). Here's how I remap the `sysrq` and `pause` keys (key names can be obtained via the `sudo keyd monitor` command) to act like the `home` and `end` keys respectively for instance:
+
+```bash
+sudo pacman -S keyd
+sudo systemctl enable --now keyd
+sudoedit /etc/keyd/default.conf
+```
+
+```text
+[ids]
+
+*
+
+[main]
+
+sysrq = home
+pause = end
+```
+
+```bash
+sudo keyd reload
 ```
 
 ## Bash Theme
