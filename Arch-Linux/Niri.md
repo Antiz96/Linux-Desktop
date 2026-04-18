@@ -272,6 +272,13 @@ mkdir -p ~/.config/xfce4/xfconf/xfce-perchannel-xml && curl https://raw.githubus
 mkdir -p ~/.config/rofi/ && curl https://raw.githubusercontent.com/newmanls/rofi-themes-collection/master/themes/spotlight-dark.rasi -o ~/.config/rofi/spotlight-dark.rasi && sed -i s/border-radius:\ \ 8/border-radius:\ \ 0/ ~/.config/rofi/spotlight-dark.rasi && sed -i "/\bplaceholder\b/d" ~/.config/rofi/spotlight-dark.rasi && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/rofi-config -o ~/.config/rofi/config.rasi
 ```
 
+- Thunderbird Exec override (for systray-x minimize to tray support on Wayland):
+
+```bash
+cp /usr/share/applications/org.mozilla.Thunderbird.desktop ~/.local/share/applications/org.mozilla.Thunderbird.desktop
+sed -i 's|Exec=thunderbird %u|Exec=env MOZ_ENABLE_WAYLAND=0 thunderbird %u|' ~/.local/share/applications/org.mozilla.Thunderbird.desktop
+```
+
 - Pacman mirrorlist
 
 ```bash
