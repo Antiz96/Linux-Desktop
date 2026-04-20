@@ -63,7 +63,7 @@ mkfs.ext4 /dev/nvme0n1p2 # Create the filesystem for the root partition
 mount /dev/mapper/root /mnt # Mount the root mapper on /mnt
 mkdir /mnt/efi # Create the ESP directory
 mount /dev/nvme0n1p1 /mnt/efi # Mount ESP
-mkswap -U clear --size 8G --file /mnt/swapfile # Create a swapfile
+mkswap -U clear --size 4G --file /mnt/swapfile # Create a swapfile
 swapon /mnt/swapfile # Activate the swapfile
 pacstrap /mnt base linux linux-firmware # Install the base system on the root partition
 genfstab -U /mnt >> /mnt/etc/fstab # Generate the fstab
@@ -75,7 +75,7 @@ genfstab -U /mnt >> /mnt/etc/fstab # Generate the fstab
 mount /dev/nvme0n1p2 /mnt # Mount the root partition on /mnt
 mkdir /mnt/efi # Create the ESP directory
 mount /dev/nvme0n1p1 /mnt/efi # Mount ESP
-mkswap -U clear --size 8G --file /mnt/swapfile # Create a swapfile
+mkswap -U clear --size 4G --file /mnt/swapfile # Create a swapfile
 swapon /mnt/swapfile # Activate the swapfile
 pacstrap /mnt base linux linux-firmware # Install the base system on the root partition
 genfstab -U /mnt >> /mnt/etc/fstab # Generate the fstab
