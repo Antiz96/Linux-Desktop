@@ -72,7 +72,7 @@ genfstab -U /mnt >> /mnt/etc/fstab # Generate the fstab
 - Without disk encryption:
 
 ```bash
-mount /dev/nvme0n1p3 /mnt # Mount the root partition on /mnt
+mount /dev/nvme0n1p2 /mnt # Mount the root partition on /mnt
 mkdir /mnt/efi # Create the ESP directory
 mount /dev/nvme0n1p1 /mnt/efi # Mount ESP
 mkswap -U clear --size 8G --file /mnt/swapfile # Create a swapfile
