@@ -13,7 +13,8 @@ mkdir -p "${backup_dir}"
 
 rsync_cmd() {
 	rsync -aAXHv --delete \
-	--exclude "${backup_dir}"'/*' \
+	--exclude="${backup_dir}"'/*' \
+	--exclude='/data/*' \
 	--exclude='/swapfile' \
 	--exclude='/dev/*' \
 	--exclude='/proc/*' \
