@@ -115,7 +115,7 @@ monitor.bluez.properties = {
 
 See <https://gitlab.freedesktop.org/pipewire/wireplumber/-/issues/634> & <https://wiki.archlinux.org/title/Bluetooth_headset#Disable_PipeWire_HSP/HFP_profile> for more details.
 
-## Mount secondary disk in fstab
+## Mount secondary / data disk in fstab (if needed)
 
 ```bash
 sudo blkid # Check the UUID of my secondary disk
@@ -123,12 +123,12 @@ sudo vim /etc/fstab
 ```
 
 > #Data  
-> UUID=107b1979-e8ed-466d-bb10-15e72f7dd2ae       /run/media/antiz/data         ext4          defaults 0 2
+> UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx       /data         ext4          defaults,x-gvfs-show 0 2
 
 ```bash
-sudo mkdir -p /run/media/antiz/data
-sudo chown antiz: /run/media/antiz/data
-sudo chmod 755 /run/media/antiz/data
+sudo mkdir /data
+sudo chown antiz: /data
+sudo chmod 755 /data
 sudo mount -a
 sudo systemctl daemon-reload
 ```

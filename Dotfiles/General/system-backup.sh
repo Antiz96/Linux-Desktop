@@ -2,7 +2,7 @@
 
 option="${1}"
 argument="${2}"
-backup_dir="/run/media/antiz/data/Backup/System_Backup"
+backup_dir="/data/Backup/System_Backup"
 
 if [ "${EUID}" -ne 0 ]; then
 	echo "Please, run as root"
