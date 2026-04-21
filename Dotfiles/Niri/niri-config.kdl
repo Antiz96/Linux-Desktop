@@ -52,7 +52,7 @@ layout {
 }
 
 // Autostart config
-spawn-at-startup "oniri"
+spawn-sh-at-startup "oniri --tiling-layout"
 spawn-at-startup "nwg-panel"
 spawn-at-startup "swaync"
 spawn-at-startup "nm-applet"
