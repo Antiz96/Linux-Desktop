@@ -208,7 +208,7 @@ vim /etc/mkinitcpio.conf # Add the "sd-encrypt" kernel hook into the mkinitcpio 
 ```
 
 > [...]  
-> HOOKS=(base systemd autodetect microcode modconf kms keyboard sd-vconsole **sd-encrypt** block filesystems fsck)  
+> HOOKS=(base systemd autodetect microcode modconf kms keyboard sd-vconsole block **sd-encrypt** filesystems fsck)  
 > [...]
 
 ### Setup AppArmor
