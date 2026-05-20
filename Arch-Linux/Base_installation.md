@@ -1,6 +1,6 @@
 # Arch Linux base installation
 
-This is my personal installation routine for Arch Linux.
+This is my personal base installation routine for my Arch Linux desktop setup (server setup is documented [here](https://github.com/Antiz96/Linux-Server/blob/main/VMs/Arch-Linux_Server_Template.md)).
 
 ## Pre-configuration
 
@@ -284,7 +284,7 @@ reboot # Reboot the computer to boot into the fresh Arch install
 ## Log in with the "regular" user previously created and install additional useful packages
 
 ```bash
-sudo pacman -S devtools man bash-completion amd-ucode pacman-contrib # Additional useful packages and drivers. Install "intel-ucode" instead of "amd-ucode" if you have an Intel CPU
+sudo pacman -S man bash-completion amd-ucode pacman-contrib # Additional useful packages and drivers. Install "intel-ucode" instead of "amd-ucode" if you have an Intel CPU
 ```
 
 ## Install and configure firewalld
