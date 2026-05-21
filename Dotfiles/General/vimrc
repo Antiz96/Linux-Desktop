@@ -30,11 +30,9 @@ set hls
 "Press space to turn off highlighting after a search
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
-"Auto indentation (cursor goes at the same level as the beginning of the previous line)
+"Automatic indentation
 set autoindent
-
-"Smart indentation (automatic tab when writing code)
-set smartindent
+filetype plugin indent on
 
 "Enable mouse support
 set mouse=a
