@@ -100,12 +100,12 @@ window-rule {
 binds {
     Mod+T { spawn "xfce4-terminal"; }
     Mod+E { spawn "thunar"; }
-    Mod+M { spawn "mousepad"; }
+    Mod+N { spawn "mousepad"; }
     Mod+C { spawn "speedcrunch"; }
     Mod+B { spawn "firefox"; }
     Mod+P { screenshot; }
     Mod+A { spawn-sh "rofi -show drun -show-icons"; }
-    Mod+Z { spawn-sh "zaman"; }
+    Mod+M { spawn-sh "zaman"; }
     Mod+L { spawn-sh "swaylock -feti ~/Pictures/Niri/lock.png -s fill"; }
     Mod+Escape { spawn-sh "~/Documents/Scripts/power-menu.sh"; }
 
@@ -161,6 +161,6 @@ binds {
     Mod+Shift+F9 { move-column-to-workspace 9; }
     Mod+Shift+F10 { move-column-to-workspace 10; }
 
-    Mod+N allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+    Mod+I allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Ctrl+Alt+Delete { quit; }
 }
