@@ -105,7 +105,7 @@ binds {
     Mod+B { spawn "firefox"; }
     Mod+P { screenshot; }
     Mod+A { spawn-sh "rofi -show drun -show-icons"; }
-    Mod+M { spawn-sh "zaman"; }
+    Mod+M { spawn-sh "xfce4-terminal -e manora"; }
     Mod+L { spawn-sh "swaylock -feti ~/Pictures/Niri/lock.png -s fill"; }
     Mod+Escape { spawn-sh "~/Documents/Scripts/power-menu.sh"; }
 
