@@ -52,11 +52,11 @@ layout {
 }
 
 // Autostart config
-spawn-sh-at-startup "oniri --tiling-layout"
 spawn-at-startup "nwg-panel"
 spawn-at-startup "swaync"
 spawn-at-startup "nm-applet"
 spawn-at-startup "blueman-applet"
+spawn-sh-at-startup "oniri --tiling-layout"
 spawn-sh-at-startup "~/Documents/Scripts/dynamic-wallpaper.sh"
 spawn-sh-at-startup "~/Documents/Scripts/swayidle.sh"
 spawn-sh-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
