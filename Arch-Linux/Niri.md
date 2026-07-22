@@ -145,7 +145,7 @@ sudo systemctl daemon-reload
 
 ```bash
 sudo pacman -S abuild ansible atools-go capitaine-cursors ccid discord distrobox fastfetch firefox firefoxpwa firejail htop keepassxc mpv noto-fonts-emoji orchis-theme plocate podman powerline-fonts protonmail-bridge rsync rust speedcrunch steam systray-x tela-circle-icon-theme-blue thunderbird tmux otf-font-awesome vim-devicons vim-nerdtree virt-viewer wireguard-tools wl-clip-persist xwayland-satellite yubico-piv-tool zathura zathura-pdf-poppler
-paru -S arch-update manora nerdtree-git-plugin-git onlyoffice-bin oniri ventoy-bin
+paru -S arch-update lungo manora nerdtree-git-plugin-git onlyoffice-bin oniri ventoy-bin
 sudo pacman -S --asdeps gnome-keyring gnu-free-fonts nvchecker python-packaging qt5-wayland systemd-resolvconf ttf-dejavu ttf-nerd-fonts-symbols xdg-utils # Optional dependencies I need for the above packages
 systemctl --user enable --now arch-update.timer ssh-agent.service
 sudo systemctl enable --now pcscd
@@ -209,7 +209,7 @@ mkdir -p ~/Pictures/wallpapers && curl https://raw.githubusercontent.com/Antiz96
 - Nwg-panel config and resources
 
 ```bash
-mkdir -p ~/.config/nwg-panel && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Niri/nwg-panel-config -o ~/.config/nwg-panel/config && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Niri/nwg-panel-style.css -o ~/.config/nwg-panel/style.css && mkdir -p ~/Pictures/nwg-panel && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/Arch_Panel.svg -o ~/Pictures/nwg-panel/Arch_Panel.svg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/restart-panel.svg -o ~/Pictures/nwg-panel/restart-panel.svg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/caffeine-cup-empty.svg -o ~/Pictures/nwg-panel/caffeine-cup-empty.svg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/caffeine-cup-full.svg -o ~/Pictures/nwg-panel/caffeine-cup-full.svg && cp -f ~/Pictures/nwg-panel/caffeine-cup-empty.svg ~/Pictures/nwg-panel/autolock.svg
+mkdir -p ~/.config/nwg-panel && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Niri/nwg-panel-config -o ~/.config/nwg-panel/config && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Niri/nwg-panel-style.css -o ~/.config/nwg-panel/style.css && mkdir -p ~/Pictures/nwg-panel && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/Arch_Panel.svg -o ~/Pictures/nwg-panel/Arch_Panel.svg
 ```
 
 - Tmux config
