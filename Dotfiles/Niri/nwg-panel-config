@@ -24,9 +24,7 @@
       "clock"
     ],
     "modules-right": [
-      "executor-autolock",
-      "tray",
-      "executor-restart-panel"
+      "tray"
     ],
     "controls-settings": {
       "components": [
@@ -164,7 +162,12 @@
     "exclusive-zone": true,
     "sigrt": 64,
     "use-sigrt": false,
-    "scratchpad": {},
+    "scratchpad": {
+      "css-name": "",
+      "icon-size": 16,
+      "angle": 0.0,
+      "single-output": false
+    },
     "sway-mode": {},
     "openweather": {},
     "brightness-slider": {},
@@ -194,40 +197,6 @@
       "css-name": "",
       "icon-placement": "left",
       "icon-size": 16,
-      "interval": 1,
-      "angle": 0.0,
-      "sigrt": 34,
-      "use-sigrt": false
-    },
-    "executor-autolock": {
-      "script": "echo /home/antiz/Pictures/nwg-panel/autolock.svg",
-      "tooltip-text": "",
-      "on-left-click": "killall systemd-inhibit && cp -f ~/Pictures/nwg-panel/caffeine-cup-empty.svg ~/Pictures/nwg-panel/autolock.svg && nwg-panel -sigdwl 1",
-      "on-middle-click": "",
-      "on-right-click": "cp -f ~/Pictures/nwg-panel/caffeine-cup-full.svg ~/Pictures/nwg-panel/autolock.svg && nwg-panel -sigdwl 1 && systemd-inhibit sleep infinity",
-      "on-scroll-up": "",
-      "on-scroll-down": "",
-      "root-css-name": "",
-      "css-name": "",
-      "icon-placement": "left",
-      "icon-size": 22,
-      "interval": 1,
-      "angle": 0.0,
-      "sigrt": 34,
-      "use-sigrt": false
-    },
-    "executor-restart-panel": {
-      "script": "echo /home/antiz/Pictures/nwg-panel/restart-panel.svg",
-      "tooltip-text": "",
-      "on-left-click": "nwg-panel -sigdwl 1",
-      "on-middle-click": "",
-      "on-right-click": "",
-      "on-scroll-up": "",
-      "on-scroll-down": "",
-      "root-css-name": "",
-      "css-name": "",
-      "icon-placement": "left",
-      "icon-size": 22,
       "interval": 1,
       "angle": 0.0,
       "sigrt": 34,
