@@ -1,0 +1,4 @@
+# Whitelist ~/.config/librewolf for profile / settings persistence
+noblacklist ${HOME}/.config/librewolf
+mkdir ${HOME}/.config/librewolf
+whitelist ${HOME}/.config/librewolf
