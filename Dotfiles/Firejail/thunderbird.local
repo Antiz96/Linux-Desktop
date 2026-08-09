@@ -1,4 +1,4 @@
-# These lines are needed to allow Firefox to load your profile when clicking a link in an email
+# These lines are needed to allow Librewolf to load your profile when clicking a link in an email
 noblacklist ${HOME}/.config/librewolf
 noblacklist ${HOME}/.librewolf
 whitelist ${HOME}/.config/librewolf/librewolf/profiles.ini
