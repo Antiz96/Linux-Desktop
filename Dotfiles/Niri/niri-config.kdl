@@ -65,7 +65,6 @@ spawn-sh-at-startup "sleep 3 && lungo"
 spawn-sh-at-startup "gammastep-indicator -l 49.443232:1.099971"
 spawn-sh-at-startup "playerctld daemon"
 spawn-sh-at-startup "wl-clip-persist --clipboard regular"
-spawn-sh-at-startup "protonmail-bridge --no-window"
 
 // Disable help menu at startup
 hotkey-overlay {

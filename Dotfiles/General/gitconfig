@@ -1,6 +1,6 @@
 [user]
 	name = Robin Candau
-	email = robincandau@protonmail.com
+	email = robincandau@mailbox.org
 	signingkey = A67CCEEBF9613C17FDE96E4ED33FAA16B937F3B2
 [push]
 	autoSetupRemote = true

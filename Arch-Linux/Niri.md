@@ -144,7 +144,7 @@ sudo systemctl daemon-reload
 - Main packages:
 
 ```bash
-sudo pacman -S abuild ansible atools-go capitaine-cursors ccid discord distrobox fastfetch firefoxpwa firejail htop keepassxc librewolf mpv noto-fonts-emoji orchis-theme plocate podman powerline-fonts protonmail-bridge rsync rust speedcrunch steam systray-x tela-circle-icon-theme-blue thunderbird tmux otf-font-awesome vim-devicons vim-nerdtree virt-viewer wireguard-tools wl-clip-persist xwayland-satellite yubico-piv-tool zathura zathura-pdf-poppler
+sudo pacman -S abuild ansible atools-go capitaine-cursors ccid discord distrobox fastfetch firefoxpwa firejail htop keepassxc librewolf mpv noto-fonts-emoji orchis-theme plocate podman powerline-fonts rsync rust speedcrunch steam systray-x tela-circle-icon-theme-blue thunderbird tmux otf-font-awesome vim-devicons vim-nerdtree virt-viewer wireguard-tools wl-clip-persist xwayland-satellite yubico-piv-tool zathura zathura-pdf-poppler
 paru -S arch-update lungo manora nerdtree-git-plugin-git onlyoffice-bin oniri ventoy-bin
 sudo pacman -S --asdeps gnome-keyring gnu-free-fonts nvchecker python-jq python-packaging qt5-wayland systemd-resolvconf ttf-dejavu ttf-nerd-fonts-symbols xdg-utils # Optional dependencies I need for the above packages
 arch-update --check --enable
