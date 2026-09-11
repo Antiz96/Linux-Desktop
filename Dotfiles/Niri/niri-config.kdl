@@ -101,7 +101,7 @@ binds {
     Mod+T { spawn "xfce4-terminal"; }
     Mod+E { spawn "thunar"; }
     Mod+N { spawn "mousepad"; }
-    Mod+C { spawn "speedcrunch"; }
+    Mod+C { spawn "gnome-calculator"; }
     Mod+B { spawn "librewolf"; }
     Mod+P { screenshot; }
     Mod+A { spawn-sh "rofi -show drun -show-icons"; }
