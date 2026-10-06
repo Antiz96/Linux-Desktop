@@ -18,7 +18,7 @@
     "css-name": "panel-top",
     "modules-left": [
       "executor-start-menu",
-      "niri-taskbar"
+      "niri-workspaces"
     ],
     "modules-center": [
       "clock"
@@ -73,7 +73,10 @@
     },
     "tray": {
       "root-css-name": "tray",
-      "inner-css-name": "inner-tray"
+      "inner-css-name": "inner-tray",
+      "icon-size": 16,
+      "smooth-scrolling-threshold": 0,
+      "new-left": false
     },
     "sway-taskbar": {
       "workspace-menu": [
@@ -222,6 +225,17 @@
       "task-padding": 0
     },
     "random-wallpaper": {},
-    "pinned": {}
+    "pinned": {},
+    "niri-workspaces": {
+      "show-workspaces-from-all-outputs": true,
+      "sort-outputs-by-x": true,
+      "show-per-ws-app-icons": true,
+      "show-icon": false,
+      "icon-size": 16,
+      "show-name": false,
+      "name-length": 40,
+      "angle": 0.0
+    },
+    "mango-tags": {}
   }
 ]
