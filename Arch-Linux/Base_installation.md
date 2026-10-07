@@ -106,7 +106,7 @@ vim /etc/pacman.conf # Enable the "Color", "VerbosePkgLists" and "ParallelDownlo
 ### Language/Region configuration
 
 ```bash
-ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime # Set up the Region/TimeZone
+ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime # Setup the Region/TimeZone
 hwclock --systohc # Synchronize the Hardware Clock
 vim /etc/locale.gen # Uncomment the locale (for me: en_US.UTF-8 UTF-8)
 locale-gen # Generate the locale
@@ -231,7 +231,7 @@ vim /etc/kernel/cmdline
 
 This is required since `systemd 262`, see [the related upstream issue](https://github.com/systemd/systemd/issues/43848) and [Arch Wiki section](https://wiki.archlinux.org/title/Trusted_Platform_Module#PCR_policies).
 
-I'm not adding any Secure Boot related parameters into the PCR policy because Secure Boot is handled separately via `sbctl` in a [later step](#set-up-secure-boot).
+I'm not adding any Secure Boot related parameters into the PCR policy because Secure Boot is handled separately via `sbctl` in a [later step](#setup-secure-boot).
 
 ```bash
 ukify genkey --pcr-private-key=/etc/systemd/tpm2-pcr-private-key.pem --pcr-public-key=/etc/systemd/tpm2-pcr-public-key.pem
@@ -365,7 +365,7 @@ sudo systemctl enable --now fstrim.timer
 sudo timedatectl set-ntp true
 ```
 
-## Set up Secure Boot
+## Setup Secure Boot
 
 Secure Boot adds an additional layer of security by maintaining a cryptographically signed list of binaries authorized to be booted. It basically helps in improving the confidence that the machine core boot components such as the boot-loader, kernel / kernel cmdline and initramfs (when using UKI) have not been tampered with (more info in the related [Arch Wiki page](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot)).
 
