@@ -227,11 +227,11 @@ vim /etc/kernel/cmdline
 
 > root=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx rw **lsm=landlock,lockdown,yama,integrity,apparmor,bpf**
 
-### Setup PCR policy for the UKI
+### Setup PCR policy for the UKI (if using Secure Boot)
 
-This is required since `systemd 262`, see [the related upstream issue](https://github.com/systemd/systemd/issues/43848) and [Arch Wiki section](https://wiki.archlinux.org/title/Trusted_Platform_Module#PCR_policies).
+This is required since `systemd 262` when using Secure Boot to avoid PCR/tpm2 related issues, see [the related upstream issue](https://github.com/systemd/systemd/issues/43848) and [Arch Wiki section](https://wiki.archlinux.org/title/Trusted_Platform_Module#PCR_policies).
 
-I'm not adding any Secure Boot related parameters into the PCR policy because Secure Boot is handled separately via `sbctl` in a [later step](#setup-secure-boot).
+Note that I'm not adding any Secure Boot related parameters directly into the configuration file because it will be setup separately via `sbctl` in a [later step](#setup-secure-boot).
 
 ```bash
 ukify genkey --pcr-private-key=/etc/systemd/tpm2-pcr-private-key.pem --pcr-public-key=/etc/systemd/tpm2-pcr-public-key.pem
