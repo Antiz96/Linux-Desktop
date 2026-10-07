@@ -231,7 +231,7 @@ vim /etc/kernel/cmdline
 
 This is required since `systemd 262`, see [the related upstream issue](https://github.com/systemd/systemd/issues/43848) and [Arch Wiki section](https://wiki.archlinux.org/title/Trusted_Platform_Module#PCR_policies).
 
-I'm not adding any Secure Boot related parameters into the PCR policy because Secure Boot is handled separatly via `sbctl` in a [later step](#set-up-secure-boot).
+I'm not adding any Secure Boot related parameters into the PCR policy because Secure Boot is handled separately via `sbctl` in a [later step](#set-up-secure-boot).
 
 ```bash
 ukify genkey --pcr-private-key=/etc/systemd/tpm2-pcr-private-key.pem --pcr-public-key=/etc/systemd/tpm2-pcr-public-key.pem
