@@ -12,4 +12,6 @@ else
 	time="night"
 fi
 
-swaybg --output "*" --image "${HOME}/Pictures/wallpapers/island-${time}.jpg" --mode fill
+killall swaybg || true
+
+swaybg --output "*" --image "${HOME}/Pictures/wallpapers/island-${time}.jpg" --mode fill &
