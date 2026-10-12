@@ -108,9 +108,9 @@ vim /etc/pacman.conf # Enable the "Color", "VerbosePkgLists" and "ParallelDownlo
 ```bash
 ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime # Setup the Region/TimeZone
 hwclock --systohc # Synchronize the Hardware Clock
-vim /etc/locale.gen # Uncomment the locale (for me: en_US.UTF-8 UTF-8)
+vim /etc/locale.gen # Uncomment the locale (for me: en_GB.UTF-8 UTF-8)
 locale-gen # Generate the locale
-vim /etc/locale.conf # Set the LANG variable accordingly in this file (for me: LANG=en_US.UTF-8)
+vim /etc/locale.conf # Set the LANG variable accordingly in this file (for me: LANG=en_GB.UTF-8)
 vim /etc/vconsole.conf # Set the Keymap in this file (for me: KEYMAP=fr)
 ```
 
