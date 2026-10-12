@@ -1,7 +1,7 @@
 [
   {
     "name": "panel-top",
-    "output": "",
+    "output": "All",
     "layer": "bottom",
     "position": "top",
     "controls": "right",
@@ -227,7 +227,7 @@
     "random-wallpaper": {},
     "pinned": {},
     "niri-workspaces": {
-      "show-workspaces-from-all-outputs": true,
+      "show-workspaces-from-all-outputs": false,
       "sort-outputs-by-x": true,
       "show-per-ws-app-icons": true,
       "show-icon": false,
