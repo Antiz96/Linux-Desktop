@@ -37,7 +37,7 @@ sudo apt install vim curl man bash-completion openssh-server socat dnsutils trac
 
 ### Mount root directory with rshared propagation
 
-This is required to run docker / podman containers in WSL:
+This is required to run docker / podman containers in WSL (see <https://wiki.archlinux.org/title/Install_Arch_Linux_on_WSL#Failure_when_running_Docker_containers>):
 
 ```bash
 sudo vim /etc/systemd/system/mount-root-rshared.service
