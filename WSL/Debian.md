@@ -32,13 +32,34 @@ wsl --terminate Debian # Terminate my current session to apply the default user 
 ### Install main packages
 
 ```bash
-sudo apt install vim curl man bash-completion openssh-server socat dnsutils traceroute rsync zip unzip diffutils git tmux plocate htop fastfetch distrobox wl-clipboard
-sudo apt remove docker docker-engine docker.io # Install Docker
-sudo apt install apt-transport-https ca-certificates curl gnupg lsb-release
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt update && sudo apt install docker-ce docker-ce-cli containerd.io
-sudo systemctl enable --now docker
+sudo apt install vim curl man bash-completion openssh-server socat dnsutils traceroute rsync zip unzip diffutils git tmux plocate htop fastfetch distrobox wl-clipboard podman
+```
+
+### Mount root directory with rshared propagation
+
+This is required to run docker / podman containers in WSL:
+
+```bash
+sudo vim /etc/systemd/system/mount-root-rshared.service
+```
+
+```text
+[Unit]
+Description=Remount / with shared propagation
+Requires=-.mount
+After=-.mount
+
+[Service]
+Type=oneshot
+ExecStart=/bin/mount --make-rshared /
+
+[Install]
+WantedBy=local-fs.target
+```
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable --now mount-root-rshared.service
 ```
 
 ### Bash Theme

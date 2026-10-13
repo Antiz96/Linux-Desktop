@@ -57,13 +57,40 @@ sudo vim /etc/pacman.conf
 ### Install main packages
 
 ```bash
-sudo pacman -Syu base-devel man bash-completion openssh socat dnsutils traceroute rsync zip unzip diffutils git tmux plocate htop fastfetch docker distrobox pacman-contrib powerline-fonts ttf-nerd-fonts-symbols vim-devicons vim-nerdtree wl-clipboard # Install main packages from the repo
+sudo pacman -Syu base-devel man bash-completion openssh socat dnsutils traceroute rsync zip unzip diffutils git tmux plocate htop fastfetch podman distrobox pacman-contrib powerline-fonts ttf-nerd-fonts-symbols vim-devicons vim-nerdtree wl-clipboard # Install main packages from the repo
 cd /tmp # Change directory to tmp to clone paru AUR sources
 git clone https://aur.archlinux.org/paru.git # Clone paru AUR sources
 cd paru # Change directory to the cloned sources
 makepkg -si # Build and install paru
 paru -S certificate-ripper-bin arch-update nerdtree-git-plugin-git # Install AUR packages
-sudo systemctl enable --now docker paccache.timer # Enable systemd services
+sudo systemctl enable --now paccache.timer # Enable systemd services
+```
+
+### Mount root directory with rshared propagation
+
+This is required to run docker / podman containers in WSL:
+
+```bash
+sudo vim /etc/systemd/system/mount-root-rshared.service
+```
+
+```text
+[Unit]
+Description=Remount / with shared propagation
+Requires=-.mount
+After=-.mount
+
+[Service]
+Type=oneshot
+ExecStart=/bin/mount --make-rshared /
+
+[Install]
+WantedBy=local-fs.target
+```
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable --now mount-root-rshared.service
 ```
 
 ### Bash Theme
