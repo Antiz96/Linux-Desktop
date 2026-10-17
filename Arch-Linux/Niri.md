@@ -198,85 +198,128 @@ git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster
 - Niri / Shell scripts
 
 ```bash
-mkdir -p ~/Pictures/Niri && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/lock.png -o ~/Pictures/Niri/lock.png && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/shutdown.svg -o ~/Pictures/Niri/shutdown.svg && mkdir -p ~/Documents/Scripts && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/power-menu.sh -o ~/Documents/Scripts/power-menu.sh && chmod +x ~/Documents/Scripts/power-menu.sh && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Niri/swayidle.sh -o ~/Documents/Scripts/swayidle.sh && chmod +x ~/Documents/Scripts/swayidle.sh
+mkdir -p ~/Pictures/Niri
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/lock.png -o ~/Pictures/Niri/lock.png
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/shutdown.svg -o ~/Pictures/Niri/shutdown.svg
+
+mkdir -p ~/Documents/Scripts
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/power-menu.sh -o ~/Documents/Scripts/power-menu.sh
+chmod +x ~/Documents/Scripts/power-menu.sh
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Niri/swayidle.sh -o ~/Documents/Scripts/swayidle.sh
+chmod +x ~/Documents/Scripts/swayidle.sh
 ```
 
 - Dynamic wallpaper script and systemd units
 
 ```bash
-mkdir -p ~/Pictures/wallpapers && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/island-morning.jpg -o ~/Pictures/wallpapers/island-morning.jpg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/island-day.jpg -o ~/Pictures/wallpapers/island-day.jpg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/island-evening.jpg -o ~/Pictures/wallpapers/island-evening.jpg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/island-night.jpg -o ~/Pictures/wallpapers/island-night.jpg && mkdir -p ~/Documents/Scripts && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/dynamic-wallpaper.sh -o ~/Documents/Scripts/dynamic-wallpaper.sh && chmod +x ~/Documents/Scripts/dynamic-wallpaper.sh && mkdir -p ~/.config/systemd/user && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/dynamic-wallpaper.service -o ~/.config/systemd/user/dynamic-wallpaper.service && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/dynamic-wallpaper.timer -o ~/.config/systemd/user/dynamic-wallpaper.timer && systemctl --user enable --now dynamic-wallpaper.timer
+mkdir -p ~/Pictures/wallpapers
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/island-morning.jpg -o ~/Pictures/wallpapers/island-morning.jpg
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/island-day.jpg -o ~/Pictures/wallpapers/island-day.jpg
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/island-evening.jpg -o ~/Pictures/wallpapers/island-evening.jpg
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/island-night.jpg -o ~/Pictures/wallpapers/island-night.jpg
+
+mkdir -p ~/Documents/Scripts
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/dynamic-wallpaper.sh -o ~/Documents/Scripts/dynamic-wallpaper.sh
+chmod +x ~/Documents/Scripts/dynamic-wallpaper.sh
+
+mkdir -p ~/.config/systemd/user
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/dynamic-wallpaper.service -o ~/.config/systemd/user/dynamic-wallpaper.service
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Wallpapers/dynamic-wallpaper.timer -o ~/.config/systemd/user/dynamic-wallpaper.timer
+systemctl --user enable --now dynamic-wallpaper.timer
 ```
 
 - Nwg-panel config and resources
 
 ```bash
-mkdir -p ~/.config/nwg-panel && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Niri/nwg-panel-config -o ~/.config/nwg-panel/config && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Niri/nwg-panel-style.css -o ~/.config/nwg-panel/style.css && mkdir -p ~/Pictures/nwg-panel && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/Arch_Panel.svg -o ~/Pictures/nwg-panel/Arch_Panel.svg
+mkdir -p ~/.config/nwg-panel
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Niri/nwg-panel-config -o ~/.config/nwg-panel/config
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Niri/nwg-panel-style.css -o ~/.config/nwg-panel/style.css
+
+mkdir -p ~/Pictures/nwg-panel
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/Arch_Panel.svg -o ~/Pictures/nwg-panel/Arch_Panel.svg
 ```
 
 - Tmux config
 
 ```bash
-mkdir -p ~/.config/tmux/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/tmux.conf -o ~/.config/tmux/tmux.conf
+mkdir -p ~/.config/tmux/
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/tmux.conf -o ~/.config/tmux/tmux.conf
 ```
 
 - Fastfetch config
 
 ```bash
-mkdir -p ~/.config/fastfetch/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/fastfetch-config -o ~/.config/fastfetch/config.jsonc
+mkdir -p ~/.config/fastfetch/
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/fastfetch-config -o ~/.config/fastfetch/config.jsonc
 ```
 
 - MPV config
 
 ```bash
-mkdir -p ~/.config/mpv/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/mpv.conf -o ~/.config/mpv/mpv.conf
+mkdir -p ~/.config/mpv/
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/mpv.conf -o ~/.config/mpv/mpv.conf
 ```
 
 - Zathura config
 
 ```bash
-mkdir -p ~/.config/zathura/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/zathurarc -o ~/.config/zathura/zathurarc && xdg-mime default org.pwmt.zathura.desktop application/pdf
+mkdir -p ~/.config/zathura/
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/zathurarc -o ~/.config/zathura/zathurarc
+xdg-mime default org.pwmt.zathura.desktop application/pdf
 ```
 
 - Swaync config
 
 ```bash
-mkdir -p ~/.config/swaync/ && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Niri/swaync_style.css -o ~/.config/swaync/style.css
+mkdir -p ~/.config/swaync/
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Niri/swaync_style.css -o ~/.config/swaync/style.css
 ```
 
 - GNUPG config
 
 ```bash
-mkdir -p ~/.gnupg/ && chmod 700 ~/.gnupg && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/scdaemon.conf -o ~/.gnupg/scdaemon.conf
+mkdir -p ~/.gnupg/
+chmod 700 ~/.gnupg
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/scdaemon.conf -o ~/.gnupg/scdaemon.conf
 ```
 
 - Abuild config
 
 ```bash
-sudo usermod -aG abuild "${USER}" && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/abuild.conf -o /etc/abuild.conf
+sudo usermod -aG abuild "${USER}"
+sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/abuild.conf -o /etc/abuild.conf
 ```
 
 - Vimrc
 
 ```bash
-curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/vimrc -o ~/.vimrc && mkdir -p ~/.vim/colors && curl https://raw.githubusercontent.com/vv9k/vim-github-dark/master/colors/ghdark.vim -o ~/.vim/colors/ghdark.vim
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/vimrc -o ~/.vimrc
+mkdir -p ~/.vim/colors
+curl https://raw.githubusercontent.com/vv9k/vim-github-dark/master/colors/ghdark.vim -o ~/.vim/colors/ghdark.vim
 ```
 
 - Git config
 
 ```bash
-curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/gitconfig -o ~/.gitconfig && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/gitconfig-arch -o ~/.gitconfig-arch
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/gitconfig -o ~/.gitconfig
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/gitconfig-arch -o ~/.gitconfig-arch
 ```
 
 - XFCE Terminal config
 
 ```bash
-mkdir -p ~/.config/xfce4/xfconf/xfce-perchannel-xml && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/xfce4-terminal.xml -o ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-terminal.xml
+mkdir -p ~/.config/xfce4/xfconf/xfce-perchannel-xml
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/xfce4-terminal.xml -o ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-terminal.xml
 ```
 
 - Rofi config
 
 ```bash
-mkdir -p ~/.config/rofi/ && curl https://raw.githubusercontent.com/newmanls/rofi-themes-collection/master/themes/spotlight-dark.rasi -o ~/.config/rofi/spotlight-dark.rasi && sed -i s/border-radius:\ \ 8/border-radius:\ \ 0/ ~/.config/rofi/spotlight-dark.rasi && sed -i "/\bplaceholder\b/d" ~/.config/rofi/spotlight-dark.rasi && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/rofi-config -o ~/.config/rofi/config.rasi
+mkdir -p ~/.config/rofi/
+curl https://raw.githubusercontent.com/newmanls/rofi-themes-collection/master/themes/spotlight-dark.rasi -o ~/.config/rofi/spotlight-dark.rasi
+sed -i s/border-radius:\ \ 8/border-radius:\ \ 0/ ~/.config/rofi/spotlight-dark.rasi
+sed -i "/\bplaceholder\b/d" ~/.config/rofi/spotlight-dark.rasi
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/rofi-config -o ~/.config/rofi/config.rasi
 ```
 
 - Thunderbird Exec override (for systray-x minimize to tray support on Wayland):
@@ -295,17 +338,38 @@ sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/
 - Firejail config and resources
 
 ```bash
-sudo mkdir -p /etc/pacman.d/hooks && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/firejail.hook -o /etc/pacman.d/hooks/firejail.hook && mkdir -p ~/.config/firejail && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/mpv.profile -o ~/.config/firejail/mpv.profile && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ristretto.local -o ~/.config/firejail/ristretto.local && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ssh.profile -o ~/.config/firejail/ssh.profile && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/zathura.local -o ~/.config/firejail/zathura.local && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/librewolf.local -o ~/.config/firejail/librewolf.local && curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/thunderbird.local -o ~/.config/firejail/thunderbird.local && sudo sed -i "s/#\ browser-allow-drm\ no/browser-allow-drm\ yes/g" /etc/firejail/firejail.config && sudo sed -i "s/#\ arg-max-count\ 128/arg-max-count\ 512/g" /etc/firejail/firejail.config && sudo sed -i "s/#\ force-nonewprivs\ no/force-nonewprivs\ yes/g" /etc/firejail/firejail.config && whoami | sudo tee /etc/firejail/firejail.users && sudo apparmor_parser -r /etc/apparmor.d/firejail-default
+sudo mkdir -p /etc/pacman.d/hooks
+sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/firejail.hook -o /etc/pacman.d/hooks/firejail.hook
+
+mkdir -p ~/.config/firejail
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ristretto.local -o ~/.config/firejail/ristretto.local
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ssh.local -o ~/.config/firejail/ssh.local
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/zathura.local -o ~/.config/firejail/zathura.local
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/librewolf.local -o ~/.config/firejail/librewolf.local
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/thunderbird.local -o ~/.config/firejail/thunderbird.local
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/steam.local -o ~/.config/firejail/steam.local
+
+sudo sed -i "s/#\ browser-allow-drm\ no/browser-allow-drm\ yes/g" /etc/firejail/firejail.config
+sudo sed -i "s/#\ arg-max-count\ 128/arg-max-count\ 512/g" /etc/firejail/firejail.config
+sudo sed -i "s/#\ force-nonewprivs\ no/force-nonewprivs\ yes/g" /etc/firejail/firejail.config
+whoami | sudo tee /etc/firejail/firejail.users && sudo apparmor_parser -r /etc/apparmor.d/firejail-default
 ```
 
 - System-backup script and systemd units
 
 ```bash
-sudo mkdir -p /usr/local/bin && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/system-backup.sh -o /usr/local/bin/system-backup && sudo chmod +x /usr/local/bin/system-backup && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/system-backup.service -o /etc/systemd/system/system-backup.service && sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/system-backup.timer -o /etc/systemd/system/system-backup.timer && sudo systemctl enable --now system-backup.timer
+sudo mkdir -p /usr/local/bin
+sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/system-backup.sh -o /usr/local/bin/system-backup
+sudo chmod +x /usr/local/bin/system-backup
+
+sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/system-backup.service -o /etc/systemd/system/system-backup.service
+sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/system-backup.timer -o /etc/systemd/system/system-backup.timer
+sudo systemctl enable --now system-backup.timer
 ```
 
 - Bashrc
 
 ```bash
-curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Bashrc/Arch -o ~/.bashrc && source ~/.bashrc
+curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Bashrc/Arch -o ~/.bashrc
+source ~/.bashrc
 ```

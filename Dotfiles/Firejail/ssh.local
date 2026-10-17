@@ -1,0 +1,7 @@
+# SSH connections fail for me with these whitelists and include for some reason
+ignore whitelist ${RUNUSER}/gcr/ssh
+ignore whitelist ${RUNUSER}/gnupg/*/S.gpg-agent.ssh # custom gpg homedir setup
+ignore whitelist ${RUNUSER}/gnupg/S.gpg-agent.ssh # default gpg homedir setup
+ignore whitelist ${RUNUSER}/gvfsd-sftp
+ignore whitelist ${RUNUSER}/keyring/ssh
+ignore include whitelist-runuser-common.inc

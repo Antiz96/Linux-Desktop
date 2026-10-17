@@ -1,2 +1,3 @@
-# Ignore private-cache (for thumbnails)
+# Don't mount a private cache dir
+# This is required to correctly show thumbnails
 ignore private-cache

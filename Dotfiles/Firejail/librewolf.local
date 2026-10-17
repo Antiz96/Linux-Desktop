@@ -1,4 +1,7 @@
-# Whitelist ~/.config/librewolf for profile / settings persistence
+# Whitelist user config dir to be able to save profile settings
+#
+# This was merged upstream in https://github.com/netblue30/firejail/commit/3a79f3d2ca36f52a66fc0e3aa9ee35e7d45746fd
+# and can therefore be dropped at the next firejail upstream release
 noblacklist ${HOME}/.config/librewolf
 mkdir ${HOME}/.config/librewolf
 whitelist ${HOME}/.config/librewolf

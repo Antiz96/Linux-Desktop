@@ -1,2 +1,0 @@
-# Ignore noroot (otherwise applet & gui doesn't start)
-ignore noroot
