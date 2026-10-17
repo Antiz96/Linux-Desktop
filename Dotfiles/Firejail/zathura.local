@@ -1,2 +1,3 @@
-# Allow zathura to display pdf files stored in /tmp
+# Don't mount a private tmp dir
+# This is required to open PDF files stored in /tmp
 ignore private-tmp

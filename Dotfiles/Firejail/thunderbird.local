@@ -1,4 +1,8 @@
-# These lines are needed to allow Librewolf to load your profile when clicking a link in an email
+# Allow to load Librewolf profile
+# This is required to open links from emails into LibreWolf
+#
+# This was merged upstream in https://github.com/netblue30/firejail/commit/2d66a505ceaafb84511a729df0cd8a5545465017
+# and can therefore be dropped at the next firejail upstream release
 noblacklist ${HOME}/.config/librewolf
 noblacklist ${HOME}/.librewolf
 whitelist ${HOME}/.config/librewolf/librewolf/profiles.ini
