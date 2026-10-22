@@ -30,7 +30,8 @@
       "components": [
         "brightness",
         "volume",
-        "per-app-volume"
+        "per-app-volume",
+        "battery"
       ],
       "commands": {
         "battery": ""
@@ -39,8 +40,8 @@
       "interval": 1,
       "icon-size": 16,
       "hover-opens": false,
-      "leave-closes": true,
-      "click-closes": false,
+      "leave-closes": false,
+      "click-closes": true,
       "css-name": "controls-window",
       "custom-items": [
         {
@@ -69,14 +70,18 @@
       "battery-low-interval": 3,
       "processes-label": "Processes",
       "readme-label": "README",
-      "angle": 0.0
+      "angle": 0.0,
+      "backlight-poll": true,
+      "backlight-max": 100
     },
     "tray": {
       "root-css-name": "tray",
       "inner-css-name": "inner-tray",
       "icon-size": 16,
       "smooth-scrolling-threshold": 0,
-      "new-left": false
+      "new-left": false,
+      "sort-by-category": false,
+      "show-passive-items": true
     },
     "sway-taskbar": {
       "workspace-menu": [
