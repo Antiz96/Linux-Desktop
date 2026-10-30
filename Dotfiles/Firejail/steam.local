@@ -3,7 +3,7 @@ ignore noblacklist ${HOME}/Zomboid
 ignore mkdir ${HOME}/Zomboid
 ignore whitelist ${HOME}/Zomboid
 
-# Temporary workaround to be able to launch games with the latest version of Steam
+# Fix to be able to run the latest version of the Steam client and launch games
 # See https://github.com/netblue30/firejail/issues/7268
 # and https://github.com/netblue30/firejail/pull/7287
 #
