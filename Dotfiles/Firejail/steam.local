@@ -2,12 +2,3 @@
 ignore noblacklist ${HOME}/Zomboid
 ignore mkdir ${HOME}/Zomboid
 ignore whitelist ${HOME}/Zomboid
-
-# Fix to be able to run the latest version of the Steam client and launch games
-# See https://github.com/netblue30/firejail/issues/7268
-# and https://github.com/netblue30/firejail/pull/7287
-#
-# This was merged upstream in https://github.com/netblue30/firejail/commit/fec80abba64823ebfeabe209ac85633591204b14
-# and can therefore be dropped at the next firejail upstream release
-seccomp !chroot,!mount,!mount_setattr,!name_to_handle_at,!pivot_root,!process_vm_readv,!ptrace,!umount2
-ignore seccomp
