@@ -351,6 +351,8 @@ sudo sed -i "s/#\ browser-allow-drm\ no/browser-allow-drm\ yes/g" /etc/firejail/
 sudo sed -i "s/#\ arg-max-count\ 128/arg-max-count\ 512/g" /etc/firejail/firejail.config
 sudo sed -i "s/#\ force-nonewprivs\ no/force-nonewprivs\ yes/g" /etc/firejail/firejail.config
 whoami | sudo tee /etc/firejail/firejail.users && sudo apparmor_parser -r /etc/apparmor.d/firejail-default
+
+sudo firecfg
 ```
 
 - System-backup script and systemd units
