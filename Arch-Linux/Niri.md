@@ -345,8 +345,6 @@ mkdir -p ~/.config/firejail
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ristretto.local -o ~/.config/firejail/ristretto.local
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/ssh.local -o ~/.config/firejail/ssh.local
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/zathura.local -o ~/.config/firejail/zathura.local
-curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/librewolf.local -o ~/.config/firejail/librewolf.local
-curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/thunderbird.local -o ~/.config/firejail/thunderbird.local
 curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Firejail/steam.local -o ~/.config/firejail/steam.local
 
 sudo sed -i "s/#\ browser-allow-drm\ no/browser-allow-drm\ yes/g" /etc/firejail/firejail.config

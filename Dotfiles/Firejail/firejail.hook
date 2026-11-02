@@ -7,7 +7,7 @@ Target = usr/bin/*
 Target = usr/share/applications/*.desktop
 
 [Action]
-Description = Updating firejail profiles...
+Description = Creating firejail symlinks...
 When = PostTransaction
 Depends = firejail
 Exec = /bin/sh -c 'firecfg >/dev/null 2>&1'
