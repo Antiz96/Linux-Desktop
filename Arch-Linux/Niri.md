@@ -48,6 +48,7 @@ sudo reboot
 
 ```bash
 sudo pacman -S devtools
+sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/makepkg.conf -o /etc/makepkg.conf
 ```
 
 ## Install the paru AUR Helper
