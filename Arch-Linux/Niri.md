@@ -287,7 +287,6 @@ curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/Gener
 - Abuild config
 
 ```bash
-sudo usermod -aG abuild "${USER}"
 sudo curl https://raw.githubusercontent.com/Antiz96/Linux-Desktop/main/Dotfiles/General/abuild.conf -o /etc/abuild.conf
 ```
 
